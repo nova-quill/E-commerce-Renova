@@ -1,0 +1,32 @@
+*{
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;   
+}
+span{
+    display: inline-block;
+}
+#containerAddToCart{
+    /* background-color: aqua; */
+}
+#containerAddToCart section#addToCart{
+   max-width: 1500px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* background-color: red; */
+    margin: auto;
+}
+#containerAddToCart section#addToCart .addToCart {
+    padding: .5rem;
+}
+#containerAddToCart section#addToCart .addToCart span.heading{
+    /* background-color: bisque; */
+    padding: .25rem;
+    margin-bottom: 1rem;
+    color:rgb(44, 44, 44);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart{
+    /* background-color: aqua; */
+}

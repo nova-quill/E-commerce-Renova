@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ecommerce website home page</title>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" 
+rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Honk&family=Playball&family=Protest
++Revolution&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Glitch+Pop&display=swap" 
+rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/fashion.css" />
+</head>
+<body>
+    <!--  start overlay -->
+    <div id="overlay"></div>
+    <!-- end overlay -->
+     <!-- start sidebar -->
+     <div class="xmark flex-center" id="xmark">
+      <i class="fa-solid fa-xmark xmarkSide"></i>
+     </div>
+    <div id="mainSideBar" class="sideBar main">
+        <div class="renova flex-center">
+          <i class="fa-brands fa-r-project"></i> 
+        <span class="flex-center">enova</span>
+        </div>
+      <div  id="boxSideBar" class="boxSideBar">
+        <div class="backMenu" id="cancel">
+          <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+          <span>exit</span>
+         </div>
+      <dl>
+        <dt>trending</dt>
+        <dd><a href=''>best seller</a></dd>
+        <dd><a href=''>hiested rating</a></dd>
+        <dd><a href=''>new arrivalles</a></dd>
+        <dd><a href=''>flash sale</a></dd>
+        </dl> 
+        <dl class="mainDl">
+        <dt>category</dt>
+        <dd id="liElectronices" class="electronices"><a href='#'>electronics</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liPhones" class="phones"><a href='#'>phones & taplets</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liAutomotive" class="automotive"> <a href="#">automotive</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liFashion" class="fashion">   <a href="#">
+         fashion</a><i class="fas 
+      fa-angle-right sidebarAngle"></i>
+    </dd>
+        <dd><a href='#'>groceries</a></dd>
+        <dd id="liFurniture" class="furniture"><a href='#'>home & furniture</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+      </dl>
+        <dl>
+        <dt class="customize">settings</dt>
+        <dd><a href=''>arabic</a></dd>
+        <dd><a href=''>english</a></dd>
+        <dd><a href=''>sign in</a></dd>
+      </dl>
+        <dl>
+ <dt class="customize">custmize</dt>
+ <dd><a href=''>diurnal</a></dd>
+ <dd><a href=''>nightly</a></dd>
+      </dl>
+    </div>
+      <div id="fashion" class="sideBar hidd">
+         <div class="backMenu">
+          <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+          <span>back</span>
+         </div>
+        <dl>
+          <dt><a href="">all fashion</a></dt>
+          <dd><a href="">wear's womens</a></dd>
+          <dd><a href="">shoe's women</a></dd>
+          <dd><a href="">bag's womens</a></dd>
+          <dd><a href="">watch's women</a></dd>
+          <dd><a href="">jewelry</a></dd>
+          <dd><a href="">wear's men</a></dd>
+          <dd><a href="">shoe's men</a></dd>
+          <dd><a href="">watch's men</a></dd>
+        </dl>
+        </div>
+        <div id='phones'class="sideBar hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left 
+  arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>phones</a></dd>
+           <dd><a href="">taplets</a></dd>
+           <dd><a href="">laptops</a></dd>
+           <dd><a href="">mobiles eccessoriess</a></dd>
+         </dl>
+         </div>
+         <div id='furniture'class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href="">furnitures</a></dd>
+           <dd><a href="">accessories home</a></dd>
+           <dd><a href="">accessories kitchen </a></dd>
+         </dl>
+         </div>
+         <div id='automotive'class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>cars</a></dd>
+           <dd><a href="">motors</a></dd>
+           <dd><a href="">sublments motors</a></dd>
+         </dl>
+         </div>
+         <div id="electronices" class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>headphones</a></dd>
+         </dl>
+         </div>
+    </div>
+    <!-- end sidebar -->
+     <!-- start header -->
+        <header>
+          <div class="header-container">      
+      <!-- start main navbar -->
+      <div class="main-nav flex-just-between">
+        <a href="http://127.0.0.1:5500/index.html">
+          <div class="renova flex-center"> 
+            <i class="fa-brands fa-r-project"></i> 
+          <span class="flex-center">enova</span>
+          </div>
+        </a>
+      <div class="loca-lang flex-center"> 
+        <div class="loca-box iconPersonal" id="loca-box">
+        <div class="location">deliver to </div> 
+                <span class="loca-name">egypt </span>
+        </div>
+           <div class="sign-lang iconPersonal">En</div>
+        </div>
+        <div class="box-search flex-center">
+          <div class="all flex-center">all</div>
+          <input class="search"type='text'name='search'placeholder='search in RENOVA'/>
+          <i class="fas fa-search isearch flex-center"></i>
+          </div>
+          <div class="personal mobile flex-center">
+            <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
+            <a href="http://127.0.0.1:5500/html/signin.html">
+              <div class="sign iconPersonal"> 
+                <i  class="far fa-user fa-fw sign-icon"></i>
+              <span class="text-sign">sign in</span>
+              </div>
+            </a>
+             <div class="box-favorite flex-center iconPersonal"> 
+              <i class="fa-solid fa-heart favorite"></i>
+            <span class="count-favorite">0</span>
+            </div>
+              <div class="cart flex-center iconPersonal">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+              <span class="count-purshes">0</span></div>
+              <div class="parentAad">
+                <a href="http://127.0.0.1:5500/index.html"class="iconPersonal">
+                  <i class="fa-solid fa-home-lg home iconPersonal"></i>
+                </a>
+              </div>
+          </div>
+        </div>
+        <!-- end main navbar -->
+        <!-- start hidden divs main navbar -->
+        <!-- hiddeen location map-->
+        <div class="container-location" id="container-location">
+          <i class="fa-solid fa-circle-xmark xmarkmap" id="xmarkmap"></i>
+  <input name="search-location" placeholder="search in map"id='search-location'/>
+  <div id="map"></div>
+        </div> 
+                <!-- end hidden divs main navbar -->
+        <!-- start second navbar -->
+        <nav class="second-nav flex-just-between">
+          <ul class="links">
+            <li class='all' id="all"><i class="fas fa-bars toggle-menu"></i><a href="#">All</a></li>
+            <li><a href="http://127.0.0.1:5500/html/fashion.html" data-category="fashion">fashion</a></li>
+            <li><a href="http://127.0.0.1:5500/html/electronics.html"  data-category="electronic">electronic</a></li>
+            <li><a href="http://127.0.0.1:5500/html/grocery.html"  data-category="groceries">groceries</a></li>
+            <li><a href="http://127.0.0.1:5500/html/furniture.html"  data-category='furniture'>furniture</a></li>
+            <li><a href="http://127.0.0.1:5500/html/automotive.html"  data-category="automotive">automotive</a></li>
+            <li><a href="http://127.0.0.1:5500/html/phones.html"  data-category="phones">phones</a></li>
+            <li><a href="http://127.0.0.1:5500/html/kitchen.html" data-category="kitchen-accessories">kitchen</a></
+              li>
+            <li><a href="http://127.0.0.1:5500/html/beauty.html" data-category="beauty,skin-care
+                         ">beauty</a></li>
+                         <li><a href="http://127.0.0.1:5500/html/books.html">books</a></li>
+            <li><a href="http://127.0.0.1:5500/index.html">home</a></li>
+          </ul>
+        </nav>  
+                <!-- end second navbar -->
+      </div>
+    </header>
+ <!-- end header -->
+  <!-- start container fashion -->
+   <div id="containerFashion">
+    <!-- start section fashion -->
+     <section id="fashion">
+      <div class="containerFashion">
+        <!-- start dashboard -->
+        <div class="dashboard">
+          <div class="sortBy">
+            <div class="box flex-just-between" id="box"><div>sort by : <span id="spanCategory"></span></div><i id="dashboardAngle"
+                class="fas fa-angle-right 
+                dashboardAngle"></i>
+            </div>
+          <ul id="list">
+            <li><a href='#' id="allProducts"> all products</a></li>
+            <li><a href='#' id="lowPrice"> low pricing</a></li>
+            <li><a href="#" id="highPrice">hihg pricing</a></li>
+            <li><a href="" id="newArrivals"> new arrivals</a></li>
+            <li><a href=""id='bestSellingSort'>best sellers</a></li>
+            <li><a href=""id="freeShippingSort">free delivery</a></li>
+          </ul>
+          </div>
+          <div class="category">
+            <dl id="category" data-category="fashion">
+              <dt>category</dt>
+              <dd class="categoryName" id="categoryName" data-category="all"> <a href="#">all furniture</a></dd>
+              <dd data-category="furniture"><a href="#">furniture</a></dd>
+              <dd data-category="home-decoration"><a href="">home decoration</a></dd>
+            </dl>
+          </div>
+          <div class="category">
+            <span class="reset" id="resetBrands">reset</span>
+            <dl class="check" id="brandsDash">
+              <dt>brands</dt>
+              <dd> 
+                <label class="oppo">annibale colombo
+                  <input type="checkbox" name="annibale"value='annibale colombo'/>
+                <span class="customCheck"></span>
+                </label> 
+                </dd>
+            </dl>
+          </div>
+          <div class="category">
+            <span class="reset" id="resetPrice">reset</span>
+            <dl class="check">
+              <dt>price</dt>
+              <dd class="categoryName">
+                <label class="numberPrice">custom price
+                  <input id='rangPrice' type="number" 
+     name="numb"value=""/>
+                </label> 
+              </dd>
+              </dl>
+        </div>
+        <div class="category">
+          <span class="reset" id="resetDiscount">reset</span>
+          <dl class="check" id="discount">
+            <dt>discounts</dt>
+            <dd data-category="20">
+              <label class="oppo"  data-category="20">20% off
+                <input type="checkbox" 
+   name="dis20"value='20% off'/>
+              <span class="customCheck"></span>
+              </label> 
+            </dd>
+            <dd>
+              <label class="oppo" data-category="40">40% off
+                <input type="checkbox" 
+   name="dis40"value='40% off'/>
+              <span class="customCheck"></span>
+              </label> 
+            </dd>
+            <dd>
+              <label class="oppo" data-category="60">60% off
+                <input type="checkbox" 
+   name="dis60"value='60% off'/>
+              <span class="customCheck"></span>
+              </label> 
+            </dd>
+            <dd>
+              <label class="oppo" data-category="80">80% off
+                <input type="checkbox" 
+   name="dis80"value='80% off'/>
+              <span class="customCheck"></span>
+              </label> 
+            </dd>
+          </dl>
+        </div>
+        <div class="category">
+          <span class="reset" id="resetReview">reset</span>
+          <dl class="customer">
+            <dt>customer review</dt>
+            <dd data-category="4"><a class='flex-just-between'href="">
+              <i class="fa-solid fa-star startDashboard"></i>
+              <i class="fa-solid fa-star startDashboard"></i>
+              <i class="fa-solid fa-star startDashboard"></i>
+              <i class="fa-solid fa-star startDashboard"></i>
+              <i class="fa-regular fa-star startDashboard"></i>
+              & up
+            </a>
+              </dd>
+              <dd data-category="3"><a class='flex-just-between'href="">
+                <i class="fa-solid fa-star startDashboard"></i>
+                <i class="fa-solid fa-star startDashboard"></i>
+                <i class="fa-solid fa-star startDashboard"></i>
+                <i class="fa-regular fa-star startDashboard"></i>
+                <i class="fa-regular fa-star startDashboard"></i>
+                & up
+              </a>
+                </dd>
+                <dd data-category="2"><a class='flex-just-between'href="">
+                  <i class="fa-solid fa-star startDashboard"></i>
+                  <i class="fa-solid fa-star startDashboard"></i>
+                  <i class="fa-regular fa-star startDashboard"></i>
+                  <i class="fa-regular fa-star startDashboard"></i>
+                  <i class="fa-regular fa-star startDashboard"></i>
+                  & up
+                </a>
+                  </dd>
+                  <dd data-category="1"><a class='flex-just-between'href="">
+                    <i class="fa-solid fa-star startDashboard"></i>
+                    <i class="fa-regular fa-star startDashboard"></i>
+                    <i class="fa-regular fa-star startDashboard"></i>
+                    <i class="fa-regular fa-star startDashboard"></i>
+                    <i class="fa-regular fa-star startDashboard"></i>
+                    & up
+                  </a>
+                    </dd>
+            </dl>
+      </div>
+      <div class="category">
+        <dl class="check" id="freeShipping">
+          <dt>for free delivery</dt>
+          <dd>
+            <label class="oppo">free shipping
+              <input type="checkbox" name="free"value='free shipping'/>
+            <span class="customCheck"></span>
+            </label> 
+          </dd>
+          </dl>
+          </div>
+          <div class="category">
+            <dl class="check" id="availability">
+              <dt>availability</dt>
+              <dd>
+                <label class="oppo"> available in stock
+                  <input id='availabi'type="checkbox" name="avail"value='available in stock'/>
+                <span class="customCheck"></span>
+                </label> 
+              </dd>
+              </dl>
+              </div>
+          </div>
+          <!-- end dashboard -->
+           <!-- satrt container products fashion -->
+            <div class="containerFashion" id="boxFashion">
+              <h1 class="">furniture</h1>
+              <div id="containerProduts"> </div>
+            </div>         
+            </div> 
+             <!-- end container products fashion -->
+     </section>
+    <!-- end section fashion -->
+   </div>
+  <!-- end container fashion -->
+  <!-- start footer -->
+ <footer>
+    <!-- start sign in -->
+     <div class="containerSign flex-center">
+      <div class="sign flex-center">
+        <a href="http://127.0.0.1:5500/index.html">
+          <div class="renova flex-center">
+            <i class="fa-brands fa-r-project"></i> 
+          <span class="flex-center">enova</span>
+          </div>
+        </a>
+        <div class="buttonSign"><a href="http://127.0.0.1:5500/html/signin.html"> sign in renova</a> </div>
+      </div>
+     </div>
+     
+    <!-- end sign in -->
+     <!-- start category footer -->
+      <div class="containerCat  categories flex-center">
+        <div class="containerCategory flex-just-between">
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/fashion.html">fashion</a></h4>
+            <ul>
+              <li><a>women clothes</a></li>
+              <li><a>women bags</a></li>
+              <li><a>women shoes</a></li>
+              <li><a>women watches</a></li>
+              <li><a> men clothes</a></li>
+              <li><a> men shoes</a></li>
+              <li><a> men watches</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/electronics.html">electronic</a></h4>
+            <ul>
+              <li><a>mobiles</a></li>
+              <li><a>tablet</a></li>
+              <li><a>labtop</a></li>
+              <li><a>accessories mobiles</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/furniture.html">home</a></h4>
+            <ul>
+              <li><a>furniture</a></li>
+              <li><a>decoration home</a></li>
+              <li><a> kitchen</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/automotive.html">automotive</a></h4>
+            <ul>
+              <li><a>cars</a></li>
+              <li><a>motorcycle</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/books.html">books</a></h4>
+            <ul>
+              <li><a>fiction</a></li>
+              <li><a>science</a></li>
+            </ul>
+          </div>
+      </div>
+      </div>
+      <!-- end category footer -->
+       <!-- start about renova ....... -->
+       <div class="containerCat aboutRenova flex-center">
+        <div class="containerCategory flex-just-between">
+          <div class="category">
+            <h4>knew about renova</h4>
+            <ul> 
+              <li><a>about us</a></li>
+              <li><a>contact us</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4>join us on</h4>
+            <ul class="social">
+              <li><a><i class="fab fa-facebook-f facebook"></i></a></li>
+              <li><a><i class="fab fa-twitter twitter"></i></a></li>
+              <li><a><i class="fab fa-youtube youtube"></i></a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4>payment methods</h4>
+            <ul class="payment">
+              <li><a><img src="..\photos\card-mastercard.svg"alt=''/></a></li>
+              <li><a><img src='..\photos\card-visa.svg'alt=''/></a></li>
+              <li><a><img src='..\photos\cod-en.svg'alt=''/></a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+    
+           <!--  end about renova ....... -->
+             <!-- start rights footer -->
+    <div class="containerEnd flex-center">
+      <div class="endFooter">
+        <ul class='flex-center'>
+          <li><a>warranty policy</a></li>
+          <li><a>conditions of use</a></li>
+          <li><a>privacy policy</a></li>
+        </ul>
+        <p>  &#169; 2024 renova all rights reversed</p>
+      </div>
+    </div>
+             <!-- end rights footer -->
+     </footer>
+     <!-- end footer -->
+    
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&
+    libraries=places"></script> -->
+    <!-- <script async> -->
+          <!-- // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&loading=async&
+    callback=initMap"</script> -->
+    
+    <!-- </script> -->
+
+        <script  type="module" src="../js/fashion.js" deffer></script>
+      </body>
+    </html>
+    

@@ -1,0 +1,573 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: box-shadow var(--main-transition, .3s) linear;
+    -webkit-transition: box-shadow var(--main-transition, .3s) linear;
+    -moz-transition: box-shadow var(--main-transition, .3s) linear;
+    -ms-transition: box-shadow var(--main-transition, .3s) linear;
+    -o-transition: box-shadow var(--main-transition, .3s) linear;
+    user-select: none;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--background-body, #e5e5e5fc);
+}
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 3rem;
+        padding-bottom: 2.7rem;
+    }
+}
+
+@media (max-width: 499.98px) {
+    body {
+        padding-top: 5rem;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+:root {
+    --background-body: #e5e5e5fc;
+    --margin-bottom-basic: 1rem;
+    --margin-bottom-secondary: .25rem;
+    --padding-basic: .7rem 1.25rem;
+    --padding-secondary: .625rem;
+    --padding-offers: 0 1rem .625rem;
+    --h2-fontsize-products: 1.5rem;
+    --h2-fontsize-offers: 1.1rem;
+    --h2-margin-bottom-products: .7rem;
+    --h2-margin-bottom-offers: .625rem;
+    --h2-margin-top-offers: .625rem;
+    --seemore-margin-top: 1.25rem;
+    --minwidth-container-products: 15rem;
+    --minheight-container-products: 15rem;
+    --gap-container-products: .8rem;
+    --maxwidth-cardlessthan: 12.5rem;
+    --padding-card-product: 1.25rem 0 .625rem;
+    --padding-details-product: 0 .625rem;
+    --padding-details-produt-home: .125rem 0;
+    --border-top-details-product: .25rem solid whitesmoke;
+    --fontsize-titleproduct-home: .85em;
+    --padding-titleproduct-home: .25rem 0;
+    --fontsize-priceproduct-home: 1.1em;
+    --padding-priceproduct-home: 1rem;
+    --fontsize-icon-freedelivery-home: .9em;
+    --fontsize-freedelivery-home: .7em;
+    --padding-top-freedelivery-home: .25rem;
+    --fontsize-onlyleftproduct-home: 1rem;
+    --padding-onlyleftproduct-home: 1rem;
+    --margintop-onlyleftproduct-home: .125rem;
+    --fontsize-deletprice-home: .8em;
+    --fontsize-markpoundprice-home: .8em;
+    --fontsize-percentageprice-home: .8em;
+    --fontsize-bestandrating-home: .9rem;
+    --padding-bestandrating-home: .125rem .25rem;
+    --border-bestandrating-home: .125rem solid #ffe663;
+    --borderradius-bestandrating-home: .625rem;
+    --paddingtop-cartfavorite: .125rem;
+    --fontsize-cartfavorite: .1.2em;
+    --height-cartandfavorite: 2.1875rem;
+    --width-cartandfavorite: 2.1875rem;
+    --border-cartandfavorite: .0625rem solid lightgray;
+    --borderradius-cartandfavorite: .25rem;
+    --background-main-navbar: rgb(23, 44, 43);
+    --background-secondary-navbar: rgba(231, 200, 77, 0.1666);
+    --color-logo: rgb(255, 214, 139);
+    --hover-boxshadow-mainbar: #f6ecbb;
+    --hover-boxshadow-secondaraybar: rgb(241, 166, 26);
+    --color-icons-navbar: white;
+    --color-links-secondarybar: #1b1b1b;
+    --number-icons-main-color: rgba(158, 154, 143, 0.6);
+    --color-seemore: #07c4bc;
+    --hover-color-seemore: #b9741f;
+    --background-scroll: #b9b9b991;
+    --background-thumbscroll: #f6ecbb;
+    --hover-background-scroll: #f3e394;
+    --active-background-scroll: #ffd700;
+    --background-bestseller: rgb(59 56 56);
+    --background-highestrating: #db7e09;
+    --background-category-footer: #234b49;
+    --main-transition: .3s;
+}
+
+/*start component classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-just-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.flex-just-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.flex-just-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.renova {
+    align-items: flex-end;
+    flex: 0 1 auto;
+    gap: .25rem;
+    cursor: pointer;
+    font-family: "Rubik Doodle Shadow", system-ui;
+}
+
+.renova i {
+    color: var(--color-logo, rgb(255, 214, 139));
+    font-size: 2.3rem;
+}
+
+.renova span {
+    color: var(--color-logo, rgb(255, 214, 139));
+    font-size: 1.5rem;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    left: -.3rem;
+    right: -.3rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+    display: none;
+}
+
+.buttons>div {
+    width: 1.25rem;
+    height: 3.125rem;
+    background-color: rgb(255 255 255);
+    border: .125rem solid;
+    outline: .5rem solid white;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.buttons>div:first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.buttons>div:last-child {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.buttons .clicked {
+    border: .125rem solid var(--hover-boxshadow-secondaraybar, #ffD700);
+}
+
+/*end component classes */
+
+/* start section fashion */
+#containerFashion {
+    /* padding: 0; */
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#containerFashion section#fashion .containerFashion {
+    display: flex;
+}
+
+/* start dashboard */
+#containerFashion section#fashion .containerFashion .dashboard {
+    padding: 1rem .5rem .5rem;
+    background-color: white;
+    flex-basis: 14rem;
+    border-right: .1rem solid #e8e8e8;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy {
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy .box {
+    width: 100%;
+    padding: .3rem;
+    background-color: #e8e8e8;
+    font-size: .8rem;
+    text-transform: capitalize;
+    border: .08rem dashed;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy .box:hover,
+#containerFashion section#fashion .containerFashion .dashboard .sortBy .box.active {
+    border-color: var(--hover-boxshadow-secondaraybar);
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .box span {
+    font-size: .7rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy .box i {
+    margin-right: .25rem;
+    color: black;
+    font-size: .8rem;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    cursor: pointer;
+}
+#containerFashion section#fashion .containerFashion .dashboard .sortBy .box i:hover {
+    color:grey;
+}
+#containerFashion section#fashion .containerFashion .dashboard .sortBy ul {
+    width: 100%;
+    text-transform: capitalize;
+    background-color: #e8e8e8;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transition: transform .3s linear;
+    -webkit-transition: transform .3s linear;
+    -moz-transition: transform .3s linear;
+    -ms-transition: transform .3s linear;
+    -o-transition: transform .3s linear;
+    overflow: hidden;
+    display: none;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy ul.apperance {
+    display: block;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy ul.active {
+    margin-top: .25rem;
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy ul li {
+    padding: .4rem;
+    font-size: .8rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .sortBy ul li:hover {
+    color: brown;
+    background-color: white;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl dt {
+    margin-bottom: .5rem;
+    font-size: .9rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd {
+    margin-top: .5rem;
+    font-size: .83rem;
+}
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd.hidden {
+    display: none;
+}
+/* start category dashboard */
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd:hover a,
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd a.active {
+    color: brown;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd input:checked label {
+}
+
+.dashboard .category dl dd.categoryName {
+    margin-left: 1.8rem;
+    margin-top: .25rem;
+    font-weight: 600;
+}
+
+/* end category dashboard */
+/* start brand dashboard */
+#containerFashion section#fashion .containerFashion .dashboard .category {
+    border-top: .0625rem solid var(--hover-boxshadow-mainbar, #f6ecbb);
+}
+#containerFashion section#fashion .containerFashion .dashboard .category dl {
+    border-top: none;
+}
+#containerFashion section#fashion .containerFashion .dashboard .category .reset {
+    width: fit-content;
+    display: block;
+    padding: .18rem .5rem;
+    margin: .25rem auto -.5rem .5rem;
+    font-size: .7rem;
+    text-transform: capitalize;
+    border-bottom: .125rem solid grey;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    cursor: pointer;
+}
+#containerFashion section#fashion .containerFashion .dashboard .category .reset:hover {
+    color:burlywood;
+    border-color:burlywood;
+}
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd {
+    margin-top: .75rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label {
+    margin-left: .25rem;
+    font-size: .83rem;
+    position: relative;
+    cursor: pointer;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label:hover:not(label.numberPrice) {
+    color: brown;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd input {
+    display: none;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck {
+    position: absolute;
+    left: -1.25rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    border: .1rem solid burlywood;
+    border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label:hover .customCheck {
+    border-color: #b9741f;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck::before {
+    content: '\f00c';
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: brown;
+    font-size: .7rem;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    display: none;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label.active {
+    color: brown;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd input:checked+.customCheck {
+    border-color: brown;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.check dd input:checked+.customCheck::before {
+    display: block;
+}
+
+/* end brand dashboard*/
+/* start price dashboard  */
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice {
+    pointer-events: none;
+    /* color: black; */
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice input {
+    padding: 0 .25rem;
+    margin-top: .5rem;
+    border: .1rem solid burlywood;
+    border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+    pointer-events: auto;
+    display: block;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice input:hover,
+#containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice input.active {
+    border-color: brown;
+    color: brown
+}
+
+/* end price dashboard  */
+/* start customer review dashboard */
+#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd {
+    margin-top: .5rem;
+}
+#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd a{
+}
+#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd:hover,
+#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd a.active {
+    color: #952f2f;
+    cursor: pointer;
+}
+
+#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd i {
+    margin: .1rem;
+    color: orange;
+}
+
+/* end customer review dashboard */
+/* end dashboard */
+/*  start  container products fashion */
+
+#containerFashion section#fashion .containerFashion #boxFashion {
+    padding:1rem .5rem .5rem;
+    background-color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion h1 {
+    margin: 0 0 .75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    flex-wrap: wrap;
+    gap: var(--gap-container-products);
+    overflow: hidden;
+
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan {
+    background-color: white;
+    border: .1rem solid whitesmoke;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    overflow: hidden;
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .aCardLess {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .aCardLess .containerImage {
+    background-color: whitesmoke;
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct .title{
+    white-space: wrap;
+    text-align: center;
+}
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct .detailsPrice {
+    justify-content: center;
+    /* padding-bottom: .25rem; */
+}
+
+#containerFashion section#fashion .containerFashion #boxFashion .cardLessThan .cartRating {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*  end container products fashion */
+/* end section fashion */

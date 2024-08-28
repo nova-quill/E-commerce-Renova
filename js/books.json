@@ -1,0 +1,2037 @@
+[
+    {
+      "kind": "books#volume",
+      "id": "GLRTDgAAQBAJ",
+      "etag": "ht2adeBx2Os",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/GLRTDgAAQBAJ",
+      "volumeInfo": {
+        "title": "إرادتي هزمت إعاقتي",
+        "subtitle": "Out of My Mind",
+        "authors": [
+          "Sharon M. Draper"
+        ],
+        "publisher": "العبيكان للنشر",
+        "publishedDate": "2017-03-11",
+        "description": "إذا وجِدَ كتاب يستحق أن يقرأه المراهقون وأولياء الأمور (وأي شخص آخر)، فهو هذا الكتاب - صحيفة دنفر بوست. ميلودي، 11 عامًا، تملك ذاكرة مرآتية، ورأسها مثل آلة تصوير سينمائية تسجل طوال الوقت، ولكن لا يوجد فيها زر للحذف؛ كانت أذكى طفلة في مدرستها، ولكن لم يكن أي إنسان يعرف ذلك؛ فقد اعتقد معظم الناس، ومنهم المعلمون والأطباء، أنها غير قادرة على التعلُّم، وكانت أيام المدرسة - حتى وقت قريب - تمر وهي تستمع باستمرار إلى دروس أحرف الهجاء لمستوى الروضة مرة تلو الأخرى؛ تمنَّت لو أنها تستطيع الصراخ... لو أنها تستطيع إخبار من حولها كيف تفكر، وماذا تعرف؛ لكنها لا تستطيع؛ لأنها لا تقدر على الكلام، ولا تستطيع المشي ولا الكتابة. كانت أشياء كثيرة حبيسة في رأسها ولا تستطيع التعبير عنها، وهذا ما كان يسبب لها الجنون - إلى أن اكتشفت شيئًا جعلها تتكلم لأول مرة في حياتها؛ أخيرًا، أصبح لها صوت، لكن لا يوجد أحد ممن حولها يريد سماعه! العبيكان 2017",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786035039987"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6035039987"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 288,
+        "printType": "BOOK",
+        "categories": [
+          "Family & Relationships"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=GLRTDgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=GLRTDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=GLRTDgAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=GLRTDgAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=GLRTDgAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 173.72,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 173.72,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=GLRTDgAAQBAJ&rdid=book-GLRTDgAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 173720000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 173720000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D8%A5%D8%B1%D8%A7%D8%AF%D8%AA%D9%8A_%D9%87%D8%B2%D9%85%D8%AA_%D8%A5%D8%B9%D8%A7%D9%82%D8%AA%D9%8A-sample-pdf.acsm?id=GLRTDgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=GLRTDgAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "إذا وجِدَ كتاب يستحق أن يقرأه المراهقون وأولياء الأمور (وأي شخص آخر)، فهو هذا الكتاب - صحيفة دنفر بوست. ميلودي، 11 عامًا، تملك ذاكرة ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "J2bCDwAAQBAJ",
+      "etag": "4s3zr/OyeIo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/J2bCDwAAQBAJ",
+      "volumeInfo": {
+        "title": "فن اللامبالاة",
+        "authors": [
+          "مارك مانسون"
+        ],
+        "publisher": "Dar Attanweer",
+        "publishedDate": "2018-01-01",
+        "description": "ظل يُقال لنا طيلة عشرات السنوات إن التفكير الإيجابي هو المفتاح إلى حياة سعيدة ثرية. لكن مارك مانسون يشتم تلك \"الإيجابية\" ويقول: \" فلنكن صادقين، السيء سيء وعلينا أن نتعايش مع هذا \". لا يتهرّب مانسون من الحقائق ولا يغلفها بالسكّر، بل يقولها لنا كما هي: جرعة من الحقيقة الفجِّة الصادقة المنعشة هي ما ينقصنا اليوم. هذا الكتاب ترياق للذهنية التي نهدهد أنفسنا بها، ذهنية \" فلنعمل على أن يكون لدينا كلنا شعور طيب \" التي غزت المجتمع المعاصر فأفسدت جيلًا بأسره صار ينال ميداليات ذهبية لمجرد الحضور إلى المدرسة. ينصحنا مانسون بأن نعرف حدود إمكاناتنا وأن نتقبلها. وأن ندرك مخاوفنا ونواقصنا وما لسنا واثقين منه، وأن نكفّ عن التهرب والفرار من ذلك كله ونبدأ مواجهة الحقائق الموجعة، حتى نصير قادرين على العثور على ما نبحث عنه من جرأة ومثابرة وصدق ومسؤولية وتسامح وحب للمعرفة. لا يستطيع كل شخص أن يكون متميزًا متفوقًا. ففي المجتمع ناجحين وفاشلين؛ وقسم من هذا الواقع ليس عادلًا وليس نتيجة غلطتك أنت. وصحيح أن المال شيء حسن، لكن اهتمامك بما تفعله بحياتك أحسن كثيرًا؛ فالتجربة هي الثروة الحقيقية.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786144720196"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6144720197"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 272,
+        "printType": "BOOK",
+        "categories": [
+          "Self-Help"
+        ],
+        "averageRating": 3,
+        "ratingsCount": 2,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=J2bCDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=J2bCDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=J2bCDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=J2bCDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=J2bCDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 215.61,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 215.61,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=J2bCDwAAQBAJ&rdid=book-J2bCDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 215610000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 215610000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%81%D9%86_%D8%A7%D9%84%D9%84%D8%A7%D9%85%D8%A8%D8%A7%D9%84%D8%A7%D8%A9-sample-pdf.acsm?id=J2bCDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=J2bCDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "ظل يُقال لنا طيلة عشرات السنوات إن التفكير الإيجابي هو المفتاح إلى حياة سعيدة ثرية. لكن مارك مانسون يشتم تلك &quot;الإيجابية&quot; ويقول: &quot; ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "DBOXDQAAQBAJ",
+      "etag": "abQdniKdFu4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/DBOXDQAAQBAJ",
+      "volumeInfo": {
+        "title": "كيف تمسك بزمام القوة: ثمان وأربعون قاعدة ترشدك إليها",
+        "subtitle": "The 48 Laws of Power",
+        "authors": [
+          "Robert Greene"
+        ],
+        "publisher": "العبيكان للنشر",
+        "publishedDate": "2014-11-18",
+        "description": "إلى أولئك الباحثين عن القوة، أو الذين يرقبون القوة، أو الذين يبتغون ما يحصنهم من غائلة القوة.. البعض يعبث بالقوة ويخسرها في غلطة قاتلة. ويعضهم يغلو أو يُقَصِّر فيها. وهناك آخرون يعدُّون العدَّة كاملة فيستطيعون أخذ القوة إلى جانبهم ببراعة خارقة لطبائع البَشَر. فعلى مَرِّ الدُّهور تساءل العلماء والفلاسفة:ما هي الدروس التي ينبغي لنا أن نتعلمها من نجاح أسلافنا ومن إخفاقاتهم؟ على الرغم من أن كتابات متنوعة كتبت عن القوة على مدى أكثر من ثلاثة آلاف سنة، هناك عوامل تشبكها جميعاً في موضوعات متكررة، إنها تلك الأفكار التي تُلَمِّح إلى جوهر القوة وتلوح إلى خصائص مُعَدِّلة لزيادتها ونقصانها. 1- لا تُشْرِقْ أبداً أكثر من السيد. 2- لا تضع ثقةً أكثر من اللازم في الأصدقاء وتعلَّم كيف تستخدم الأعداء. 3- اخْفِ نواياك. 4- قل دائماً أقلَّ مما هو ضروري. 5- يتوقف الكثير على سمعتك، فحافظ عليها بحياتك. 6- اكسب لفت الأنظار بكل ثمن. 7- اجعل الآخرين يقومون بالعمل نيابة عنك ولكن احصل على الفضل دائماً. 8- اجعل الآخرين يأتون إليك، واستعمل طعماً عند الضرورة. 9- اكسب من خلال أعمالك وليس من خلال النقاش أبداً. 10- العدوى: -تجنب التعيس وسيئ الحظ. 11- تعلم أن تبقي الناس معتمدين عليك. 12- استخدم الصدق والكرم بطريقة انتقائية لنزع سلاح ضحيتك. 13-عندما تطلب المساعدة، خاطب في الناس مصالحهم الذاتية وليس رحمتهم أو عرفانهم. 14-اتخذ وضع الصديق واعمل كجاسوس. 15- اسحق عدوك سحقاً كلياً. 16- استخدم الغياب لزيادة الاحترام والتكريم. 17-ابقِ الآخرين في رعب مقيم: -كرِّس جواً من استحالة التنبؤ بحركاتك. 18-لا تَبْنِ قلاعاً لحماية نفسك، فالعزلة خطرة. 19-اعرف مع من تتعامل، لا تُغْضِب الشخص غير المقصود. 20-لا تلتزم بأحد. 21-العب دور المغفل لتمسك بمغفل، أظْهرْ أنَّك أبلد من هدفك. 22- استخدم تكتيك الاستسلام: -حوّل الضعف إلى قوة. 23-ركِّز قواك. 24-العب دور رجل الحاشية الأمثل. 25-أَعِدْ تَشْكيلَ نفسك. 26-اخْفِ أخطاءك واحتفظ بكبش فداء قريب ليتلقى اللوم. 27-استغل حاجة الناس إلى الإيمان لخَلْق أتباع طقوسيين. 28-ادخل معمعة العمل بجرأة. 29-خطّط طوال الطريق حتى النهاية. 30- اجعل منجزاتك تبدو بلا جهد. 31- تحكّم بالخيارات واجعل الآخرين يلعبون بالأوراق التي توزعها. 32- داعب خيالات الناس. 33- اكتشف أداة الضغط على كل شخص. 34-كن ملكياً بطريقتك الخاصة: -تصرَّف كملك لتُعامَل كملك. 35-اتقن فنّ التوقيت. 36-احتقر الأشياء التي لا تستطيع امتلاكها: -فتَجَاهُلُها أفضل انتقام. 37-اخلق مشاهد آسرة. 38- فكِّر كما تحب، ولكن تصرَّف كالآخرين. 39-عَكّر المياه لتصطاد السمك. 40-احتقر الغداء المجاني. 41-تجنَّب الحلول محل رجل عظيم. 42-اضرب الراعي... -تتفرق الغنم. 43-حاول التأثير على قلوب الآخرين وعقولهم. 44- انزع السلاح وحرِّك الحِنْق بتأثير المرآة. 45-بشِّر بالحاجة إلى التغيير ولكن إياك أن تُصْلِحَ أكثر من اللازم دفعة واحدة. 46-لا تظهر كاملاً أكثر مما ينبغي. 47-لا تتجاوز العلامة التي استهدفتَها، وفي النصر اعْرفْ متى تتوقف. 48-اتَّخِذْ هَيئة لا شَكْلَ لها. العبيكان 2016",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786035039741"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "603503974X"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 740,
+        "printType": "BOOK",
+        "categories": [
+          "Philosophy"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=DBOXDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=DBOXDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=DBOXDQAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=3&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=DBOXDQAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=DBOXDQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 631.11,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 631.11,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=DBOXDQAAQBAJ&rdid=book-DBOXDQAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 631110000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 631110000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%83%D9%8A%D9%81_%D8%AA%D9%85%D8%B3%D9%83_%D8%A8%D8%B2%D9%85%D8%A7%D9%85_%D8%A7%D9%84%D9%82%D9%88%D8%A9_%D8%AB-sample-pdf.acsm?id=DBOXDQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=DBOXDQAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "إلى أولئك الباحثين عن القوة، أو الذين يرقبون القوة، أو الذين يبتغون ما يحصنهم من غائلة القوة.. البعض يعبث بالقوة ويخسرها في غلطة ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "2rf8DwAAQBAJ",
+      "etag": "eljis9ibmEU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/2rf8DwAAQBAJ",
+      "volumeInfo": {
+        "title": "١٢ قاعدة للحياة",
+        "subtitle": "ترياق للفوضى",
+        "authors": [
+          "جوردان بيترسون"
+        ],
+        "publisher": "Dar Attanweer",
+        "description": "ساعد جوردان بيترسون الملايين حول العالم من أجل أن يحظوا بحياة منتجة قيّمة. والآن حان دورك. “المثقف الأكثر تأثيرًا الآن في العالم الغربي” The New York Times \"ليس من الضروري أن تتفق مع آراء بيترسون السياسية حتى تُعجب بهذا الكتاب، فلو تغاضيت عن تصنيفه ككتاب مساعدة ذاتية سترى أنه كتاب مذهل.. جوردان بيترسون عبقري في تناوله لمواضيع كتابه.. كتاب شامل ومشاكس وواقعي في آن. يحاول بيترسون في كتابه هذا إعادتنا إلى ما يعتقد أنه الحقيقة والجمال والخير..تستطيع اعتبار كتاب 12 قاعدة للحياة أرقى ما يمكن أن يكونه كتاب للمساعدة الذاتية.. وأيًا كان تصنيفك له فإن قراءته مزلزلة.\" The Guardian \"بيترسون أصيل في تميّزه ولا يشبه أحدًا من المفكرين المعاصرين.\" Daily Mail \"بيترسون شخصية كاريزماتية شديدة الفصاحة، يقدم نموذجًا جديًا لنمط الشخصية العامة، فاليوتيوب ووسائل التواصل الاجتماعي تجعله يصل إلى أكبر شريحة ممكنة من الناس ليتقدم بذلك على سابقيه أمثال برتراند رسل وإيزايا برلين.\" New Statesman",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786144721216"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6144721215"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 560,
+        "printType": "BOOK",
+        "categories": [
+          "Psychology"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=2rf8DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=2rf8DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=2rf8DwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=4&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=2rf8DwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=2rf8DwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 385.01,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 385.01,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=2rf8DwAAQBAJ&rdid=book-2rf8DwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 385010000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 385010000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%A1%D9%A2_%D9%82%D8%A7%D8%B9%D8%AF%D8%A9_%D9%84%D9%84%D8%AD%D9%8A%D8%A7%D8%A9-sample-pdf.acsm?id=2rf8DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=2rf8DwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "ساعد جوردان بيترسون الملايين حول العالم من أجل أن يحظوا بحياة منتجة قيّمة. والآن حان دورك. “المثقف الأكثر تأثيرًا الآن في العالم ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "CpKFDAAAQBAJ",
+      "etag": "fF4y5hNhhzA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/CpKFDAAAQBAJ",
+      "volumeInfo": {
+        "title": "Bestsellers",
+        "subtitle": "Popular Fiction since 1900",
+        "authors": [
+          "C. Bloom"
+        ],
+        "publisher": "Springer",
+        "publishedDate": "2008-09-29",
+        "description": "This essential guide, now available in a fully updated new edition, is the only available study of all bestselling books, authors and genres since the start of the last century, giving an unique insight into a hundred years of publishing and reading and taking us on a journey into the heart of the British imagination.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780230583870"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0230583873"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 425,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=CpKFDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=CpKFDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=CpKFDAAAQBAJ&pg=PA97&dq=bestseller&hl=&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=CpKFDAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=CpKFDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2505.9,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 2505.9,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=CpKFDAAAQBAJ&rdid=book-CpKFDAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2505900000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 2505900000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Bestsellers-sample-pdf.acsm?id=CpKFDAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=CpKFDAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... <b>bestseller</b> authors were a certainty in an uncertain world. As the twentieth century progressed, the search for the <b>bestseller</b> became relentless, more so in periods of recession when publishers and booksellers were looking for larger&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "mefWDwAAQBAJ",
+      "etag": "zE7BFWbVr4k",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/mefWDwAAQBAJ",
+      "volumeInfo": {
+        "title": "حرائق صغيرة في كل مكان",
+        "authors": [
+          "سيليسْت إنْج"
+        ],
+        "publisher": "Al-Karma Books",
+        "publishedDate": "2020-03-17",
+        "description": "· حازت لقب «أفضل كتاب في العام» في عدد كبير من الصحف والمواقع · تتحول حاليًا إلى مسلسل أمريكي مديح · «ذكية، وحكيمة، وحنون. إنها أعجوبة» - «بولا هوكنز»، مؤلفة رواية «فتاة القطار» · «أن أقول إنني أحب هذا الكتاب، قولٌ يبخسه حقه. إنه لغز نفسي عميق حول قوة الأمومة، وفورة الحب في سن المراهقة، وخطورة الكمال. لقد جعلني أذرف الدموع» - «ريس وِذِرسبون» · «أنا أحب «حرائق صغيرة في كل مكان». ربما هي أفضل رواية قرأتُها هذا العام» - «جون جرين»، مؤلف رواية «ما تخبئه لنا النجوم» · «قرأتُ «حرائق صغيرة في كل مكان» في جلسة واحدة وأنا أحبس أنفاسي» - «جودي بيكو» نبذة رواية محكمة، تتتبع المصائر المتشابكة لأفراد عائلة «ريتشاردسون» المثالية، والأم والابنة الغامضتين اللتين قلبتا حياتهم رأسًا على عقب. تأتي «مِيا وارِن» مع ابنتها المراهقة «بيرل» إلى شايكِر هايتس، الضاحية الهادئة في كليفلاند، وتؤجر منزلًا من عائلة «ريتشاردسون»، ثم تبدأ «مِيا» العمل في منزل عائلة «ريتشاردسون» لتساعد الأم «إيلينا»، فينجذب أطفال عائلة «ريتشاردسون» الأربعة إلى «مِيا» وابنتها. لكن «مِيا» تحمل معها ماضيًا غامضًا، وتجاهلًا للقواعد، مما يُهدِّد بقلب حياة هذا المجتمع السكاني المخطط بعناية. يحاول زوجان من أصدقاء عائلة «ريتشاردسون» القدامى تبني طفلة صينية-أمريكية، فتندلع معركة للحصول على حق الحضانة، مما يقسِّم البلدة بشكل درامي، ويضع «مِيا» و«إيلينا» وجهًا لوجه. وتصر «إيلينا» على البحث في ماضي «مِيا» لشكها فيها وفي دوافعها، لكن هوسها يؤدي إلى خسائر مدمِّرة وغير متوقعة. تكشف «حرائق صغيرة في كل مكان» وطأة الأسرار، وطبيعة الفن والهوية، والجاذبية العاتية للأمومة، وخطورة الاعتقاد بأن اتباع القواعد يمكن أن يجنبنا الكوارث. ترجمت سها السباعي هذه الرواية ترجمة أمينة وبارعة، ونقلت روح وثقافة النص الأمريكي بدقة إلى اللغة العربية.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789776743151"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "9776743153"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 432,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=mefWDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=mefWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=mefWDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=7&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=mefWDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=mefWDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 171,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 171,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=mefWDwAAQBAJ&rdid=book-mefWDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 171000000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 171000000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D8%AD%D8%B1%D8%A7%D8%A6%D9%82_%D8%B5%D8%BA%D9%8A%D8%B1%D8%A9_%D9%81%D9%8A_%D9%83%D9%84_%D9%85%D9%83%D8%A7%D9%86-sample-pdf.acsm?id=mefWDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=mefWDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "· حازت لقب «أفضل كتاب في العام» في عدد كبير من الصحف والمواقع · تتحول حاليًا إلى مسلسل أمريكي مديح · «ذكية، وحكيمة، وحنون. إنها ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "49yzEAAAQBAJ",
+      "etag": "VfgftaFH9JM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/49yzEAAAQBAJ",
+      "volumeInfo": {
+        "title": "Bestseller She Wrote",
+        "authors": [
+          "Ravi Subramanian"
+        ],
+        "publisher": "Harper Collins",
+        "publishedDate": "2023-04-13",
+        "description": "Love. Betrayal. Redemption. Paperback king Aditya Kapoor's life is straight out of a modern man's fantasy. His literary stardom is perfectly balanced by a loving wife and a spectacular career. With everything he touches turning to gold, Aditya is on a winning streak. Shreya Kaushik is a student with a heart full of ambition. Young, beautiful and reckless, Shreya speaks her mind and obsessively chases after what she wants. And what she wants is to be a bestselling author. What happens when their worlds collide? Is it possible to love two people at the same time? Can real ambition come in the way of blind passion? Can trust once broken, be regained? Master storyteller Ravi Subramanian delves into the glitzy world of bestsellers, and uncovers a risky dalliance between a superstar novelist and his alluring protege.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789356294653"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "9356294658"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 310,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.2.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=49yzEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=49yzEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=49yzEAAAQBAJ&pg=PT35&dq=bestseller&hl=&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=49yzEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=49yzEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 457.6,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 457.6,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=49yzEAAAQBAJ&rdid=book-49yzEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 457600000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 457600000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Bestseller_She_Wrote-sample-epub.acsm?id=49yzEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=49yzEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... <b>bestselling</b> author and Aditya was a <b>bestselling</b> author by a mile. 15 per cent of his publisher&#39;s turnover could be attributed to Aditya&#39;s books alone. Such was the scale of his success. Yet, he was not in it for money. He was in it for&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "jUnJDAAAQBAJ",
+      "etag": "3Idw1ftEFSs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/jUnJDAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Choice",
+        "subtitle": "the stunning ebook bestseller about a mother's impossible choice",
+        "authors": [
+          "Samantha King"
+        ],
+        "publisher": "Hachette UK",
+        "publishedDate": "2017-04-20",
+        "description": "***THE TOP-TEN EBOOK BESTSELLER*** 'Absolutely loved this book!' Susan Lewis, bestselling author of One Minute Later For fans of The Guilty Mother by Diane Jeffrey and The Silent Ones by K. L. Slater, The Choice is a hypnotic suspense debut that explores the terrifying Sophie's Choice scenario: What if you had to choose between your children? Then: Madeleine lived for her children. She'd always believed she'd die for them too. But on the morning of her twins' tenth birthday her love was put to the test when a killer knocked on their door and forced her to make a devastating choice: which child should live, and which should die - her son, or her daughter? Now: Madeleine stands silent on the periphery of her fractured family, trying desperately to unravel why her world was so suddenly blown apart. But as memories of everything leading up to that tragic day return in agonising flashes, she begins to realise her family's life still hangs terrifyingly in the balance... 'Astonishing' Karen Dionne 'Nail-biting' Saskia Sarginson 'Amazing' Susan Lewis 'Tense' Claire Douglas 'Brilliant' Lisa Hall 'Mind-twisting' Alex Caan 'Exceptional' Claire Allan 'Enthralling' Liz Loves Books 'Devastating' Eleanor Moran 'Addictive' Netgalley reviewer ***Pre-order Samantha King's gripping new novel, The Sleepover, now***",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780349414676"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "034941467X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 369,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.7.9.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=jUnJDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=jUnJDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=jUnJDAAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=14&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=jUnJDAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=jUnJDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 457.58,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 457.58,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=jUnJDAAAQBAJ&rdid=book-jUnJDAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 457580000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 457580000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/The_Choice-sample-epub.acsm?id=jUnJDAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=jUnJDAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "***THE TOP-TEN EBOOK BESTSELLER*** &#39;Absolutely loved this book!"
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "GMZNEAAAQBAJ",
+      "etag": "PJ3d2c3eoI8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/GMZNEAAAQBAJ",
+      "volumeInfo": {
+        "title": "كتاب المسافر الأكثر مبيعاً",
+        "authors": [
+          "ريك إنكورفيا"
+        ],
+        "publisher": "ALAAN PUBLISHING CO.",
+        "description": "السَّيّد (بيريغرين) هو (جو) العاديّ؛ معلِّم مادّة التاريخ في مدرسة ثانوية، حدثَ أنْ سمِع الكلمات التي تُسبّب الفزعَ لنا جميعًا: «أنتَ مصاب بسرطان في مراحلِه المتأخِّرة». هذه القِصّة هي مزيج غير متوقَّع من المغامرة الصِّرف والخيال العلميّ. يكتشف بطلُ القصّة طريقةً لتغيير حياة تلاميذه، والهيئةِ التدريسية، وأخيرًا المستقبَل المفترَض. في معرِض بحثه عن الإجابات والفهم، يلتقي ب (آن)، وهي عالِمة لامعة تُبدي بعض الاهتمام الزائد في تحقيق آخر أمنياته. أمّا (آندرو)- شريكُها في هذا الأمرـ فقد طوّر رحلاتِ محاكاةٍ للواقع الافتراضيّ، تبدو حقيقية تمامًا، إلى درجة يمكن وَصْفُها حقيقةً غير واعية. كما يستطيع أن يقنعك أنك تتناول الخبز المحمَّص ولحمَ اللسان مع (جورج) و(مارثا واشنطن)، أو تَعزفُ البيانو القيثاريّ إلى جانب (فولفغانغ أماديوس موزارت). بالنسبة لمدرّس تاريخ يكابد السرطان المتأخر، فإنّ هذا له أثر السِّحر. في هذه الرحلات، قد تبدو ستُّ ساعات كأنها أسبوعان، أو شهران، أو سنتان. يا لها من طريقة لكسب الوقت حين تكون أيامك في هذه الحياة معدودة. أوقدتْ رحلات (بيريغرين) المذهلة جذوةَ شغفه للتدريس، وأقبل طلبتُه على الحياة بحماس. على الرغم من ذلك، فإنّ زبدة هذه المغامرة تتعلق بالكتاب الأكثر مبيعًا الذي ألّفَه في نهاية رحلاته. نبذة عن المؤلِّف: كنتُ واحدًا من تسعة أبناء نشؤوا في السبعينات، حين كانت الفوضى المنظَّمة هي واقعَ الحال في أُسرتي. إن لم تخلّفْ بصمةً فسوف تضيع في الزحام. أعترفُ أنني كنت مثيرًا للمشاكل أحيانًا، وكان يطيب لي أن أضيع في الزحام، أو على الأقل ألّا أُحاسَب على نتائج أفعالي، وعندما لا أكون غارقًا في أحلامي ومخططاتي لأصبح ثريًا، تجدني أتخيل نفسي (جيمس بوند) أو أحدَ المشاركين في الفيلم السينمائيّ «Ocean’s Eleven». هنا أستحضرُ والدي الذي اعتاد أنْ يخبرَني مذ كنت فتىً يافعًا أنني أستطيع نسْجَ أجملِ القصص من وحْي خيالي. ولمّا كنتُ قد لاحظتُ استمتاعَ الكثيرين بالقصص التي يتفتّقُ ذهني عنها، كان الوقتُ قد حان لأُشاركها مع العالم أجمع. أهلًا بكم في أعمقِ أركان خيالي وأحلكِها. ريك إنكورفيا الطريقة المثلى كي تتنبّأ بمستقبلك هي أن تصنعه. جورج واشنطن",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789923132647"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "9923132641"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 338,
+        "printType": "BOOK",
+        "categories": [
+          "Comics & Graphic Novels"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "comicsContent": true,
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=GMZNEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=GMZNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=GMZNEAAAQBAJ&pg=PA96&dq=bestseller&hl=&cd=18&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=GMZNEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=GMZNEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 105.05,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 105.05,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=GMZNEAAAQBAJ&rdid=book-GMZNEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 105050000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 105050000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%83%D8%AA%D8%A7%D8%A8_%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%81%D8%B1_%D8%A7%D9%84%D8%A3%D9%83%D8%AB%D8%B1_%D9%85-sample-pdf.acsm?id=GMZNEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=GMZNEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... للهدف الفوز الحاسم في المباراة . فتحت عيني قائلا : « لقد نجح نجاحا باهرا » . ضج في بالضحك ، وساد الجو شي من البهجة والاستمتاع وهم ينصتون إلى أحاديثي : ورجع بتلامیذي القهقرى إلى عام 1776 ، عيد الميلاد 96 کتاب المسافر الأكثر <b>مبيعا</b>."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "slbEEAAAQBAJ",
+      "etag": "hd6dEHS5PPU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/slbEEAAAQBAJ",
+      "volumeInfo": {
+        "title": "سينما الأكثر مبيعًا.. من بداية ونهاية إلى تراب الماس",
+        "authors": [
+          "السيد زرد"
+        ],
+        "publisher": "دار اكتب للنشر و التوزيع ",
+        "description": "منذ وقت مبكر، اشتبكت السينما بالأدب، فوجد القائمون علي صناعة السينما في الروايات مصدراً مهماً يشيدون، انطلاقاً منه، أعمالهم السينمائية. ففي الدورة الأولي لجائزة الأوسكار العالمية الشهيرة عام 1928 حصل فيلم (أجنحة Wings)، المأخوذ عن رواية الكاتب الأمريكي جون مونك ساندر، علي جائزة أفضل فيلم. ومن بين 91 فيلماً حصلوا علي جائزة الأوسكار كأفضل فيلم، عبر مسيرة هذه الجائزة، كان هناك 38 فيلماً مأخوذاً من روايات. وبدورها لم تتأخر السينما المصرية في الاتصال بالأعمال الأدبية والاستفادة منها، ففي عام 1930 قدم المخرج محمد كريم فيلماً صامتاً عن رواية (زينب) – التي تعد أول محاولة عربية للكتابة الروائية طبقاً لنهج الرواية في الغرب - لمؤلفها الدكتور محمد حسين هيكل الذي تخوف في البداية من نشرها باسمه الحقيقي عام 1914. وكان للنجاح الهائل الذي حظي به الفيلم أثره في اجتراء مؤلف الرواية علي إعادة نشرها باسمه ونسبتها إليه، كذا شجع هذا النجاح ذات المخرج علي إعادة تقديم نفس الرواية في فيلم سينمائي ناطق عام 1952.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789774887505"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "9774887506"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 198,
+        "printType": "BOOK",
+        "categories": [
+          "Art"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=slbEEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=slbEEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=slbEEAAAQBAJ&pg=PA76&dq=bestseller&hl=&cd=19&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=slbEEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=slbEEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 84.39,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 84.39,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=slbEEAAAQBAJ&rdid=book-slbEEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 84390000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 84390000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D8%B3%D9%8A%D9%86%D9%85%D8%A7_%D8%A7%D9%84%D8%A3%D9%83%D8%AB%D8%B1_%D9%85%D8%A8%D9%8A%D8%B9%D9%8B%D8%A7_%D9%85-sample-pdf.acsm?id=slbEEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=slbEEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... المادة الأولية في حوزتي ، من قبيل الشرائط المصورة والجرائد ، وفي المجمل كل ذكرياتي وحنيني ་ ་ في 17 سبتمبر 1855 أثناء عكوف الأديب الفرنسي جوستاف فلوبير على كتابة روايته المعروفة ( مدام فلوبير ) ، 76 سينما الأكثر <b>مبيعًا</b>."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "oL_xDwAAQBAJ",
+      "etag": "PQExRO9NzRc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oL_xDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Best Seller – حكايات عن القراءة",
+        "authors": [
+          "سامح فايز"
+        ],
+        "publisher": "Al Masriah Al Lubnaniah",
+        "publishedDate": "2019-01-01",
+        "description": "شهدت السنوات الأخيرة صعود عدد من الظواهر الأدبية المتعلقة بالقراءة فى مصر، كان أهمها انتشار نوعية معينة من الكتابات، مثل أدب الرعب والخيال العلمي، والكتابات الرومانسية، وأدب السيرة الذاتية، وسطوة السوشيال ميديا التي أثرت بشكل كبير على حركة صناعة الكتاب والنشر في مصر، وفي كتاب ” best seller – حكايات عن القراءة”، يحاول المؤلف رصد جميع الظواهر المتعلقة بحركة الكتابة والقراءة وتقديم قراءة لها بشكل بسيط بعيدًا عن تعقيدات الكتابة الأكاديمية. ويقدم الكتاب شرحًا وافيًا لظاهرة “البيست سيلر” أو الكتب الأكثر مبيعًا، مع رصد لصعود تلك النوعية من الكتابات مع شرح لحقيقتها وهل هي الأكثر مبيعا بالفعل أم لا. هو كتاب مهم لكل مهتم بالقراءة في محاولة لمعرفة ما الذي حدث للقراءة منذ يناير 2011 وحتى الآن",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789777952217"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "977795221X"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 182,
+        "printType": "BOOK",
+        "categories": [
+          "Literary Collections"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=oL_xDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=oL_xDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=oL_xDwAAQBAJ&pg=PA46&dq=bestseller&hl=&cd=20&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=oL_xDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=oL_xDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 105.03,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 105.03,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=oL_xDwAAQBAJ&rdid=book-oL_xDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 105030000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 105030000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Best_Seller_%D8%AD%D9%83%D8%A7%D9%8A%D8%A7%D8%AA_%D8%B9%D9%86_%D8%A7%D9%84%D9%82%D8%B1%D8%A7-sample-pdf.acsm?id=oL_xDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oL_xDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... <b>مبيعا</b> : مع تعدد دور نشر الشباب كان الاهتمام بصناعة نجم شاغلها دائما ، هنا كان من المهم أن تلعب هذه الدور على مسألة الأعلى <b>مبيعا</b> &quot; البيست سيلر &quot; ، لكن تلاعبت بعض دور النشر في قوائم الأعلى <b>مبيعا</b> ، وعدد الطبعات . فأصبح من الممكن أن تجد&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "io_HDwAAQBAJ",
+      "etag": "ze/RmypDhgE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/io_HDwAAQBAJ",
+      "volumeInfo": {
+        "title": "قوانين الطبيعة البشرية : لروبرت غرين : مؤلف الكتاب الأكثر مبيعا : كيف تمسك بزمام القوة",
+        "subtitle": "The Laws of Human Nature",
+        "authors": [
+          "Robert Greene ",
+          "روبرت غرين"
+        ],
+        "publisher": "العبيكان للنشر",
+        "publishedDate": "2020-01-02",
+        "description": "سيجعلك هذا الكتاب دارسًا متمرنًا في حقل الطبيعة البشرية أولا ستعمل هذه القوانين على جعلك تنظر إلى الناس نظرة بعيدة المدى وبهدوء. وستساعدك على التحرر من انفعالاتك العاطفية التي تستنزفك بلا مبرر. ثانيًا ستجعل منك هذه القوانين خبيرًا في تفسير الإشارات، التي يدأب الناس على إصدارها. فتتشكل عندك قدرة كبيرة على الحكم على شخصياتهم. ثالثًا ستمكنك هذه القوانين من مواجهة ما لا بد أن تصادفه في حياتك من الأصناف السامة من الناس والتغلب عليها. رابعًا ستعلمك هذه القوانين الأسس الصحيحة لتحريك الناس والتأثير فيهم. خامسًا ستمنحك هذه القوانين القوة على تغيير أنماطك السلبية. العبيكان للنشر - روبرت غرين",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786035092944"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6035092942"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 787,
+        "printType": "BOOK",
+        "categories": [
+          "Business & Economics"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=io_HDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=io_HDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=io_HDwAAQBAJ&pg=PA768&dq=bestseller&hl=&cd=21&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=io_HDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=io_HDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 579.37,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 579.37,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=io_HDwAAQBAJ&rdid=book-io_HDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 579370000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 579370000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%82%D9%88%D8%A7%D9%86%D9%8A%D9%86_%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D8%A9_%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A-sample-pdf.acsm?id=io_HDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=io_HDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The Laws of Human Nature Robert Greene , روبرت غرين. أكثر الكتب <b>مبيعًا</b> وإستراتيجيًا خبيرًا، لكل ما اقترحه من أبحاث، ومساعدة في التسويق، وحكمته الشاملة. ت 9 تو للا مم ولا يمكنني ان انسى شكر قطي (بروتوس) الذي بات يشرف الان على إنتاج كتبي&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "WB29DwAAQBAJ",
+      "etag": "C7nssGowmCI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/WB29DwAAQBAJ",
+      "volumeInfo": {
+        "title": "Laurus",
+        "authors": [
+          "Eugene Vodolazkin"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2015-10-01",
+        "description": "WINNER OF THE BIG BOOK AWARD, THE YASNAYA POLYANA AWARD & THE READ RUSSIA AWARD *A NEW STATESMAN BOOK OF THE YEAR 2016* Fifteenth-century Russia It is a time of plague and pestilence, and a young healer, skilled in the art of herbs and remedies, finds himself overcome with grief and guilt when he fails to save the one he holds closest to his heart. Leaving behind his village, his possessions and his name, he sets out on a quest for redemption, penniless and alone. But this is no ordinary journey: wandering across plague-ridden Europe, offering his healing powers to all in need, he travels through ages and countries, encountering a rich tapestry of wayfarers along the way. Accosted by highwaymen, lynched in Yugoslavia and washed overboard at sea, he eventually reaches Jerusalem, only to find his greatest challenge is yet to come. Winner of two of the biggest literary prizes in Russia, Laurus is a remarkably rich novel about the eternal themes of love, loss, self-sacrifice and faith, from one of the country’s most experimental and critically acclaimed novelists.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781780747569"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "178074756X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 352,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.3.2.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=WB29DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=WB29DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=WB29DwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=22&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=WB29DwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=WB29DwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 322,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 322,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=WB29DwAAQBAJ&rdid=book-WB29DwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 322000000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 322000000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Laurus-sample-epub.acsm?id=WB29DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=WB29DwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "But this is no ordinary journey: wandering across plague-ridden Europe, offering his healing powers to all in need, he travels through ages and countries, encountering a rich tapestry of wayfarers along the way."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "eJ9VDwAAQBAJ",
+      "etag": "ecqhVhZPtMg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/eJ9VDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Nine Perfect Strangers",
+        "subtitle": "The No 1 bestseller now a major Amazon Prime series",
+        "authors": [
+          "Liane Moriarty"
+        ],
+        "publisher": "Penguin UK",
+        "publishedDate": "2018-10-04",
+        "description": "**Read the addictive bestseller now a major Amazon Prime TV series starring Nicole Kidman, Melissa McCarthy, Regina Hall, Manny Jacinto, Bobby Cannavale and Luke Evans** PERFECT LIVES OR PERFECT LIES? THE UNPUTDOWNABLE SUNDAY TIMES NO. 1 BESTSELLER AND RICHARD & JUDY BOOK CLUB PICK, FROM THE AUTHOR OF HBO'S AWARD WINNING BIG LITTLE LIES 'A super-suspenseful page-turner' Mail on Sunday _____________ Nine perfect strangers, each hiding an imperfect life. A luxury retreat cut off from the outside world. Ten days that promise to change your life. But some promises - like some lives - are perfect lies . . . __________ 'Fantastic' Times 'The twist blew my mind' Marian Keyes 'The suspense keeps building in an enjoyably zany thriller' Guardian 'Original, suspenseful, downright brilliant' Clare Mackintosh 'One of the funniest, most original and well-written books I have read' 5***** Reader Review 'Will grip you from the first page' Sunday Express 'Had me utterly hooked' Daily Mail",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781405919470"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1405919477"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 353,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.19.18.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=eJ9VDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=eJ9VDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=eJ9VDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=24&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=eJ9VDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=eJ9VDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 391.57,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 391.57,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=eJ9VDwAAQBAJ&rdid=book-eJ9VDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 391570000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 391570000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Nine_Perfect_Strangers-sample-epub.acsm?id=eJ9VDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=eJ9VDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "THE UNPUTDOWNABLE SUNDAY TIMES NO. 1 BESTSELLER AND RICHARD &amp; JUDY BOOK CLUB PICK, FROM THE AUTHOR OF HBO&#39;S AWARD WINNING BIG LITTLE LIES &#39;A super-suspenseful page-turner&#39; Mail on Sunday _____________ Nine perfect strangers, each hiding an ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "-FjXDwAAQBAJ",
+      "etag": "Eu6SV3Y7yRE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/-FjXDwAAQBAJ",
+      "volumeInfo": {
+        "title": "لماذا ننام: اكتشف طاقة النوم والأحلام",
+        "authors": [
+          "ماثيو ووكر"
+        ],
+        "publisher": "Dar Attanweer",
+        "description": "\"مذهل، شديد الأهمية، طوق نجاة\" The Guardian \"عالم من كبار علماء النوم يدعونا إلى اعتبار النوم أكثر أهمية لصحتنا من النظام الغذائي والنشاط البدني\" The Times \"جولة ذكية في ميدان النوم الذي لا يزال فهمنا له غامضاً ... كتاب وضع لنفسه مهمة محددة: ووكر واقع في غرام النوم، ويريدنا أن نقع في غرامه مثله. والأمر لا يحتمل التأجيل. يقيم ووكر الحجة المقنعة على أننا مصابون \"بوباء نقص النوم الذي يفتك بنا صامتاً\" ويمثل \"أكبر تحدٍّ نواجهه في عصرنا\" ... يدافع هذا الكتاب عن وجوب معالجة نقص النوم الذي نعانيه وعن حسنات النوم. كتاب يستحق أن يوضع إلى جانب السرير من أجل القراءة قبل النوم\". ـ New York Times Book Review طالما كان النوم جانباً من أكثر جوانب الحياة والصحة وطول العمر أهمية وأقلها وضوحاً إلى أن ظهرت مجموعة كبيرة من الاكتشافات العلمية خلال العقدين الأخيرين فبدأت تلقي على الموضوع ضوءاً جديداً. ثم جاء ماثيو ووكر، عالم الأعصاب وخبير النوم البارز ليبين بوضوح الأهمية الحاسمة للنوم الذي يعمل، مع وظائف كثيرة أخرى، على تعزيز قدرتنا على التعلم واتخاذ القرارات، وإعادة التوازن إلى انفعالاتنا وعواطفنا، وتقوية نظامنا المناعي، وتنظيم شهيتنا إلى الأكل. كتاب ساحر، مقنع، متميز بالرؤية الواضحة وبسهولة القراءة، ومن المؤكد أنه سيغير فهم القارئ للنوم والحلم وتقديره لهما تغييراً تاماً. \"لماذا ننام\" هو أول كتاب عن النوم بقلم متخصص يشغل منصب مدير مركز جامعة بيركلي لعلم النوم البشري، وهو كتاب رائد في مجاله يشرح لنا كيف يمكن أن نوظف قوة النوم من أجل تغيير حياتنا نحو الأفضل.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786144720622"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6144720626"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 512,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=-FjXDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=-FjXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=-FjXDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=27&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=-FjXDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=-FjXDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 338.81,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 338.81,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=-FjXDwAAQBAJ&rdid=book--FjXDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 338810000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 338810000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%84%D9%85%D8%A7%D8%B0%D8%A7_%D9%86%D9%86%D8%A7%D9%85_%D8%A7%D9%83%D8%AA%D8%B4%D9%81_%D8%B7%D8%A7%D9%82%D8%A9-sample-pdf.acsm?id=-FjXDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=-FjXDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "&quot;مذهل، شديد الأهمية، طوق نجاة&quot; The Guardian &quot;عالم من كبار علماء النوم يدعونا إلى اعتبار النوم أكثر أهمية لصحتنا من النظام الغذائي والنشاط ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "rjWpDwAAQBAJ",
+      "etag": "rpTjTVAPDoI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rjWpDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Knife Edge",
+        "subtitle": "the gripping Sunday Times bestseller",
+        "authors": [
+          "Simon Mayo"
+        ],
+        "publisher": "Random House",
+        "publishedDate": "2020-08-20",
+        "description": "'The best kind of thriller - step by all-too-plausible step we're sucked into frantic, breathless action ... Perfect.\" LEE CHILD You never know where danger may come from... 6.45am. A sweltering London rush hour. And in the last 27 minutes, seven people have been murdered. In a series of coordinated attacks, seven men and women across London have been targeted. For journalist Famie Madden, the horror unfolds as she arrives for the morning shift. The victims have one thing in common: they make up the investigations team at the news agency where Famie works. The question everyone’s asking: what were they working on that could prompt such brutal devastation? As Famie starts to receive mysterious messages, she must find out whether she is being warned of the next attack, or being told that she will be the next victim...",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781473568921"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1473568927"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 353,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 3,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.6.6.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rjWpDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rjWpDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=rjWpDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=29&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=rjWpDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=rjWpDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 313.18,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 313.18,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=rjWpDwAAQBAJ&rdid=book-rjWpDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 313180000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 313180000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Knife_Edge-sample-epub.acsm?id=rjWpDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rjWpDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "&#39;The best kind of thriller - step by all-too-plausible step we&#39;re sucked into frantic, breathless action ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "fM38DwAAQBAJ",
+      "etag": "pw2T/N0S3UE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/fM38DwAAQBAJ",
+      "volumeInfo": {
+        "title": "الجين: تاريخ حميم",
+        "authors": [
+          "سيدهارتا موكرجي"
+        ],
+        "publisher": "Dar Attanweer",
+        "publishedDate": "2018",
+        "description": "“لقد قرأنا القصة، مجتزأة، بطرق مختلفة. لكن لم يسبق لنا أن قرأناها على هذا النحو من الشمول والعظمة.. إنه كاتب حاسم” جيمس غليك، نيويورك تايمز “كتاب مرموق.. الكتابة العلمية البليغة والبديعة التي ترغب في قراءتها هذا العالم” تايمز \"كتاب سيحلّق في سماء الأعمال واجبة القراءة لهذا العام\" نيويورك تايمز \"درامي ودقيق .. مثير وشامل.. اقرأ هذا الكتاب وهيئ نفسك للقادم\" صنداي تايمز",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9786144720332"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "6144720332"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 730,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=fM38DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=fM38DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=fM38DwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=32&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=fM38DwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=fM38DwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 517.46,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 517.46,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=fM38DwAAQBAJ&rdid=book-fM38DwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 517460000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 517460000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D8%A7%D9%84%D8%AC%D9%8A%D9%86_%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%AD%D9%85%D9%8A%D9%85-sample-epub.acsm?id=fM38DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D8%A7%D9%84%D8%AC%D9%8A%D9%86_%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%AD%D9%85%D9%8A%D9%85-sample-pdf.acsm?id=fM38DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=fM38DwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "“لقد قرأنا القصة، مجتزأة، بطرق مختلفة. لكن لم يسبق لنا أن قرأناها على هذا النحو من الشمول والعظمة.. إنه كاتب حاسم” جيمس غليك، ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "bz-kDAAAQBAJ",
+      "etag": "2AVX22tyTdI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/bz-kDAAAQBAJ",
+      "volumeInfo": {
+        "title": "Elsewhere",
+        "authors": [
+          "Gabrielle Zevin"
+        ],
+        "publisher": "Bloomsbury Publishing",
+        "publishedDate": "2016-07-14",
+        "description": "From the acclaimed author of Sunday Times bestseller Tomorrow and Tomorrow and Tomorrow. A novel of hope, love and redemption in Liz's life after life. _______________ ONE OF TIME MAGAZINE'S 100 BEST YA BOOKS OF ALL TIME _______________ “Every so often a book comes along with a premise so fresh and arresting it seems to exist in a category all its own. Elsewhere is such a book” - The New York Times Book Review _______________ Welcome to Elsewhere. It is warm, with a breeze, and the beaches are beautiful. It's quiet and peaceful. You can't get sick, and you can't get older. In Elsewhere, death is only the beginning... Elsewhere is where fifteen-year-old Liz Hall ends up, after she is killed in a hit-and-run accident. It is a place so like Earth, yet completely different. Here Liz will age backward from the day of her death until she becomes a baby again and returns to Earth. But Liz wants to turn sixteen, not fourteen again. She wants to get her driver's license. She wants to graduate from high school and go to college. And now that she's dead, Liz is being forced to live a life she doesn't want with a grandmother she has only just met. And it is not going well. How can Liz let go of the only life she has ever known and embrace a new one? Is it possible that a life lived in reverse is no different from a life lived forward? Full of the most ingenious detail and woven around the most touching and charming relationships, this is a novel of hope, of redemption and rebirth. It is a novel that tells of sadness with heartbreaking honesty, and of love and happiness with uplifting brilliance.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781408884096"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1408884097"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 244,
+        "printType": "BOOK",
+        "categories": [
+          "Young Adult Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.7.6.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=bz-kDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=bz-kDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=bz-kDAAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=35&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=bz-kDAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=bz-kDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 333.38,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 333.38,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=bz-kDAAAQBAJ&rdid=book-bz-kDAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 333380000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 333380000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Elsewhere-sample-epub.acsm?id=bz-kDAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/Elsewhere-sample-pdf.acsm?id=bz-kDAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=bz-kDAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Is it possible that a life lived in reverse is no different from a life lived forward? Full of the most ingenious detail and woven around the most touching and charming relationships, this is a novel of hope, of redemption and rebirth."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "M53SDwAAQBAJ",
+      "etag": "3sqthCU3NrE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/M53SDwAAQBAJ",
+      "volumeInfo": {
+        "title": "The Midnight Library",
+        "subtitle": "The No.1 Sunday Times bestseller and worldwide phenomenon",
+        "authors": [
+          "Matt Haig"
+        ],
+        "publisher": "Canongate Books",
+        "publishedDate": "2020-08-13",
+        "description": "*MATT HAIG’S NEW NOVEL THE LIFE IMPOSSIBLE IS AVAILABLE TO PRE-ORDER NOW * THE SUNDAY TIMES NUMBER ONE BESTSELLING WORLDWIDE PHENOMENON READERS' MOST LOVED BOOK OF 2021 WINNER OF THE GOODREADS CHOICE AWARD FOR FICTION 'BEAUTIFUL' Jodi Picoult, 'UPLIFTING' i, 'BRILLIANT' Daily Mail, 'AMAZING' Joanna Cannon, 'ABSORBING' New York Times, 'THOUGHT-PROVOKING' Independent Nora's life has been going from bad to worse. Then at the stroke of midnight on her last day on earth she finds herself transported to a library. There she is given the chance to undo her regrets and try out each of the other lives she might have lived. Which raises the ultimate question: with infinite choices, what is the best way to live?",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781786892713"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1786892715"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 306,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 3,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "2.62.60.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=M53SDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=M53SDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=M53SDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=36&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=M53SDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=M53SDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 468.09,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 468.09,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=M53SDwAAQBAJ&rdid=book-M53SDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 468090000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 468090000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/The_Midnight_Library-sample-epub.acsm?id=M53SDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/The_Midnight_Library-sample-pdf.acsm?id=M53SDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=M53SDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Then at the stroke of midnight on her last day on earth she finds herself transported to a library. There she is given the chance to undo her regrets and try out each of the other lives she might have lived."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HbytEAAAQBAJ",
+      "etag": "q0whsnvKOIo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HbytEAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Kamogawa Food Detectives",
+        "subtitle": "The Heartwarming Japanese Bestseller",
+        "authors": [
+          "Hisashi Kashiwai"
+        ],
+        "publisher": "Pan Macmillan",
+        "publishedDate": "2023-10-05",
+        "description": "The first book in the bestselling, mouth-watering Japanese sleuthing series, The Kamogawa Food Detectives is perfect for fans of Welcome to the Hyunam-dong Bookshop, Days at the Morisaki Bookshop and Toshikazu Kawaguchi's Before the Coffee Gets Cold. What’s the one dish you’d do anything to taste just one more time? Down a quiet backstreet in Kyoto exists a very special restaurant. Run by Koishi Kamogawa and her father Nagare, the Kamogawa Diner treats its customers to wonderfully extravagant meals. But that's not the main reason to stop by . . . The father-daughter duo have started advertising their services as 'food detectives'. Through ingenious investigations, they are capable of recreating a dish from their customers' pasts – dishes that may well hold the keys to unlocking forgotten memories and future happiness. From the widower looking for a specific noodle dish that his wife used to cook, to a first love's beef stew, the restaurant of lost recipes provides a link to the past – and a way to a more contented future. A bestseller in Japan, The Kamogawa Food Detectives by Hisashi Kashiwai, and translated from Japanese by Jesse Kirkwood, is a celebration of good company and the power of a delicious meal.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781035009602"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1035009609"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 160,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.6.6.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=HbytEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=HbytEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.eg/books?id=HbytEAAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=37&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=HbytEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=HbytEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 446.28,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 446.28,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=HbytEAAAQBAJ&rdid=book-HbytEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 446280000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 446280000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/The_Kamogawa_Food_Detectives-sample-epub.acsm?id=HbytEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=HbytEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The first book in the bestselling, mouth-watering Japanese sleuthing series, The Kamogawa Food Detectives is perfect for fans of Welcome to the Hyunam-dong Bookshop, Days at the Morisaki Bookshop and Toshikazu Kawaguchi&#39;s Before the Coffee ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "hlPXDwAAQBAJ",
+      "etag": "TLRa/qyeNIo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/hlPXDwAAQBAJ",
+      "volumeInfo": {
+        "title": "فتاة القطار",
+        "authors": [
+          "باولا هوكينز"
+        ],
+        "publisher": "Dar Attanweer",
+        "description": "رواية نفسية مشوّقة. رواية ستغير إلى الأبد نظرتك إلى حياة الآخرين. رواية تجبرك على قراءتها... تغمر انفعالات القارئ ومشاعره... مثل روائع هيتشكوك... عمل شديد الإثارة. تأخذ ريتشل قطارها نفسه كل صباح. وهي تسير على تلك السكة كل يوم. تمر سريعاً بسلسلة من بيوت الضواحي اللطيفة. يتوقف القطار عند تلك الإشارة الضوئية فتنظر، كل يوم، إلى رجل وامرأة يتناولان إفطارهما على الشرفة. صارت تحسّ أنها تعرفهما، وأسمتهما \"جس\" و\"جيسون\". صارت ترى حياتهما كاملة، حياة غير بعيدة عن حياة خسرتها منذ وقت قريب. ثم ترى ما يصدمها. مرَّت دقيقة واحدة قبل أن يتحرك القطار لكنها كانت كافية. تغيّر كل شيء الآن. لم تستطع ريتشل كتم ما رأته فأخبرت الشرطة وصارت مرتبطة بما سيحدث بعد ذلك ارتباطاً لا فكاك منه مثلما صارت مرتبطة بحيوات كل من لهم علاقة بالأمر.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789776483477"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "977648347X"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 392,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=hlPXDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=hlPXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ar",
+        "previewLink": "http://books.google.com.eg/books?id=hlPXDwAAQBAJ&printsec=frontcover&dq=bestseller&hl=&cd=39&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=hlPXDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=hlPXDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "EG",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 277.21,
+          "currencyCode": "EGP"
+        },
+        "retailPrice": {
+          "amount": 277.21,
+          "currencyCode": "EGP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=hlPXDwAAQBAJ&rdid=book-hlPXDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 277210000,
+              "currencyCode": "EGP"
+            },
+            "retailPrice": {
+              "amountInMicros": 277210000,
+              "currencyCode": "EGP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "EG",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.eg/books/download/%D9%81%D8%AA%D8%A7%D8%A9_%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B1-sample-pdf.acsm?id=hlPXDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=hlPXDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "رواية نفسية مشوّقة. رواية ستغير إلى الأبد نظرتك إلى حياة الآخرين. رواية تجبرك على قراءتها... تغمر انفعالات القارئ ومشاعره... مثل روائع ..."
+      }
+    }]

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ecommerce website home page</title>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" 
+rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Honk&family=Playball&family=Protest
++Revolution&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Glitch+Pop&display=swap" 
+rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/fashion.css" />
+    <link rel="stylesheet" href="../css/detailsProduct.css" />
+
+</head>
+<body>
+    <!--  start overlay -->
+    <div id="overlay"></div>
+    <!-- end overlay -->
+     <!-- start sidebar -->
+     <div class="xmark flex-center" id="xmark">
+      <i class="fa-solid fa-xmark xmarkSide"></i>
+     </div>
+    <div id="mainSideBar" class="sideBar main">
+        <div class="renova flex-center">
+          <i class="fa-brands fa-r-project"></i> 
+        <span class="flex-center">enova</span>
+        </div>
+      <div  id="boxSideBar" class="boxSideBar">
+        <div class="backMenu" id="cancel">
+          <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+          <span>exit</span>
+         </div>
+      <dl>
+        <dt>trending</dt>
+        <dd><a href=''>best seller</a></dd>
+        <dd><a href=''>hiested rating</a></dd>
+        <dd><a href=''>new arrivalles</a></dd>
+        <dd><a href=''>flash sale</a></dd>
+        </dl> 
+        <dl class="mainDl">
+        <dt>category</dt>
+        <dd id="liElectronices" class="electronices"><a href='#'>electronics</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liPhones" class="phones"><a href='#'>phones & taplets</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liAutomotive" class="automotive"> <a href="#">automotive</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+        <dd id="liFashion" class="fashion">   <a href="#">
+         fashion</a><i class="fas 
+      fa-angle-right sidebarAngle"></i>
+    </dd>
+        <dd><a href='#'>groceries</a></dd>
+        <dd id="liFurniture" class="furniture"><a href='#'>home & furniture</a><i class="fas fa-angle-right 
+ sidebarAngle"></i></dd>
+      </dl>
+        <dl>
+        <dt class="customize">settings</dt>
+        <dd><a href=''>arabic</a></dd>
+        <dd><a href=''>english</a></dd>
+        <dd><a href=''>sign in</a></dd>
+      </dl>
+        <dl>
+ <dt class="customize">custmize</dt>
+ <dd><a href=''>diurnal</a></dd>
+ <dd><a href=''>nightly</a></dd>
+      </dl>
+    </div>
+      <div id="fashion" class="sideBar hidd">
+         <div class="backMenu">
+          <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+          <span>back</span>
+         </div>
+        <dl>
+          <dt><a href="">all fashion</a></dt>
+          <dd><a href="">wear's womens</a></dd>
+          <dd><a href="">shoe's women</a></dd>
+          <dd><a href="">bag's womens</a></dd>
+          <dd><a href="">watch's women</a></dd>
+          <dd><a href="">jewelry</a></dd>
+          <dd><a href="">wear's men</a></dd>
+          <dd><a href="">shoe's men</a></dd>
+          <dd><a href="">watch's men</a></dd>
+        </dl>
+        </div>
+        <div id='phones'class="sideBar hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left 
+  arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>phones</a></dd>
+           <dd><a href="">taplets</a></dd>
+           <dd><a href="">laptops</a></dd>
+           <dd><a href="">mobiles eccessoriess</a></dd>
+         </dl>
+         </div>
+         <div id='furniture'class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href="">furnitures</a></dd>
+           <dd><a href="">accessories home</a></dd>
+           <dd><a href="">accessories kitchen </a></dd>
+         </dl>
+         </div>
+         <div id='automotive'class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>cars</a></dd>
+           <dd><a href="">motors</a></dd>
+           <dd><a href="">sublments motors</a></dd>
+         </dl>
+         </div>
+         <div id="electronices" class="sideBar  hidd">
+          <div class="backMenu">
+           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+           <span>back</span>
+          </div>
+         <dl>
+           <dt><a href="">all</a></dt>
+           <dd><a href=''>headphones</a></dd>
+         </dl>
+         </div>
+    </div>
+    <!-- end sidebar -->
+     <!-- start header -->
+        <header>
+          <div class="header-container">      
+      <!-- start main navbar -->
+      <div class="main-nav flex-just-between">
+        <a href="http://127.0.0.1:5500/index.html">
+          <div class="renova flex-center"> 
+            <i class="fa-brands fa-r-project"></i> 
+          <span class="flex-center">enova</span>
+          </div>
+        </a>
+      <div class="loca-lang flex-center"> 
+        <div class="loca-box iconPersonal" id="loca-box">
+        <div class="location">deliver to </div> 
+                <span class="loca-name">egypt </span>
+        </div>
+           <div class="sign-lang iconPersonal">En</div>
+        </div>
+        <div class="box-search flex-center">
+          <div class="all flex-center">all</div>
+          <input class="search"type='text'name='search'placeholder='search in RENOVA'/>
+          <i class="fas fa-search isearch flex-center"></i>
+          </div>
+          <div class="personal mobile flex-center">
+            <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
+            <a href="http://127.0.0.1:5500/html/signin.html">
+              <div class="sign iconPersonal"> 
+                <i  class="far fa-user fa-fw sign-icon"></i>
+              <span class="text-sign">sign in</span>
+              </div>
+            </a>
+             <div class="box-favorite flex-center iconPersonal"> 
+              <i class="fa-solid fa-heart favorite"></i>
+            <span class="count-favorite">0</span>
+            </div>
+              <div class="cart flex-center iconPersonal">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+              <span class="count-purshes">0</span></div>
+              <div class="parentAad">
+                <a href="http://127.0.0.1:5500/index.html"class="iconPersonal">
+                  <i class="fa-solid fa-home-lg home iconPersonal"></i>
+                </a>
+              </div>
+          </div>
+        </div>
+        <!-- end main navbar -->
+        <!-- start hidden divs main navbar -->
+        <!-- hiddeen location map-->
+        <div class="container-location" id="container-location">
+          <i class="fa-solid fa-circle-xmark xmarkmap" id="xmarkmap"></i>
+  <input name="search-location" placeholder="search in map"id='search-location'/>
+  <div id="map"></div>
+        </div> 
+                <!-- end hidden divs main navbar -->
+        <!-- start second navbar -->
+        <nav class="second-nav flex-just-between">
+          <ul class="links">
+            <li class='all' id="all"><i class="fas fa-bars toggle-menu"></i><a href="#">All</a></li>
+            <li><a href="http://127.0.0.1:5500/html/fashion.html" data-category="fashion">fashion</a></li>
+            <li><a href="http://127.0.0.1:5500/html/electronics.html"  data-category="electronic">electronic</a></li>
+            <li><a href="http://127.0.0.1:5500/html/grocery.html"  data-category="groceries">groceries</a></li>
+            <li><a href="http://127.0.0.1:5500/html/furniture.html"  data-category='furniture'>furniture</a></li>
+            <li><a href="http://127.0.0.1:5500/html/automotive.html"  data-category="automotive">automotive</a></li>
+            <li><a href="http://127.0.0.1:5500/html/phones.html"  data-category="phones">phones</a></li>
+            <li><a href="http://127.0.0.1:5500/html/kitchen.html" data-category="kitchen-accessories">kitchen</a></
+              li>
+            <li><a href="http://127.0.0.1:5500/html/beauty.html" data-category="beauty,skin-care
+                         ">beauty</a></li>
+                         <li><a href="http://127.0.0.1:5500/html/books.html">books</a></li>
+            <li><a href="http://127.0.0.1:5500/index.html">home</a></li>
+          </ul>
+        </nav>  
+                <!-- end second navbar -->
+      </div>
+    </header>
+ <!-- end header -->
+  <!-- start container details product -->
+   <div id="containerDetailsPro">
+    <!-- start section  details product -->
+     <section id="sectionDetails">
+      <div class="detailsProduct flex-center">
+        <div  id="containerImages">
+          <div id="sideImgs"></div>
+          <div class="flex-center" id="containerImage"></div>
+        </div>
+        <div id="containerZoomImg" class="details"></div>
+        <div id="details" class="details">
+          <div class="box">
+            <h1 id="hiddingProduct" class="nameProduct"></h1>
+            <div class="detailsPrice">
+              <div class="price box">
+                <span>new price : </span>
+                <span id="price"></span>
+              </div>
+              <div class="oldPrice box">
+                <span>old price : </span>
+                <span id="oldPrice"></span>
+              </div>
+              <div class="discount box">
+                <span>discount :</span>
+                <span class='flex-center' id="discount"></span>
+              </div>
+              <div class="saving box">
+                <span>saving : </span>
+                <span id="saving"></span>
+              </div>
+              <div class="rating box">
+                <span>rating :</span>
+                <span id="rating"></span>
+                <i class="fa solid fa-star rateProduct"></i>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+           <div id="infoShipping" class="infoShipping flex-just-between">
+            <div id='freeDeliv' class="freeDeliv box">
+              <!-- <i class="fa solid fa-truck freeDetails"></i> -->
+               <div class="containerImage flex-center">
+                <img src="..\photos\free-delivery.png" alt="free delivery"/>
+               </div>
+              <span>free<br>delivery</span>
+            </div>
+            <div class="shipsIn box">
+              <div class="containerImage flex-center">
+                <img src="..\photos\fast-delivery.png"alt="ships in"/>
+                 </div>
+                <span id="shipsIn"></span>
+            </div>
+            <div class="returnPolicy box">
+              <div class="containerImage flex-center">
+                 <img src="..\photos\delivery-status.png" alt="return policy"/>
+            </div>
+              <span id="returnPolicy"></span>
+            </div>
+            <div class="warranty box">
+                <div class="containerImage flex-center">
+                <img src="..\photos\tag.png" alt="warranty"/>
+              </div>
+              <span id="warranty"></span>
+            </div>
+           </div>
+          </div>
+        </div>
+        <div id="containerCart">
+          <div class="container">
+            <div class="bestAndRate">
+              <span id="bestS">best seller</span>
+              <span id="heistedRa">heisted rating</span>
+            </div>
+            <span class="title"id='title'>lkl;l;l;</span>
+         <div>   <span class="egp">egp</span><span class="priceCart"id='priceCart'>5434</span></div>
+         <div id="freeD" class="freeD">
+          <i class="fa solid fa-truck freeIconCar"></i>
+          <span>free delivery</span>
+         </div> 
+         <span  id='inStock' class="inStock"></span>
+         <!-- <span id="lowStock">low stock</span> -->
+         <div class="amount flex-center">
+          <span class="amountText">amount :</span>
+          <input type="number" name="amount" placeholder="0"/>
+         </div>
+         <div class="cartBuy">
+          <a href="#" id="linkAddToCart">
+            <span>add to cart</span>
+          </a>
+          <a href="">
+            <span>buy now</span>
+          </a>
+         </div>
+          </div>
+        </div>
+      </div>
+      <div class="description common">
+        <div class="box container">
+          <span class="heading">details product</span>
+          <div class="descritionPro boxPro">
+            <span>description :</span>
+            <span id="description"></span>
+          </div>
+          <div id="detailsBra" class="brand boxPro">
+            <span>brand :</span>
+            <span id="brand"></span>
+          </div>
+          <div class="kind boxPro">
+            <span>kind :</span>
+            <span id="kind"></span>
+          </div>
+          <div id="forNotBooks">
+          <div class="dimensions">
+            <div class="depth boxPro">
+              <span>depth :</span>
+              <span id="depth"></span>
+            </div>
+            <div class="height boxPro">
+              <span>height :</span>
+              <span id="height"></span>
+            </div>
+            <div class="width boxPro">
+              <span>width :</span>
+              <span id="width"></span>
+            </div>
+            <div class="weight boxPro">
+              <span>weight :</span>
+              <span id="weight"></span>
+            </div>
+          </div>
+            <div class="barCode boxPro">
+              <span>barCode :</span>
+              <span id="barCode"></span>
+            </div>
+            <div class="createAt boxPro">
+              <span>created at :</span>
+              <span id="createdAt"></span>
+            </div>
+            <div class="sku boxPro">
+              <span>sku :</span>
+              <span id="sku"></span>
+            </div>
+          
+            </div>
+            <div id="forBooks">
+              <div class="author boxPro">
+                <span>author :</span>
+                <span id="author"></span>
+              </div>
+              <div class="printType boxPro">
+                <span>print type  :</span>
+                <span id="printType"></span>
+              </div>
+              <div class="language boxPro">
+                <span>language :</span>
+                <span id="language"></span>
+              </div>
+              <div class="pageCount boxPro">
+                <span>page count :</span>
+                <span id="pageCount"></span>
+              </div>
+              <div class="publisher boxPro">
+                <span>publisher :</span>
+                <span id="publisher"></span>
+              </div>
+              <div class="publishDate boxPro">
+                <span>publish date :</span>
+                <span id="publishDate"></span>
+              </div>
+              <div class="contentVersion boxPro">
+                <span>content version :</span>
+                <span id="contentVersion"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end description -->
+         <!-- start customer reviews -->
+          <div class="containerCustomer common" id="containerCustomer">
+            <div class="partCustomer container" id="partCustomer">
+              <span class="heading">customer reviews</span>
+              <!-- <div class="card" id="cardDetails"> -->
+                <!-- <div class="details"> -->
+                <!-- <span class="firstLetter flex-center">e</span> -->
+                <!-- <span class='customerName'> ahmed mahmoud</span> -->
+              <!-- </div> -->
+              <!-- <div class="rating"> -->
+                <!-- <i class="fa solid fa-star reviwe"></i> -->
+                <!-- <i class="fa solid fa-star reviwe"></i> -->
+                <!-- <i class="fa solid fa-star reviwe"></i> -->
+              <!-- </div> -->
+              <!-- <span class="comment">jkklk gyyu dttuyiu ffhjhj </span> -->
+              <!-- <span class="date">reviw in 2/3/2024</span> -->
+              <!-- <a href="">translate to english</a> -->
+              <!-- </div> -->
+            </div>
+          </div>
+         <!-- end customer reviews -->
+     <!-- start Products related  -->
+     <div class="containerProductsRe common" id="containerProductsRe">
+      <div class="partProductsRelated container" id="partProductsRelated">
+        <span class="heading">related products</span>
+        <div class="containerPro container-bestSeller">
+          <div class="buttons flex-just-between"> 
+            <div class="first flex-center"> 
+               <i class="fas fa-angle-double-left moveLeft"></i>
+            </div>
+              <div class="last flex-center">   
+                  <i class="fas fa-angle-double-right moveRight"></i>
+              </div>
+            </div>
+          <div class="products box-products" id="products"></div>
+        </div>
+        </div>
+     </div>
+    <!--end Products related  -->
+     </section>
+    <!-- end section  details product -->
+   </div>
+  <!-- end container details product -->
+  <!-- start footer -->
+ <footer>
+    <!-- start sign in -->
+     <div class="containerSign flex-center">
+      <div class="sign flex-center">
+        <a href="http://127.0.0.1:5500/index.html">
+          <div class="renova flex-center">
+            <i class="fa-brands fa-r-project"></i> 
+          <span class="flex-center">enova</span>
+          </div>
+        </a>
+        <div class="buttonSign"><a href="http://127.0.0.1:5500/html/signin.html"> sign in renova</a> </div>
+      </div>
+     </div>
+     
+    <!-- end sign in -->
+     <!-- start category footer -->
+      <div class="containerCat  categories flex-center">
+        <div class="containerCategory flex-just-between">
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/fashion.html">fashion</a></h4>
+            <ul>
+              <li><a>women clothes</a></li>
+              <li><a>women bags</a></li>
+              <li><a>women shoes</a></li>
+              <li><a>women watches</a></li>
+              <li><a> men clothes</a></li>
+              <li><a> men shoes</a></li>
+              <li><a> men watches</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/electronics.html">electronic</a></h4>
+            <ul>
+              <li><a>mobiles</a></li>
+              <li><a>tablet</a></li>
+              <li><a>labtop</a></li>
+              <li><a>accessories mobiles</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/furniture.html">home</a></h4>
+            <ul>
+              <li><a>furniture</a></li>
+              <li><a>decoration home</a></li>
+              <li><a> kitchen</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/automotive.html">automotive</a></h4>
+            <ul>
+              <li><a>cars</a></li>
+              <li><a>motorcycle</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4><a href="http://127.0.0.1:5500/html/books.html">books</a></h4>
+            <ul>
+              <li><a>fiction</a></li>
+              <li><a>science</a></li>
+            </ul>
+          </div>
+      </div>
+      </div>
+      <!-- end category footer -->
+       <!-- start about renova ....... -->
+       <div class="containerCat aboutRenova flex-center">
+        <div class="containerCategory flex-just-between">
+          <div class="category">
+            <h4>knew about renova</h4>
+            <ul> 
+              <li><a>about us</a></li>
+              <li><a>contact us</a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4>join us on</h4>
+            <ul class="social">
+              <li><a><i class="fab fa-facebook-f facebook"></i></a></li>
+              <li><a><i class="fab fa-twitter twitter"></i></a></li>
+              <li><a><i class="fab fa-youtube youtube"></i></a></li>
+            </ul>
+          </div>
+          <div class="category">
+            <h4>payment methods</h4>
+            <ul class="payment">
+              <li><a><img src="..\photos\card-mastercard.svg"alt=''/></a></li>
+              <li><a><img src='..\photos\card-visa.svg'alt=''/></a></li>
+              <li><a><img src='..\photos\cod-en.svg'alt=''/></a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+    
+           <!--  end about renova ....... -->
+             <!-- start rights footer -->
+    <div class="containerEnd flex-center">
+      <div class="endFooter">
+        <ul class='flex-center'>
+          <li><a>warranty policy</a></li>
+          <li><a>conditions of use</a></li>
+          <li><a>privacy policy</a></li>
+        </ul>
+        <p>  &#169; 2024 renova all rights reversed</p>
+      </div>
+    </div>
+             <!-- end rights footer -->
+     </footer>
+     <!-- end footer -->
+    
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&
+    libraries=places"></script> -->
+    <!-- <script async> -->
+          <!-- // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&loading=async&
+    callback=initMap"</script> -->
+    
+    <!-- </script> -->
+
+        <script  type="module" src="../js/detailsProduct.js" deffer></script>
+      </body>
+    </html>
+    
