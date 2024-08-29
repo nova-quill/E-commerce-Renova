@@ -1,0 +1,4 @@
+[[redirectes]]
+from = "/html/*
+to = "/html/:splat"
+status = 200
