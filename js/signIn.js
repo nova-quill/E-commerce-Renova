@@ -1,5 +1,56 @@
 
-// import{id}from "../js/common.js";
+import{account}from "../js/appWrite.js";
+fetch('https://cloud.appwrite.io/v1',{
+    method:'GET',
+    mode:'no-cors'
+})
+
+async function hundleLogin() {
+    // account.createSession('mm6136793@gmail.com','mmmmmnnnnn');
+account.createOAuth2Session(
+    'google',
+    'https://chic-marzipan-4499bc.netlify.app',
+    // 'http://localhost:5500/',
+    // 'http://localhost:5500/fail'
+)}
+// hundleLogin();
+// getUser();
+async function getUser() {
+    try{
+        const user=await account.get();
+        renderProfileScreen(user);
+    }
+    catch(error){
+renderLoginScreen();
+    }
+}
+
+document.getElementById('button').addEventListener('click',function(){
+    hundleLogin();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -41,3 +92,16 @@ function signIn(){
     // initClient();
 // document.getElementById('button').addEventListener('click',()=>signIn());
 });
+function hundel(res){
+
+}
+// window.onload=function (){
+    // google.accounts.id.initialize({
+        // client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com',
+        // callback:hundel
+    // })
+    // google.accounts.id.renderButton(
+        // document.querySelector('.g_id_signin'),{theme:"outline",size:'large'}
+    // )
+    // google.accounts.id.prompt();
+// }

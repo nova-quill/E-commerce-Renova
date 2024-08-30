@@ -14,20 +14,21 @@ rel="stylesheet"/>
     <link rel="stylesheet" href="../css/all.min.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/signIn.css" />
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@15.0.0/dist/iife/sdk.min.js"></script>
     <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 <script>
-   function initClient(){
-       gapi.load('auth2',function(){
-            const auth2=gapi.auth2.init({
-                client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com',
-            })
-        auth2.then(function(){
-            console.log('kllk');
-        }).catch(function(error){
-            console.error('lll',error);
-        })})
+//    function initClient(){
+    //    gapi.load('auth2',function(){
+            // const auth2=gapi.auth2.init({
+                // client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com',
+            // })
+        // auth2.then(function(){
+            // console.log('kllk');
+        // }).catch(function(error){
+            // console.error('lll',error);
+        // })})
 
-    }
+    // }
     // document.addEventListener('DOMContentLoaded',function(){initClient()});
 </script>
 </head>
@@ -40,18 +41,17 @@ rel="stylesheet"/>
                     <input type="email" name="email"/>
                     <label>enter password</label>
                     <input type="text" name="pass"/>
-                    <!-- <div id="g_id_onload" data-client_id="464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com" data-login_uri="https://localhost:3000"> -->
-                        <!-- <div class="g_id_signin" data-type="standard"></div> -->
-                    <!-- </div> -->
+                    <!-- <div id="g_id_onload" data-client_id="464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com" data-login_uri="https://chic-marzipan-4499bc.netlify.app">  -->
+                         <!-- <div class="g_id_signin" data-type="standard"></div>  -->
+                     <!-- </div>  -->
                 </form>
-                    <div id="g_id_onload"
-                     data-client_id="480220361365-84cjkhfor4451cfuai7d7ofrjvohmnjb.apps.googleusercontent.com" 
-                    data-auto_prompt="false"
-                    data-login_uri='https://chic-marzipan-4499bc.netlify.app'
-                    >
-               </div>
+                    <!-- <div id="g_id_onload" -->
+                     <!-- data-client_id="480220361365-84cjkhfor4451cfuai7d7ofrjvohmnjb.apps.googleusercontent.com"  -->
+                    <!-- data-auto_prompt="false" -->
+                    <!-- data-login_uri='https://chic-marzipan-4499bc.netlify.app'> -->
+               <!-- </div> -->
                
-                <div class="g_id_signin"
+                <!-- <div class="g_id_signin"
                     data-type="standard"
                     data-shape="rectangular"
                     data-theme="outline"
@@ -59,7 +59,7 @@ rel="stylesheet"/>
                     data-size="large"
                     data-logo_alignment="left"> 
                 </div> 
-              
+               -->
             </div>
         </section>
     </div>
@@ -72,17 +72,17 @@ rel="stylesheet"/>
      <!-- }  -->
 <!-- </script>  -->
 <!-- <script type="module" src="../js/signIn.js"></script> -->
-<!-- <button id="button" onclick="">with google</button> -->
+<button id="button" onclick="">with google</button>
 <script>
-   function signIn(){
-        const authInstance=gapi.auth2.getAuthInstance();
- authInstance.signIn().then(googleUser=>{
-            const idToken=googleUser.getAuthResponse().id_token;
-             console.log('token',idToken);
-     }).catch(error=>{
-         console.error('error',error);
-     })
- }
+//    function signIn(){
+//         const authInstance=gapi.auth2.getAuthInstance();
+//  authInstance.signIn().then(googleUser=>{
+//             const idToken=googleUser.getAuthResponse().id_token;
+//              console.log('token',idToken);
+//      }).catch(error=>{
+//          console.error('error',error);
+//      })
+//  }
 </script>
 <script type="module" src="../js/signIn.js"></script>
 
