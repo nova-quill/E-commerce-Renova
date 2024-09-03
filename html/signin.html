@@ -11,10 +11,15 @@ rel="stylesheet">
 family=Protest
 +Revolution&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Glitch+Pop&display=swap" 
 rel="stylesheet"/>
+<!-- <link rel="stylesheet"href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css'/> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/css/intlTelInput.css">
+<!-- <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/> -->
     <link rel="stylesheet" href="../css/all.min.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/signIn.css" />
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@15.0.0/dist/iife/sdk.min.js"></script>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.js'></script> -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/intlTelInput.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/appwrite@15.0.0/dist/iife/sdk.min.js"></script> -->
     <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 <script>
 //    function initClient(){
@@ -35,32 +40,41 @@ rel="stylesheet"/>
 <body>
     <div id="containerSignIn">
         <section>
-            <div id="formSign">
-                <form>
-                    <label>enter your email</label>
-                    <input type="email" name="email"/>
+            <div class="renova flex-center">
+                <i class="fa-brands fa-r-project"></i> 
+              <span class="flex-center">enova</span>
+              </div>
+            <div class='formSign'id="formSignIn">
+                <span class="signIn">sign in</span>
+                <form action="" method="POST">
+                    <label>enter your username</label>
+                    <input id='logUserName'type="text" name="username" required/>
                     <label>enter password</label>
-                    <input type="text" name="pass"/>
-                    <!-- <div id="g_id_onload" data-client_id="464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com" data-login_uri="https://chic-marzipan-4499bc.netlify.app">  -->
-                         <!-- <div class="g_id_signin" data-type="standard"></div>  -->
-                     <!-- </div>  -->
+                    <input id="logPassword" type="password" name="pass" required/>
+                    <input type="submit" name="submit" value="login"/>
                 </form>
-                    <!-- <div id="g_id_onload" -->
-                     <!-- data-client_id="480220361365-84cjkhfor4451cfuai7d7ofrjvohmnjb.apps.googleusercontent.com"  -->
-                    <!-- data-auto_prompt="false" -->
-                    <!-- data-login_uri='https://chic-marzipan-4499bc.netlify.app'> -->
-               <!-- </div> -->
-               
-                <!-- <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="rectangular"
-                    data-theme="outline"
-                    data-text="sign_in_with"
-                    data-size="large"
-                    data-logo_alignment="left"> 
-                </div> 
-               -->
+                <div id="createNewAccount">create new account in renova</div> 
             </div>
+            <div class='formSign' id="formSignUp">
+                <span class="signIn">create account</span>
+                <form action="" method="POST">
+                    <label> your username</label>
+                    <input id='userName'type="text" name="username" required/>
+                    <label> your name</label>
+                    <input id="name" type="text" name="name" required/>
+                    <label>your phone</label>
+                    <input id='phone' type="tel" name="number" placeholder="number mobile"required/>
+                    <label>your email</label>
+                    <input id='email' type="email" name="email" placeholder=""required/>
+                    <label>  password</label>
+                    <input id="password" type="password" name="pass" required/>
+                    <label>re-enter password</label>
+                    <input id='re-enterPass'type="password" name="repass" required/>
+                
+                    <input id="upSubmit" type="submit" name="submit" value="register"/>
+                </form>
+               <div id="haveAccount">already have an account ? <span id="sign">login</span></div>
+                </div>
         </section>
     </div>
 
@@ -72,7 +86,7 @@ rel="stylesheet"/>
      <!-- }  -->
 <!-- </script>  -->
 <!-- <script type="module" src="../js/signIn.js"></script> -->
-<button id="button" onclick="">with google</button>
+<!-- <button id="button" onclick="">with google</button> -->
 <script>
 //    function signIn(){
 //         const authInstance=gapi.auth2.getAuthInstance();
@@ -92,9 +106,29 @@ rel="stylesheet"/>
         <!-- client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com' -->
     <!-- }) -->
 <!-- })</script> -->
-
+<script>
+    // Appwrite.get().then(res=>{
+        // console.log(res);
+    // })
+</script>
 </html>
 
 <!-- data-context="signin"   -->
 <!-- data-ux_mode="popup"  -->
 <!-- data-callback="loginCallback" -->
+                    <!-- <div id="g_id_onload" -->
+                    <!-- data-client_id="480220361365-84cjkhfor4451cfuai7d7ofrjvohmnjb.apps.googleusercontent.com" 
+-->
+                   <!-- data-auto_prompt="false" -->
+                   <!-- data-login_uri='https://chic-marzipan-4499bc.netlify.app'> -->
+              <!-- </div> -->
+              
+               <!-- <div class="g_id_signin"
+                   data-type="standard"
+                   data-shape="rectangular"
+                   data-theme="outline"
+                   data-text="sign_in_with"
+                   data-size="large"
+                   data-logo_alignment="left"> 
+               </div> 
+              -->

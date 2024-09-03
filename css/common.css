@@ -1375,6 +1375,7 @@ footer .containerEnd .endFooter ul {
 
 /* end end footer */
 /* end footer */
+/* start media root */
 @media (min-width:1400px) {
     :root {
         font-size: 18px;
