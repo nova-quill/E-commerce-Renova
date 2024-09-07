@@ -128,7 +128,17 @@ button {
     font-weight: 600;
     text-transform: capitalize;
 }
-
+#containerSignIn section .formSign .error {
+    width:70%;
+    padding: .5rem;
+    margin: .5rem auto;
+    color:red;
+    font-size:.8rem;
+    text-transform: capitalize;
+    text-align: center;
+    border:.03rem solid red;
+    display: none;
+}
 #containerSignIn section .formSign form {
     /* width:30rem; */
     width: 100%;
@@ -207,7 +217,13 @@ button {
 #containerSignIn section #formSignUp {
     display: none;
 }
-
+#containerSignIn section #formSignUp #email.redError,#containerSignIn section #formSignUp #userName.redError,#containerSignIn section #formSignUp #password.redError {
+    border-color: red;
+}
+#containerSignIn section #formSignUp #email.success,#containerSignIn section #formSignUp #userName.success,
+#containerSignIn section #formSignUp #password.success {
+    border-color: green;
+}
 #containerSignIn section .formSign#formSignUp #haveAccount {
     margin: 1rem auto;
     font-size: .9rem;
@@ -225,7 +241,11 @@ button {
 #containerSignIn section .formSign#formSignUp #haveAccount span#sign:hover {
     color: rgb(2, 156, 156);
 }
+#containerSignIn section .formSign#formSignUp #haveAccount span#sign.hover{
+    /* border:1px solid red; */
+    color: rgb(2, 156, 156);
 
+}
 /* end form sign up */
 /* start intl-tel-input */
 .iti {

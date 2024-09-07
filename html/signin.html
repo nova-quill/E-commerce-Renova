@@ -46,6 +46,7 @@ rel="stylesheet"/>
               </div>
             <div class='formSign'id="formSignIn">
                 <span class="signIn">sign in</span>
+                <div class='error' id="errorLogin">username or password is incorrect</div>
                 <form action="" method="POST">
                     <label>enter your username</label>
                     <input id='logUserName'type="text" name="username" required/>
@@ -57,6 +58,7 @@ rel="stylesheet"/>
             </div>
             <div class='formSign' id="formSignUp">
                 <span class="signIn">create account</span>
+                <!-- <div class='error' id="errorRegister">username or password is incorrect</div> -->
                 <form action="" method="POST">
                     <label> your username</label>
                     <input id='userName'type="text" name="username" required/>
@@ -73,6 +75,7 @@ rel="stylesheet"/>
                 
                     <input id="upSubmit" type="submit" name="submit" value="register"/>
                 </form>
+                <div class='error' id="errorRegister"></div>
                <div id="haveAccount">already have an account ? <span id="sign">login</span></div>
                 </div>
         </section>
@@ -98,7 +101,7 @@ rel="stylesheet"/>
 //      })
 //  }
 </script>
-<script type="module" src="../js/signIn.js"></script>
+<script  type="module" defer src="../js/signIn.js"></script>
 
 </body>
 <!-- <script>gapi.load('auth2',function(){ -->

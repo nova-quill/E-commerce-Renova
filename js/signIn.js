@@ -1,32 +1,54 @@
 'use strict'
-// import {id } from "../js/common.js";
+let allErrors=[];
+let interval;
+let onEffect=true;
+// import {effectHoverOnSignIn } from "../js/common.js";
 function id(idName) {
     let nameVariable = document.getElementById(idName);
     return nameVariable;
   }
-
+console.log( id('phone'));
 document.addEventListener('DOMContentLoaded',function(){
     id('phone').addEventListener('input',function(){
         // this.value=this.value.replace(/[^\d]/g,'');
     })
     showSignInOrSignUp('createNewAccount','formSignIn','formSignUp');
     showSignInOrSignUp('sign','formSignUp','formSignIn');
-
     id('formSignUp').addEventListener('submit',(e)=>{
         e.preventDefault();
-        const phoneNumber=phoneInput.getNumber();
-        console.log(phoneNumber);
-        hhh();
+        register();
         })
         id('formSignIn').addEventListener('submit',(e)=>{
             e.preventDefault();
-            const phoneNumber=phoneInput.getNumber();
-            console.log(phoneNumber);
             logIn();
             })
 
 })
 
+function register(){
+    allErrors=[];
+    const phoneNumber=phoneInput.getNumber();
+    console.log(phoneNumber);
+    if( id('password').value!== id('re-enterPass').value&&id('password').value.length>=6){
+        id('password').style.borderColor='green';
+        id('re-enterPass').style.borderColor='red';
+        allErrors.push('passwords do not match, please try again');
+    }
+    if( id('password').value=== id('re-enterPass').value){
+        id('re-enterPass').style.borderColor='green';
+        postRequestForRegister();
+    }
+    if( id('password').value!== id('re-enterPass').value&&id('password').value.length<6){
+        id('re-enterPass').style.borderColor='red';
+        allErrors.push('passwords do not match, please try again');
+    }
+    if(allErrors.length>0){
+        id('errorRegister').style.display='block';
+        id('errorRegister').innerHTML=`${allErrors.join('')}`;
+        }
+        validNumber();
+
+}
 
 
 
@@ -57,41 +79,71 @@ id(signUp).classList.add('visible');
 
 
 
-  async function hhh(){
+  async function postRequestForRegister(){
     var myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
-    var formdata = new FormData();
+    let  formdata = new FormData();
 formdata.append("username", id('userName').value);
 formdata.append("password", id('password').value);
 formdata.append("name", id('name').value);
 formdata.append("email",id('email').value );
-// formdata.append("phone",id('phone').value);
+formdata.append("rePass",id('re-enterPass').value);
 let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
      method: "POST",
     body:formdata,
     redirect:'follow',
      headers: myHeaders
    })
-//    .then(response=> response.json()).then(data=>{
+   try{
    let data = await response.json();
-// data.user.phone=id('phone').value;
-   if(data){
-    console.log('success');
+   if(response.status===200){
   let userToken=data.token;
-    console.log(userToken);
-    // window.location.href='http://127.0.0.1:5500/index.html';
+    window.location.href='http://127.0.0.1:5500/index.html';
   window.localStorage.setItem('userToken',JSON.stringify(userToken));
   window.localStorage.setItem('user',JSON.stringify(data.user));
-
- console.log(window.localStorage.getItem('userToken'));
- console.log(window.localStorage.getItem('user'));
-
    }
-   console.log(data);
+   else{
+    id('errorRegister').style.display='block';
+    hundleRegisterErrors(data.errors.username,'userName');
+    hundleRegisterErrors(data.errors.email,'email');
+    hundleRegisterErrors(data.errors.password,'password');
+
+    hundleRegisterErrors(data.errors.username,'userName',true);
+    hundleRegisterErrors(data.errors.password,'password',true);
+    hundleRegisterErrors(data.errors.email,'email',true);
+    if(id('email').classList.contains('redError')){
+    effectHoverOnSignIn('sign');
+    }
+    if(id('email').classList.contains('redError')==false){
+       clearInterval(interval);
+       id('sign').classList.remove('hover');
+    }
+
 }
+
+   }catch(error){
+    allErrors.push('error in api');
+   }
+   if(allErrors.length>0){
+    id('errorRegister').innerHTML=`${allErrors.join('')}`;
+    }
    
-console.log(window.localStorage.getItem('userToken'));
-console.log(window.localStorage.getItem('user'));
+}
+   function hundleRegisterErrors(vari,element,test){
+    if(test){
+    if(vari==undefined){
+        id(element).classList.remove('redError');
+        id(element).classList.add('success');
+    }}
+    else{
+        if(vari!=undefined){
+           allErrors.push(vari);
+           id(element).classList.add('redError');
+        } 
+    }
+   }
+// console.log(window.localStorage.getItem('userToken'));
+// console.log(window.localStorage.getItem('user'));
 
 
 
@@ -132,19 +184,9 @@ var requestOptions = {
 async function logIn(){
   var myHeaders = new Headers();
   myHeaders.append("Accept", "application/json");
-  
-  var raw = "{\n    \"username\" : \"mohamed mahmoudd\",\n    \"password\" : \"123456\"\n}";
  let  formdata=new FormData();
   formdata.append("username", id('logUserName').value);
-// formdata.append("password", id('userName').value);
 formdata.append("password",id('logPassword').value);
-
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: formdata,
-    redirect: 'follow'
-  };
   
  let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
     method: "POST",
@@ -155,18 +197,15 @@ formdata.append("password",id('logPassword').value);
  })
  let data=await res.json();
  let userToken=data.token;
- if(data){
-    console.log('ssss');
-    // window.localStorage.setItem('userToken',JSON.stringify(userToken));
-    // window.localStorage.setItem('user',JSON.stringify(data.user));
+ if(res.status===200){
+    window.localStorage.setItem('userToken',JSON.stringify(userToken));
+    window.localStorage.setItem('user',JSON.stringify(data.user));
+    window.location.href='http://127.0.0.1:5500/index.html';
  }
- console.log(data);
-    // .then(response => response.json())
-    // .then(result => console.log(result))
-    // .catch(error => console.log('error', error));
-
+ else{
+id('errorLogin').style.display='block';
+ }
 }
-// logIn();
 
 
 
@@ -186,7 +225,8 @@ const extension = phoneInput.getExtension();
 console.log(extension);
 
 
-document.getElementById('formSignUp').addEventListener('submit',()=>{
+// document.getElementById('formSignUp').addEventListener('submit',()=>{
+    function validNumber(){
     const isValid = phoneInput.isValidNumber();
     console.log(isValid);
     const error = phoneInput.getValidationError();
@@ -199,17 +239,35 @@ document.getElementById('formSignUp').addEventListener('submit',()=>{
     const countryData = phoneInput.getSelectedCountryData();
     console.log(countryData);
     phoneInput.setPlaceholderNumberType("FIXED_LINE");
-    phoneInput.setNumber("+447733123456");
-})
+}
+    // phoneInput.setNumber("+447733123456"); 
+// })
 
 const countryData = intlTelInput.getCountryData();
 console.log(countryData);
 
 
+export function effectHoverOnSignIn(elementId){
+    let isHovered=false;
+     interval=setInterval(()=>{
+      if(isHovered){
+        id(elementId).classList.remove('hover');
+      }
+      else{
+        id(elementId).classList.add('hover');
+      }
+      isHovered=!isHovered;
+    },500)
+    setTimeout(()=>{
+      clearInterval(interval);
+      id(elementId).classList.remove('hover');
+    },20000)
+}
 
-
-
-
+async function phoneuser() {
+fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.error('error',error)));    
+}
+phoneuser();
 
 
 
@@ -232,7 +290,12 @@ console.log(countryData);
 
 
 
+// twilio
+// C9DKF1LMTDD5UR6JUXJ4CVGB
+// C9DKF1LMTDD5UR6JUXJ4CVGB
 
+// sid
+// ACbac2f6f2a1afab09cfa2a22d8cb44f9b
 
 
 

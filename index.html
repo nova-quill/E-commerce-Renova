@@ -69,8 +69,8 @@
         <dt class="customize">settings</dt>
         <dd><a href=''>arabic</a></dd>
         <dd><a href=''>english</a></dd>
-        <dd><a href=''>sign in</a></dd>
-        <dd><a href=''></a></dd>
+        <dd id="logoutSideBar"><a href='#'>log out</a></dd>
+        <dd id="loginSideBar"><a href="http://127.0.0.1:5500/html/signin.html">sign in</a></dd>
       </dl>
         <dl>
 <dt class="customize">custmize</dt>
@@ -191,10 +191,12 @@
           </div>
           <div class="personal mobile flex-center">
             <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
-              <div class="sign iconPersonal"> 
-              <a href="http://127.0.0.1:5500/html/signin.html" class="iconPersonal"></a>
+              <div id="signHeader" class="sign iconPersonal"> 
+              <a href="http://127.0.0.1:5500/html/signin.html" class="iconPersonal">
                 <i  class="far fa-user fa-fw sign-icon"></i>
-              <span class="text-sign">sign in</span>
+              <span id='text-sign'class="text-sign">sign in</span>
+              <span id="hello"></span>
+            </a>
               </div>
              <div class="box-favorite flex-center iconPersonal"> 
               <i class="fa-solid fa-heart favorite"></i>
@@ -888,7 +890,8 @@
       <span class="flex-center">enova</span>
       </div>
     </a>
-    <div class="buttonSign"><a href="http://127.0.0.1:5500/html/signin.html"> sign in renova</a> </div>
+    <div class="buttonSign" id="logoutFooter"> log out</div>
+    <div id="loginFooter" class="buttonSign"><a href="http://127.0.0.1:5500/html/signin.html"> sign in renova</a> </div>
   </div>
  </div>
  

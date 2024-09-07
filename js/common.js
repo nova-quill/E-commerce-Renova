@@ -2,6 +2,8 @@
 import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
+// import { effectHoverOnSignIn } from "../js/signIn.js";
+
 console.log(book);
 let cardLessThan;
 let containerImage;
@@ -1107,6 +1109,62 @@ export function resetPriceDashboard(
   });}
 
 // end reset dashboard
+// start function related by log in and log out
+function testUser(){
+  if(window.localStorage.getItem('userToken')){
+    console.log('yes');
+    let user=JSON.parse(window.localStorage.getItem('user'));
+  id('hello').textContent=`hi, ${user.name}`||'';
+  showAndHideLoginAndLogout('none','block','inline-block');
+  }
+  else{
+      effectHoverOnSignIn('signHeader');
+    showAndHideLoginAndLogout('inline-block','none','none');
+    console.log('no');
+  }
+
+}
+testUser();
+function showAndHideLoginAndLogout(none,block,inlineblock){
+  const signInButton= document.querySelector('footer .containerSign .sign .buttonSign');
+  id('text-sign').style.display=none;
+  id('hello').style.display=inlineblock;
+  signInButton.style.display=none;
+  id('logoutFooter').style.display=block;
+  id('loginFooter').style.display=none;
+  id('loginSideBar').style.display=none;
+  id('logoutSideBar').style.display=block;
+  id('logoutSideBar').style.marginBottom='1rem';
+}
+function clickedLogout(button){
+button.addEventListener('click',()=>{
+  window.localStorage.removeItem('userToken');
+  window.localStorage.removeItem('user');
+  testUser();
+  window.location.href='http://127.0.0.1:5500/index.html';
+})
+}
+clickedLogout(id('logoutFooter'));
+clickedLogout(id('logoutSideBar'));
+
+export function effectHoverOnSignIn(elementId){
+  let isHovered=false;
+  const interval=setInterval(()=>{
+    if(isHovered){
+      id(elementId).classList.remove('hover');
+    }
+    else{
+      id(elementId).classList.add('hover');
+    }
+    isHovered=!isHovered;
+  },500)
+  setTimeout(()=>{
+    clearInterval(interval);
+    id(elementId).classList.remove('hover');
+  },20000)
+}
+// end function related by log in and log out
+
 
 
 

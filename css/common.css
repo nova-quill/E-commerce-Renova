@@ -418,7 +418,9 @@ dl dd {
     align-items: center;
     position: relative;
 }
-
+dl dd#logoutSideBar{
+    display: none;
+}
 dl dd:not(.sideBar dl.mainDl dd) {
     width: fit-content;
 }
@@ -688,7 +690,9 @@ header .main-nav .personal .sign {
     padding: .25rem;
     cursor: pointer;
 }
-
+header .main-nav .personal .sign#signHeader.hover {
+    box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
+}
 header .main-nav .personal .sign-icon {
     display: inline-block;
     font-size: 1.375rem;
@@ -700,7 +704,12 @@ header .main-nav .personal .text-sign {
     font-size: 1.2rem;
     text-transform: capitalize;
 }
-
+header .main-nav .personal #hello {
+    color:white;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    display: none;
+}
 @media(max-width:767.98px) {
     header .main-nav .personal .text-sign {
         display: none;
@@ -1252,7 +1261,10 @@ footer .containerSign .sign .buttonSign:hover {
     color: gray;
     background-color: whitesmoke;
 }
-
+footer .containerSign .sign .buttonSign#logoutFooter {
+    cursor: pointer;
+    display: none;
+}
 /* end sign in */
 /* start category footer */
 footer .containerCat {
