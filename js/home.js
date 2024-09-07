@@ -613,8 +613,8 @@ function sugesstedProducts(containerProduct) {
 // end page home
 
 
-fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch
-(error=>console.log('error',error)));    
+// fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch
+// (error=>console.log('error',error)));    
 
 
 
