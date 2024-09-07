@@ -264,10 +264,10 @@ export function effectHoverOnSignIn(elementId){
     },20000)
 }
 
-async function phoneuser() {
-fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.error('error',error)));    
-}
-phoneuser();
+// async function phoneuser() {
+fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.log('error',error)));    
+// }
+// phoneuser();
 
 
 
