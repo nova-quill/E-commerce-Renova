@@ -98,7 +98,7 @@ let response=await  fetch("https://tarmeezacademy.com/api/v1/register", {
    let data = await response.json();
    if(response.status===200){
   let userToken=data.token;
-    window.location.href='http://127.0.0.1:5500/index.html';
+    window.location.href='../index.html';
   window.localStorage.setItem('userToken',JSON.stringify(userToken));
   window.localStorage.setItem('user',JSON.stringify(data.user));
    }
@@ -200,7 +200,7 @@ formdata.append("password",id('logPassword').value);
  if(res.status===200){
     window.localStorage.setItem('userToken',JSON.stringify(userToken));
     window.localStorage.setItem('user',JSON.stringify(data.user));
-    window.location.href='http://127.0.0.1:5500/index.html';
+    window.location.href='../index.html';
  }
  else{
 id('errorLogin').style.display='block';
