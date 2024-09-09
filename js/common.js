@@ -295,7 +295,7 @@ function createCardImage(datas, containerProducts, i) {
   // lgl(i);
   cardLessThan = document.createElement("a");
   cardLessThan.className = "cardLessThan";
-  cardLessThan.href=`http://127.0.0.1:5500/html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
+  cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
   createParentDiv("aCardLess", cardLessThan);
   containerImage = document.createElement("div");
   containerImage.className = "containerImage flex-center";
