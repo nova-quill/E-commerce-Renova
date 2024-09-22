@@ -304,7 +304,9 @@ function createCardImage(datas, containerProducts, i) {
   cardLessThan.className = "cardLessThan";
   const urlParams=new URLSearchParams(window.location.search);
 console.log(window.location.href);
-  if(window.location.href.includes('/index.html')) {
+  // if(window.location.href.includes('/index.html')) {
+    if(window.location.pathname==('/index.html')||(window.location.pathname=='/')) {
+
   cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
   }
   else{
