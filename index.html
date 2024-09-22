@@ -29,10 +29,39 @@
 
   </head>
   <body>
+    <div id="snipcart" data-api-key='YmNkM2VmNDYtODI0ZC00ODIxLTk3YzQtNTNlZDQzOWZmZWM1NjM4NjE5OTA3NTU4NTM1MzEz'hidden></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+    <script>
+      // window.SnipcartSettings = {
+          // publicApiKey: 'YmNkM2VmNDYtODI0ZC00ODIxLTk3YzQtNTNlZDQzOWZmZWM1NjM4NjE5OTA3NTU4NTM1MzEz',
+          // secrtapi:'ST_M2JmYWI5NzYtZGY2OS00ZDMyLTk2MzEtMGIxYjVjMTJlOThiNjM4NjE5OTA5NzUwMjQ3Mzgy'
+          // loadStrategy: 'on-user-interaction',
+          // currency:'cad',
+          // version:'3.7.1',
+          // loadStrategy:'on-user-interaction',
+          // loadsCSS:false,
+          // addProductBehavior:'none',
+          // modalStyle:'side',
+
+      // };
+  
+      // (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+      </script>
     <!--  start overlay -->
     <div id="overlay"></div>
     <!-- end overlay -->
      <!-- start sidebar -->
+     <!-- <button
+     class="snipcart-add-item"
+     data-item-id="2"
+     data-item-name="Watch"
+     data-item-price="200.00"
+     data-item-url="/"
+     data-item-custom1-name="Engraving"
+     data-item-custom1-placeholder="ex: John Doe">
+     Buy now
+     </button> -->
+
      <div class="xmark flex-center" id="xmark">
       <i class="fa-solid fa-xmark xmarkSide"></i>
      </div>
@@ -200,11 +229,13 @@
               </div>
              <div class="box-favorite flex-center iconPersonal"> 
               <i class="fa-solid fa-heart favorite"></i>
-            <span class="count-favorite">0</span>
+            <span class="count-favorite"></span>
             </div>
               <div class="cart flex-center iconPersonal">
-                <i class="fa-solid fa-cart-shopping cart-icon"></i>
-              <span class="count-purshes">0</span></div>
+                <a href="html/addToCart.html">
+                  <i class="fa-solid fa-cart-shopping cart-icon"></i>
+                </a>
+              <span class="count-purshes" id="countPurshes"></span></div>
               <div class="parentAad">
                 <a href="index.html"class="iconPersonal">
                   <i class="fa-solid fa-home-lg home iconPersonal"></i>
@@ -256,83 +287,88 @@
     </div>
 <div id="container-gallery">
   <ul class="home-gallery">
-    <li class="slide-gallery slideactive" data-zindex="0">
+    <!-- <li class="slide-gallery slideactive" data-zindex="0">
       <a href="">
         <div>
           <img src="./photos/mobilesphones6.jpeg" alt="">
         </div>
       </a>
-    </li>
-    <li class="slide-gallery slideactive" data-zindex="0">
-      <a href="">
-        <div>
-          <img src="./photos/grocery1.jpeg" alt="" loading="lazy">
-        </div>
-      </a>
-    </li>
-    <li class="slide-gallery nextSlide"data-zindex="1">
+    </li> -->
+    <li class="slide-gallery slideactive"data-zindex="0">
+      <a href="html/books.html">
+      <div>
+        <img src=".\photos\background3.jpeg" alt="">
+      </div>
+    </a>
+  </li>
+  <li class="slide-gallery" data-zindex="2">
+    <a href="html/grocery.html?productCategory=groceries">
+    <div>
+      <img src="./photos/grocery1.jpeg" alt="" >
+    </div>
+  </a>
+</li>
+    <!-- <li class="slide-gallery nextSlide"data-zindex="1">
       <a href="">
         <div>
           <img src="./photos/headphone2.jpeg"  alt="">
         </div>
       </a>
-    </li>
-    <li class="slide-gallery"data-zindex="2">
-      <a href="">
-        <div>
-          <img src=".\photos\background3.jpeg" alt="">
-        </div>
-      </a>
-    </li>
-    <li class="slide-gallery"data-zindex="3">
+    </li> -->
+ 
+    <!-- <li class="slide-gallery"data-zindex="3">
       <a href="">
         <div>
           <img src=".\photos\headphone1.jpeg" alt="">
         </div>
       </a>
-    </li>
+    </li> -->
     <li class="slide-gallery preSlide"data-zindex="4">
-      <a href="">
+        <a href="html/fashion.html?productDiscount=55&&productCategory=womens-shoes,mens-shoes,womens-dresses,mens-shirts,top,sunglasses,womens-bags">
+          <div>
+          <img src=".\photos\fashion4 - Copy41.jpeg"alt="">
+        </div>
+      </a>
+    </li>
+ 
+    <li class="slide-gallery nextSlide"data-zindex="1">
+        <a href="html/beauty.html?productDiscount=57&&productCategory=beauty">
         <div>
-          <img src=".\photos\fashion4.jpeg"alt="">
+          <img src=".\photos\roj - Copy.jpeg" alt="">
+        </div>
+      </a>
+    </li>
+    <li class="slide-gallery nextSlide"data-zindex="1">
+        <a href="html/kitchen.html?productCategory=kitchen-accessories">
+        <div>
+          <!-- <img src="./photos/mobilesphones44.jpeg"  alt=""> -->
+          <img src=".\photos\kitchfrom.png"  alt="">
+        </div>
+      </a>
+    </li>
+    <li class="slide-gallery nextSlide"data-zindex="1">
+        <a href="html/phones.html?productDiscount=55&&productCategory=smartphones&&productBrand=apple">
+        <div>
+          <!-- <img src="./photos/mobilesphones22.jpeg"  alt=""> -->
+          <img src='.\photos\mobilesphones22 - Copy (2).jpeg'  alt="">
         </div>
       </a>
     </li>
     <li class="slide-gallery nextSlide"data-zindex="1">
       <a href="">
+        <a href="html/fashion.html?productPrice=400&&productCategory=womens-shoes,mens-shoes,womens-dresses,mens-shirts,top,sunglasses,womens-bags">
         <div>
-          <img src="./photos/roj.jpeg"  alt="">
+          <img src=".\photos\fashion1 - Copy1.jpeg"  alt="">
         </div>
       </a>
     </li>
-    <li class="slide-gallery nextSlide"data-zindex="1">
-      <a href="">
-        <div>
-          <img src="./photos/mobilesphones44.jpeg"  alt="">
-        </div>
-      </a>
-    </li>
-    <li class="slide-gallery nextSlide"data-zindex="1">
-      <a href="">
-        <div>
-          <img src="./photos/mobilesphones22.jpeg"  alt="">
-        </div>
-      </a>
-    </li>
-    <li class="slide-gallery nextSlide"data-zindex="1">
-      <a href="">
-        <div>
-          <img src="./photos/fashion1.jpeg"  alt="">
-        </div>
-      </a>
-    </li>
-    <li class="slide-gallery nextSlide"data-zindex="1">
+    <!-- <li class="slide-gallery nextSlide"data-zindex="1">
       <a href="">
         <div>
           <img src="./photos/fashion2.jpeg"  alt="">
         </div>
       </a>
-    </li>
+    </li> -->
   </ul>
 </div>
 <div class="balls flex-center"></div>
@@ -341,11 +377,11 @@
     <!-- start area all containerTotal-->
     <div id="containerTotal">
       <div class="category">
-        <h3 id=""> offers up to 30% off </h3>
+        <h3 id=""> offers up to 46% off </h3>
         <div class="container">
           <div class="area flex-center">
             <div>
-              <a href="">
+              <a href="html/electronics.html?productDiscount=46&&productCategory=laptops">
                 <div class="containerImage flex-center">
                   <img src=".\photos\surface-laptop-go-1-500x500.png" alt=""/>
                 </div>
@@ -355,7 +391,7 @@
             </div>  
       <div class="area flex-center">
         <div id="">
-         <a href="">
+         <a href="html/phones.html?productDiscount=46&&productCategory=smartphones">
            <div class="containerImage flex-center">
              <img src=".\\photos\e49505be-033f-4d1e-afea-e75e3d3c7ee3.jpg"alt=""/>
            </div>
@@ -365,7 +401,7 @@
       </div>
       <div class="area flex-center">
         <div id="">
-         <a href="">
+         <a href="html/fashion.html?productDiscount=46&&productCategory=womens-watches,mens-watches">
            <div class="containerImage flex-center">
              <img src=".\photos\2715_large.webp"alt=""/>
            </div>
@@ -375,7 +411,7 @@
       </div>
       <div class="area flex-center">
         <div id="">
-         <a href="">
+         <a href="html/fashion.html?productDiscount=46&&productCategory=sunglasses">
            <div class="containerImage flex-center">
             <img src=".\\photos\10208-C4-1.png" alt=""/>
            </div>
@@ -384,16 +420,16 @@
         </div>
       </div>
         </div>
-        <div class="seeMore">
+        <!-- <div class="seeMore">
           <a href="">see more</a>
-        </div>
+        </div> -->
       </div>
       <div class="category rate"> 
         <h3 id=""> highest rated </h3>
         <div class="container">
           <div class="area flex-center">
             <div id="">
-             <a href="">
+              <a href="html/fashion.html?productCategory=womens-dresses,tops,womens-shoes,mens-shirts,mens-shoes&&highRate=highest">
                <div class="containerImage flex-center"><!-- leftTop-->
                  <img src=".\\photos\clothes.jpeg" alt=''/>
                </div>
@@ -403,7 +439,7 @@
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+              <a href="html/furniture.html?productCategory=home-decoration&&furniture&&highRate=highest">
                <div class="containerImage flex-center"><!-- rightTop-->
                  <img src=".\photos\GUEST_9961aec4-8916-4c78-b937-368923aee933.jpg" alt=""/>
                </div>  
@@ -413,7 +449,7 @@
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+                <a href="html/automotive.html?productCategory=motorcycle&&highRate=highest">
                <div class="containerImage flex-center"><!--left-->
                  <img src=".\photos\armada-predator-pic-6.jpg" alt=""/>
                </div>
@@ -424,7 +460,7 @@
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+                <a href="html/grocery.html?productCategory=groceries&&highRate=highest">
                <div class="containerImage flex-center right">
                  <img src=".\\photos\musli-nestle-traditional-250-gr-6324baa181ca8_600x600.jpeg"alt=""/>
                </div>
@@ -433,16 +469,16 @@
             </div>
           </div>
         </div>
-        <div class="seeMore">
+        <!-- <div class="seeMore">
           <a href="">see more</a>
-        </div>
+        </div> -->
       </div>
       <div class="category"> 
-        <h3 id=""> under 50 egp  </h3>
+        <h3 id=""> spend 400 and get 1 free  </h3>
         <div class="container">
           <div class="area flex-center">
             <div id="">
-             <a href="">
+             <a href="html/fashion.html?productCategory=fragrances">
                <div class="containerImage flex-center">
                  <img src=".\\photos\Fogg-Explore-Perfume-for-Men-50-ML--510x510.jpg" alt=""/>
                </div>
@@ -452,9 +488,11 @@
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+              <a href="html/fashion.html?productCategory=womens-jewellery">
                <div class="containerImage flex-center">
-                 <img src=".\\photos\MG_1496_1024x1024.png"alt=""/>
+                 <!-- <img src=".\\photos\MG_1496_1024x1024.png"alt=""/> -->
+                 <!-- <img src=".\photos\OIPioirfkmvm (8).png" alt=""/> -->
+                 <img src=".\photos\OIPjwelery (8).png" alt=""/>
                </div>
        <h4>acsesoriess</h4>
              </a>
@@ -462,17 +500,18 @@
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+              <a href="html/furniture.html?productCategory=home-decoration">
                <div class="containerImage flex-center">
                  <img src=".\\photos\b84c32e357162fd088625288b72e5faa.jpg" alt=""/>
+                 <!-- <img src=".\photos\1696332422-94366900.png"alt=""/> -->
                </div>
-       <h4>lighting</h4>
+       <h4>decoration home</h4>
              </a>
             </div>
           </div>
           <div class="area flex-center">
             <div id="">
-             <a href="">
+              <a href="html/beauty.html?productCategory=skin-care">
                <div class="containerImage flex-center">
                  <img src=".\\photos\O1CN011vFkdp1muSZcaRWxy_!!2211835705014-0-cib.png"alt=""/>
                </div>
@@ -481,9 +520,9 @@
             </div>
           </div>
         </div>
-        <div class="seeMore">
+        <!-- <div class="seeMore">
           <a href="">see more</a>
-        </div>
+        </div> -->
       </div>
      </div>
      <!-- end area all -->
@@ -494,7 +533,7 @@
       <div class=" area brandApple">     
         <h2> apple brands up to 43% OFF</h2>
         <div class="box">
-          <a href="">
+            <a href="html/electronics.html?productDiscount=43&&productCategory=mobile-accessories&&productBrand=Apple">
       <img src=".\photos\appp1.png"  alt=''/>
             <span>show more</span>
           </a>
@@ -503,9 +542,9 @@
       <!-- end brand apple -->
       <!-- start buy 1 get 1 -->
 <div class=" area buy1Get1">
- <h2>buy1 and knew your chance</h2>
+ <h2>buy 2 and get 1 free gift</h2>
  <div class="box">
-   <a href="">
+    <a href="html/fashion.html?productCategory=womens-watches,mens-watches">
 <img src='.\photos\appp2.png' alt=''/>
      <span>show more</span>
    </a>
@@ -516,7 +555,7 @@
      <div class=" area fictionBooks">
       <h2>fiction books up to 30% off</h2>
       <div class="box">
-        <a href="">
+          <a href="html/books.html?productCategory=fiction">
     <img src='.\photos\book1.png'  alt=''/>
           <span>show more</span>
         </a>
@@ -527,7 +566,7 @@
       <div class=" area installmentCar">
         <h2> limited time deal cars in installments</h2>
         <div class="box">
-          <a href="">
+            <a href="html/automotive.html?productCategory=vehicle">
             <img src=".\photos\Nisan-Gadi.jpg"/>
             <span>show more</span>
           </a>
@@ -570,7 +609,7 @@
       <div class="containerCategory">
         <div class="category">
           <div class="area flex-center">
-            <a  href="">
+              <a href="html/fashion.html?productCategory=womens-shoes">
   <h4 class="headingProduct flex-center">shoses & sneakers & chappals</h4>
             <div class="imageProduct flex-center">
               <img src=".\photos\Alexander-McQueen-Glitter-Black-03.png" alt="shoses for womens"/>
@@ -578,7 +617,7 @@
             </a>
         </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/fashion.html?productCategory=womens-watches">
                 <h4 class="headingProduct flex-center">digital watch & others</h4>
                             <div class="imageProduct flex-center">
                               <img src=".\\photos\watchh.png"  alt="digital watch and golden watch for womens"/>
@@ -586,7 +625,7 @@
             </a>
           </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/fashion.html?productCategory=womens-dresses,tops">
               <h4 class="headingProduct flex-center">dresses & winter clothes</h4>
                             <div class="imageProduct flex-center">
                               <img src=".\photos\reformation-Black-Laurelei-Ruffled-Mini-Dress.png"
@@ -595,7 +634,7 @@
             </a>
           </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/fashion.html?productCategory=womens-bags">
               <h4 class="headingProduct flex-center">handbags & shulderbags</h4>
                            <div class="imageProduct flex-center">
                              <img src=".\photos\bagg.png" alt="handbags and shulder for womens"/>
@@ -615,7 +654,7 @@
         <div class="containerCategory">
           <div class="category">
             <div class="area flex-center">
-              <a  href="">
+                <a href="html/fashion.html?productCategory=mens-shirts">
     <h4 class="headingProduct flex-center">high quality t-shirts</h4>
               <div class="imageProduct flex-center">
                 <img src=".\photos\0adee9e96a0a47daa1816bc03bf1b53db7f7162f.png" alt="t-shirt for mens"/>
@@ -623,7 +662,7 @@
               </a>
           </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/automotive.html?productCategory=motorcycle">
                 <h4 class="headingProduct flex-center">automatic & gas motor</h4>
                             <div class="imageProduct flex-center">
                               <img src=".\photos\Sinnis_GPX_125_Carbon_Black-6-1024x576.png" alt="digital watch and golden watch for womens"/>
@@ -631,7 +670,7 @@
             </a>
           </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/fashion.html?productCategory=mens-shoes">
               <h4 class="headingProduct flex-center">formal & casual shoses</h4>
                             <div class="imageProduct flex-center">
                               <img src=".\photos\ref-70104-inf-comfort-preto-01.png"
@@ -640,7 +679,7 @@
             </a>
           </div>
           <div class="area flex-center">
-            <a href="">
+              <a href="html/fashion.html?productCategory=mens-watches">
               <h4 class="headingProduct flex-center">digital & normal watches</h4>
                            <div class="imageProduct flex-center">
                              <img src=".\photos\Eberhard_Chrono-4_1.png" alt="handbags and shulder for womens"/>
@@ -685,8 +724,8 @@
                 <!-- start fashion for her,for him -->
           <div class=" area brandApple">
             <h2>fashion for her,for him below 200</h2>
-            <div class="box">
-              <a href="">
+            <div class="box"  id="fashionOffers">
+              <a href="html/fashion.html?productPrice=200" id="linkFashionOffers">
           <img src=".\photos\womens1.png" alt=''/>
                 <span>show more</span>
               </a>
@@ -697,7 +736,7 @@
            <div class=" area brandApple">
             <h2> kitchen equipment below 100</h2>
             <div class="box">
-              <a href="">
+              <a href="html/kitchen.html?productPrice=100">
           <img src=".\photos\OIPPLATE (7).jpeg"alt=''/>
                 <span>show more</span>
               </a>
@@ -708,7 +747,7 @@
      <div class=" area brandApple">
       <h2>beauty below 100</h2>
       <div class="box">
-        <a href="">
+        <a href="html/beauty.html?productPrice=100">
     <img src=".\photos\R (3).jpeg"alt=''/>
           <span>show more</span>
         </a>
@@ -719,7 +758,7 @@
     <div class=" area brandApple">
       <h2>balls below 80</h2>
       <div class="box">
-        <a href="">
+        <a href="html/fashion.html?productPrice=80">
     <img src='.\photos\R (2).jpeg'alt=''/>
           <span>show more</span>
         </a>
@@ -797,9 +836,11 @@
              <div id="boxOffers" class="containerOffers">
               <!-- start mobile accessories -->
         <div class=" area brandApple">
-          <h2>mobile accessories up to 43% off</h2>
+          <h2>mobile accessories up to 49% off</h2>
           <div class="box">
-            <a href="">
+            <!-- <a href=> -->
+              <a href="html/electronics.html?productDiscount=49&&productCategory=mobile-accessories">
+
         <img src=".\photos\Cable_Accessories_5de7a216-0a56-4c85-8d91-247ca4cdf069_540x540.webp" alt=''/>
               <span>show more</span>
             </a>
@@ -810,7 +851,7 @@
      <div class=" area brandApple">
       <h2>all needs for home up to 56% off</h2>
       <div class="box">
-        <a href="">
+        <a href="html/furniture.html?productDiscount=58&&productCategory=furniture,home-decoration">
     <img src='.\photos\sala-rustica-13-768x768.webp' alt=''/>
           <span>show more</span>
         </a>
@@ -821,7 +862,7 @@
                <div class=" area brandApple">
                 <h2>sports equipment up to 58% off</h2>
                 <div class="box">
-                  <a href="">
+                    <a href="html/fashion.html?productDiscount=58&&productCategory=sports-accessories">
               <img src=".\photos\OIP (7)sports.jpeg"alt=''/>
                     <span>show more</span>
                   </a>
@@ -832,7 +873,7 @@
      <div class=" area brandApple">
       <h2>groceries up to 59% off</h2>
       <div class="box">
-        <a href="">
+          <a href="html/grocery.html?productDiscount=59&&productCategory=groceries">
     <img src=".\photos\Supermarket-Market-Page-Banner-Image-purchased-9.14.18-resized.jpg" alt=''/>
           <span>show more</span>
         </a>

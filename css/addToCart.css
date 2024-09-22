@@ -25,8 +25,138 @@ span{
     margin-bottom: 1rem;
     color:rgb(44, 44, 44);
     font-size: 1.5rem;
-    text-transform: capitalize;
+}
+#containerAddToCart section#addToCart .addToCart span.heading::first-letter{
+    text-transform: uppercase;
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart{
     /* background-color: aqua; */
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan{
+    /* flex: 1; */
+    padding: 0;
+    /* background-color: blue; */
+/* width: 100%; */
+min-width: 100%;
+margin-bottom: .5rem;
+/* pointer-events: none; */
+cursor: default;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess{
+    /* background-color: red; */
+    padding: 0;
+    display: flex;
+    gap:1rem;
+    /* flex:1; */
+    /* justify-content: center; */
+    align-items: center;
+    /* pointer-events: none; */
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess .containerImage{
+    /* background-color: blueviolet; */
+    flex-basis: 15%;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite{
+    display: none;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct{
+    border-top: none;
+    flex: 1;
+    /* pointer-events: none; */
+    /* font-size: 1.3rem; */
+    /* background-color: brown; */
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .title{
+    font-size: 1.3rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .detailsPrice{
+    font-size: 1.1rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .containerQuantity{
+    /* background-color: aquamarine; */
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    margin-left: 1rem;
+    width: fit-content;
+    text-transform: capitalize;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .containerQuantity .textAmount{
+    color:rgb(4, 145, 145);
+    font-size: .88rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .containerQuantity input.amount{
+    display: block;
+    width:3.5rem;
+    padding:.125rem .25rem;
+    background-color: rgb(240, 240, 245);
+    margin-left: .5rem;
+    font-size: .9rem;
+    /* pointer-events: auto; */
+    border-radius:.5rem ;
+    /* cursor: pointer; */
+    /* cursor:7rem; */
+    -webkit-border-radius:.5rem ;
+    -moz-border-radius:.5rem ;
+    -ms-border-radius:.5rem ;
+    -o-border-radius:.5rem ;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy{
+    /* background-color: blue; */
+    margin-left: auto;
+    margin-right: 1rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy .remBuy{
+    color:rgb(17, 219, 185);
+    /* color:rgb(17, 175, 219); */
+    font-size: .95rem;
+    text-transform: capitalize;
+cursor: pointer;
+/* pointer-events: auto; */
+border-bottom: .1rem solid transparent; 
+
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy .buy{
+    border-color: rgb(180, 179, 179);
+    /* border-color: rgb(17, 175, 219); */
+
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy .remBuy:hover{
+    color:rgb(241, 167, 6);
+    border-color:  rgb(241, 167, 6); 
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy .clear{
+    margin-left: 2rem;
+    color:rgb(255, 100, 100);
+    font-size: .9rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .containerPrice{
+    padding: 1rem;
+    background-color: rgb(251, 247, 239);
+    text-transform: capitalize;
+    border-radius:1rem ;
+    -webkit-border-radius:1rem ;
+    -moz-border-radius:1rem ;
+    -ms-border-radius:1rem ;
+    -o-border-radius:1rem ;
+}
+#containerAddToCart section#addToCart .addToCart .container .containerPrice div{
+    display: flex;
+    margin-bottom: .75rem;
+}
+#containerAddToCart section#addToCart .addToCart .container .containerPrice .textTotal{
+    color:rgb(35, 34, 34);
+    font-size: 1rem;
+    font-weight: 600;
+}
+#containerAddToCart section#addToCart .addToCart .container .containerPrice .totalPrices{
+    margin-left: auto;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+#containerAddToCart section#addToCart .addToCart .container .containerPrice .totalPrices#totalDiscounts{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: line-through;
+    text-decoration-color: rgb(143, 142, 142);
+    -moz-text-decoration-color: rgb(143, 142, 142);
 }

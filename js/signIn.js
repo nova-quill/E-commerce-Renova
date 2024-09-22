@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
 function register(){
     allErrors=[];
-    const phoneNumber=phoneInput.getNumber();
-    console.log(phoneNumber);
+    // const phoneNumber=phoneInput.getNumber();
+    // console.log(phoneNumber);
     if( id('password').value!== id('re-enterPass').value&&id('password').value.length>=6){
         id('password').style.borderColor='green';
         id('re-enterPass').style.borderColor='red';
@@ -76,7 +76,7 @@ id(signIn).classList.add('hidden');
 id(signUp).classList.add('visible');
 })
 }
-
+// fetch("https://info.al-bassif.com/auth/register", {   method: "POST"}).then(res=>res.json()).then(da=>console.log(da));
 
 
   async function postRequestForRegister(){
@@ -87,8 +87,11 @@ formdata.append("username", id('userName').value);
 formdata.append("password", id('password').value);
 formdata.append("name", id('name').value);
 formdata.append("email",id('email').value );
-formdata.append("rePass",id('re-enterPass').value);
+// formdata.append("profile_image",'kjkjkjddd');
+// formdata.append('local','jjjj');
 let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
+    // let response=await  fetch("https://info.al-bassif.com/auth/register", { 
+
      method: "POST",
     body:formdata,
     redirect:'follow',
@@ -96,11 +99,19 @@ let response=await  fetch("https://tarmeezacademy.com/api/v1/register", {
    })
    try{
    let data = await response.json();
+   console.log(data);
    if(response.status===200){
+    let hh=[];
+    data.user.local='jjjj';
+    window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
+    data.user.local=JSON.parse(window.localStorage.getItem(`cartUser${data.user.id}`))||[];
+    console.log(data);
   let userToken=data.token;
     window.location.href='../index.html';
   window.localStorage.setItem('userToken',JSON.stringify(userToken));
   window.localStorage.setItem('user',JSON.stringify(data.user));
+console.log(  window.localStorage.getItem('user',JSON.stringify(data.user)));
+console.log(  window.localStorage.getItem('userToken',JSON.stringify(userToken)));
    }
    else{
     id('errorRegister').style.display='block';
@@ -142,8 +153,8 @@ let response=await  fetch("https://tarmeezacademy.com/api/v1/register", {
         } 
     }
    }
-// console.log(window.localStorage.getItem('userToken'));
-// console.log(window.localStorage.getItem('user'));
+console.log(window.localStorage.getItem('userToken'));
+console.log(window.localStorage.getItem('user'));
 
 
 
@@ -189,6 +200,7 @@ async function logIn(){
 formdata.append("password",id('logPassword').value);
   
  let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
+//  let res=await fetch("https://info.al-bassif.com/auth/login",{
     method: "POST",
     body:formdata,
     redirect:'follow',
@@ -265,7 +277,7 @@ export function effectHoverOnSignIn(elementId){
 }
 
 // async function phoneuser() {
-fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.log('error',error)));    
+// fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.log('error',error)));    
 // }
 // phoneuser();
 

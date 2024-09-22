@@ -17,6 +17,9 @@ rel="stylesheet"/>
 
 </head>
 <body>
+  <!-- <div id="snipcart" data-api-key='YmNkM2VmNDYtODI0ZC00ODIxLTk3YzQtNTNlZDQzOWZmZWM1NjM4NjE5OTA3NTU4NTM1MzEz'hidden></div> -->
+  <!-- <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script> -->
+
     <!--  start overlay -->
     <div id="overlay"></div>
     <!-- end overlay -->
@@ -171,11 +174,13 @@ rel="stylesheet"/>
               </div>
              <div class="box-favorite flex-center iconPersonal"> 
               <i class="fa-solid fa-heart favorite"></i>
-            <span class="count-favorite">0</span>
+            <span class="count-favorite"></span>
             </div>
               <div class="cart flex-center iconPersonal">
-                <i class="fa-solid fa-cart-shopping cart-icon"></i>
-              <span class="count-purshes">0</span></div>
+                <a href="addToCart.html">
+                  <i class="fa-solid fa-cart-shopping cart-icon"></i>
+                </a>
+              <span class="count-purshes" id="countPurshes"></span></div>
               <div class="parentAad">
                 <a href="../index.html"class="iconPersonal">
                   <i class="fa-solid fa-home-lg home iconPersonal"></i>
@@ -287,8 +292,8 @@ rel="stylesheet"/>
               <span id="bestS">best seller</span>
               <span id="heistedRa">heisted rating</span>
             </div>
-            <span class="title"id='title'>lkl;l;l;</span>
-         <div>   <span class="egp">egp</span><span class="priceCart"id='priceCart'>5434</span></div>
+            <span class="title"id='title'></span>
+         <div>   <span class="egp">egp</span><span class="priceCart"id='priceCart'></span></div>
          <div id="freeD" class="freeD">
           <i class="fa solid fa-truck freeIconCar"></i>
           <span>free delivery</span>
@@ -297,11 +302,11 @@ rel="stylesheet"/>
          <!-- <span id="lowStock">low stock</span> -->
          <div class="amount flex-center">
           <span class="amountText">amount :</span>
-          <input type="number" name="amount" placeholder="0"/>
+          <input type="number" name="amount" value="1" id="quantityDetails"/>
          </div>
          <div class="cartBuy">
           <a href="#" id="linkAddToCart">
-            <span>add to cart</span>
+            <span id="textAddToCart">add to cart</span>
           </a>
           <a href="">
             <span>buy now</span>
@@ -546,7 +551,7 @@ rel="stylesheet"/>
      <!-- end footer -->
     
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&
-    libraries=places"></script> -->
+    libraries=places"></scrip> -->
     <!-- <script async> -->
           <!-- // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&loading=async&
     callback=initMap"</script> -->

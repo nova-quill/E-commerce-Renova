@@ -6,9 +6,12 @@ import {
   filterProdutsForEveryPage,
   resetDashboard,
   resetPriceDashboard,
-  displayMenuSort
+  displayMenuSort,
+  existUserOrNot,
+  dragByTouch
 } from "./common.js";
 // start section fashion
+let secondHeader = document.querySelector("header .second-nav ul");
 let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
   addClassActive(linkHeader, "active");
+  dragByTouch(secondHeader);
+  // add number of products in cart to icon cart
+  existUserOrNot();
   // end header
   // start show products for every page in header and filter products from dashboard
   if(document.getElementById('linkBooks')){

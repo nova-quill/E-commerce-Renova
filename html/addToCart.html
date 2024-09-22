@@ -61,7 +61,7 @@ rel="stylesheet"/>
         <dd><a href=''>arabic</a></dd>
         <dd><a href=''>english</a></dd>
         <dd id="logoutSideBar"><a href='#'>log out</a></dd>
-        <dd id="loginSideBar"><a href="html/signin.html">sign in</a></dd>
+        <dd id="loginSideBar"><a href="signin.html">sign in</a></dd>
       </dl>
         <dl>
  <dt class="customize">custmize</dt>
@@ -162,7 +162,7 @@ rel="stylesheet"/>
           <div class="header-container">      
       <!-- start main navbar -->
       <div class="main-nav flex-just-between">
-        <a href="index.html">
+        <a href="../index.html">
           <div class="renova flex-center"> 
             <i class="fa-brands fa-r-project"></i> 
           <span class="flex-center">enova</span>
@@ -183,7 +183,7 @@ rel="stylesheet"/>
           <div class="personal mobile flex-center">
             <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
             <div id="signHeader" class="sign iconPersonal"> 
-              <a href="html/signin.html">
+              <a href="signin.html">
                 <i  class="far fa-user fa-fw sign-icon"></i>
               <span id='text-sign'class="text-sign">sign in</span>
               <span id="hello"></span>
@@ -191,11 +191,11 @@ rel="stylesheet"/>
               </div>
              <div class="box-favorite flex-center iconPersonal"> 
               <i class="fa-solid fa-heart favorite"></i>
-            <span class="count-favorite">0</span>
+            <span class="count-favorite"></span>
             </div>
               <div class="cart flex-center iconPersonal">
                 <i class="fa-solid fa-cart-shopping cart-icon"></i>
-              <span class="count-purshes">0</span></div>
+              <span class="count-purshes" id="countPurshes"></span></div>
               <div class="parentAad">
                 <a href="index.html"class="iconPersonal">
                   <i class="fa-solid fa-home-lg home iconPersonal"></i>
@@ -237,10 +237,19 @@ rel="stylesheet"/>
    <div id="containerAddToCart">
     <section id="addToCart">
       <div class="addToCart">
-        <span class="heading">your cart is empty</span>
+        <span class="heading" id="headingCart"></span>
         <div class="container">
-          <div class="productsInCart" id="productsInCart">l;l;;lmmlplp</div>
-          <div class="containerPrice"></div>
+          <div class="productsInCart" id="productsInCart"></div>
+          <div  class="containerPrice" id="containerPriceCart">
+            <div>
+              <span class="textTotal">total after discounts</span>
+              <span class="totalPrices" id="totalPrices">203994</span>
+            </div>
+            <div>
+              <span class="textTotal">total discounts</span>
+              <span class="totalPrices" id="totalDiscounts">203994</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

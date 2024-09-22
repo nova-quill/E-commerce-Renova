@@ -1,5 +1,5 @@
 "use strict";
-import {id,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling} from './common.js';
+import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -15,6 +15,8 @@ let sourceAoutocom;
 let map;
 let currentSlide = 0;
 let autoSliders;
+let secondHeader = document.querySelector("header .second-nav ul");
+console.log(secondHeader);
 let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
@@ -27,6 +29,7 @@ let preButton = document.querySelector("i.left-angle");
 let nextButton = document.querySelector("i.right-angle");
 let homeGallery= document.querySelector(".home-gallery");
 let allBalls = Array.from(document.querySelector(".balls").children);
+let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-products');
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
 
 
@@ -34,6 +37,8 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
 addClassActive(linkHeader, "active");
+// add number of products in cart to icon cart
+existUserOrNot();
 // end header
 // visible map
 visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
@@ -45,7 +50,9 @@ autoSliders = setInterval(limitCurrentSlide, 3000, 1, "nextSlide");
 // create bollets for images
 createBollets(allImages);
 // drag by touch
-dragByTouch(homeGallery);
+dragByTouchForGallery(homeGallery);
+dragByTouch(secondHeader);
+
 // limit active balls
 chooseBall();
 // turn off autoSliders
@@ -69,7 +76,8 @@ lastFunctionToShowProducts("brandRolex", "rolexProducts",'brand','rolex','',true
 lastFunctionToShowProducts("offerShoes", "shoesProducts",'category','mens-shoes','');
 suggestedForYou();
 // end part scrolling products
-
+// start drag product by toutch
+getAllElements(containerProductsDrag,dragByTouch);
 }))
 
 
@@ -155,7 +163,7 @@ function prevOrNextSlide(target, pre, next) {
 
 // drag by touch
 
-function dragByTouch(container) {
+function dragByTouchForGallery(container) {
   let startPoint = 0;
   let moveDistance = 0;
 
@@ -166,7 +174,10 @@ function dragByTouch(container) {
     moveDistance = info.touches[0].clientX - startPoint;
   });
   container.addEventListener("touchend", (info) => {
+
     if (moveDistance > 0) {
+      // container.scrollLeft=`${moveDistance}px`;
+      // container.style.left=`${moveDistance}px`;
       clearInterval(autoSliders);
       limitCurrentSlide(-1, "nextSlide-top");
     }
@@ -610,17 +621,150 @@ function sugesstedProducts(containerProduct) {
 // end suggested for you
 
 //end show products
+
+// satrt show offers
+function fashionOffers(){
+  id('fashionOffers').addEventListener('click',(info=>{
+      // window.location.href='../html/fashion.html';
+
+      // id('linkFashionOffers').href=`html/fashion.html?productPrice=200`;
+      // &productCategory=${productCategory}&url=${urlLink}`;
+
+  }))
+}
+fashionOffers();
+// end show offers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // end page home
 
 
 // fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch
 // (error=>console.log('error',error)));    
+let  { SnipcartProvider }= 'use-snipcart';
+
+async function kk(){
+try {
+   Snipcart.api.cart.items.add({
+      id: 1,
+      name:'mas',
+      price: 1.11,
+      url: '/',
+      quantity: 1,
+  },{
+      id: 'PRODUCT2_ID',
+      name: 'Product 2',
+      price: 1.11,
+      url: '/',
+      quantity: 1,
+  });
+} catch (error) {
+  console.log(error)
+}
+}
+// ppkk();
+// async function ppkk(){
+document.addEventListener('snipcart.ready',()=>{
+  try {
+    // Snipcart.api.theme.cart.open();
+ Snipcart.api.cart.items.add({
+       id: '1',
+       name:'mas',
+       price: 1.11,
+       url: '/',
+       quantity: 1,
+   },{
+       id: 'PRODUCT2_ID',
+       name: 'Product 2',
+       price: 1.11,
+       url: '/',
+       quantity: 1,
+   })
+  //  let ll= Snipcart.store.getState().cart.items;
+  //  console.log(ll);
+  //  console.log(Snipcart.result);
+ } catch (error) {
+   console.log(error)
+ }
+})
+document.addEventListener('snipcart.ready',()=>{
+
+  try {
+    // const response = Snipcart.api.customer.fetchOrders('{orderToken}');
+   const response=Snipcart.api.sessions;
+    console.log(response);
+} catch (error) {
+    console.log(error)
+}})
+
+// let  { useSnipcart } =use-snipcart;
+
+// const { cart = {} } = useSnipcart();
+// async function hghg() {
+//  await fetch('https://app.snipcart.com/api/cart',{
+  // mode:'no-cors',
+	// bbb:'Access-Control-Allow-Origin',
+// Access-Control-Allow-Origin:' https://example.com',
+// Access-Control-Allow-Credentials: true
+// }).then((res)=>res.json());
+  
+// }
+// hghg();
+//   try {
+// Snipcart.api.cart.setShippingInformation({
+//         method: '{shippingMethod}',
+//         cost: 0,
+    // });
+// } catch (error) {
+    // console.log(error)
+// }
+//  try {
+//   let gg= Snipcart.api.cart.fetchShippingRates();
+
+// } catch (error) {
+  // console.log(error);
+// }
 
 
 
 
 
 
+
+  // let kkp=Snipcart;
+  // let ll= Snipcart.api.cart.items;
+  // console.log(ll);
+// ll.forEach(i=> console.log(i));
+// Snipcart.api.cart.items.then((cart)=>{
+  // console.log(Snipcart);
+// })
+// document.addEventListener('snipcart.ready',()=>{
+  // try {
+    // let ll= Snipcart.cart.items;
+    // console.log(ll);
+    // console.log(Snipcart.result);
+
+//  Snipcart.store.getState().cart.items()
+    //  .then(res=>console.log(res))
+    // console.log(ll);
+  // }
+  // catch (error) {
+    // console.log(error)
+  // }})
 
 
 

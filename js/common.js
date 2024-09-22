@@ -28,6 +28,13 @@ export let filterProductsWithCategories;
 let filterProducts;
 let categoryMatch;
 let selectedReveiw = "all";
+let priceMatch;
+let discountMatch;
+let brandMatch;
+let brand;
+let arrayFromDisChacked;
+let arrayFromBrandChacked ;
+let isCategory=true;
 let valuePrice = 0;
 let freeSort = "all";
 let bestSelling = "all";
@@ -295,7 +302,15 @@ function createCardImage(datas, containerProducts, i) {
   // lgl(i);
   cardLessThan = document.createElement("a");
   cardLessThan.className = "cardLessThan";
+  const urlParams=new URLSearchParams(window.location.search);
+console.log(window.location.href);
+  if(window.location.href.includes('/index.html')) {
   cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
+  }
+  else{
+    cardLessThan.href=`detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
+
+  }
   createParentDiv("aCardLess", cardLessThan);
   containerImage = document.createElement("div");
   containerImage.className = "containerImage flex-center";
@@ -624,6 +639,14 @@ let  hundleCategory = category||'';
     categoryMatch = spreadArrayCategories.some((element) =>categoryToLower==(element));
     return categoryMatch;
   });
+  // const urlParams=new URLSearchParams(window.location.search);
+  // const productPrice=urlParams.get('productPrice');
+  // if(productPrice){
+  //   console.log(productPrice);
+  //   id('rangPrice').value=200;
+  //   id('rangPrice').classList.add("active");
+
+  // }
 }
 
 export function filterAllProductsByDashboard(
@@ -730,10 +753,20 @@ testing
     testing
 
   );
+
   func(elementPrice).addEventListener("input", (info) => {
     valuePrice = func(elementPrice).value;
     if (func(elementPrice).value) {
       func(elementPrice).classList.add("active");
+      // filterProductsAndShowIt(
+      //   func,
+      //   container,
+      //   elementsDi,
+      //   elementsAvila,
+      //   elementFree,
+      //   elementsBra,
+      //   testing
+      // );
     } else {
       func(elementPrice).classList.remove("active");
     }
@@ -747,6 +780,7 @@ testing
       testing
     );
   });
+
   function filterProductsBySort(
     func,
     element,
@@ -878,6 +912,7 @@ testing
          elementsBra,true,testing);
   });
   filterProductsAndShowIt(func, container, elementsDi, elementsAvila, elementFree, elementsBra,testing);
+ 
 }
 export async function filterProductsAndShowIt(
   func,
@@ -889,18 +924,19 @@ export async function filterProductsAndShowIt(
   test
 ) {
   await fetchProducts(test);
-  let arrayFromDisChacked = Array.from(elementsDi)
+  arrayFromDisChacked = Array.from(elementsDi)
     .filter((element) => element.checked)
     .map((element) =>
       parseInt(element.parentElement.getAttribute("data-category"))
     );
-  let arrayFromBrandChacked =
+   arrayFromBrandChacked =
     Array.from(elementsbrand)
       .filter((element) => element.checked)
       .map((element) => element.getAttribute("value")) || [];
       // let jj=datas.filter(pri=>{
         // console.log(pri.volumeInfo.categories);
 // })
+console.log(filterProductsWithCategories);
   filterProducts =filterProductsWithCategories.filter((product) => {
     if(test){
      category=product['volumeInfo']['categories']||'';
@@ -909,22 +945,44 @@ export async function filterProductsAndShowIt(
      category =product['category']||''
     }
  let   categoryToLower=category.toString().toLowerCase();
-      let categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+ console.log(categoryToLower);
+
+ console.log(selectedCategoryy);
+
+    //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+ showProductsWithOffersCategory();
+
+    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+// showProductsWithOffersCategory(categoryToLower);
       console.log(category);
       let categoryTagsMatch =selectedTags == 'all'||selectedCategoryyy.some(elee=>(product["tags"].includes(elee)));
 
-    let discountMatch =arrayFromDisChacked.length == 0 ||product.discountPercentage <=arrayFromDisChacked[arrayFromDisChacked.length - 1];
+    //  discountMatch =arrayFromDisChacked.length == 0 ||product.discountPercentage <=arrayFromDisChacked[arrayFromDisChacked.length - 1];
+        //  let    priceMatch =product.price - product.price * (product.discountPercentage / 100) <=valuePrice;
+    showProductsWithOffersDis(product.discountPercentage,category);
     let freeMatch = !elementFree.checked || product.rating > 4.5;
     let freeSortMatch = freeSort == "all" || product.rating > 4.5;
     let avilabiltyMatch = !elementsAvila.checked || product.stock > 0;
     let reviewMatch =selectedReveiw == "all" || product.rating >= selectedReveiw;
     let besetSellingMatch = bestSelling == "all" || product.stock < price;
     let newArrivalsMatch =newArrivals == "all" ||(product["rating"] >= 2.9 && product["rating"] <= 3.3);
-    let priceMatch =valuePrice == 0 ||product.price - product.price * (product.discountPercentage / 100) <=
-        valuePrice;
-    let brand = product["brand"] || "";
-    let brandTolower = brand.toLowerCase();
-    let brandMatch =arrayFromBrandChacked.length == 0 ||arrayFromBrandChacked.some((element) => brandTolower.includes(element));
+     brand = product["brand"] || "";
+    // let brandTolower = brand.toLowerCase();
+    // let brandMatch =arrayFromBrandChacked.length == 0 ||arrayFromBrandChacked.some((element) => brandTolower.includes(element));
+    showProductsWithOffersBrand(brand);
+    showProductsWithOffersPrice( product.price,product.discountPercentage);
+    // let priceMatch;
+    // const urlParams=new URLSearchParams(window.location.search);
+    // const productPrice=urlParams.get('productPrice');
+    //   valuePrice =200 ;
+    // if(productPrice&& id('rangPrice').value==''){
+    //     priceMatch =product.price - product.price * (product.discountPercentage / 100) <=valuePrice;
+    // }
+    // else{
+    //   valuePrice= id('rangPrice').value;
+    //    priceMatch =valuePrice == 0 ||product.price - product.price * (product.discountPercentage / 100) <=
+    //   valuePrice;
+    // }
     return (
       categoryMatch &&
       discountMatch &&
@@ -939,8 +997,119 @@ export async function filterProductsAndShowIt(
       categoryTagsMatch
     );
   });
+  console.log(filterProducts);
   displayProducts(filterProducts, func, container);
 }
+function showProductsWithOffersPrice(productPrice,productDis){
+ priceMatch;
+  const urlParams=new URLSearchParams(window.location.search);
+  const productPriceUrl=urlParams.get('productPrice');
+    valuePrice =productPriceUrl;
+  if(productPriceUrl&& id('rangPrice').value==''){
+      priceMatch =productPrice - productPrice* (productDis / 100) <=valuePrice;
+  }
+  else{
+    valuePrice= id('rangPrice').value;
+    priceMatch =valuePrice == 0 ||productPrice - productPrice* (productDis / 100) <=valuePrice;
+  }
+}
+function showProductsWithOffersDis(productDis,productCateg){
+  // discountMatch;
+   const urlParams=new URLSearchParams(window.location.search);
+   const productDisUrl=urlParams.get('productDiscount');
+   const productCateUrl=urlParams.get('productCategory');
+   let allInputs=id('discount').querySelectorAll('input');
+  //  let   categoryToLower=category.toString().toLowerCase();
+   console.log(!productDisUrl);
+      //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+   if(productDisUrl&&!(Array.from(allInputs).some(input=>input.checked)) ){
+   discountMatch =Math.round(productDis)==productDisUrl||Math.round(productDis)<productDisUrl;
+   console.log(productDis.toFixed(0));
+  //  if(productCateUrl&&selectedCategoryy.length==0){
+  //   categoryMatch= productCateg==productCateUrl;
+  //  }
+
+   }
+  //  if((Array.from(allInputs).some(input=>input.checked)) ){
+  else{
+    discountMatch =arrayFromDisChacked.length == 0 ||productDis.toFixed(0)<=arrayFromDisChacked[arrayFromDisChacked.length - 1];
+ }
+   if(productCateUrl){
+    // selectedCategory='';
+    // selectedCategoryy.push(productCateUrl);
+    // selectedCategoryy=[productCateUrl.split(',')];
+    // categoryMatch= productCateg==productCateUrl;
+    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+
+   }
+
+  // if( selectedCategoryy.some(element=>element!=productCateUrl)){
+  // if(selectedCategory=='all'){
+  else{
+    console.log('fghjkld;zl;');  
+    // selectedCategoryy=[];
+    // selectedCategory='all';
+    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+
+   }
+  }
+  function showProductsWithOffersCategory(){
+// let kl=true;
+     const urlParams=new URLSearchParams(window.location.search);
+     const productCateUrl=urlParams.get('productCategory');
+     const productRateUrl=urlParams.get('highRate');
+
+     let   categoryToLower=category.toString().toLowerCase();
+// if(productRateUrl){
+//   id('freeShipping').querySelector('input').checked;
+//   console.log(id('freeShipping').querySelector('input'));
+// }
+      //  valuePrice =productPriceUrl;
+     if(productCateUrl&&isCategory){
+      selectedCategory = '';
+      // selectedCategoryy.push(productCateUrl);
+
+     selectedCategoryy=productCateUrl.toLocaleLowerCase().split(',');
+      console.log(selectedCategory);
+      console.log(categoryToLower);
+
+      selectedCategoryy.some(elee=>(console.log(elee)));
+      // categoryMatch =productCategory==productCateUrl;    
+          categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+          if(productRateUrl){
+            id('freeShipping').querySelector('input').checked=true;
+            console.log(id('freeShipping').querySelector('input'));
+          }
+
+     }
+    //  if(productRateUrl){
+    //   id('freeShipping').querySelector('input').checked;
+    //   console.log(id('freeShipping').querySelector('input'));
+    // }
+      else{
+                categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+                console.log('nooooooooo');
+     }
+    //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
+
+     return categoryMatch;
+   }
+   function showProductsWithOffersBrand(productBrand){
+    let allInputs;
+    if(id('brandsDash')){
+     allInputs=id('brandsDash').querySelectorAll('input');
+    }
+console.log(allInputs);
+let brandTolower = brand.toLowerCase();
+     const urlParams=new URLSearchParams(window.location.search);
+     const productBrandUrl=urlParams.get('productBrand');
+     if(productBrandUrl&&!(Array.from(allInputs).some(input=>input.checked)) ){
+        brandMatch =productBrand.toLocaleLowerCase()==productBrandUrl.toLocaleLowerCase();
+     }
+     else{
+          brandMatch =arrayFromBrandChacked.length == 0 ||arrayFromBrandChacked.some((element) => brandTolower.includes(element));
+     }
+   }
 export function displayProducts(product, func, container) {
   func(container).innerHTML = "";
   if (product.length == 0) {
@@ -952,6 +1121,29 @@ export function displayProducts(product, func, container) {
   }
 }
 // end show products in page
+// start drag products
+ export function dragByTouch(container) {
+  let startPoint;
+  let scrollLeft;
+let isDrag=false;
+  container.addEventListener("touchstart", (info) => {
+    isDrag=true;
+    startPoint = info.touches[0].pageX;
+    scrollLeft=container.scrollLeft;
+  });
+  container.addEventListener("touchmove", (info) => {
+    if(!isDrag)return;
+    info.preventDefault();
+    const x=info.touches[0].pageX;
+    const moveDistance=(x-startPoint)*2;
+          container.scrollLeft=scrollLeft-moveDistance;
+  });
+  container.addEventListener("touchend", (info) => {
+isDrag=false;
+  });
+}
+// end drag products
+
 
 // start filter products by dashboard
 function filterProductsFromDashboard(
@@ -1012,7 +1204,8 @@ function filterProductsFromDashboardByCategory(
   
   elements.forEach((element) => {
     element.addEventListener(event, (info) => {
-
+      // selectedCategory='another';
+      isCategory=false;
       info.preventDefault();
       elements.forEach((ele) => {
         ele.querySelector("a").classList.remove("active");
@@ -1113,6 +1306,9 @@ export function resetPriceDashboard(
 function testUser(){
   if(window.localStorage.getItem('userToken')){
     console.log('yes');
+    document.querySelector('header .main-nav .personal .sign').addEventListener('click',(event)=>{
+      event.preventDefault();
+    })
     let user=JSON.parse(window.localStorage.getItem('user'));
   id('hello').textContent=`hi, ${user.name}`||'';
   showAndHideLoginAndLogout('none','block','inline-block');
@@ -1164,9 +1360,35 @@ export function effectHoverOnSignIn(elementId){
   },20000)
 }
 // end function related by log in and log out
+// add number of products in cart to icon cart
+ export function addNumberToIconCart(productsInLoc){
+  if(window.localStorage.getItem(productsInLoc)){
+  let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
+id('countPurshes').innerHTML=productsInlocal.length;
+id('countPurshes').style.color='rgb(255, 214, 139)';
+  }
+} 
+// are user or not
+ export function existUserOrNot(){
+  if(window.localStorage.getItem('user')){
+    let user=JSON.parse(window.localStorage.getItem('user'));
+    console.log(user.id);
+    addNumberToIconCart(`cartUser${user.id}`);
+  }
+  else{
+    addNumberToIconCart('productCart');
+  }
+  }
+// end add product to cart 
+// var requestOptions = {
+//   method: 'GET',
+//   redirect: 'follow'
+// };
 
-
-
+// fetch("https://tarmeezacademy.com/api/v1/users?limit=0", requestOptions)
+//   .then(response => response.json())
+//   .then(result => console.log(result))
+  // .catch(error => console.log('error', error));
 
       // // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
 

@@ -341,6 +341,7 @@ button {
     -moz-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -o-transform: translateX(0%);
+    position: fixed;
 }
 
 @media (min-width:500px) {
@@ -712,7 +713,7 @@ header .main-nav .personal #hello {
 }
 @media(max-width:767.98px) {
     header .main-nav .personal .text-sign {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -750,6 +751,7 @@ header .main-nav .personal .count-favorite {
     display: inline-block;
     color: var(--number-icons-main-color, rgb(107, 103, 92, .6));
     margin-top: 50%;
+    font-size: .9rem;
 }
 
 @media (max-width: 767.98px) {
@@ -770,6 +772,7 @@ header .main-nav .personal .count-favorite {
 
     header .main-nav .personal.mobile>div {
         height: 2.5rem;
+        margin-bottom: .25rem;
     }
 
     header .main-nav .personal.mobile .sign {

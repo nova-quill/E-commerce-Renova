@@ -475,8 +475,10 @@ color: rgb(65, 64, 64);
     /* min-height: var(--minheight-container-products); */
     /* min-width: var(--minwidth-container-products); */
 }
+@media (min-width:768px) {
 #containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated .buttons{
     display: flex;
+}
 }
 /* end related products */
 
