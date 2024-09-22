@@ -89,8 +89,8 @@ formdata.append("name", id('name').value);
 formdata.append("email",id('email').value );
 // formdata.append("profile_image",'kjkjkjddd');
 // formdata.append('local','jjjj');
-let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
-    // let response=await  fetch("https://info.al-bassif.com/auth/register", { 
+// let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
+    let response=await  fetch("https://info.al-bassif.com/auth/register", { 
 
      method: "POST",
     body:formdata,
@@ -199,8 +199,8 @@ async function logIn(){
   formdata.append("username", id('logUserName').value);
 formdata.append("password",id('logPassword').value);
   
- let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
-//  let res=await fetch("https://info.al-bassif.com/auth/login",{
+//  let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
+ let res=await fetch("https://info.al-bassif.com/auth/login",{
     method: "POST",
     body:formdata,
     redirect:'follow',
