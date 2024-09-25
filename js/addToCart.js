@@ -60,7 +60,7 @@ if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
 console.log(acard);
 acard.forEach((element,index)=>{
   let containerRemAndBuy=document.createElement('div');
-  containerRemAndBuy.className='containerRemAndBuy';
+  containerRemAndBuy.className='containerRemAndBuy flex-just-between';
   createDiv(1,'span','buy remBuy','','','buy now',containerRemAndBuy);
   createDiv(1,'span',`clear remBuy clear${index}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);

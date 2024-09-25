@@ -411,6 +411,7 @@ dt {
 }
 
 dl dd {
+    padding-right: 1rem;
     margin: 1rem auto 0rem 3rem;
     font-size: .9rem;
     text-transform: capitalize;
@@ -465,7 +466,7 @@ dl dd i:hover {
 /* start navbar */
 /* start main navbar */
 header .main-nav {
-    padding: .25rem 1rem;
+    padding: .5rem 1rem;
     background-color: var(--background-main-navbar, rgb(23, 44, 43));
     flex-wrap: nowrap;
     gap: 2rem;
@@ -475,6 +476,7 @@ header .main-nav {
     header .main-nav {
         width: 100%;
         max-width: 100%;
+                padding: .5rem;
         background: var(--background-category-footer, #234b49);
         position: fixed;
         top: 0;
@@ -484,7 +486,7 @@ header .main-nav {
 
 @media (max-width: 499.98px) {
     header .main-nav {
-        padding: .5rem .5rem;
+        /* padding: .5rem .5rem; */
         gap: 1rem;
     }
 }
@@ -1365,6 +1367,7 @@ footer .aboutRenova ul li img {
 footer .containerEnd {
     padding: 1rem;
     margin-top: -1px;
+    margin-bottom: 1rem;
     color: #e5e0e0;
     background-color: var(--background-main-navbar, #172c2b);
 }
@@ -1412,13 +1415,13 @@ footer .containerEnd .endFooter ul {
 
 @media (max-width:767.98px) {
     :root {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
 @media (max-width:400px) {
     :root {
-        font-size: 14px;
+        /* font-size: 14px; */
     }
 
     header .main-nav .change {

@@ -37,8 +37,8 @@ img{
 } */
 @media (min-width:768px) {
     #containerDetailsPro #sectionDetails .detailsProduct{
-        flex-wrap: nowrap;
-        align-items: flex-start;
+        /* flex-wrap: nowrap; */
+        /* align-items: flex-start; */
     }
 }
     /* #containerDetailsPro #sectionDetails .detailsProduct #containerImages #containerImage{ */
@@ -593,17 +593,50 @@ color: rgb(65, 64, 64);
 }
 /*end customer reviews */
 /* start related products */
-#containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated {
+@media (max-width:768px) {
+#containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated .container-bestSeller{
+    /* background-color:#dcd2d2; */
+    padding-left: 0;
+    padding-right: 0;
     /* position: relative; */
     /* padding: 1rem; */
+}}
+#containerDetailsPro #sectionDetails .cardLessThan{
+    background-color: transparent;
+    border: .1rem solid #f8f2f2;
+    border-radius: 1rem 2rem;
+    /* box-shadow: 4px 0px 4px 2px green; */
+    box-shadow: 4px 0px 4px 2px #7a9c7a;
+    /* box-shadow: 4px 0px 4px 2px #969a96; */
+    box-shadow: 4px 0px 4px 2px #0b890b;
 }
-#containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated .products{
+
+
     /* margin-top: 1rem; */
     /* display: flex; */
     /* overflow: hidden; */
     /* gap:var(--gap-container-products); */
     /* min-height: var(--minheight-container-products); */
     /* min-width: var(--minwidth-container-products); */
+
+#containerDetailsPro #sectionDetails .cardLessThan .detailsProduct{
+    /* color:#a71f1f; */
+}
+#containerDetailsPro #sectionDetails .detailsProduct .title{
+    color:#a71f1f;
+    text-align: center;
+}
+#containerDetailsPro #sectionDetails .detailsProduct .detailsPrice{
+    /* justify-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+#containerDetailsPro #sectionDetails .cardLessThan .detailsDelivery{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    /* color:#a71f1f; */
+    color:rgb(148 34 12);
 }
 @media (min-width:768px) {
 #containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated .buttons{
