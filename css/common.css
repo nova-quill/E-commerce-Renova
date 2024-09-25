@@ -804,7 +804,7 @@ header .second-nav {
     min-height: 2rem;
     background-color: var(--background-secondary-navbar, rgba(231, 200, 77, 0. 1666));
     /* font-family: "Playball", sans-serif; */
-    gap: 3rem;
+    /* gap: 3rem; */
     position: relative;
     z-index: 100000;
     overflow-x: auto;
@@ -1417,7 +1417,7 @@ footer .containerEnd .endFooter ul {
 
 @media (max-width:400px) {
     :root {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     header .main-nav .change {

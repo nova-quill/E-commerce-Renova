@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot} from './common.js';
+import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,addProductToCartByIconCart} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -78,8 +78,10 @@ suggestedForYou();
 // end part scrolling products
 // start drag product by toutch
 getAllElements(containerProductsDrag,dragByTouch);
-}))
+// addProductToCartByIconCart(document.querySelectorAll('.cartFavorite .cart'));
+console.log(document.querySelectorAll('.cartFavorite .cart'));
 
+}))
 
 // let ddatas=dummy.products;
 

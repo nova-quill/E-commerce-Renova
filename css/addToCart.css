@@ -138,6 +138,7 @@ border-bottom: .1rem solid transparent;
     -moz-border-radius:1rem ;
     -ms-border-radius:1rem ;
     -o-border-radius:1rem ;
+    /* display: none; */
 }
 #containerAddToCart section#addToCart .addToCart .container .containerPrice div{
     display: flex;

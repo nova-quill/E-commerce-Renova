@@ -2,7 +2,7 @@
 import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
-import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch} 
+import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum} 
 from './common.js';
 // import {existUserOrNot} from "./js/addToCart.js";
 
@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded',(info=>{
   existUserOrNotToUpdateIconNum();
    id("linkAddToCart").addEventListener('click',(event)=>{
     // addProductToCart();
-    existUserOrNot();
+    existUserOrNots();
  })
 }))
-
+// localStorage.clear();
 //  shows details product
  export function showsDetailsProduct(){
   const urlParams=new URLSearchParams(window.location.search);
@@ -351,98 +351,93 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 
   })
 }
-// are user or not
-function existUserOrNot(){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    let userToken=JSON.parse(window.localStorage.getItem('userToken'));
+// // are user or not
+// function existUserOrNot(){
+//   if(window.localStorage.getItem('user')){
+//     let user=JSON.parse(window.localStorage.getItem('user'));
+//     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
 
-    console.log(user.id);
-    addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-    postCartFromLocalToUser(`cartUser${user.id}`,userToken,user.id,user.username,user.password,user.name,user.email); 
-  }
-  else{
-    addProductToCart('productCart','proAndQuantityIt');
-  }
-  }
-//add product to cart
+//     console.log(user.id);
+//     addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
+//     postCartFromLocalToUser(`cartUser${user.id}`,userToken,user.id,user.username,user.password,user.name,user.email); 
+//   }
+//   else{
+//     addProductToCart('productCart','proAndQuantityIt');
+//   }
+//   }
+// //add product to cart
 
 
- async function addProductToCart(productsInLoc,prodAndQuantityIt,test){
-  await fetchProducts(test);
-  let categoryMatch;
-  // let  getProductFromLocal;
-  const urlParams=new URLSearchParams(window.location.search);
-  const productId=urlParams.get('productId');
-  console.log(productId);
-let  filterProducts =datas.filter((product) => {
-      categoryMatch=product['id']==productId;
-    return categoryMatch ;
-})
-// if(window.localStorage.getItem('user')){
-//  getProductFromLocal=JSON.parse(window.localStorage.getItem((`cart`)) )||[];
-console.log('user');
-// getProductFromLocal=JSON.parse(window.localStorage.getItem(('cartUser')) )||[];
+//  async function addProductToCart(productsInLoc,prodAndQuantityIt,test){
+//   await fetchProducts(test);
+//   let categoryMatch;
+//   const urlParams=new URLSearchParams(window.location.search);
+//   const productId=urlParams.get('productId');
+//   console.log(productId);
+ 
+// let  filterProducts =datas.filter((product) => {
+//       categoryMatch=product['id']==productId;
+//     return  categoryMatch;
+// })
+// console.log(filterProducts);
+// if(filterProducts[0].stock==0){
+//   console.log('nottttt');
+//   effectHoverOnSignIn('inStock');
+//   // return;
 // }
 // else{
-  let quantity=id('quantityDetails').value;
-let proAndQuantityIt={
-  productId:productId,
-  quantityPro:quantity
-};
-let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-console.log(objectQuantity);
-let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+//   if(id('quantityDetails').value==0){
+//     id('quantityDetails').value=1;
+//   }
+// if(id('quantityDetails').value>0){
+//   let quantity=id('quantityDetails').value;
+// let proAndQuantityIt={
+//   productId:productId,
+//   quantityPro:quantity
+// };
+// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+// console.log(objectQuantity);
+// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+//         getProductFromLocal.push((filterProducts[0]));
+//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+//     objectQuantity.push(proAndQuantityIt);
+//     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+//       addNumberToIconCart(productsInLoc);
+//       preventAddToCart(productsInLoc);
+// } 
+//  }}
+
+// function preventAddToCart(productsInLoc){
+//   const urlParams=new URLSearchParams(window.location.search);
+//   const productName=urlParams.get('productId');
+//   if(window.localStorage.getItem(productsInLoc)){
+//   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
+//   console.log(productsInlocal);
+//   productsInlocal.forEach(item=>{
+//        if(item.id==(+productName)) {
+//         id('textAddToCart').innerHTML='added it to cart';
+//         id('linkAddToCart').style.opacity='.4';
+//         id('linkAddToCart').style.pointerEvents='none';
+//        }
+//       })
+//     }
 // }
-
-
-
-        getProductFromLocal.push((filterProducts[0]));
-  let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-  // if(window.localStorage.getItem('user')){
-    window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-    objectQuantity.push(proAndQuantityIt);
-    let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-
-    // objectQuantity.push((ooo));
-    window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-
-  // }
-  // else{
-      // window.localStorage.setItem('productCart',JSON.stringify(getUniqeProductFromLocal));
-  // }
-      addNumberToIconCart(productsInLoc);
-      preventAddToCart(productsInLoc);
-} 
-function preventAddToCart(productsInLoc){
-  const urlParams=new URLSearchParams(window.location.search);
-  const productName=urlParams.get('productId');
-  if(window.localStorage.getItem(productsInLoc)){
-  let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-  console.log(productsInlocal);
-  productsInlocal.forEach(item=>{
-       if(item.id==(+productName)) {
-        id('textAddToCart').innerHTML='added it to cart';
-        id('linkAddToCart').style.opacity='.4';
-        id('linkAddToCart').style.pointerEvents='none';
-       }
-      })
-    }
-}
-function existUserOrNotToUpdateIconNum(){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    console.log(user.id);
-    // addNumberToIconCart(`cartUser${user.id}`);
-    preventAddToCart(`cartUser${user.id}`);
-  addNumberToIconCart(`cartUser${user.id}`);
-  }
-  else{
-    preventAddToCart('productCart');
-  addNumberToIconCart('productCart');
-  }
-  }
+// function existUserOrNotToUpdateIconNum(){
+//   if(window.localStorage.getItem('user')){
+//     let user=JSON.parse(window.localStorage.getItem('user'));
+//     console.log(user.id);
+//     preventAddToCart(`cartUser${user.id}`);
+//   addNumberToIconCart(`cartUser${user.id}`);
+//   }
+//   else{
+//     preventAddToCart('productCart');
+//   addNumberToIconCart('productCart');
+//   }
+//   }
 // localStorage.clear();
+// localStorage.removeItem('cartUser15244');
   async function postCartFromLocalToUser(user,token,IDuser,userName,pass,name,email){
     var myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
@@ -451,7 +446,7 @@ myHeaders.append('Content-Type','application/json');
 console.log(token);
     let  formdata = new FormData();
     formdata.append("profile_image",'kjkjkjddd');
-
+  }
 // formdata.append("username",'saharLLLL');
 // formdata.append("password",'1234567');
 // formdata.append("name", 'name');
@@ -462,35 +457,35 @@ console.log(token);
   // let up={...use,username:'nnnnnnnn'};
   // return
 
- fetch(`https://tarmeezacademy.com/api/v1/register`, { 
-     method: "POST",
-    body:formdata,
-    redirect:'follow',
-     headers: myHeaders
-   }).then(res=>res.json()).then(data=>{
-    console.log(data);
-   })
-  }
+//  fetch(`https://tarmeezacademy.com/api/v1/register`, { 
+//      method: "POST",
+//     body:formdata,
+//     redirect:'follow',
+//      headers: myHeaders
+//    }).then(res=>res.json()).then(data=>{
+//     console.log(data);
+//    })
+//   }
 
-  fetch('https://dummyjson.com/carts/add', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      userId: 15,
-      products: [
-        {
-          id: 144,
-          quantity: 4,
-        },
-        {
-          id: 98,
-          quantity: 1,
-        },
-      ]
-    })
-  })
-  .then(res => res.json())
-  .then(console.log);
+  // fetch('https://dummyjson.com/carts/add', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({
+  //     userId: 15,
+  //     products: [
+  //       {
+  //         id: 144,
+  //         quantity: 4,
+  //       },
+  //       {
+  //         id: 98,
+  //         quantity: 1,
+  //       },
+  //     ]
+  //   })
+  // })
+  // .then(res => res.json())
+  // .then(console.log);
   // fetch('https://dummyjson.com/users/209').then(res => res.json())
   // .then(console.log);
   async function addandgetUser(){
@@ -510,26 +505,26 @@ console.log(token);
   fetch('https://dummyjson.com/users?limit=0').then(res => res.json())
   .then(console.log);
   }
-  addandgetUser();
+  // addandgetUser();
 
 /* updating lastName of user with id 2 */
-fetch('https://dummyjson.com/users/2', {
-  method: 'PUT', /* or PATCH */
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    lastName: 'Owais',
-    id:20,
-    ip:2000,
-  })
-})
-.then(res => res.json())
-.then(console.log);
+// fetch('https://dummyjson.com/users/2', {
+//   method: 'PUT', /* or PATCH */
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({
+//     lastName: 'Owais',
+//     id:20,
+//     ip:2000,
+//   })
+// })
+// .then(res => res.json())
+// .then(console.log);
 // localStorage.clear();
 
 
-Snipcart.api.cart.retrieve().then((cart)=>{
-  console.log('cart : ',cart);
-})
+// Snipcart.api.cart.retrieve().then((cart)=>{
+  // console.log('cart : ',cart);
+// })
 
 
 

@@ -89,8 +89,8 @@ formdata.append("name", id('name').value);
 formdata.append("email",id('email').value );
 // formdata.append("profile_image",'kjkjkjddd');
 // formdata.append('local','jjjj');
-// let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
-    let response=await  fetch("https://info.al-bassif.com/auth/register", { 
+let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
+    // let response=await  fetch("https://info.al-bassif.com/auth/register", { 
 
      method: "POST",
     body:formdata,
@@ -199,8 +199,8 @@ async function logIn(){
   formdata.append("username", id('logUserName').value);
 formdata.append("password",id('logPassword').value);
   
-//  let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
- let res=await fetch("https://info.al-bassif.com/auth/login",{
+ let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
+//  let res=await fetch("https://info.al-bassif.com/auth/login",{
     method: "POST",
     body:formdata,
     redirect:'follow',
@@ -209,10 +209,16 @@ formdata.append("password",id('logPassword').value);
  })
  let data=await res.json();
  let userToken=data.token;
+ let hh=[];
  if(res.status===200){
+    if((window.localStorage.getItem(`cartUser${data.user.id}`))==null){
+        window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
+    }
+    // window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
     window.localStorage.setItem('userToken',JSON.stringify(userToken));
     window.localStorage.setItem('user',JSON.stringify(data.user));
     window.location.href='../index.html';
+
  }
  else{
 id('errorLogin').style.display='block';

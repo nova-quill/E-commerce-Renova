@@ -8,7 +8,11 @@ import {
   resetPriceDashboard,
   displayMenuSort,
   existUserOrNot,
-  dragByTouch
+  dragByTouch,
+  existUserOrNotExist,
+  addProductToCartByIconCarts,
+  existUserOrNots,
+  existUserOrNotss
 } from "./common.js";
 // start section fashion
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -49,6 +53,28 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // add number of products in cart to icon cart
   existUserOrNot();
   // end header
+
+existUserOrNots();
+
+
+// existUserOrNotExist();
+// addProductToCartByIconCarts(true);
+let icons=document.querySelectorAll('.cartFavorite .cart');
+let links=document.querySelectorAll('.cardLessThan');
+console.log(icons);
+// icons.forEach(icon=>{
+// icon.addEventListener('click',(info)=>{
+//   links.forEach(link=>{
+//     link.addEventListener('click',(info)=>{
+//       info.preventDefault();
+  // info.stopPropagation();
+    // })})
+// info.preventDefault();
+existUserOrNotss();
+// })})
+
+
+
   // start show products for every page in header and filter products from dashboard
   if(document.getElementById('linkBooks')){
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);
@@ -96,4 +122,4 @@ displayMenuSort(id,'dashboardAngle', "list", "active");
 // end dashboard
 })) 
 //end show products
- 
+//  localStorage.clear();
