@@ -879,7 +879,8 @@
 
 @media (max-width:767.98px) {
     #container section#home #flashSale .box {
-        padding: .25em;
+        padding: .5rem;
+        /* padding: .25em; */
     }
 }
 

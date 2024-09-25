@@ -163,7 +163,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .renova {
@@ -485,7 +485,7 @@ header .main-nav {
 @media (max-width: 499.98px) {
     header .main-nav {
         padding: .5rem .5rem;
-        gap: .5rem;
+        gap: 1rem;
     }
 }
 
@@ -760,7 +760,8 @@ header .main-nav .personal .count-favorite {
         bottom: -1px;
         left: 0;
         right: 0;
-        padding: .3rem .75rem;
+        padding: .5rem 1rem;
+        /* padding: .3rem .75rem; */
         background-color: var(--background-category-footer, #f6ecbb);
         border-top: .0625rem solid rgb(227, 227, 227);
         justify-content: space-between;
@@ -1411,13 +1412,13 @@ footer .containerEnd .endFooter ul {
 
 @media (max-width:767.98px) {
     :root {
-        font-size: 14px;
+        font-size: 25px;
     }
 }
 
 @media (max-width:400px) {
     :root {
-        font-size: 12px;
+        font-size: 25px;
     }
 
     header .main-nav .change {
