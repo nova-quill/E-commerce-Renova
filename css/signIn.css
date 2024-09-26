@@ -70,6 +70,12 @@ button {
     align-items: center;
     flex-direction: column;
 }
+@media (max-width:767.98px) {
+    #containerSignIn section{
+        justify-content: flex-start;
+    }
+    
+}
 
 #containerSignIn section .renova {
     margin: 1rem auto;
@@ -111,7 +117,7 @@ button {
 
 @media (max-width:768px) {
     #containerSignIn section .formSign {
-        width: 100%;
+        width: 95%;
     }
 }
 #containerSignIn section .formSign#formSignIn.hidden,#containerSignIn section .formSign#formSignUp.hidden {
@@ -330,13 +336,13 @@ button {
 
 @media (max-width:767.98px) {
     :root {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
 @media (max-width:400px) {
     :root {
-        font-size: 14px;
+        /* font-size: 14px; */
     }
 }
 

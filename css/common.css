@@ -77,7 +77,7 @@ button {
     --padding-basic: .7rem 1.25rem;
     --padding-secondary: .625rem;
     --padding-offers: 0 1rem .625rem;
-    --h2-fontsize-products: 1.5rem;
+    --h2-fontsize-products: 1.3rem;
     --h2-fontsize-offers: 1.1rem;
     --h2-margin-bottom-products: .7rem;
     --h2-margin-bottom-offers: .625rem;
@@ -476,7 +476,7 @@ header .main-nav {
     header .main-nav {
         width: 100%;
         max-width: 100%;
-                padding: .5rem;
+                padding:.25rem .5rem;
         background: var(--background-category-footer, #234b49);
         position: fixed;
         top: 0;
@@ -486,7 +486,7 @@ header .main-nav {
 
 @media (max-width: 499.98px) {
     header .main-nav {
-        /* padding: .5rem .5rem; */
+        padding: .5rem;
         gap: 1rem;
     }
 }
@@ -662,6 +662,8 @@ header .main-nav .box-search .isearch {
 
 @media (max-width:499.98px) {
     header .main-nav .box-search .isearch {
+        width:2rem;
+        font-size: 1.1em;
         position: absolute;
         right: 0;
         top: 0;
@@ -1259,7 +1261,7 @@ footer .containerSign .sign .buttonSign {
 
 @media(max-width:499.98px) {
     footer .containerSign .sign .buttonSign {
-        padding: .25rem .5rem;
+        padding: .5rem;
     }
 }
 
@@ -1280,7 +1282,11 @@ footer .containerCat {
     color: #e5e0e0;
     background-color: var(--background-category-footer, #234b49);
 }
-
+@media (max-width:767.98px) {
+    footer .containerCat {
+        padding: 1rem .25rem;
+    }
+}
 @media (max-width:499.98px) {
     footer .containerCat.categories {
         display: none;
@@ -1415,7 +1421,7 @@ footer .containerEnd .endFooter ul {
 
 @media (max-width:767.98px) {
     :root {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
