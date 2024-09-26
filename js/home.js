@@ -15,9 +15,12 @@ let sourceAoutocom;
 let map;
 let currentSlide = 0;
 let autoSliders;
+let allBalls;
+
 let secondHeader = document.querySelector("header .second-nav ul");
 console.log(secondHeader);
-let linkHeader = document.querySelectorAll("header .second-nav a");
+let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
+console.log(linkHeader);
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
@@ -28,7 +31,7 @@ let countSlide = allImages.length;
 let preButton = document.querySelector("i.left-angle");
 let nextButton = document.querySelector("i.right-angle");
 let homeGallery= document.querySelector(".home-gallery");
-let allBalls = Array.from(document.querySelector(".balls").children);
+// let allBalls = Array.from(document.querySelector(".balls").children);
 let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-products');
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
 
@@ -46,6 +49,11 @@ visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
 visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
 // start gallery
 //turn on autosliders
+// allBalls = Array.from(document.querySelector(".balls").children);
+// allBalls =(document.querySelectorAll(".ball"));
+
+// console.log(allBalls);
+
 autoSliders = setInterval(limitCurrentSlide, 3000, 1, "nextSlide");
 // create bollets for images
 createBollets(allImages);
@@ -201,6 +209,8 @@ function createBollets(array) {
     document.querySelector(".balls").appendChild(span);
   }
   document.querySelector(".ball").classList.add("activeball");
+  allBalls=document.querySelectorAll('.ball'); 
+  // console.log(allBalls);
 }
 
 //limit activeball

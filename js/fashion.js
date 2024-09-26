@@ -2,6 +2,7 @@
 import {
   id,
   addClassActive,
+  toggleDashboard,
   filterAllProductsByDashboard,
   filterProdutsForEveryPage,
   resetDashboard,
@@ -50,6 +51,10 @@ document.addEventListener('DOMContentLoaded',(info=>{
   addClassActive(iconsPersonal, "active");
   addClassActive(linkHeader, "active");
   dragByTouch(secondHeader);
+  // start dashboard
+  toggleDashboard('classification','dashboard');
+      toggleDashboard('cancelDash','dashboard');
+
   // add number of products in cart to icon cart
   existUserOrNot();
   // end header
@@ -119,7 +124,11 @@ existUserOrNotss();
   // start dashboard
   // filter products from sort by
 displayMenuSort(id,'dashboardAngle', "list", "active");
+// displayMenuSort(id,'classification','dashboard', "active",'cancelDash',true);
+
 // end dashboard
 })) 
 //end show products
 //  localStorage.clear();
+// 
+

@@ -256,6 +256,14 @@ showSideBar(
 export function addClassName(element, className) {
   element.classList.add(className);
 }
+// start dashboard
+export function toggleDashboard(button,element){
+  id(button).addEventListener('click',()=>{
+ id(element).classList.toggle('active');
+  })
+}
+// end dashboard
+
 // start create divs for show products
 export function groupesFunctionsForCreatesDivs(datas, i, containerProducts,te) {
   organizeAmount(datas, i);
@@ -1121,7 +1129,7 @@ export function displayProducts(product, func, container) {
   for (let o = 0; o < product.length; o++) {
     groupesFunctionsForCreatesDivs(product, o, func(container));
   }
-  console.log(document.querySelectorAll('.cartFavorite .cart'));
+  // console.log(document.querySelectorAll('.cartFavorite .cart'));
   addProductToCartByIconCart();
 }
 // end show products in page
@@ -1148,9 +1156,7 @@ isDrag=false;
 }
 // end drag products
 //start  add product to cart by icon cart
-// let getUniqeObjectQuantity;
 // are user or not
-// let filterProductss;
  export function existUserOrNots(isIcon,element,test){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
@@ -1377,7 +1383,7 @@ console.log(filterProducts);
     link.addEventListener('click',(info)=>{
   info.stopPropagation();
     })})
-  console.log(icons);
+  // console.log(icons);
   icons.forEach(icon=>{
   icon.addEventListener('click',(info)=>{
 info.preventDefault();
@@ -1419,7 +1425,7 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
       // existUserOrNotToUpdateIconNum()
       // preventAddToCart(productsInLoc);
     })})
-    console.log(icons);
+    // console.log(icons);
     // let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
 
     // window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));

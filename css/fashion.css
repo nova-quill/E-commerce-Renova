@@ -244,6 +244,7 @@ header .second-nav{
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 #containerFashion section#fashion .containerFashion {
@@ -256,15 +257,35 @@ header .second-nav{
     padding: 1rem .5rem .5rem;
     background-color: white;
     flex-basis: 14rem;
-    /* flex-basis:30%; */
     border-right: .1rem solid #e8e8e8;
+    transition: left .3s linear;
+    -webkit-transition: left .3s linear;
+    -moz-transition: left .3s linear;
+    -ms-transition: left .3s linear;
+    -o-transition: left .3s linear;
 }
 @media (max-width:499.98px) {
     #containerFashion section#fashion .containerFashion .dashboard {
+   width:100%;
+   height:calc(100vh - 10rem);
+   background-color: #fefcfc;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left:-100%;
+   z-index: 10000000000;
+   overflow-x: hidden;
+   overflow-y: auto;
+    } 
+}
+#containerFashion section#fashion .containerFashion .dashboard.active{
+    left:0;
+}
+@media (min-width:500px) {
+    #containerFashion section#fashion .containerFashion .dashboard #cancelDash{
    display: none;
     } 
 }
-
 #containerFashion section#fashion .containerFashion .dashboard .sortBy {
     width: 10rem;
     margin-bottom: 1rem;
@@ -528,6 +549,7 @@ header .second-nav{
     flex: 1;
     display: flex;
     flex-direction: column;
+    /* position: relative; */
 }
 
 #containerFashion section#fashion .containerFashion #boxFashion h1 {
@@ -536,11 +558,31 @@ header .second-nav{
     font-weight: 600;
     text-transform: capitalize;
 }
-
+#containerFashion section#fashion .containerFashion #boxFashion #classification {
+    width: fit-content;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    color: #057392;
+    font-size: .95rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-decoration-color: #fcf2e3;
+    cursor:pointer;
+}
+#containerFashion section#fashion .containerFashion #boxFashion #classification:hover {
+    color:#234b49;
+    text-decoration-color: #f3e394;
+    -moz-text-decoration-color: #f3e394;
+}
+@media (min-width:500px) {
+#containerFashion section#fashion .containerFashion #boxFashion #classification {
+    display: none;
+}
+}
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts {
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     flex-wrap: wrap;
     gap: var(--gap-container-products);
     overflow: hidden;
@@ -562,7 +604,9 @@ header .second-nav{
     -o-border-radius: .5rem;
     overflow: hidden;
 }
-
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .title,#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .detailsDelivery{
+    color:#126e94;
+}
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .aCardLess {
     padding-bottom: 0;
     padding-top: 0;
@@ -593,6 +637,15 @@ header .second-nav{
     margin-left: auto;
     margin-right: auto;
 }
-
+/* page books */
+#containerFashion section#fashion.containerBooks .containerFashion #boxFashion .cardLessThan .containerImage {
+    height: 18rem;
+    padding: 1rem;
+}
+#containerFashion section#fashion.containerBooks .containerFashion #boxFashion .cardLessThan .containerImage img{
+    /* width: 70%; */
+    /* background-color: #952f2f; */
+    object-fit: contain;
+}
 /*  end container products fashion */
 /* end section fashion */

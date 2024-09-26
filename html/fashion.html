@@ -220,7 +220,11 @@ rel="stylesheet"/>
      <section id="fashion">
       <div class="containerFashion">
         <!-- start dashboard -->
-        <div class="dashboard">
+        <div class="dashboard" id="dashboard">
+          <div class="backMenu" id="cancelDash">
+            <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+            <span>exit</span>
+           </div>
           <div class="sortBy">
             <div class="box flex-just-between" id="box"><div>sort by : <span id="spanCategory"></span></div><i id="dashboardAngle"
                 class="fas fa-angle-right 
@@ -385,6 +389,7 @@ rel="stylesheet"/>
            <!-- satrt container products fashion -->
             <div class="containerFashion" id="boxFashion">
               <h1 class="">fashion</h1>
+              <span id="classification">classification</span>
               <div id="containerProduts"> </div>
             </div>          
             </div>

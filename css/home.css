@@ -488,11 +488,15 @@
 
 #container section#home .womens .detailsWomens .area .imageProduct {
     flex-basis: 50%;
+        /* height: 5rem; */
 }
-
+#container section#home .womens .detailsWomens .area .imageProduct  img{
+    /* height: 5rem; */
+}
 @media(min-width:499px) and (max-width:767.98px) {
     #container section#home .womens .detailsWomens .area .imageProduct img {
         width: 70%;
+    /* height: 3rem; */
     }
 }
 
@@ -513,7 +517,7 @@
 #container section#home .womens .more {
     padding: .75rem 1rem;
     margin: 1.25rem auto 0;
-    color: gray;
+    color:black;
     font-size: .8rem;
     text-transform: capitalize;
     font-family: "Playball", sans-serif;
@@ -530,7 +534,7 @@
 }
 
 #container section#home .womens .more:hover {
-    color: black;
+    color: gray;
 }
 
 #container section#home .womens#lady.apperance {
@@ -593,6 +597,21 @@
 }
 #container section#home .container-bestSeller .box-products .cardLessThan{
     max-width: var(--maxwidth-cardlessthan);
+}
+#container section#home #container-lessthan .box-products .cardLessThan:hover,
+#container section#home #container-newArrival .box-products .cardLessThan:hover{
+box-shadow: .1rem 0rem 1rem .1rem gray;
+}
+#container section#home #flashSale .box-products .cardLessThan .aCardLess:hover .containerImage,#container section#home #suggestedForYou .box-products .cardLessThan .aCardLess:hover .containerImage{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+#container section#home .offerShoes .box-products .cardLessThan .aCardLess:hover .title,#container section#home .offerShoes .box-products .cardLessThan .aCardLess:hover .detailsDelivery{
+    color:#126e94;
+
 }
 /* #container section#home .container-bestSeller .box-products { */
     /* padding: var(--padding-secondary); */

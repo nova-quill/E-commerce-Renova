@@ -608,15 +608,23 @@ color: rgb(65, 64, 64);
     /* padding: 1rem; */
 }}
 #containerDetailsPro #sectionDetails .cardLessThan{
+    /* max-width: 13rem; */
     background-color: transparent;
     border: .1rem solid #f8f2f2;
     border-radius: 1rem 2rem;
     /* box-shadow: 4px 0px 4px 2px green; */
-    box-shadow: 4px 0px 4px 2px #7a9c7a;
+    /* box-shadow: 4px 0px 4px 2px #7a9c7a; */
     /* box-shadow: 4px 0px 4px 2px #969a96; */
     box-shadow: 4px 0px 4px 2px #0b890b;
 }
-
+#containerDetailsPro #sectionDetails .cardLessThan:hover{
+/* box-shadow: 4px 0px 4px 2px #7a9c7a; */
+  box-shadow: 4px 0px 4px 2px #969a96;
+  /* box-shadow: 4px 0px 4px 2px green;  */
+}
+#containerDetailsPro #sectionDetails .cardLessThan .aCardLess{
+    padding-bottom: 0;
+}
 
     /* margin-top: 1rem; */
     /* display: flex; */
@@ -636,6 +644,8 @@ color: rgb(65, 64, 64);
     /* justify-content: center; */
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
+
 }
 #containerDetailsPro #sectionDetails .cardLessThan .detailsDelivery{
     width: fit-content;
@@ -643,6 +653,9 @@ color: rgb(65, 64, 64);
     margin-right: auto;
     /* color:#a71f1f; */
     color:rgb(148 34 12);
+}
+#containerDetailsPro #sectionDetails .cardLessThan:hover .title,#containerDetailsPro #sectionDetails .cardLessThan:hover .detailsDelivery{
+    color:#676767;
 }
 @media (min-width:768px) {
 #containerDetailsPro #sectionDetails .containerProductsRe .partProductsRelated .buttons{

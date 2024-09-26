@@ -217,10 +217,14 @@ rel="stylesheet"/>
   <!-- start container fashion -->
    <div id="containerFashion">
     <!-- start section fashion -->
-     <section id="fashion">
+     <section id="fashion" class="containerBooks">
       <div class="containerFashion">
         <!-- start dashboard -->
-        <div class="dashboard">
+        <div class="dashboard" id="dashboard">
+          <div class="backMenu" id="cancelDash">
+            <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
+            <span>exit</span>
+           </div>
           <div class="sortBy">
             <div class="box flex-just-between" id="box"><div>sort by : <span id="spanCategory"></span></div><i id="dashboardAngle"
                 class="fas fa-angle-right 
@@ -251,24 +255,6 @@ rel="stylesheet"/>
               <!-- <dd data-category="sports-accessories"><a href="">sports</a></dd> -->
               <!-- <dd data-category="sunglasses"><a href="">sunglasses</a></dd> -->
               <!-- <dd data-category="fragrances"><a href="">perfumes</a></dd> -->
-            </dl>
-          </div>
-          <div class="category">
-            <span class="reset" id="resetBrands">reset</span>
-            <dl class="check" id="brandsDash">
-              <dt>brands</dt>
-              <dd> 
-                <label class="oppo">rolex
-                  <input type="checkbox" name="rol"value='rolex'/>
-                <span class="customCheck"></span>
-                </label> 
-                </dd>
-                <dd class=> 
-                  <label class="oppo">fashion
-                    <input type="checkbox" name="fash"  value="fashion"/>
-                  <span class="customCheck"></span>
-                  </label> 
-                  </dd>
             </dl>
           </div>
           <div class="category">
@@ -386,6 +372,7 @@ rel="stylesheet"/>
            <!-- satrt container products fashion -->
             <div class="containerFashion" id="boxFashion">
               <h1 class="">books</h1>
+              <span id="classification">classification</span>
               <div id="containerProduts"> </div>
             </div>          
             </div>

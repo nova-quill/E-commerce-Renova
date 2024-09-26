@@ -48,7 +48,7 @@
       // (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
       </script>
     <!--  start overlay -->
-    <div id="overlay"></div>
+    <div class='overlay' id="overlay"></div>
     <!-- end overlay -->
      <!-- start sidebar -->
      <!-- <button
@@ -254,7 +254,7 @@
         <!-- start second navbar -->
         <nav class="second-nav flex-just-between">
           <ul class="links">
-            <li class='all' id="all"><i class="fas fa-bars toggle-menu"></i><a href="#">All</a></li>
+            <li class='all' id="all"><i class="fas fa-bars toggle-menu"></i><a href="#" id="linkAll">All</a></li>
             <li><a href="html/fashion.html" data-category="fashion">fashion</a></li>
             <li><a href="html/electronics.html" data-category="electronics">electronics</a></li>
             <li><a href="html/grocery.html" data-category="groceries">groceries</a></li>
@@ -610,9 +610,12 @@
         <div class="category">
           <div class="area flex-center">
               <a href="html/fashion.html?productCategory=womens-shoes">
-  <h4 class="headingProduct flex-center">shoses & sneakers & chappals</h4>
+  <h4 class="headingProduct flex-center">shoses & sneakers</h4>
             <div class="imageProduct flex-center">
-              <img src=".\photos\Alexander-McQueen-Glitter-Black-03.png" alt="shoses for womens"/>
+              <!-- <img src=".\photos\pair-red-high-heel-shoes-isolated-white-background_764664-24423.png" alt="shoses for womens"/> -->
+              <!-- <img src=".\photos\woman_shoeshkjoopl.png"/> -->
+              <img src=".\photos\pairblack.png"/>
+              <!-- <img src=".\photos\Alexander-McQueen-Glitter-Black-03.png" alt="shoses for womens"/> -->
             </div>
             </a>
         </div>
@@ -637,7 +640,7 @@
               <a href="html/fashion.html?productCategory=womens-bags">
               <h4 class="headingProduct flex-center">handbags & shulderbags</h4>
                            <div class="imageProduct flex-center">
-                             <img src=".\photos\bagg.png" alt="handbags and shulder for womens"/>
+                             <img src=".\photos\bagg22.png" alt="handbags and shulder for womens"/>
                            </div>
             </a>
           </div>
@@ -657,7 +660,8 @@
                 <a href="html/fashion.html?productCategory=mens-shirts">
     <h4 class="headingProduct flex-center">high quality t-shirts</h4>
               <div class="imageProduct flex-center">
-                <img src=".\photos\0adee9e96a0a47daa1816bc03bf1b53db7f7162f.png" alt="t-shirt for mens"/>
+                <img src=".\photos\BGCTSK233 (1).png"/>
+                <!-- <img src=".\photos\0adee9e96a0a47daa1816bc03bf1b53db7f7162f.png" alt="t-shirt for mens"/> -->
               </div>
               </a>
           </div>
@@ -706,7 +710,7 @@
       <div class="scroll-bar"> 
         <div class="scroll"></div>
    </div> 
-        <h2 class="home-lessthan"><span></span>new arrivals furniture for home</h2>
+        <h2 class="home-lessthan"><span></span>new arrivals in renova</h2>
         <div class="buttons flex-just-between"> 
           <div class="first flex-center"> 
              <i class="fas fa-angle-double-left moveLeft"></i>
