@@ -85,7 +85,11 @@
     -webkit-transform: translateX(100%);
     z-index: 2;
 }
-
+@media (max-width:500px) {
+    #container section#home #container-gallery ul.home-gallery li img {
+        height: 8.7rem;
+    }    
+}
 #container section#home #gallery i.left-angle:hover {
     color: grey;
     left: .125rem;
