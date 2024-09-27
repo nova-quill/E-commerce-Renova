@@ -87,7 +87,11 @@
 }
 @media (max-width:500px) {
     #container section#home #container-gallery ul.home-gallery li img {
-        height: 8.7rem;
+        max-width: none;
+        max-height: none;
+        width: 100%;
+        object-fit: contain;
+    
     }    
 }
 #container section#home #gallery i.left-angle:hover {
@@ -491,8 +495,9 @@
 }
 
 #container section#home .womens .detailsWomens .area .imageProduct {
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
         /* height: 5rem; */
+        flex: 1;
 }
 #container section#home .womens .detailsWomens .area .imageProduct  img{
     /* height: 5rem; */
@@ -516,6 +521,7 @@
     font-size: .8rem;
     line-height: 1.5;
     text-transform: capitalize;
+    flex-basis: 55%;
 }
 
 #container section#home .womens .more {

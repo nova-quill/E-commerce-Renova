@@ -250,6 +250,48 @@ showSideBar(
   true,
   "phones"
 );
+// let isLimitSec=false;
+// go location products from sidebar
+export function limitLocationProductsBySidebar(element){
+element.addEventListener('click',(info=>{
+    info.preventDefault();
+    id('xmark').click();
+    let nameSection=info.target.getAttribute('data-nameSection');
+    if(window.location.pathname==('/index.html')||(window.location.pathname=='/')) {
+    window.location.href=`index.html?isLimit=true&&nameSec=${nameSection}&&#${nameSection}`;
+    }
+    else{
+      window.location.href=`../index.html?isLimit=true&&nameSec=${nameSection}&&#${nameSection}`
+    }
+addStyleOnSection();
+  }))
+}
+export function addStyleOnSection(){
+let url= new URLSearchParams(window.location.href);
+if(window.location.href.includes('isLimit')==true){
+let nameSec=url.get('nameSec');
+console.log(nameSec);
+id(nameSec).classList.add('limitSection');
+setTimeout(()=>{
+  id(nameSec).classList.remove('limitSection');
+},10000)
+}
+
+  // console.log('1');
+  // if(window.localStorage.getItem('isLimitSec')){
+    // let limitSection=window.localStorage.getItem('isLimitSec');
+    // id(limitSection).classList.add('limitSection');
+    // id(limitSection).style.backgroundColor='red';
+  // }
+    // else{
+      // id(limitSection).classList.remove('limitSection');
+    // }
+    // setTimeout(()=>{
+      // id(limitSection).classList.remove('limitSection');
+      // localStorage.removeItem('isLimitSec');
+      // clearInterval(oo);
+    // },10000)
+  }
 
 // end sidebar
 //add class name about element
@@ -1132,6 +1174,19 @@ export function displayProducts(product, func, container) {
   // console.log(document.querySelectorAll('.cartFavorite .cart'));
   addProductToCartByIconCart();
 }
+// create url for footer of elements
+export function createHrefForElementsFooter(elements){
+  // console.log('ddddddddddddddddddddd');
+  elements.forEach(element=>{
+  element.addEventListener('click',(info=>{
+    // info.preventDefault();
+   let categoryElement=info.target.getAttribute('data-category').toLowerCase();
+  //  let parentElement=element.parentElement;
+  let dataPage= info.target.getAttribute('data-page').toLocaleLowerCase();
+   info.target.href=`${dataPage}.html?productCategory=${categoryElement}`;
+   console.log(categoryElement,dataPage);
+  }))})
+  }
 // end show products in page
 // start drag products
  export function dragByTouch(container) {

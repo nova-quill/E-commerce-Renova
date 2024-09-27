@@ -18,6 +18,7 @@ rel="stylesheet"/>
     <!--  start overlay -->
     <div id="overlay"></div>
     <!-- end overlay -->
+    
      <!-- start sidebar -->
      <div class="xmark flex-center" id="xmark">
       <i class="fa-solid fa-xmark xmarkSide"></i>
@@ -32,13 +33,13 @@ rel="stylesheet"/>
           <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
           <span>exit</span>
          </div>
-      <dl>
-        <dt>trending</dt>
-        <dd><a href=''>best seller</a></dd>
-        <dd><a href=''>hiested rating</a></dd>
-        <dd><a href=''>new arrivalles</a></dd>
-        <dd><a href=''>flash sale</a></dd>
-        </dl> 
+         <dl id="trending">
+          <dt>trending</dt>
+          <dd><a href='' data-nameSection="container-lessthan">best seller</a></dd>
+          <dd><a href='' data-nameSection="container-ratinghighest">hiested rating</a></dd>
+          <dd><a href='' data-nameSection="container-newArrival">new arrivals</a></dd>
+          <dd><a href='' data-nameSection="flashSale">flash sale</a></dd>
+          </dl> 
         <dl class="mainDl">
         <dt>category</dt>
         <dd id="liElectronices" class="electronices"><a href='#'>electronics</a><i class="fas fa-angle-right 
@@ -51,7 +52,7 @@ rel="stylesheet"/>
          fashion</a><i class="fas 
       fa-angle-right sidebarAngle"></i>
     </dd>
-        <dd><a href='#'>groceries</a></dd>
+        <dd><a href='grocery.html'>groceries</a></dd>
         <dd id="liFurniture" class="furniture"><a href='#'>home & furniture</a><i class="fas fa-angle-right 
  sidebarAngle"></i></dd>
       </dl>
@@ -74,15 +75,15 @@ rel="stylesheet"/>
           <span>back</span>
          </div>
         <dl>
-          <dt><a href="">all fashion</a></dt>
-          <dd><a href="">wear's womens</a></dd>
-          <dd><a href="">shoe's women</a></dd>
-          <dd><a href="">bag's womens</a></dd>
-          <dd><a href="">watch's women</a></dd>
-          <dd><a href="">jewelry</a></dd>
-          <dd><a href="">wear's men</a></dd>
-          <dd><a href="">shoe's men</a></dd>
-          <dd><a href="">watch's men</a></dd>
+          <dt><a href=""data-category="furniture" data-page="fashion">all fashion</a></dt>
+          <dd><a href="" data-category="womens-dresses" data-page="fashion">wear's womens</a></dd>
+          <dd><a href="" data-category="womens-shoes" data-page="fashion">shoe's women</a></dd>
+          <dd><a href="" data-category="womens-bags" data-page="fashion">bag's womens</a></dd>
+          <dd><a href=""data-category="womens-watches" data-page="fashion">watch's women</a></dd>
+          <dd><a href="" data-category="womens-jewellery" data-page="fashion">jewelry</a></dd>
+          <dd><a href="" data-category="mens-shirts" data-page="fashion">wear's men</a></dd>
+          <dd><a href="" data-category="mens-shoes" data-page="fashion">shoe's men</a></dd>
+          <dd><a href="" data-category="mens-watches" data-page="fashion">watch's men</a></dd>
         </dl>
         </div>
         <div id='phones'class="sideBar hidd">
@@ -92,11 +93,9 @@ rel="stylesheet"/>
            <span>back</span>
           </div>
          <dl>
-           <dt><a href="">all</a></dt>
-           <dd><a href=''>phones</a></dd>
-           <dd><a href="">taplets</a></dd>
-           <dd><a href="">laptops</a></dd>
-           <dd><a href="">mobiles eccessoriess</a></dd>
+           <dt>all</dt>
+           <dd><a href=''data-category="smartphones" data-page="phones">phones</a></dd>
+           <dd><a href=""data-category="tablets" data-page="electronics">tablets</a></dd>
          </dl>
          </div>
          <div id='furniture'class="sideBar  hidd">
@@ -105,10 +104,10 @@ rel="stylesheet"/>
            <span>back</span>
           </div>
          <dl>
-           <dt><a href="">all</a></dt>
-           <dd><a href="">furnitures</a></dd>
-           <dd><a href="">accessories home</a></dd>
-           <dd><a href="">accessories kitchen </a></dd>
+           <dt>all</dt>
+           <dd><a href="" data-category="furniture" data-page="furniture">furnitures</a></dd>
+           <dd><a href="" data-category="home-decoration" data-page="furniture"> home accessories </a></dd>
+           <dd><a href="" data-category="kitchen-accessories" data-page="kitchen">kitchen accessories</a></dd>
          </dl>
          </div>
          <div id='automotive'class="sideBar  hidd">
@@ -117,10 +116,9 @@ rel="stylesheet"/>
            <span>back</span>
           </div>
          <dl>
-           <dt><a href="">all</a></dt>
-           <dd><a href=''>cars</a></dd>
-           <dd><a href="">motors</a></dd>
-           <dd><a href="">sublments motors</a></dd>
+           <dt>all</dt>
+           <dd><a href='' data-category="vehicle" data-page="automotive">cars</a></dd>
+           <dd><a href="" data-category="motorcycle" data-page="automotive">motors</a></dd>
          </dl>
          </div>
          <div id="electronices" class="sideBar  hidd">
@@ -129,11 +127,13 @@ rel="stylesheet"/>
            <span>back</span>
           </div>
          <dl>
-           <dt><a href="">all</a></dt>
-           <dd><a href=''>headphones</a></dd>
+           <dt>all</dt>
+           <dd><a href=""data-category="laptops" data-page="electronics">laptops</a></dd>
+           <dd><a href=""data-category="mobile-accessories" data-page="electronics">mobiles accessories</a></dd>
          </dl>
          </div>
     </div>
+
     <!-- end sidebar -->
      <!-- start header -->
         <header>
@@ -241,9 +241,9 @@ rel="stylesheet"/>
           </div>
           <div class="category">
             <dl id="category" data-category="fashion">
-              <dt>category</dt>
-              <dd class="categoryName" id="categoryName" data-category="all"> <a href="#">all fashion</a></dd>
-              <dd data-category='accessories-mobile'><a href="#">Fiction</a></dd>
+              <!-- <dt>category</dt> -->
+              <!-- <dd class="categoryName" id="categoryName" data-category="all"> <a href="#">all fashion</a></dd> -->
+              <!-- <dd data-category='accessories-mobile'><a href="#">Fiction</a></dd> -->
               <!-- <dd data-category='Self-Help'><a href="#">Self-Help</a></dd> -->
               <!-- <dd data-category='Biography & Autobiography'><a href="">Biography & Autobiography</a></dd> -->
               <!-- <dd data-category='Philosophy'><a href="">Philosophy</a></dd> -->
@@ -412,55 +412,57 @@ rel="stylesheet"/>
      </div>
      
     <!-- end sign in -->
-     <!-- start category footer -->
+  
+      <!-- start category footer -->
       <div class="containerCat  categories flex-center">
         <div class="containerCategory flex-just-between">
           <div class="category">
             <h4><a href="fashion.html">fashion</a></h4>
             <ul>
-              <li><a>women clothes</a></li>
-              <li><a>women bags</a></li>
-              <li><a>women shoes</a></li>
-              <li><a>women watches</a></li>
-              <li><a> men clothes</a></li>
-              <li><a> men shoes</a></li>
-              <li><a> men watches</a></li>
+              <li><a href='' data-category="womens-dresses"  data-page="fashion">women clothes</a></li>
+              <li><a data-category="womens-bags"  data-page="fashion">women bags</a></li>
+              <li><a data-category="womens-shoes"  data-page="fashion">women shoes</a></li>
+              <li><a data-category="womens-watches"  data-page="fashion">women watches</a></li>
+              <li><a data-category="mens-shirts"  data-page="fashion"> men clothes</a></li>
+              <li><a data-category="mens-shoes"  data-page="fashion"> men shoes</a></li>
+              <li><a data-category="mens-watches"  data-page="fashion"> men watches</a></li>
             </ul>
           </div>
           <div class="category">
             <h4><a href="electronics.html">electronic</a></h4>
             <ul>
-              <li><a>mobiles</a></li>
-              <li><a>tablet</a></li>
-              <li><a>labtop</a></li>
-              <li><a>accessories mobiles</a></li>
+              <li><a  data-category="smartphones" data-page="phones">mobiles</a></li>
+              <li><a data-category="tablets" data-page="electronics">tablet</a></li>
+              <li><a data-category="laptops" data-page="electronics">labtop</a></li>
+              <li><a  data-category="mobile-accessories" data-page="electronics">accessories mobiles</a></li>
             </ul>
           </div>
           <div class="category">
             <h4><a href="furniture.html">home</a></h4>
             <ul>
-              <li><a>furniture</a></li>
-              <li><a>decoration home</a></li>
-              <li><a> kitchen</a></li>
+              <li><a data-category="furniture" data-page="furniture">furniture</a></li>
+              <li><a data-category="home-decoration" data-page="furniture">decoration home</a></li>
+              <li><a data-category="kitchen-accessories" data-page="kitchen"> kitchen</a></li>
             </ul>
           </div>
           <div class="category">
             <h4><a href="automotive.html">automotive</a></h4>
             <ul>
-              <li><a>cars</a></li>
-              <li><a>motorcycle</a></li>
+              <li><a data-category="vehicle" data-page="automotive">cars</a></li>
+              <li><a data-category="motorcycle" data-page="automotive">motorcycle</a></li>
             </ul>
           </div>
           <div class="category">
             <h4><a href="books.html">books</a></h4>
             <ul>
-              <li><a>fiction</a></li>
-              <li><a>science</a></li>
+              <li><a data-category="fiction" data-page="books">fiction</a></li>
+              <li><a data-category="science" data-page="books">science</a></li>
             </ul>
           </div>
       </div>
       </div>
       <!-- end category footer -->
+    
        <!-- start about renova ....... -->
        <div class="containerCat aboutRenova flex-center">
         <div class="containerCategory flex-just-between">

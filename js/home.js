@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,addProductToCartByIconCart} from './common.js';
+import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,addProductToCartByIconCart,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -34,8 +34,9 @@ let homeGallery= document.querySelector(".home-gallery");
 // let allBalls = Array.from(document.querySelector(".balls").children);
 let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-products');
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
-
-
+let allLinksFooter=document.querySelectorAll('footer .category li a');
+let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
+console.log(allTrendingSide);
 document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
@@ -43,6 +44,18 @@ addClassActive(linkHeader, "active");
 // add number of products in cart to icon cart
 existUserOrNot();
 // end header
+// start sidebar
+getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+addStyleOnSection();
+// let oo=setInterval(addStyleOnSection,1000);
+// setTimeout(()=>{
+  // let limitSection=window.localStorage.getItem('isLimitSec');
+
+  // id(limitSection).classList.remove('limitSection');
+  // localStorage.removeItem('isLimitSec');
+  // clearInterval(oo);
+// },10000)
+// addStyleOnSection();
 // visible map
 visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
 //hidden map
@@ -88,6 +101,8 @@ suggestedForYou();
 getAllElements(containerProductsDrag,dragByTouch);
 // addProductToCartByIconCart(document.querySelectorAll('.cartFavorite .cart'));
 console.log(document.querySelectorAll('.cartFavorite .cart'));
+// start footer
+createHrefForElementsFooter(allLinksFooter);
 
 }))
 

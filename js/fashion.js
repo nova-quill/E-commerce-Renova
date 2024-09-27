@@ -1,6 +1,7 @@
 "use strict";
 import {
   id,
+  getAllElements,
   addClassActive,
   toggleDashboard,
   filterAllProductsByDashboard,
@@ -13,7 +14,10 @@ import {
   existUserOrNotExist,
   addProductToCartByIconCarts,
   existUserOrNots,
-  existUserOrNotss
+  existUserOrNotss,
+  createHrefForElementsFooter,
+  limitLocationProductsBySidebar,
+  addStyleOnSection
 } from "./common.js";
 // start section fashion
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -45,21 +49,29 @@ let freeShipping = document.querySelector(
 let allAvalibal = document.querySelector(
   ".containerFashion .category dl.check#availability dd input"
 );
+let allLinksFooter=document.querySelectorAll('footer .category li a');
+let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
+let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
 
+
+console.log(allLinksFooter);
 document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
   addClassActive(linkHeader, "active");
   dragByTouch(secondHeader);
+  // start sidebar
+getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+// addStyleOnSection();
   // start dashboard
   toggleDashboard('classification','dashboard');
       toggleDashboard('cancelDash','dashboard');
 
   // add number of products in cart to icon cart
-  existUserOrNot();
+  // existUserOrNot();
   // end header
 
-existUserOrNots();
+// existUserOrNots();
 
 
 // existUserOrNotExist();
@@ -76,6 +88,10 @@ console.log(icons);
     // })})
 // info.preventDefault();
 existUserOrNotss();
+// footer functions create url
+// getAllElements(allLinksFooter,createHrefForElementsFooter);
+createHrefForElementsFooter(allLinksFooter);
+createHrefForElementsFooter(allLinksSideBar);
 // })})
 
 
@@ -125,6 +141,7 @@ existUserOrNotss();
   // filter products from sort by
 displayMenuSort(id,'dashboardAngle', "list", "active");
 // displayMenuSort(id,'classification','dashboard', "active",'cancelDash',true);
+// filterProdutsForEveryPage(allLinksFooter,id,true);
 
 // end dashboard
 })) 

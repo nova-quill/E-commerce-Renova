@@ -1376,11 +1376,14 @@ footer .aboutRenova ul li img {
 footer .containerEnd {
     padding: 1rem;
     margin-top: -1px;
-    margin-bottom: 1rem;
     color: #e5e0e0;
     background-color: var(--background-main-navbar, #172c2b);
 }
-
+@media (max-width:768px) {
+    footer .containerEnd {
+    margin-bottom: 1rem;
+    }
+}
 footer .containerEnd .endFooter {
     width: 100%;
     max-width: 800px;
@@ -1403,6 +1406,9 @@ footer .containerEnd .endFooter ul {
 
 /* end end footer */
 /* end footer */
+.limitSection{
+  box-shadow: .1rem 0rem 1rem .1rem black;
+}
 /* start media root */
 @media (min-width:1400px) {
     :root {
