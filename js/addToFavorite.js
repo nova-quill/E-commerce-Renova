@@ -1,3 +1,5 @@
+
+  
 'use strict'
 import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch} from "../js/common.js";
 let quantityProducts=0;
@@ -15,27 +17,26 @@ document.addEventListener('DOMContentLoaded',(info=>{
     dragByTouch(secondHeader);
     // start shows product in cart
 
-    existUserOrNot('productsInCart','cartUser','proAndQuantityIt','cart');
+    existUserOrNot('favorite');
 }))
-// are user or not
- function existUserOrNot(iconName){
-if(window.localStorage.getItem('user')){
-  let user=JSON.parse(window.localStorage.getItem('user'));
-  console.log(user.id);
-  filterProductsInCart(id,'productsInCart',`cartUser${user.id}`,`proAndQuantityIt${user.id}`,iconName);
-  // filterProductsInCart(id,container,`${productsInLoc}${user.id}`,`${proAndQuantityIt}${user.id}`);
 
-}
-else{
-  if(window.localStorage.getItem('productCart'==null)){
-    let arrayProducts=[];
-  window.localStorage.setItem('productCart',JSON.stringify(arrayProducts));
-  }
-  filterProductsInCart(id,'productsInCart','productCart','proAndQuantityIt',iconName);
-  // filterProductsInCart(id,container,productsInLoc,proAndQuantityIt);
 
-}
-}
+ // are user or not
+  function existUserOrNot(iconName){
+    if(window.localStorage.getItem('user')){
+      let user=JSON.parse(window.localStorage.getItem('user'));
+      console.log(user.id);
+      filterProductsInCart(id,'productsInCart',`favoriteUser${user.id}`,`proAndQuantityInFav${user.id}`,iconName);
+    }
+    else{
+    //   if(window.localStorage.getItem('favoriteCart'==null)){
+        let arrayProducts=[];
+      window.localStorage.setItem('favoriteCart',JSON.stringify(arrayProducts));
+    //   }
+      filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav',iconName);
+    
+    }
+    }
 // filter products in cart
  export async function filterProductsInCart(func,container,productsInLoc,proAndQuantityIt,iconName,iconId,test){
   await fetchProducts(test);
@@ -88,7 +89,7 @@ if(getProductFromLocal.length>0){
   id('headingCart').innerHTML=`your cart includes ${getProductFromLocal.length} products,${quantityProducts} quantity` ;
 }
 if(getProductFromLocal.length==0){
-  id('headingCart').innerHTML=`your cart is empty, let's fill it`;
+  id('headingCart').innerHTML=`your favorite is empty, let's fill it`;
   id('containerPriceCart').style.display='none';
 }
 getProductFromLocal.forEach(item=>{
@@ -101,7 +102,7 @@ id('totalDiscounts').innerHTML=`${totalDiscounts.toFixed(1)}`;
 console.log(totalPrices,totalDiscounts);
 }
 else{
-  id('headingCart').innerHTML=`your cart is empty, let's fill it`;
+  id('headingCart').innerHTML=`your favorite is empty, let's fill it`;
   id('containerPriceCart').style.display='none';
 }
 updateQuantityWhenInput(document.querySelectorAll('input.amount'),proAndQuantityIt);
@@ -130,7 +131,7 @@ return matchPro;
 console.log(objectQuan);
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuan.reverse()));
 id('productsInCart').innerHTML='';
-existUserOrNot(productsInLoc,proAndQuantityIt,iconName);
+existUserOrNot(iconName);
 addNumberToIconCart(productsInLoc,iconName,iconId);
     })
   })
@@ -206,3 +207,44 @@ function updateQuantityWhenReload(inputs,proAndQuantityIt){
   
 // }
 // login();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // are user or not
+//   function existUserOrNot(){
+//     if(window.localStorage.getItem('user')){
+//       let user=JSON.parse(window.localStorage.getItem('user'));
+//       console.log(user.id);
+//       filterProductsInCart(id,'productsInCart',`favoriteUser${user.id}`,`proAndQuantityInFav${user.id}`);
+//     }
+//     else{
+//       if(window.localStorage.getItem('favoriteCart'==null)){
+//         let arrayProducts=[];
+//       window.localStorage.setItem('favoriteCart',JSON.stringify(arrayProducts));
+//       }
+//       filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav');
+    
+//     }
+//     }

@@ -1052,7 +1052,7 @@ header #container-location #map div div.gm-style div div a {
     -o-transform: translateY(-50%);
     flex-direction: column;
     gap: 2rem;
-    display: none;
+    /* display: none; */
 }
 
 .cardLessThan:hover .cartFavorite {
@@ -1072,9 +1072,22 @@ header #container-location #map div div.gm-style div div a {
     -o-border-radius: .25rem;
     color:#747474;
 }
+.cardLessThan .cartFavorite i.noExist{
+    color:#cfcfd6;
+    border-color: #e3e3e4;
+    cursor:not-allowed;
+}
+
 .cardLessThan .cartFavorite i:hover {
     color:black;
 }
+.cardLessThan .cartFavorite i.noExist:hover{
+    color:#cfcfd6;
+}
+.cardLessThan .cartFavorite i.addedIt{
+    color:#952f2f; 
+}
+
 .cardLessThan .detailsProduct {
     padding: var(--padding-details-product);
     border-top: var(--border-top-details-product);

@@ -11,13 +11,11 @@ import {
   displayMenuSort,
   existUserOrNot,
   dragByTouch,
-  existUserOrNotExist,
-  addProductToCartByIconCarts,
-  existUserOrNots,
-  existUserOrNotss,
   createHrefForElementsFooter,
   limitLocationProductsBySidebar,
-  addStyleOnSection
+  existUserOrNotForIconCart,
+  existUserOrNotForAddClassAtive
+
 } from "./common.js";
 // start section fashion
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -68,17 +66,18 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
       toggleDashboard('cancelDash','dashboard');
 
   // add number of products in cart to icon cart
-  // existUserOrNot();
+  existUserOrNot('cartUser','productCart','cart','countPurshes');
+  existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
   // end header
 
 // existUserOrNots();
-
+// localStorage.removeItem(undefined);
 
 // existUserOrNotExist();
 // addProductToCartByIconCarts(true);
-let icons=document.querySelectorAll('.cartFavorite .cart');
-let links=document.querySelectorAll('.cardLessThan');
-console.log(icons);
+// let icons=document.querySelectorAll('.cartFavorite .cart');
+// let links=document.querySelectorAll('.cardLessThan');
+// console.log(icons);
 // icons.forEach(icon=>{
 // icon.addEventListener('click',(info)=>{
 //   links.forEach(link=>{
@@ -87,7 +86,11 @@ console.log(icons);
   // info.stopPropagation();
     // })})
 // info.preventDefault();
-existUserOrNotss();
+// start get product by icon cart
+
+
+
+// existUserOrNotss();
 // footer functions create url
 // getAllElements(allLinksFooter,createHrefForElementsFooter);
 createHrefForElementsFooter(allLinksFooter);

@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,addProductToCartByIconCart,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection} from './common.js';
+import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,getProductIdByIconCart,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -36,13 +36,20 @@ let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
 let allLinksFooter=document.querySelectorAll('footer .category li a');
 let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
+// let allIconsCart=document.querySelectorAll('.cardLessThan .cartFavorite .cart');
+// let allLinksProducts=document.querySelectorAll('a.cardLessThan');
+
+// console.log(allIconsCart);
 console.log(allTrendingSide);
 document.addEventListener('DOMContentLoaded',(info=>{
+  // console.log(allIconsCart);
+
   // start header
   addClassActive(iconsPersonal, "active");
 addClassActive(linkHeader, "active");
 // add number of products in cart to icon cart
-existUserOrNot();
+existUserOrNot('cartUser','productCart','cart','countPurshes');
+  existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
 // end header
 // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
@@ -101,6 +108,22 @@ suggestedForYou();
 getAllElements(containerProductsDrag,dragByTouch);
 // addProductToCartByIconCart(document.querySelectorAll('.cartFavorite .cart'));
 console.log(document.querySelectorAll('.cartFavorite .cart'));
+
+// allIconsCart.forEach(element=>{
+// element.addEventListener('click',(info=>{
+//   getProductIdByIconCart(element);
+// }))
+// })
+// start get product by icon cart
+// getProductIdByIconCart();
+// existUserOrNotToUpdateIconNum('cartUser','productCart','cart');
+
+existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+
+existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+// addClassNoexistOnIcon();
 // start footer
 createHrefForElementsFooter(allLinksFooter);
 

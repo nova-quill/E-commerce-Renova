@@ -17,6 +17,7 @@ let productId;
 export let title;
 let priceProduct;
 export let discountPercentagee = 0;
+let productStock;
 // export let productId;
 let nowPrice;
 let stock;
@@ -390,7 +391,8 @@ function divCartFavorite(container) {
   createDiv(
     1,
     "i",
-    "fa-solid fa-cart-shopping cart flex-center",
+    // "fa-solid fa-cart-shopping cart flex-center",
+    `fa-solid fa-cart-shopping cart cart${productId} flex-center`,
     "",
     "",
     "",
@@ -399,7 +401,7 @@ function divCartFavorite(container) {
   createDiv(
     1,
     "i",
-    "fa-solid fa-heart favorite flex-center",
+    `fa-solid fa-heart favorite favorite${productId} flex-center`,
     "",
     "",
     "",
@@ -639,6 +641,7 @@ export function organizeObject(data, i,test) {
       discountPercentagee = data[i].discountPercentage;
       productId= data[i].id;
       productCategory=data[i].category;
+      productStock=data[i].stock;
   }}
 else{
   // datas=datass.items;
@@ -674,7 +677,9 @@ export async function shaffelArray(array) {
 // start show products in page
 export async function filterProdutsForEveryPage(elements, func,choose) {
   await fetchProducts(choose);
+  
   shaffelArray(datas);
+
   let arrayCategories = Array.from(elements).map((element) =>
   element.getAttribute("data-category").toString().toLowerCase().split(','));
   let spreadArrayCategories=[].concat(...arrayCategories);
@@ -699,6 +704,7 @@ let  hundleCategory = category||'';
   //   id('rangPrice').classList.add("active");
 
   // }
+ 
 }
 
 export function filterAllProductsByDashboard(
@@ -1051,6 +1057,16 @@ console.log(filterProductsWithCategories);
   });
   console.log(filterProducts);
   displayProducts(filterProducts, func, container);
+  let icons=document.querySelectorAll('.cartFavorite .cart');
+  let links=document.querySelectorAll('.cardLessThan');
+  console.log(icons,links);
+existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+addClassNoexistOnIcon('cart');
+addClassNoexistOnIcon('favorite');
+
 }
 function showProductsWithOffersPrice(productPrice,productDis){
  priceMatch;
@@ -1171,9 +1187,11 @@ export function displayProducts(product, func, container) {
   for (let o = 0; o < product.length; o++) {
     groupesFunctionsForCreatesDivs(product, o, func(container));
   }
+  // addClassActiveOnIconCart();
   // console.log(document.querySelectorAll('.cartFavorite .cart'));
-  addProductToCartByIconCart();
+  // addProductToCartByIconCart();
 }
+// localStorage.clear();
 // create url for footer of elements
 export function createHrefForElementsFooter(elements){
   // console.log('ddddddddddddddddddddd');
@@ -1212,54 +1230,63 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
- export function existUserOrNots(isIcon,element,test){
+ export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-    // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-    addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`,isIcon,element,test);
-    addProductToCartByIconCarts(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
+    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName);
   }
   else{
-    // addProductToCart('productCart','proAndQuantityIt');
-    addProductToCart('productCart','proAndQuantityIt',isIcon,element,test);
-    addProductToCartByIconCarts('productCart','proAndQuantityIt');
+    addProductToCart(globalCart,proAndQuantityItt,iconName);
   }
   }
-  export function existUserOrNotss(){
+  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId){
     if(window.localStorage.getItem('user')){
       let user=JSON.parse(window.localStorage.getItem('user'));
       let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`,isIcon,element,test);
-      addProductToCartByIconCarts(`carttUser${user.id}`,`proAndQuantityItt${user.id}`);
+      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId);
+      // addClassActiveOnIconCart(`cartUser${user.id}`);
     }
     else{
+      getProductIdByIconCart(globalCart,proAndQuantityItt,iconName,iconId);
+      // addClassActiveOnIconCart('productCart');
+    }
+    }
+    // localStorage.clear();
+  // export function existUserOrNotss(){
+  //   if(window.localStorage.getItem('user')){
+  //     let user=JSON.parse(window.localStorage.getItem('user'));
+  //     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
+      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
+      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`,isIcon,element,test);
+      // addProductToCartByIconCarts(`carttUser${user.id}`,`proAndQuantityItt${user.id}`);
+    // }
+    // else{
       // addProductToCart('productCart','proAndQuantityIt');
       // addProductToCart('productCart','proAndQuantityIt',isIcon,element,test);
-      addProductToCartByIconCarts('productCartt','proAndQuantityItt');
-    }
-    }
+      // addProductToCartByIconCarts('productCartt','proAndQuantityItt');
+    // }
+    // }
 //add product to cart
-async function addProductToCart(productsInLoc,prodAndQuantityIt,isIcon,element,test){
+async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,test){
   await fetchProducts(test);
   let categoryMatch;
   let productId;
-  if(isIcon){
-    const linkElement=element.closest('a');
-    let hrefLink=linkElement.getAttribute('href');
-    console.log(hrefLink);
-if(!hrefLink.startsWith('http')){
-}
-   const url=new URL( 'http://'+hrefLink);
- productId=url.searchParams.get('productId');
-    console.log(productId);
-  }
-  else{
+//   if(isIcon){
+//     const linkElement=element.closest('a');
+//     let hrefLink=linkElement.getAttribute('href');
+//     console.log(hrefLink);
+// if(!hrefLink.startsWith('http')){
+// }
+//    const url=new URL( 'http://'+hrefLink);
+//  productId=url.searchParams.get('productId');
+//     console.log(productId);
+//   }
+  // else{
     const urlParams=new URLSearchParams(window.location.search);
   productId=urlParams.get('productId');
     console.log(productId);
-  }
+  // }
 
  
 let  filterProducts =datas.filter((product) => {
@@ -1291,8 +1318,9 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
     objectQuantity.push(proAndQuantityIt);
     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-      addNumberToIconCart(productsInLoc);
+      addNumberToIconCart(productsInLoc,iconName,iconId);
       preventAddToCart(productsInLoc);
+      addClassActiveOnIconCart(productsInLoc,iconName);
 } 
  }
 }
@@ -1312,33 +1340,75 @@ function preventAddToCart(productsInLoc){
       })
     }
 }
-export function existUserOrNotToUpdateIconNum(){
+export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconId){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     console.log(user.id);
-    preventAddToCart(`cartUser${user.id}`);
-  addNumberToIconCart(`cartUser${user.id}`);
+    preventAddToCart(`${cartUser}${user.id}`);
+  addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
+  // addClassActiveOnIconCart(`cartUser${user.id}`);
   }
   else{
-    preventAddToCart('productCart');
-  addNumberToIconCart('productCart');
+    preventAddToCart(globalCart);
+  addNumberToIconCart(globalCart,iconName,iconId);
+  // addClassActiveOnIconCart('productCart');
   }
   }
 
-async function getProductId(test) {
-  await fetchProducts(test);
-  let categoryMatch;
-  const urlParams=new URLSearchParams(window.location.search);
-  const productId=urlParams.get('productId');
-  console.log(productId);
+// async function getProductId(test) {
+//   await fetchProducts(test);
+//   let categoryMatch;
+//   const urlParams=new URLSearchParams(window.location.search);
+//   const productId=urlParams.get('productId');
+//   console.log(productId);
  
- filterProductss =datas.filter((product) => {
-      categoryMatch=product['id']==productId;
-    return  categoryMatch;
-})
-console.log(filterProducts);
-  return filterProducts;
+//  filterProductss =datas.filter((product) => {
+//       categoryMatch=product['id']==productId;
+//     return  categoryMatch;
+// })
+// console.log(filterProducts);
+  // return filterProducts;
+// }
+
+
+// dose
+// get product id by icon cart
+export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,iconName,iconId,test){
+  await fetchProducts(test)
+  let icons=document.querySelectorAll(`.cardLessThan .cartFavorite .${iconName}`);
+  let categoryMatch;
+  icons.forEach(element=>{
+    element.addEventListener('click',(info)=>{
+        info.preventDefault();
+      // let productId=(element.classList)[3].slice(4);
+      let classN=(element.classList)[3];
+      let productId=classN.match(/\d+/g);
+      let  filterProducts =datas.filter((product) => {
+              categoryMatch=product['id']==productId;
+            return  categoryMatch;
+        })
+if(filterProducts[0].stock>0){
+element.classList.add('addedIt');
+  let proAndQuantityIt={
+    productId:productId,
+    quantityPro:1
+  };
+  let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+console.log(objectQuantity);
+let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+        getProductFromLocal.push((filterProducts[0]));
+  let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+    window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+    objectQuantity.push(proAndQuantityIt);
+    let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+    window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+      addNumberToIconCart(productsInLoc,iconName,iconId);
+      // addClassActiveOnIconCart(productsInLoc);
 }
+    })
+  })
+ 
+  }
 
 
 
@@ -1346,6 +1416,11 @@ console.log(filterProducts);
 
 
 
+
+
+
+
+// localStorage.clear();
 
 
 
@@ -1355,11 +1430,11 @@ console.log(filterProducts);
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
 
     console.log(user.id);
-    addProductToCartByIconCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
+    // addProductToCartByIconCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
     // postCartFromLocalToUser(`cartUser${user.id}`,userToken,user.id,user.username,user.password,user.name,user.email); 
   }
   else{
-    addProductToCartByIconCart('productCart','proAndQuantityIt');
+    // addProductToCartByIconCart('productCart','proAndQuantityIt');
   }
   }
 
@@ -1431,61 +1506,61 @@ console.log(filterProducts);
 
 
 
- export  function addProductToCartByIconCart(productsInLoc,prodAndQuantityIt){
-  let icons=document.querySelectorAll('.cartFavorite .cart');
-  let links=document.querySelectorAll('.cardLessThan');
-  links.forEach(link=>{
-    link.addEventListener('click',(info)=>{
-  info.stopPropagation();
-    })})
-  // console.log(icons);
-  icons.forEach(icon=>{
-  icon.addEventListener('click',(info)=>{
-info.preventDefault();
-info.stopPropagation();
-    const linkElement=icon.closest('a');
-    let hrefLink=linkElement.getAttribute('href');
-    console.log(hrefLink);
-if(!hrefLink.startsWith('http')){
-  // hrefLink=window.Location.origin + hrefLink;
-  // const url=new URL(hrefLink);
-console.log(hrefLink);
-}
-   const url=new URL( 'http://'+hrefLink);
+//  export  function addProductToCartByIconCart(productsInLoc,prodAndQuantityIt){
+//   let icons=document.querySelectorAll('.cartFavorite .cart');
+//   let links=document.querySelectorAll('.cardLessThan');
+//   links.forEach(link=>{
+//     link.addEventListener('click',(info)=>{
+//   info.stopPropagation();
+//     })})
+//   // console.log(icons);
+//   icons.forEach(icon=>{
+//   icon.addEventListener('click',(info)=>{
+// info.preventDefault();
+// info.stopPropagation();
+//     const linkElement=icon.closest('a');
+//     let hrefLink=linkElement.getAttribute('href');
+//     console.log(hrefLink);
+// if(!hrefLink.startsWith('http')){
+//   // hrefLink=window.Location.origin + hrefLink;
+//   // const url=new URL(hrefLink);
+// console.log(hrefLink);
+// }
+//    const url=new URL( 'http://'+hrefLink);
 
-// let bb=new URLSearchParams( hrefLink);
-const productId=url.searchParams.get('productId');
-console.log(productId);
-let  filterProducts =datas.filter((product) => {
-  categoryMatch=product['id']==productId;
-return  categoryMatch;
-})
-console.log(filterProducts);
+// // let bb=new URLSearchParams( hrefLink);
+// const productId=url.searchParams.get('productId');
+// console.log(productId);
+// let  filterProducts =datas.filter((product) => {
+//   categoryMatch=product['id']==productId;
+// return  categoryMatch;
+// })
+// console.log(filterProducts);
 
-let proAndQuantityIt={
-  productId:productId,
-  quantityPro:1
-};
-let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-console.log(objectQuantity);
-let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-        getProductFromLocal.push((filterProducts[0]));
-  let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-    objectQuantity.push(proAndQuantityIt);
- let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+// let proAndQuantityIt={
+//   productId:productId,
+//   quantityPro:1
+// };
+// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+// console.log(objectQuantity);
+// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+//         getProductFromLocal.push((filterProducts[0]));
+//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+//     objectQuantity.push(proAndQuantityIt);
+//  let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
 
-      addNumberToIconCart(productsInLoc);
+//       addNumberToIconCart(productsInLoc);
       // existUserOrNotToUpdateIconNum()
       // preventAddToCart(productsInLoc);
-    })})
+    // })})
     // console.log(icons);
     // let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
 
     // window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
 
-  }
+  // }
 
 // function preventAddToCart(productsInLoc){
 //   const urlParams=new URLSearchParams(window.location.search);
@@ -1506,16 +1581,13 @@ function existUserOrNotToUpdateIconNums(){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     console.log(user.id);
-    // addNumberToIconCart(`cartUser${user.id}`);
-    // preventAddToCart(`cartUser${user.id}`);
-  addNumberToIconCart(`cartUser${user.id}`);
+  // addNumberToIconCart(`cartUser${user.id}`);
   }
   else{
-    // preventAddToCart('productCart');
-  addNumberToIconCart('productCart');
+  // addNumberToIconCart('productCart');
   }
   }
-    console.log(productId);
+    // console.log(productId);
 //  localStorage.clear();
 // addProductToCartByIconCart(document.querySelector('cardLessThan'));
 //end add product to cart by icon cart
@@ -1736,22 +1808,91 @@ export function effectHoverOnSignIn(elementId){
 }
 // end function related by log in and log out
 // add number of products in cart to icon cart
- export function addNumberToIconCart(productsInLoc){
+ export function addNumberToIconCart(productsInLoc,iconName,iconId){
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-id('countPurshes').innerHTML=productsInlocal.length;
-id('countPurshes').style.color='rgb(255, 214, 139)';
+  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  console.log(allIcons);
+  console.log(productsInlocal);
+id(iconId).innerHTML=productsInlocal.length;
+id(iconId).style.color='rgb(255, 214, 139)';
+// addClassActiveOnIconCart(productsInLoc);
+// let productIdFromLoc=productsInlocal[0].id;
+// console.log(productIdFromLoc);
   }
 } 
-// are user or not
- export function existUserOrNot(){
+// add class active on icon cart or favorite cart
+ export async function addClassActiveOnIconCart(productsInLoc,iconName,test){
+  await fetchProducts(test);
+  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  // addClassNoexistOnIcon();
+
+  if(window.localStorage.getItem(productsInLoc)){
+    let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
+    console.log(allIcons);
+    productsInlocal.forEach(product=>{
+      allIcons.forEach(icon=>{
+    // icon.addEventListener
+    let classLists=icon.classList[3];
+    console.log(classLists);
+  // if(classLists==(`cart${product.id}`)){
+    if(classLists==(`${iconName}${product.id}`)){
+
+    console.log(icon);
+    icon.classList.add('addedIt');
+  }  
+  })
+})
+}
+addClassNoexistOnIcon(iconName,test);
+}
+
+// add class no exist on icon cart or favorite
+export  async function addClassNoexistOnIcon(iconName,test){
+  await fetchProducts(test);
+  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  let filterPro=datas.filter(prod=>{
+    let match=prod.stock==0; 
+    return match;
+     })
+     console.log(filterPro);
+  allIcons.forEach((icon,ind,arr)=>{
+  let classN=icon.classList[3];
+  const id=classN.match(/\d+/g);
+  filterPro.forEach((product,index,array)=>{
+   if(product.id==+id){
+    console.log(icon);
+      icon.classList.add('noExist');
+   }
+  })
+  })
+}
+
+export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     console.log(user.id);
-    addNumberToIconCart(`cartUser${user.id}`);
+    // addNumberToIconCart(`cartUser${user.id}`);
+    addClassActiveOnIconCart(`${cartUser}${user.id}`,iconName);
+
   }
   else{
-    addNumberToIconCart('productCart');
+    // addNumberToIconCart('productCart');
+    addClassActiveOnIconCart(cartGlobal,iconName);
+
+  }
+  }
+// are user or not
+ export function existUserOrNot(cartUser,cartGlobal,iconName,iconId){
+  if(window.localStorage.getItem('user')){
+    let user=JSON.parse(window.localStorage.getItem('user'));
+    console.log(user.id);
+    addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
+    // addClassActiveOnIconCart(`cartUser${user.id}`);
+  }
+  else{
+    addNumberToIconCart(cartGlobal,iconName,iconId);
+    // addClassActiveOnIconCart(`productCart`);
   }
   }
 // end add product to cart 
@@ -1759,7 +1900,7 @@ id('countPurshes').style.color='rgb(255, 214, 139)';
 //   method: 'GET',
 //   redirect: 'follow'
 // };
-
+// localStorage.clear();
 // fetch("https://tarmeezacademy.com/api/v1/users?limit=0", requestOptions)
 //   .then(response => response.json())
 //   .then(result => console.log(result))

@@ -2,7 +2,9 @@
 import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
-import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum} 
+ 
+  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon
+} 
 from './common.js';
 // import {existUserOrNot} from "./js/addToCart.js";
 
@@ -83,10 +85,17 @@ document.addEventListener('DOMContentLoaded',(info=>{
   );
   // grag products
   dragByTouch(containerProductsDrag);
-  existUserOrNotToUpdateIconNum();
+  // start get product by icon cart
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+
+  existUserOrNotToUpdateIconNum('cartUser','productCart','cart');
+  existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+  // addClassNoexistOnIcon();
    id("linkAddToCart").addEventListener('click',(event)=>{
     // addProductToCart();
-    existUserOrNots();
+    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart');
  })
 }))
 // localStorage.clear();
@@ -351,6 +360,22 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 
   })
 }
+
+// // get product id by icon cart
+// export async function getProductIdByIconCart(element){
+// let productId=element.classList;
+// console.log(productId);
+// }
+
+
+
+
+
+
+
+
+
+
 // // are user or not
 // function existUserOrNot(){
 //   if(window.localStorage.getItem('user')){
@@ -381,7 +406,6 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 // })
 // console.log(filterProducts);
 // if(filterProducts[0].stock==0){
-//   console.log('nottttt');
 //   effectHoverOnSignIn('inStock');
 //   // return;
 // }
