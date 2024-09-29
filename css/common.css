@@ -168,32 +168,30 @@ button {
 .addRenova{
     /* flex: 0 1 10%; */
     /* flex-basis: 10%; */
+    flex:0 0 auto;
 }
 @media (min-width:768px) {
     .addRenova{
-        /* flex-wrap: nowrap; */
-        flex-basis: 10%;
-
+        /* flex-basis: 10%; */
     }
     
 }
 @media (max-width:767.98px) {
     .addRenova{
-        flex-basis: 20%;
+        /* flex-basis: 20%; */
 justify-content: flex-start;
     }
 }
 .renova {
     align-items: flex-end;
-    /* justify-content: space-around; */
-        /* flex-wrap: nowrap; */
     gap: .25rem;
+    flex-wrap: nowrap;
     cursor: pointer;
     font-family: "Rubik Doodle Shadow", system-ui;
 }
 @media (min-width:768px) {
     .renova{
-        flex-wrap: nowrap;
+        /* flex-wrap: nowrap; */
     }
     
 }
@@ -501,17 +499,16 @@ header .main-nav {
         max-width: 100%;
                 padding:.25rem .5rem;
         background: var(--background-category-footer, #234b49);
+        gap:3%;
         position: fixed;
         top: 0;
         z-index: 1000000000;
-        /* gap:2%; */
     }
 }
 
 @media (max-width: 499.98px) {
     header .main-nav {
         padding: .5rem;
-        /* gap: 1rem; */
     }
 }
 
@@ -524,17 +521,20 @@ header .main-nav {
 }
 @media (min-width:768px) {
     header .main-nav .loca-lang {
-        /* gap: 2.125rem; */
-        flex-basis: 17%;
+        /* flex-basis: 17%; */
+        flex: 0 0 auto;
         justify-content: space-between;
+        /* gap:2em; */
+        gap:1.5em;
+
     }
 }
 
 
 @media (max-width: 767.98px) {
     header .main-nav .loca-lang {
-        flex-basis: 15%;
-        justify-content: flex-end;
+        /* flex-basis: 15%; */
+        /* justify-content: flex-end; */
     }
     header .main-nav .sign-lang {
         display: none;
@@ -648,7 +648,7 @@ header .main-nav .box-search .all {
     cursor: pointer;
 }
 
-@media(max-width:767.98px) {
+@media(max-width:991.98px) {
     header .main-nav .box-search .all {
         display: none;
     }
@@ -711,18 +711,25 @@ header .main-nav .box-search .isearch:hover {
 }
 header .main-nav .personal {
     justify-content: space-between;
+    flex:0 0 auto;
+    gap:2em;
 }
 @media (min-width:768px) {
     header .main-nav .personal {
-    flex-basis: 25%;
-        /* margin-left: 1em; */
+    /* flex-basis: 25%; */
         color: white;
-        /* gap: 3rem; */
     }
 }
-@media (max-width:767.98px) {
+@media (min-width:992px) {
     header .main-nav .personal {
-    flex-basis: 20%;
+        gap:2em;
+    }
+}
+
+@media (max-width:991.98px) {
+    header .main-nav .personal {
+    /* flex-basis: 20%; */
+    gap:1.5em;
     }
 }
 
