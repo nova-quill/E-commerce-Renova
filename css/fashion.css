@@ -142,7 +142,7 @@ button {
 }
 
 /*start component classes */
-.flex-center {
+/* .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,9 +171,9 @@ button {
     align-items: center;
     flex-wrap: wrap;
 
-}
+} */
 
-.renova {
+/* .renova {
     align-items: flex-end;
     flex: 0 1 auto;
     gap: .25rem;
@@ -189,7 +189,7 @@ button {
 .renova span {
     color: var(--color-logo, rgb(255, 214, 139));
     font-size: 1.5rem;
-}
+} */
 
 .buttons {
     position: absolute;

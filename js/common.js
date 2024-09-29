@@ -300,10 +300,16 @@ export function addClassName(element, className) {
   element.classList.add(className);
 }
 // start dashboard
-export function toggleDashboard(button,element){
+export function toggleDashboard(button,element,isHidden){
   id(button).addEventListener('click',()=>{
  id(element).classList.toggle('active');
-  })
+ if(isHidden){
+  document.body.style.overflow='hidden';
+ }
+ else{
+  document.body.style.overflow='auto';
+ }
+})
 }
 // end dashboard
 

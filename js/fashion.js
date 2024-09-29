@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded',(info=>{
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 // addStyleOnSection();
   // start dashboard
-  toggleDashboard('classification','dashboard');
+  toggleDashboard('classification','dashboard',true);
       toggleDashboard('cancelDash','dashboard');
 
   // add number of products in cart to icon cart

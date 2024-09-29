@@ -166,21 +166,7 @@ button {
     flex-wrap: wrap;
 }
 .addRenova{
-    /* flex: 0 1 10%; */
-    /* flex-basis: 10%; */
     flex:0 0 auto;
-}
-@media (min-width:768px) {
-    .addRenova{
-        /* flex-basis: 10%; */
-    }
-    
-}
-@media (max-width:767.98px) {
-    .addRenova{
-        /* flex-basis: 20%; */
-justify-content: flex-start;
-    }
 }
 .renova {
     align-items: flex-end;
@@ -188,12 +174,6 @@ justify-content: flex-start;
     flex-wrap: nowrap;
     cursor: pointer;
     font-family: "Rubik Doodle Shadow", system-ui;
-}
-@media (min-width:768px) {
-    .renova{
-        /* flex-wrap: nowrap; */
-    }
-    
 }
 .renova i {
     color: var(--color-logo, rgb(255, 214, 139));
@@ -726,21 +706,30 @@ header .main-nav .personal {
     }
 }
 
-@media (max-width:991.98px) {
+@media (min-width:768px), (max-width:991.98px) {
     header .main-nav .personal {
     /* flex-basis: 20%; */
     gap:1.5em;
     }
 }
 
+
+header .main-nav .personal.mobile>div ,header .main-nav .personal.mobile> .menu {
+    flex: 1 1 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+}
 @media (min-width: 768px) {
 
-    header .main-nav .personal .menu,
-    header .main-nav .personal .parentAad {
+    header .main-nav .personal.mobile .menu,
+    header .main-nav .personal.mobile .parentAad {
         display: none;
     }
 }
-
 header .main-nav .personal .sign {
     padding: .25rem;
     cursor: pointer;
@@ -785,7 +774,7 @@ header .main-nav .personal .box-favorite {
 
 @media(max-width:499.98px) {
     header .main-nav .personal .box-favorite {
-        display: none;
+        /* display: none; */
     }
 }
 
@@ -804,8 +793,9 @@ header .main-nav .personal .count-purshes,
 header .main-nav .personal .count-favorite {
     display: inline-block;
     color: var(--number-icons-main-color, rgb(107, 103, 92, .6));
-    margin-top: 50%;
     font-size: .9rem;
+    /* margin-top: 50%; */
+        margin-top: 20%;
 }
 
 @media (max-width: 767.98px) {
@@ -823,11 +813,18 @@ header .main-nav .personal .count-favorite {
         align-items: center;
         flex-wrap: nowrap;
         color: white;
+        gap:0;
     }
 
     header .main-nav .personal.mobile>div {
         height: 2.5rem;
         margin-bottom: .25rem;
+        /* flex-wrap: nowrap;
+        flex: 1 1 auto;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center; */
     }
 
     header .main-nav .personal.mobile .sign {
@@ -1356,7 +1353,7 @@ footer .containerCat {
         padding: 1rem .25rem;
     }
 }
-@media (max-width:499.98px) {
+@media (max-width:767.98px) {
     footer .containerCat.categories {
         display: none;
     }
