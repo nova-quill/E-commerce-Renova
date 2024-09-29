@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',(info=>{
       addClassActive(linkHeader, "active");
     dragByTouch(secondHeader);
     // start shows product in cart
-    existUserOrNot('cartUser','productCart','cart','countPurshes');
+    // existUserOrNot('cartUser','productCart','cart','countPurshes');
     existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
 
     existUserOrNotInCart('cart','countPurshes');
@@ -132,7 +132,7 @@ return matchPro;
 console.log(objectQuan);
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuan.reverse()));
 id('productsInCart').innerHTML='';
-existUserOrNot(productsInLoc,proAndQuantityIt,iconName,iconId);
+existUserOrNotInCart(iconName,iconId);
 addNumberToIconCart(productsInLoc,iconName,iconId);
     })
   })

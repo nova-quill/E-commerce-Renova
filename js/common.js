@@ -1230,14 +1230,14 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
- export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName){
+ export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName);
+    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId);
   }
   else{
-    addProductToCart(globalCart,proAndQuantityItt,iconName);
+    addProductToCart(globalCart,proAndQuantityItt,iconName,iconId);
   }
   }
   export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId){

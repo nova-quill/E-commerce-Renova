@@ -115,12 +115,15 @@ text-align: center;
         height: 6rem;
     }}
     @media (min-width:768px) {
-#containerAddToCart section#addToCart.sectionAdd .addToCart .container .productsInCart .cardLessThan  .cartFavorite{
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite ,#containerAddToCart section#addToCart.sectionCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite .cart,#containerAddToCart section#addToCart.sectionCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite ,#containerAddToCart section#addToCart.sectionFav .addToCart .container .productsInCart .cardLessThan  .cartFavorite .favorite {
     display: none;
-    background-color: blue;
+    /* background-color: blue; */
 }
-#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan:hover  .cartFavorite{
-    /* display:flex; */
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite .cart{
+    /* display: none; */
+}
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan:hover  .cartFavorite {
+    display:flex;
 }
     }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct{

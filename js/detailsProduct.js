@@ -89,13 +89,14 @@ document.addEventListener('DOMContentLoaded',(info=>{
   existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
 existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
 
-  existUserOrNotToUpdateIconNum('cartUser','productCart','cart');
-  existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+  existUserOrNotToUpdateIconNum('cartUser','productCart','cart','countPurshes');
+  existUserOrNotToUpdateIconNum('cartUser','favoriteCart','favorite','countFavorites');
+  existUserOrNotForAddClassAtive('favoriteUser','productCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
   // addClassNoexistOnIcon();
    id("linkAddToCart").addEventListener('click',(event)=>{
     // addProductToCart();
-    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart');
+    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
  })
 }))
 // localStorage.clear();
@@ -233,7 +234,12 @@ if(stock!='for_sale'.toLowerCase()){
         if(stock<1){
           func('inStock').textContent="out stock";
           func('inStock').style.color='red';
+  func('quantityDetails').value=0;
+  console.log( func('quantityDetails'));
           }
+          // if(stock>1){
+          //   func('quantityDetails').value=1;
+          // }
          createDivsForCustomerReviews(func,customerReviews);
 
       }
