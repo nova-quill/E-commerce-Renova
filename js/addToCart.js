@@ -1,5 +1,5 @@
 'use strict'
-import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch} from "../js/common.js";
+import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot} from "../js/common.js";
 let quantityProducts=0;
 let getProductFromLocal;
 let objectQuan;
@@ -14,15 +14,17 @@ document.addEventListener('DOMContentLoaded',(info=>{
       addClassActive(linkHeader, "active");
     dragByTouch(secondHeader);
     // start shows product in cart
+    existUserOrNot('cartUser','productCart','cart','countPurshes');
+    existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
 
-    existUserOrNot('productsInCart','cartUser','proAndQuantityIt','cart');
+    existUserOrNotInCart('cart','countPurshes');
 }))
 // are user or not
- function existUserOrNot(iconName){
+ function existUserOrNotInCart(iconName,iconId){
 if(window.localStorage.getItem('user')){
   let user=JSON.parse(window.localStorage.getItem('user'));
   console.log(user.id);
-  filterProductsInCart(id,'productsInCart',`cartUser${user.id}`,`proAndQuantityIt${user.id}`,iconName);
+  filterProductsInCart(id,'productsInCart',`cartUser${user.id}`,`proAndQuantityIt${user.id}`,iconName,iconId);
   // filterProductsInCart(id,container,`${productsInLoc}${user.id}`,`${proAndQuantityIt}${user.id}`);
 
 }
@@ -31,7 +33,7 @@ else{
     let arrayProducts=[];
   window.localStorage.setItem('productCart',JSON.stringify(arrayProducts));
   }
-  filterProductsInCart(id,'productsInCart','productCart','proAndQuantityIt',iconName);
+  filterProductsInCart(id,'productsInCart','productCart','proAndQuantityIt',iconName,iconId);
   // filterProductsInCart(id,container,productsInLoc,proAndQuantityIt);
 
 }
@@ -80,12 +82,12 @@ detailsProduct.forEach((element,index)=>{
   element.appendChild(containerQuantity);
 })
 addNumberToIconCart(productsInLoc,iconName,iconId);
-removeProductFromCart(productsInLoc,proAndQuantityIt,iconName);
+removeProductFromCart(productsInLoc,proAndQuantityIt,iconName,iconId);
 console.log(getProductFromLocal);
 if(getProductFromLocal.length>0){
   quantityProducts=0;
   updateQuantityWhenReload(document.querySelectorAll('input.amount'),proAndQuantityIt);
-  id('headingCart').innerHTML=`your cart includes ${getProductFromLocal.length} products,${quantityProducts} quantity` ;
+  id('headingCart').innerHTML=`your cart includes ${getProductFromLocal.length} products, ${quantityProducts} quantity` ;
 }
 if(getProductFromLocal.length==0){
   id('headingCart').innerHTML=`your cart is empty, let's fill it`;
@@ -130,7 +132,7 @@ return matchPro;
 console.log(objectQuan);
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuan.reverse()));
 id('productsInCart').innerHTML='';
-existUserOrNot(productsInLoc,proAndQuantityIt,iconName);
+existUserOrNot(productsInLoc,proAndQuantityIt,iconName,iconId);
 addNumberToIconCart(productsInLoc,iconName,iconId);
     })
   })

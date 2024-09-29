@@ -114,9 +114,15 @@ text-align: center;
         /* flex-basis: 15%; */
         height: 6rem;
     }}
-#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite{
+    @media (min-width:768px) {
+#containerAddToCart section#addToCart.sectionAdd .addToCart .container .productsInCart .cardLessThan  .cartFavorite{
     display: none;
+    background-color: blue;
 }
+#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan:hover  .cartFavorite{
+    /* display:flex; */
+}
+    }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct{
     border-top: none;
     flex: 1;
