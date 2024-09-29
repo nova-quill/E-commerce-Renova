@@ -36,6 +36,8 @@ let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
 let allLinksFooter=document.querySelectorAll('footer .category li a');
 let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
+let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
+
 // let allIconsCart=document.querySelectorAll('.cardLessThan .cartFavorite .cart');
 // let allLinksProducts=document.querySelectorAll('a.cardLessThan');
 
@@ -53,6 +55,8 @@ existUserOrNot('cartUser','productCart','cart','countPurshes');
 // end header
 // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+createHrefForElementsFooter(allLinksSideBar);
+
 addStyleOnSection();
 // let oo=setInterval(addStyleOnSection,1000);
 // setTimeout(()=>{

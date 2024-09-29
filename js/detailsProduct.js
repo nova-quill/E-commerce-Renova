@@ -3,7 +3,7 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
  
-  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon
+  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter
 } 
 from './common.js';
 // import {existUserOrNot} from "./js/addToCart.js";
@@ -48,11 +48,14 @@ let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
+let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
 let buttons=document.querySelector('.containerProductsRe .containerPro .buttons');
 let firstButton=document.querySelector('.containerProductsRe .containerPro .buttons .first');
 let lastButton=document.querySelector('.containerProductsRe .containerPro .buttons .last');
 let containerProducts=document.querySelector('.containerProductsRe .containerPro .products');
 let containerProductsDrag=document.querySelector('.container-bestSeller .box-products');
+let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
+
 console.log(firstButton,lastButton,containerProducts,containerProductsDrag);
 document.addEventListener('DOMContentLoaded',(info=>{
   // start header
@@ -60,6 +63,8 @@ document.addEventListener('DOMContentLoaded',(info=>{
     addClassActive(linkHeader, "active");
     dragByTouch(secondHeader);
     // end header
+      // start sidebar
+getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   // start shows details product
   showsDetailsProduct();
   // sart related products
@@ -85,6 +90,7 @@ document.addEventListener('DOMContentLoaded',(info=>{
   );
   // grag products
   dragByTouch(containerProductsDrag);
+  
   // start get product by icon cart
   existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
 existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
@@ -95,9 +101,20 @@ existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','p
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
   // addClassNoexistOnIcon();
    id("linkAddToCart").addEventListener('click',(event)=>{
-    // addProductToCart();
-    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+    event.preventDefault();
+    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
  })
+ id("iconCart").addEventListener('click',(event)=>{
+  // event.preventDefault();
+  existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
+})
+id("iconFavorite").addEventListener('click',(event)=>{
+  // event.preventDefault();
+  // existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites',false);
+})
+//  start footer
+createHrefForElementsFooter(allLinksSideBar);
+
 }))
 // localStorage.clear();
 //  shows details product
@@ -117,11 +134,16 @@ filterProductsRelated(id,'products',false);
 // get name of product from url to show it 
 async function getProductFromUrl(func,choose){
  await  fetchProducts(choose);
+ let iconCartDetails=document.querySelector('#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite .cart');
+ let iconFavoDetails=document.querySelector('#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite .favorite');
+
   let filterProduct, productId,title,discount,price,oldPrice,rating,saving,mainImg,sideImgs,shippingIn,
   warranty,returnPro,description,depth,height,width,weight,brand,kind,barCode,createdAt,sku,author,
   printType,language,pageCount,publisher,publishDate,contentVersion,stock;
   const urlParams=new URLSearchParams(window.location.search);
   const productName=urlParams.get('productId');
+  iconCartDetails.classList.add(`cart${productName}`);
+  iconFavoDetails.classList.add(`favorite${productName}`);
   filterProduct=datas.filter((element,index)=>{
   productId=element['id'];
   if(productId==productName){

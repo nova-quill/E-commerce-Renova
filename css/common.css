@@ -45,6 +45,7 @@ a {
 
 *:focus {
     outline: none;
+    user-select: none;
 }
 
 img {
@@ -715,8 +716,8 @@ header .main-nav .personal {
 
 
 header .main-nav .personal.mobile>div ,header .main-nav .personal.mobile> .menu {
-    flex: 1 1 auto;
-    width: fit-content;
+    flex: 0 0 auto;
+    /* width: fit-content; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -818,7 +819,7 @@ header .main-nav .personal .count-favorite {
 
     header .main-nav .personal.mobile>div {
         height: 2.5rem;
-        margin-bottom: .25rem;
+        /* margin-bottom: .25rem; */
         /* flex-wrap: nowrap;
         flex: 1 1 auto;
         width: fit-content;
@@ -849,7 +850,12 @@ header .main-nav .personal .count-favorite {
         align-items: center;
     }
 }
-
+header .main-nav .personal.mobile i.cart-icon {
+    font-size: 1.45em;
+}
+header .main-nav .personal.mobile i.favorite{
+    font-size: 1.54em;
+}
 /* end main navbar */
 /* start second navbar */
 header .second-nav {
@@ -1113,6 +1119,7 @@ header #container-location #map div div.gm-style div div a {
 .cardLessThan .cartFavorite .favorite {
     width: var(--width-cartandfavorite);
     height: var(--height-cartandfavorite);
+    color:#747474;
     background-color: #f7f6f1;
     border: var(--border-cartandfavorite);
     border-radius: var(--borderradius-cartandfavorite);
@@ -1120,7 +1127,7 @@ header #container-location #map div div.gm-style div div a {
     -moz-border-radius: .25rem;
     -ms-border-radius: .25rem;
     -o-border-radius: .25rem;
-    color:#747474;
+    cursor: pointer;
 }
 .cardLessThan .cartFavorite i.noExist{
     color:#cfcfd6;
@@ -1444,7 +1451,8 @@ footer .containerEnd {
 }
 @media (max-width:768px) {
     footer .containerEnd {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
+        margin-bottom: .5rem;
     }
 }
 footer .containerEnd .endFooter {

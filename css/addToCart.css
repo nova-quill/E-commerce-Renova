@@ -6,7 +6,7 @@
 span{
     display: inline-block;
 }
-.flex-center {
+/* .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@ span{
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 dl dd:not(.sideBar dl.mainDl dd){
     width:auto;
 }
@@ -118,6 +118,7 @@ text-align: center;
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite ,#containerAddToCart section#addToCart.sectionCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite .cart,#containerAddToCart section#addToCart.sectionCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite ,#containerAddToCart section#addToCart.sectionFav .addToCart .container .productsInCart .cardLessThan  .cartFavorite .favorite {
     display: none;
     /* background-color: blue; */
+/* color:red; */
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite .cart{
     /* display: none; */
@@ -126,6 +127,11 @@ text-align: center;
     display:flex;
 }
     }
+    @media (max-width:767.98px) {
+        #containerAddToCart section#addToCart.sectionCart .addToCart .container .productsInCart .cardLessThan  .cartFavorite .cart,#containerAddToCart section#addToCart.sectionFav .addToCart .container .productsInCart .cardLessThan  .cartFavorite .favorite {
+            display: none;
+        }
+    }  
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct{
     border-top: none;
     flex: 1;

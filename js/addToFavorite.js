@@ -1,7 +1,8 @@
 
   
 'use strict'
-import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot} from "../js/common.js";
+import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot, createHrefForElementsFooter,
+  limitLocationProductsBySidebar,getAllElements} from "../js/common.js";
 let quantityProducts=0;
 let getProductFromLocal;
 let objectQuan;
@@ -10,10 +11,19 @@ let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
+let allLinksFooter=document.querySelectorAll('footer .category li a');
+let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
+let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
+
+
 document.addEventListener('DOMContentLoaded',(info=>{
     // start header
       addClassActive(iconsPersonal, "active");
       addClassActive(linkHeader, "active");
+      // start sidebar
+      getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+createHrefForElementsFooter(allLinksSideBar);
+
     dragByTouch(secondHeader);
     // start shows product in cart
     existUserOrNot('cartUser','productCart','cart','countPurshes');
@@ -21,6 +31,9 @@ document.addEventListener('DOMContentLoaded',(info=>{
 
     // existUserOrNotInfav('cart','countPurshes');
     existUserOrNotInfav('favorite','countFavorites');
+    // start footer
+    createHrefForElementsFooter(allLinksFooter);
+
 
 }))
 

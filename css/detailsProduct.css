@@ -56,15 +56,71 @@ img{
         flex-direction: column;
     }
 }
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite{
+
+z-index: 3;
+padding: var(--padding-top-cartfavorite);
+margin-top: .5rem;
+font-size: var(--fontsize-cartfavorite);
+justify-content: space-between;
+/* position: absolute; */
+/* top: 50%; */
+/* left: .25rem; */
+/* transform: translateY(-50%); */
+/* -webkit-transform: translateY(-50%); */
+/* -moz-transform: translateY(-50%); */
+/* -ms-transform: translateY(-50%); */
+/* -o-transform: translateY(-50%); */
+/* flex-direction: column; */
+/* gap: 2rem; */
+}
+@media (min-width:768px) {
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite{
+    display: none;
+}
+}
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite .cart,
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite .favorite {
+    width: var(--width-cartandfavorite);
+    height: var(--height-cartandfavorite);
+    color:#747474;
+    background-color: #f7f6f1;
+    border: var(--border-cartandfavorite);
+    border-radius: var(--borderradius-cartandfavorite);
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+    cursor: pointer;
+}
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite i.noExist{
+    color:#cfcfd6;
+    border-color: #e3e3e4;
+    cursor:not-allowed;
+}
+
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite i:hover {
+    color:black;
+}
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite i.noExist:hover{
+    color:#cfcfd6;
+}
+#containerDetailsPro #sectionDetails .detailsProduct .cartFavorite i.addedIt{
+    color:#952f2f; 
+}
+
 #containerDetailsPro #sectionDetails .detailsProduct #containerImages{
     display: flex;
 }
 @media (min-width:768px) {
-
+    #containerDetailsPro #sectionDetails .detailsProduct #card{
+        flex-basis: 30%;
+        margin: auto;
+    }
 #containerDetailsPro #sectionDetails .detailsProduct #containerImages{
-    flex-basis: 30%;
+    /* flex-basis: 30%; */
     display: flex;
-    margin: auto;
+    /* margin: auto; */
 }}
 @media (max-width:767.98px) {
     #containerDetailsPro #sectionDetails .detailsProduct #containerImages{

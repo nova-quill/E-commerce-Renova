@@ -273,6 +273,13 @@ if(window.location.href.includes('isLimit')==true){
 let nameSec=url.get('nameSec');
 console.log(nameSec);
 id(nameSec).classList.add('limitSection');
+setTimeout(function(){
+id(nameSec).scrollIntoView({
+  behavior:'smooth',
+  block:'center'
+})
+},100)
+
 setTimeout(()=>{
   id(nameSec).classList.remove('limitSection');
 },10000)
@@ -1200,15 +1207,15 @@ export function displayProducts(product, func, container) {
 // localStorage.clear();
 // create url for footer of elements
 export function createHrefForElementsFooter(elements){
-  // console.log('ddddddddddddddddddddd');
   elements.forEach(element=>{
   element.addEventListener('click',(info=>{
-    // info.preventDefault();
-   let categoryElement=info.target.getAttribute('data-category').toLowerCase();
-  //  let parentElement=element.parentElement;
-  let dataPage= info.target.getAttribute('data-page').toLocaleLowerCase();
-   info.target.href=`${dataPage}.html?productCategory=${categoryElement}`;
-   console.log(categoryElement,dataPage);
+  if(info.target.getAttribute('data-page'||info.target.getAttribute('data-category'))){
+    let categoryElement=info.target.getAttribute('data-category').toLowerCase();
+    let dataPage= info.target.getAttribute('data-page')||'';
+    let dataPageToLow=dataPage.toLocaleLowerCase();
+     info.target.href=`${dataPageToLow}.html?productCategory=${categoryElement}`;
+  }
+  //  console.log(categoryElement,dataPage);
   }))})
   }
 // end show products in page
@@ -1226,7 +1233,7 @@ let isDrag=false;
     if(!isDrag)return;
     info.preventDefault();
     const x=info.touches[0].pageX;
-    const moveDistance=(x-startPoint)*2;
+    const moveDistance=(x-startPoint)*4;
           container.scrollLeft=scrollLeft-moveDistance;
   });
   container.addEventListener("touchend", (info) => {
@@ -1274,7 +1281,7 @@ isDrag=false;
     // }
     // }
 //add product to cart
-async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,test){
+async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isAdd,test){
   await fetchProducts(test);
   let categoryMatch;
   let productId;
@@ -1325,7 +1332,9 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
       addNumberToIconCart(productsInLoc,iconName,iconId);
+      if(isAdd){
       preventAddToCart(productsInLoc);
+      }
       addClassActiveOnIconCart(productsInLoc,iconName);
 } 
  }
@@ -1381,14 +1390,24 @@ export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconI
 // get product id by icon cart
 export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,iconName,iconId,test){
   await fetchProducts(test)
-  let icons=document.querySelectorAll(`.cardLessThan .cartFavorite .${iconName}`);
+  // let icons=document.querySelectorAll(`.cardLessThan .cartFavorite .${iconName}`);
+  let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+
   let categoryMatch;
   icons.forEach(element=>{
     element.addEventListener('click',(info)=>{
         info.preventDefault();
-      // let productId=(element.classList)[3].slice(4);
-      let classN=(element.classList)[3];
-      let productId=classN.match(/\d+/g);
+      // let classN=(element.classList)[3];
+      let classN=Array.from(element.classList);
+      console.log(classN);
+      let arry=classN.filter(className=>{
+        let match=/\d/g.test(className);
+        return match;
+      })
+      console.log(arry);
+      let productId=arry[0].match(/\d+/g);
+
+      // let productId=classN.match(/\d+/g);
       let  filterProducts =datas.filter((product) => {
               categoryMatch=product['id']==productId;
             return  categoryMatch;
@@ -1817,7 +1836,9 @@ export function effectHoverOnSignIn(elementId){
  export function addNumberToIconCart(productsInLoc,iconName,iconId){
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+
   console.log(allIcons);
   console.log(productsInlocal);
 id(iconId).innerHTML=productsInlocal.length;
@@ -1830,7 +1851,9 @@ id(iconId).style.color='rgb(255, 214, 139)';
 // add class active on icon cart or favorite cart
  export async function addClassActiveOnIconCart(productsInLoc,iconName,test){
   await fetchProducts(test);
-  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+
   // addClassNoexistOnIcon();
 
   if(window.localStorage.getItem(productsInLoc)){
@@ -1838,11 +1861,16 @@ id(iconId).style.color='rgb(255, 214, 139)';
     console.log(allIcons);
     productsInlocal.forEach(product=>{
       allIcons.forEach(icon=>{
-    // icon.addEventListener
-    let classLists=icon.classList[3];
-    console.log(classLists);
-  // if(classLists==(`cart${product.id}`)){
-    if(classLists==(`${iconName}${product.id}`)){
+  
+    // let classLists=icon.classList[3];
+    // console.log(classLists);
+    let classLists=Array.from(icon.classList);
+let nameWithNum=classLists.filter(className=>{
+  let match=/\d/g.test(className);
+  return match;
+})
+    // if(classLists==(`${iconName}${product.id}`)){
+      if(nameWithNum==(`${iconName}${product.id}`)){
 
     console.log(icon);
     icon.classList.add('addedIt');
@@ -1856,7 +1884,9 @@ addClassNoexistOnIcon(iconName,test);
 // add class no exist on icon cart or favorite
 export  async function addClassNoexistOnIcon(iconName,test){
   await fetchProducts(test);
-  let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
+  let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+
   let filterPro=datas.filter(prod=>{
     let match=prod.stock==0; 
     return match;
