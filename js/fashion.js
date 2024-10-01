@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded',(info=>{
   dragByTouch(secondHeader);
   // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
-// addStyleOnSection();
   // start dashboard
   toggleDashboard('classification','dashboard',true);
       toggleDashboard('cancelDash','dashboard');
@@ -70,29 +69,7 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
   // end header
 
-// existUserOrNots();
-// localStorage.removeItem(undefined);
-
-// existUserOrNotExist();
-// addProductToCartByIconCarts(true);
-// let icons=document.querySelectorAll('.cartFavorite .cart');
-// let links=document.querySelectorAll('.cardLessThan');
-// console.log(icons);
-// icons.forEach(icon=>{
-// icon.addEventListener('click',(info)=>{
-//   links.forEach(link=>{
-//     link.addEventListener('click',(info)=>{
-//       info.preventDefault();
-  // info.stopPropagation();
-    // })})
-// info.preventDefault();
-// start get product by icon cart
-
-
-
-// existUserOrNotss();
 // footer functions create url
-// getAllElements(allLinksFooter,createHrefForElementsFooter);
 createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
 // })})
@@ -100,7 +77,10 @@ createHrefForElementsFooter(allLinksSideBar);
 
 
   // start show products for every page in header and filter products from dashboard
-  if(document.getElementById('linkBooks')){
+  // if(document.getElementById('linkBooks')){
+    if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
+
+    console.log(document.getElementById('linkBooks'));
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);
     filterAllProductsByDashboard(id,allCategory,allCategoryTags,allDiscount,
       allAvalibal,allReviews,freeShipping,
@@ -143,8 +123,6 @@ createHrefForElementsFooter(allLinksSideBar);
   // start dashboard
   // filter products from sort by
 displayMenuSort(id,'dashboardAngle', "list", "active");
-// displayMenuSort(id,'classification','dashboard', "active",'cancelDash',true);
-// filterProdutsForEveryPage(allLinksFooter,id,true);
 
 // end dashboard
 })) 

@@ -605,6 +605,7 @@
 #container section#home .container-bestSeller .box-products {
     padding: var(--padding-secondary);
     background-color: whitesmoke;
+    touch-action: pan-x;
     /* display: flex; */
     /* gap: var(--gap-container-products); */
     /* min-height: var(--minheight-container-products); */

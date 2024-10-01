@@ -31,20 +31,13 @@ let countSlide = allImages.length;
 let preButton = document.querySelector("i.left-angle");
 let nextButton = document.querySelector("i.right-angle");
 let homeGallery= document.querySelector(".home-gallery");
-// let allBalls = Array.from(document.querySelector(".balls").children);
 let containerProductsDrag=document.querySelectorAll('.container-bestSeller .box-products');
 let AllClickedButton=document.querySelectorAll('.container-bestSeller .buttons .first');
 let allLinksFooter=document.querySelectorAll('footer .category li a');
 let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
 let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
 
-// let allIconsCart=document.querySelectorAll('.cardLessThan .cartFavorite .cart');
-// let allLinksProducts=document.querySelectorAll('a.cardLessThan');
-
-// console.log(allIconsCart);
-console.log(allTrendingSide);
 document.addEventListener('DOMContentLoaded',(info=>{
-  // console.log(allIconsCart);
 
   // start header
   addClassActive(iconsPersonal, "active");
@@ -56,28 +49,13 @@ existUserOrNot('cartUser','productCart','cart','countPurshes');
 // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 createHrefForElementsFooter(allLinksSideBar);
-
 addStyleOnSection();
-// let oo=setInterval(addStyleOnSection,1000);
-// setTimeout(()=>{
-  // let limitSection=window.localStorage.getItem('isLimitSec');
-
-  // id(limitSection).classList.remove('limitSection');
-  // localStorage.removeItem('isLimitSec');
-  // clearInterval(oo);
-// },10000)
-// addStyleOnSection();
 // visible map
 visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
 //hidden map
 visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
 // start gallery
 //turn on autosliders
-// allBalls = Array.from(document.querySelector(".balls").children);
-// allBalls =(document.querySelectorAll(".ball"));
-
-// console.log(allBalls);
-
 autoSliders = setInterval(limitCurrentSlide, 3000, 1, "nextSlide");
 // create bollets for images
 createBollets(allImages);
@@ -110,30 +88,17 @@ suggestedForYou();
 // end part scrolling products
 // start drag product by toutch
 getAllElements(containerProductsDrag,dragByTouch);
-// addProductToCartByIconCart(document.querySelectorAll('.cartFavorite .cart'));
-console.log(document.querySelectorAll('.cartFavorite .cart'));
-
-// allIconsCart.forEach(element=>{
-// element.addEventListener('click',(info=>{
-//   getProductIdByIconCart(element);
-// }))
-// })
 // start get product by icon cart
-// getProductIdByIconCart();
-// existUserOrNotToUpdateIconNum('cartUser','productCart','cart');
-
 existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
 existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
 
 existUserOrNotForAddClassAtive('cartUser','productCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-// addClassNoexistOnIcon();
 // start footer
 createHrefForElementsFooter(allLinksFooter);
 
 }))
 
-// let ddatas=dummy.products;
 
 async function initMa() {
   mapP = await new google.maps.Map(document.querySelector("#map"), {

@@ -2,7 +2,6 @@
 import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
-// import { effectHoverOnSignIn } from "../js/signIn.js";
 
 console.log(book);
 let cardLessThan;
@@ -13,11 +12,11 @@ export let datass;
 export let price = 10;
 let container;
 let thumbnail;
-let productId;
+export let productId;
 export let title;
 let priceProduct;
 export let discountPercentagee = 0;
-let productStock;
+ export let productStock;
 // export let productId;
 let nowPrice;
 let stock;
@@ -86,14 +85,15 @@ export function createParentDiv(classParent, container) {
   }
 // start add class active on link in navbar
 export function addClassActive(lis, className) {
-  let url = window.location.href;
+  let urlWin = window.location.href;
   lis.forEach((activeLink) => {
-    if (activeLink.href === url) {
+    if (activeLink.href === urlWin) {
       activeLink.parentElement.classList.add(className);
     
       if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
         url=   "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
        urlBooks='another';
+       console.log(url);
       }
       else{
         url= "https://dummyjson.com/products?limit=0";
@@ -251,7 +251,6 @@ showSideBar(
   true,
   "phones"
 );
-// let isLimitSec=false;
 // go location products from sidebar
 export function limitLocationProductsBySidebar(element){
 element.addEventListener('click',(info=>{
@@ -284,21 +283,6 @@ setTimeout(()=>{
   id(nameSec).classList.remove('limitSection');
 },10000)
 }
-
-  // console.log('1');
-  // if(window.localStorage.getItem('isLimitSec')){
-    // let limitSection=window.localStorage.getItem('isLimitSec');
-    // id(limitSection).classList.add('limitSection');
-    // id(limitSection).style.backgroundColor='red';
-  // }
-    // else{
-      // id(limitSection).classList.remove('limitSection');
-    // }
-    // setTimeout(()=>{
-      // id(limitSection).classList.remove('limitSection');
-      // localStorage.removeItem('isLimitSec');
-      // clearInterval(oo);
-    // },10000)
   }
 
 // end sidebar
@@ -363,12 +347,10 @@ function organizeAmount(datas, i) {
 
 function createCardImage(datas, containerProducts, i) {
   organizeObject(datas, i,true);
-  // lgl(i);
   cardLessThan = document.createElement("a");
   cardLessThan.className = "cardLessThan";
   const urlParams=new URLSearchParams(window.location.search);
 console.log(window.location.href);
-  // if(window.location.href.includes('/index.html')) {
     if(window.location.pathname==('/index.html')||(window.location.pathname=='/')) {
 
   cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
@@ -404,7 +386,6 @@ function divCartFavorite(container) {
   createDiv(
     1,
     "i",
-    // "fa-solid fa-cart-shopping cart flex-center",
     `fa-solid fa-cart-shopping cart cart${productId} flex-center`,
     "",
     "",
@@ -617,9 +598,9 @@ export function limitWidthScrollBarWhenScrolling(
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
-    // url =
-    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-    url="../js/books.json"
+    url =
+    "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+    // url="../js/books.json"
   }
   else{
     url = "https://dummyjson.com/products?limit=0";
@@ -627,13 +608,19 @@ export async function fetchProducts(chooseUrl,i) {
   let response = await fetch(url, i);
   datass = await response.json();
   console.log(datass);
+  // datass.items.forEach(ele=>{
+    // console.log(ele.volumeInfo.categories);
+  // })
   organizeObject(datas, i);
   if (Object.keys(datass).includes("products")) {
       urlLink='notBooks'
   datas.map(updatePrice);
+  console.log(datas);
 }
 if (Object.keys(datass).includes("items") ) {
   urlLink='books';
+  console.log(datas);
+
 }
 console.log(datass);
 
@@ -657,11 +644,14 @@ export function organizeObject(data, i,test) {
       productStock=data[i].stock;
   }}
 else{
-  // datas=datass.items;
-  datas=datass;
+  // datas=datass;
+  datas = datass.items;
+datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
       title = data[i].volumeInfo.title;
+      // priceProduct = 30000;
+      // priceProduct = data[i].saleInfo.listPrice.amount||300000;
       priceProduct = data[i].saleInfo.listPrice.amount;
       console.log(priceProduct);
       discountPercentagee=i <10?discountPercentagee=i*3:discountPercentagee=i*5;
@@ -692,9 +682,10 @@ export async function filterProdutsForEveryPage(elements, func,choose) {
   await fetchProducts(choose);
   
   shaffelArray(datas);
-
+console.log(datas);
   let arrayCategories = Array.from(elements).map((element) =>
   element.getAttribute("data-category").toString().toLowerCase().split(','));
+  console.log(arrayCategories);
   let spreadArrayCategories=[].concat(...arrayCategories);
   filterProductsWithCategories = datas.filter((product) => {
     if(choose){
@@ -709,15 +700,7 @@ let  hundleCategory = category||'';
     categoryMatch = spreadArrayCategories.some((element) =>categoryToLower==(element));
     return categoryMatch;
   });
-  // const urlParams=new URLSearchParams(window.location.search);
-  // const productPrice=urlParams.get('productPrice');
-  // if(productPrice){
-  //   console.log(productPrice);
-  //   id('rangPrice').value=200;
-  //   id('rangPrice').classList.add("active");
-
-  // }
- 
+  console.log(filterProductsWithCategories);
 }
 
 export function filterAllProductsByDashboard(
@@ -829,15 +812,6 @@ testing
     valuePrice = func(elementPrice).value;
     if (func(elementPrice).value) {
       func(elementPrice).classList.add("active");
-      // filterProductsAndShowIt(
-      //   func,
-      //   container,
-      //   elementsDi,
-      //   elementsAvila,
-      //   elementFree,
-      //   elementsBra,
-      //   testing
-      // );
     } else {
       func(elementPrice).classList.remove("active");
     }
@@ -910,7 +884,8 @@ testing
     elementsDi,
     elementsAvila,
     elementFree,
-    elementsBra
+    elementsBra,
+    testing
   );
   filterProductsBySort(
     func,
@@ -922,7 +897,8 @@ testing
     elementsDi,
     elementsAvila,
     elementFree,
-    elementsBra
+    elementsBra,
+    testing
   );
   filterProductsBySort(
     func,
@@ -934,7 +910,8 @@ testing
     elementsDi,
     elementsAvila,
     elementFree,
-    elementsBra
+    elementsBra,
+    testing
   );
   func(elementAllSort).addEventListener("click", (info) => {
     info.preventDefault();
@@ -957,6 +934,14 @@ testing
         a.price * (a.discountPercentage / 100) -
         (b.price - b.price * (b.discountPercentage / 100))
     );
+  // func(elementLowPrice).addEventListener("click", (info) => {
+  //   info.preventDefault();
+  //   filterProductsWithCategories.sort(
+  //     (a, b) =>
+  //       a.priceProduct -
+  //       a.priceProduct * (a.discountPercentagee / 100) -
+  //       (b.priceProduct - b.priceProduct * (b.discountPercentagee / 100))
+  //   );
     functionInnerfilterProductsBySort(func,
       elementLowPrice,
          "all",
@@ -985,6 +970,8 @@ testing
   filterProductsAndShowIt(func, container, elementsDi, elementsAvila, elementFree, elementsBra,testing);
  
 }
+
+
 export async function filterProductsAndShowIt(
   func,
   container,
@@ -1004,13 +991,11 @@ export async function filterProductsAndShowIt(
     Array.from(elementsbrand)
       .filter((element) => element.checked)
       .map((element) => element.getAttribute("value")) || [];
-      // let jj=datas.filter(pri=>{
-        // console.log(pri.volumeInfo.categories);
-// })
 console.log(filterProductsWithCategories);
   filterProducts =filterProductsWithCategories.filter((product) => {
     if(test){
      category=product['volumeInfo']['categories']||'';
+
     }
     else{
      category =product['category']||''
@@ -1019,17 +1004,9 @@ console.log(filterProductsWithCategories);
  console.log(categoryToLower);
 
  console.log(selectedCategoryy);
-
-    //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
  showProductsWithOffersCategory();
-
-    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
-// showProductsWithOffersCategory(categoryToLower);
       console.log(category);
       let categoryTagsMatch =selectedTags == 'all'||selectedCategoryyy.some(elee=>(product["tags"].includes(elee)));
-
-    //  discountMatch =arrayFromDisChacked.length == 0 ||product.discountPercentage <=arrayFromDisChacked[arrayFromDisChacked.length - 1];
-        //  let    priceMatch =product.price - product.price * (product.discountPercentage / 100) <=valuePrice;
     showProductsWithOffersDis(product.discountPercentage,category);
     let freeMatch = !elementFree.checked || product.rating > 4.5;
     let freeSortMatch = freeSort == "all" || product.rating > 4.5;
@@ -1038,22 +1015,8 @@ console.log(filterProductsWithCategories);
     let besetSellingMatch = bestSelling == "all" || product.stock < price;
     let newArrivalsMatch =newArrivals == "all" ||(product["rating"] >= 2.9 && product["rating"] <= 3.3);
      brand = product["brand"] || "";
-    // let brandTolower = brand.toLowerCase();
-    // let brandMatch =arrayFromBrandChacked.length == 0 ||arrayFromBrandChacked.some((element) => brandTolower.includes(element));
     showProductsWithOffersBrand(brand);
     showProductsWithOffersPrice( product.price,product.discountPercentage);
-    // let priceMatch;
-    // const urlParams=new URLSearchParams(window.location.search);
-    // const productPrice=urlParams.get('productPrice');
-    //   valuePrice =200 ;
-    // if(productPrice&& id('rangPrice').value==''){
-    //     priceMatch =product.price - product.price * (product.discountPercentage / 100) <=valuePrice;
-    // }
-    // else{
-    //   valuePrice= id('rangPrice').value;
-    //    priceMatch =valuePrice == 0 ||product.price - product.price * (product.discountPercentage / 100) <=
-    //   valuePrice;
-    // }
     return (
       categoryMatch &&
       discountMatch &&
@@ -1081,6 +1044,102 @@ addClassNoexistOnIcon('cart');
 addClassNoexistOnIcon('favorite');
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export async function filterProductsAndShowIt(
+//   func,
+//   container,
+//   elementsDi,
+//   elementsAvila,
+//   elementFree,
+//   elementsbrand,
+//   test
+// ) {
+//   await fetchProducts(test);
+//   arrayFromDisChacked = Array.from(elementsDi)
+//     .filter((element) => element.checked)
+//     .map((element) =>
+//       parseInt(element.parentElement.getAttribute("data-category"))
+//     );
+//    arrayFromBrandChacked =
+//     Array.from(elementsbrand)
+//       .filter((element) => element.checked)
+//       .map((element) => element.getAttribute("value")) || [];
+// console.log(filterProductsWithCategories);
+//   filterProducts =filterProductsWithCategories.filter((product) => {
+//     if(test){
+//      category=product['volumeInfo']['categories']||'';
+//     }
+//     else{
+//      category =product['category']||''
+//     }
+//  let   categoryToLower=category.toString().toLowerCase();
+//  console.log(categoryToLower);
+
+//  console.log(selectedCategoryy);
+//  showProductsWithOffersCategory();
+//       console.log(category);
+//       let categoryTagsMatch =selectedTags == 'all'||selectedCategoryyy.some(elee=>(product["tags"].includes(elee)));
+//     showProductsWithOffersDis(product.discountPercentage,category);
+//     let freeMatch = !elementFree.checked || product.rating > 4.5;
+//     let freeSortMatch = freeSort == "all" || product.rating > 4.5;
+//     let avilabiltyMatch = !elementsAvila.checked || product.stock > 0;
+//     let reviewMatch =selectedReveiw == "all" || product.rating >= selectedReveiw;
+//     let besetSellingMatch = bestSelling == "all" || product.stock < price;
+//     let newArrivalsMatch =newArrivals == "all" ||(product["rating"] >= 2.9 && product["rating"] <= 3.3);
+//      brand = product["brand"] || "";
+//     showProductsWithOffersBrand(brand);
+//     showProductsWithOffersPrice( product.price,product.discountPercentage);
+//     return (
+//       categoryMatch &&
+//       discountMatch &&
+//       avilabiltyMatch &&
+//       reviewMatch &&
+//       freeMatch &&
+//       priceMatch &&
+//       brandMatch &&
+//       freeSortMatch &&
+//       besetSellingMatch &&
+//       newArrivalsMatch&&
+//       categoryTagsMatch
+//     );
+//   });
+//   console.log(filterProducts);
+//   displayProducts(filterProducts, func, container);
+//   let icons=document.querySelectorAll('.cartFavorite .cart');
+//   let links=document.querySelectorAll('.cardLessThan');
+//   console.log(icons,links);
+// existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+// existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+// existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+// existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+// addClassNoexistOnIcon('cart');
+// addClassNoexistOnIcon('favorite');
+
+// }
 function showProductsWithOffersPrice(productPrice,productDis){
  priceMatch;
   const urlParams=new URLSearchParams(window.location.search);
@@ -1095,67 +1154,35 @@ function showProductsWithOffersPrice(productPrice,productDis){
   }
 }
 function showProductsWithOffersDis(productDis,productCateg){
-  // discountMatch;
    const urlParams=new URLSearchParams(window.location.search);
    const productDisUrl=urlParams.get('productDiscount');
    const productCateUrl=urlParams.get('productCategory');
    let allInputs=id('discount').querySelectorAll('input');
-  //  let   categoryToLower=category.toString().toLowerCase();
    console.log(!productDisUrl);
-      //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
    if(productDisUrl&&!(Array.from(allInputs).some(input=>input.checked)) ){
    discountMatch =Math.round(productDis)==productDisUrl||Math.round(productDis)<productDisUrl;
    console.log(productDis.toFixed(0));
-  //  if(productCateUrl&&selectedCategoryy.length==0){
-  //   categoryMatch= productCateg==productCateUrl;
-  //  }
-
    }
-  //  if((Array.from(allInputs).some(input=>input.checked)) ){
   else{
     discountMatch =arrayFromDisChacked.length == 0 ||productDis.toFixed(0)<=arrayFromDisChacked[arrayFromDisChacked.length - 1];
  }
    if(productCateUrl){
-    // selectedCategory='';
-    // selectedCategoryy.push(productCateUrl);
-    // selectedCategoryy=[productCateUrl.split(',')];
-    // categoryMatch= productCateg==productCateUrl;
-    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
-
    }
-
-  // if( selectedCategoryy.some(element=>element!=productCateUrl)){
-  // if(selectedCategory=='all'){
   else{
-    console.log('fghjkld;zl;');  
-    // selectedCategoryy=[];
-    // selectedCategory='all';
-    // categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
-
    }
   }
   function showProductsWithOffersCategory(){
-// let kl=true;
      const urlParams=new URLSearchParams(window.location.search);
      const productCateUrl=urlParams.get('productCategory');
      const productRateUrl=urlParams.get('highRate');
 
      let   categoryToLower=category.toString().toLowerCase();
-// if(productRateUrl){
-//   id('freeShipping').querySelector('input').checked;
-//   console.log(id('freeShipping').querySelector('input'));
-// }
-      //  valuePrice =productPriceUrl;
      if(productCateUrl&&isCategory){
       selectedCategory = '';
-      // selectedCategoryy.push(productCateUrl);
-
      selectedCategoryy=productCateUrl.toLocaleLowerCase().split(',');
       console.log(selectedCategory);
       console.log(categoryToLower);
-
       selectedCategoryy.some(elee=>(console.log(elee)));
-      // categoryMatch =productCategory==productCateUrl;    
           categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
           if(productRateUrl){
             id('freeShipping').querySelector('input').checked=true;
@@ -1163,10 +1190,6 @@ function showProductsWithOffersDis(productDis,productCateg){
           }
 
      }
-    //  if(productRateUrl){
-    //   id('freeShipping').querySelector('input').checked;
-    //   console.log(id('freeShipping').querySelector('input'));
-    // }
       else{
                 categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
                 console.log('nooooooooo');
@@ -1200,9 +1223,6 @@ export function displayProducts(product, func, container) {
   for (let o = 0; o < product.length; o++) {
     groupesFunctionsForCreatesDivs(product, o, func(container));
   }
-  // addClassActiveOnIconCart();
-  // console.log(document.querySelectorAll('.cartFavorite .cart'));
-  // addProductToCartByIconCart();
 }
 // localStorage.clear();
 // create url for footer of elements
@@ -1215,7 +1235,6 @@ export function createHrefForElementsFooter(elements){
     let dataPageToLow=dataPage.toLocaleLowerCase();
      info.target.href=`${dataPageToLow}.html?productCategory=${categoryElement}`;
   }
-  //  console.log(categoryElement,dataPage);
   }))})
   }
 // end show products in page
@@ -1233,7 +1252,7 @@ let isDrag=false;
     if(!isDrag)return;
     info.preventDefault();
     const x=info.touches[0].pageX;
-    const moveDistance=(x-startPoint)*4;
+    const moveDistance=(x-startPoint)*3;
           container.scrollLeft=scrollLeft-moveDistance;
   });
   container.addEventListener("touchend", (info) => {
@@ -1243,85 +1262,74 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
- export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId){
+ export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId);
+    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
   }
   else{
-    addProductToCart(globalCart,proAndQuantityItt,iconName,iconId);
+    addProductToCart(globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
   }
   }
-  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId){
+  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isDetails){
     if(window.localStorage.getItem('user')){
       let user=JSON.parse(window.localStorage.getItem('user'));
       let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId);
-      // addClassActiveOnIconCart(`cartUser${user.id}`);
+      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isDetails);
     }
     else{
-      getProductIdByIconCart(globalCart,proAndQuantityItt,iconName,iconId);
-      // addClassActiveOnIconCart('productCart');
+      getProductIdByIconCart(globalCart,proAndQuantityItt,iconName,iconId,isDetails);
     }
     }
     // localStorage.clear();
-  // export function existUserOrNotss(){
-  //   if(window.localStorage.getItem('user')){
-  //     let user=JSON.parse(window.localStorage.getItem('user'));
-  //     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-      // addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`,isIcon,element,test);
-      // addProductToCartByIconCarts(`carttUser${user.id}`,`proAndQuantityItt${user.id}`);
-    // }
-    // else{
-      // addProductToCart('productCart','proAndQuantityIt');
-      // addProductToCart('productCart','proAndQuantityIt',isIcon,element,test);
-      // addProductToCartByIconCarts('productCartt','proAndQuantityItt');
-    // }
-    // }
 //add product to cart
-async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isAdd,test){
+async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
   await fetchProducts(test);
   let categoryMatch;
   let productId;
-//   if(isIcon){
-//     const linkElement=element.closest('a');
-//     let hrefLink=linkElement.getAttribute('href');
-//     console.log(hrefLink);
-// if(!hrefLink.startsWith('http')){
-// }
-//    const url=new URL( 'http://'+hrefLink);
-//  productId=url.searchParams.get('productId');
-//     console.log(productId);
-//   }
-  // else{
+  let quantity;
+  let proAndQuantityIt;
+  if(isFavorit){
+productId=proId;
+  }
+  else{
     const urlParams=new URLSearchParams(window.location.search);
-  productId=urlParams.get('productId');
-    console.log(productId);
-  // }
+    productId=urlParams.get('productId');
+      console.log(productId);
+  }
+ 
 
+console.log(productId);
  
 let  filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
-// await getProductId(test);
 console.log(filterProducts);
-
 if(filterProducts[0].stock==0){
+if(!isFavorit){
   effectHoverOnSignIn('inStock');
-}
+}}
 else{
+  if(!isFavorit){
   if(id('quantityDetails').value==0){
     id('quantityDetails').value=1;
   }
-if(id('quantityDetails').value>0){
-  let quantity=id('quantityDetails').value;
-let proAndQuantityIt={
-  productId:productId,
-  quantityPro:quantity||1
-};
+  if(id('quantityDetails').value>0){
+    quantity=id('quantityDetails').value;
+     proAndQuantityIt={
+     productId:productId,
+     quantityPro:quantity||1
+   };
+ }
+  }
+if(isFavorit){
+  proAndQuantityIt={
+    productId:productId,
+    quantityPro:1
+}}
+
 let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
 console.log(objectQuantity);
 let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
@@ -1332,13 +1340,14 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
       addNumberToIconCart(productsInLoc,iconName,iconId);
-      if(isAdd){
+        if(!isFavorit){
+
       preventAddToCart(productsInLoc);
       }
       addClassActiveOnIconCart(productsInLoc,iconName);
 } 
  }
-}
+// }
 // localStorage.clear();
 function preventAddToCart(productsInLoc){
   const urlParams=new URLSearchParams(window.location.search);
@@ -1361,43 +1370,22 @@ export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconI
     console.log(user.id);
     preventAddToCart(`${cartUser}${user.id}`);
   addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
-  // addClassActiveOnIconCart(`cartUser${user.id}`);
   }
   else{
     preventAddToCart(globalCart);
   addNumberToIconCart(globalCart,iconName,iconId);
-  // addClassActiveOnIconCart('productCart');
   }
   }
 
-// async function getProductId(test) {
-//   await fetchProducts(test);
-//   let categoryMatch;
-//   const urlParams=new URLSearchParams(window.location.search);
-//   const productId=urlParams.get('productId');
-//   console.log(productId);
- 
-//  filterProductss =datas.filter((product) => {
-//       categoryMatch=product['id']==productId;
-//     return  categoryMatch;
-// })
-// console.log(filterProducts);
-  // return filterProducts;
-// }
-
-
-// dose
 // get product id by icon cart
-export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,iconName,iconId,test){
+export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isDetails,test){
   await fetchProducts(test)
-  // let icons=document.querySelectorAll(`.cardLessThan .cartFavorite .${iconName}`);
   let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
 
   let categoryMatch;
   icons.forEach(element=>{
     element.addEventListener('click',(info)=>{
         info.preventDefault();
-      // let classN=(element.classList)[3];
       let classN=Array.from(element.classList);
       console.log(classN);
       let arry=classN.filter(className=>{
@@ -1406,8 +1394,6 @@ export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,ico
       })
       console.log(arry);
       let productId=arry[0].match(/\d+/g);
-
-      // let productId=classN.match(/\d+/g);
       let  filterProducts =datas.filter((product) => {
               categoryMatch=product['id']==productId;
             return  categoryMatch;
@@ -1428,193 +1414,18 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
       addNumberToIconCart(productsInLoc,iconName,iconId);
-      // addClassActiveOnIconCart(productsInLoc);
 }
+addClassActiveOnIconCart(productsInLoc,iconName,test);
+if(isDetails==true){
+  preventAddToCart(productsInLoc);
+}
+
     })
   })
  
   }
 
 
-
-
-
-
-
-
-
-
-
-// localStorage.clear();
-
-
-
- export function existUserOrNotExist(){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-
-    console.log(user.id);
-    // addProductToCartByIconCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-    // postCartFromLocalToUser(`cartUser${user.id}`,userToken,user.id,user.username,user.password,user.name,user.email); 
-  }
-  else{
-    // addProductToCartByIconCart('productCart','proAndQuantityIt');
-  }
-  }
-
-  export async function addProductToCartByIconCarts(productsInLoc,prodAndQuantityIt,test){
-    await fetchProducts(test);
-    let icons=document.querySelectorAll('.cartFavorite .cart');
-    let links=document.querySelectorAll('.cardLessThan');
-    console.log(icons);
-    icons.forEach(icon=>{
-    icon.addEventListener('click',(info)=>{
-      links.forEach(link=>{
-        link.addEventListener('click',(info)=>{
-      // info.stopPropagation();
-      info.preventDefault();
-
-        })})
-  // info.preventDefault();
-        const linkElement=icon.closest('a');
-        linkElement.click();
-          let hrefLink=linkElement.getAttribute('href');
-          console.log(hrefLink);
-        if(!hrefLink.startsWith('http')){
-        }
-         const url=new URL( 'http://'+hrefLink);
-   let productId=url.searchParams.get('productId');
-          console.log(productId);
-  let  filterProducts =datas.filter((product) => {
-    categoryMatch=product['id']==productId;
-  return  categoryMatch;
-  })
-  let proAndQuantityIt={
-    productId:productId,
-    quantityPro:1
-  };
-  let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-  console.log(objectQuantity);
-  let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-  console.log(getProductFromLocal);
-          getProductFromLocal.push((filterProducts[0]));
-    let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-      window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-      objectQuantity.push(proAndQuantityIt);
-      let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-      window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-
-  })})}
-
-
-
-
-
-
-
-
-  // info.stopPropagation();
-  // existUserOrNots(isIcon,icons,test);
-//   const linkElement=element.closest('a');
-//   let hrefLink=linkElement.getAttribute('href');
-//   console.log(hrefLink);
-// if(!hrefLink.startsWith('http')){
-// }
-//  const url=new URL( 'http://'+hrefLink);
-// productId=url.searchParams.get('productId');
-//   console.log(productId);
-    
-
-
-
-
-
-
-//  export  function addProductToCartByIconCart(productsInLoc,prodAndQuantityIt){
-//   let icons=document.querySelectorAll('.cartFavorite .cart');
-//   let links=document.querySelectorAll('.cardLessThan');
-//   links.forEach(link=>{
-//     link.addEventListener('click',(info)=>{
-//   info.stopPropagation();
-//     })})
-//   // console.log(icons);
-//   icons.forEach(icon=>{
-//   icon.addEventListener('click',(info)=>{
-// info.preventDefault();
-// info.stopPropagation();
-//     const linkElement=icon.closest('a');
-//     let hrefLink=linkElement.getAttribute('href');
-//     console.log(hrefLink);
-// if(!hrefLink.startsWith('http')){
-//   // hrefLink=window.Location.origin + hrefLink;
-//   // const url=new URL(hrefLink);
-// console.log(hrefLink);
-// }
-//    const url=new URL( 'http://'+hrefLink);
-
-// // let bb=new URLSearchParams( hrefLink);
-// const productId=url.searchParams.get('productId');
-// console.log(productId);
-// let  filterProducts =datas.filter((product) => {
-//   categoryMatch=product['id']==productId;
-// return  categoryMatch;
-// })
-// console.log(filterProducts);
-
-// let proAndQuantityIt={
-//   productId:productId,
-//   quantityPro:1
-// };
-// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-// console.log(objectQuantity);
-// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-//         getProductFromLocal.push((filterProducts[0]));
-//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-//     objectQuantity.push(proAndQuantityIt);
-//  let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-
-//       addNumberToIconCart(productsInLoc);
-      // existUserOrNotToUpdateIconNum()
-      // preventAddToCart(productsInLoc);
-    // })})
-    // console.log(icons);
-    // let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-
-    // window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-
-  // }
-
-// function preventAddToCart(productsInLoc){
-//   const urlParams=new URLSearchParams(window.location.search);
-//   const productName=urlParams.get('productId');
-//   if(window.localStorage.getItem(productsInLoc)){
-//   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-//   console.log(productsInlocal);
-//   productsInlocal.forEach(item=>{
-//        if(item.id==(+productName)) {
-//         id('textAddToCart').innerHTML='added it to cart';
-//         id('linkAddToCart').style.opacity='.4';
-//         id('linkAddToCart').style.pointerEvents='none';
-//        }
-//       })
-//     }
-// }
-function existUserOrNotToUpdateIconNums(){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    console.log(user.id);
-  // addNumberToIconCart(`cartUser${user.id}`);
-  }
-  else{
-  // addNumberToIconCart('productCart');
-  }
-  }
-    // console.log(productId);
-//  localStorage.clear();
-// addProductToCartByIconCart(document.querySelector('cardLessThan'));
 //end add product to cart by icon cart
 
 // start filter products by dashboard
@@ -1836,42 +1647,30 @@ export function effectHoverOnSignIn(elementId){
  export function addNumberToIconCart(productsInLoc,iconName,iconId){
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
   let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
 
   console.log(allIcons);
   console.log(productsInlocal);
 id(iconId).innerHTML=productsInlocal.length;
 id(iconId).style.color='rgb(255, 214, 139)';
-// addClassActiveOnIconCart(productsInLoc);
-// let productIdFromLoc=productsInlocal[0].id;
-// console.log(productIdFromLoc);
   }
 } 
 // add class active on icon cart or favorite cart
  export async function addClassActiveOnIconCart(productsInLoc,iconName,test){
   await fetchProducts(test);
-  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
   let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-
-  // addClassNoexistOnIcon();
 
   if(window.localStorage.getItem(productsInLoc)){
     let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
     console.log(allIcons);
     productsInlocal.forEach(product=>{
       allIcons.forEach(icon=>{
-  
-    // let classLists=icon.classList[3];
-    // console.log(classLists);
     let classLists=Array.from(icon.classList);
 let nameWithNum=classLists.filter(className=>{
   let match=/\d/g.test(className);
   return match;
 })
-    // if(classLists==(`${iconName}${product.id}`)){
       if(nameWithNum==(`${iconName}${product.id}`)){
-
     console.log(icon);
     icon.classList.add('addedIt');
   }  
@@ -1884,9 +1683,7 @@ addClassNoexistOnIcon(iconName,test);
 // add class no exist on icon cart or favorite
 export  async function addClassNoexistOnIcon(iconName,test){
   await fetchProducts(test);
-  // let allIcons=document.querySelectorAll(`a.cardLessThan .${iconName}`);
   let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-
   let filterPro=datas.filter(prod=>{
     let match=prod.stock==0; 
     return match;
@@ -1908,14 +1705,10 @@ export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     console.log(user.id);
-    // addNumberToIconCart(`cartUser${user.id}`);
     addClassActiveOnIconCart(`${cartUser}${user.id}`,iconName);
-
   }
   else{
-    // addNumberToIconCart('productCart');
     addClassActiveOnIconCart(cartGlobal,iconName);
-
   }
   }
 // are user or not
@@ -1924,11 +1717,9 @@ export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName){
     let user=JSON.parse(window.localStorage.getItem('user'));
     console.log(user.id);
     addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
-    // addClassActiveOnIconCart(`cartUser${user.id}`);
   }
   else{
     addNumberToIconCart(cartGlobal,iconName,iconId);
-    // addClassActiveOnIconCart(`productCart`);
   }
   }
 // end add product to cart 
@@ -1944,33 +1735,5 @@ export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName){
 
       // // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
 
-// add class active on category dashboard
-// export function addClassActiveOnCategory(elements) {
-  // elements.forEach((element) => {
-    // element.addEventListener("click", (info) => {
-      // elements.forEach((element) => {
-        // element.classList.remove("active");
-      // });
-      // info.target.classList.add("active");
-    // });
-  // });
-// }
 
 
-// export function limitCategory(
-  // func,
-  // category1,
-  // category2,
-  // category3,
-  // container
-// ) {
-  // let categories = [category1, category2, category3];
-  // console.log(categories);
-  // for (let i = 0; i < datas.length; i++) {
-    // categories.some((category) => {
-      // if (datas[i].category.toLowerCase().includes(category)) {
-        // groupesFunctionsForCreatesDivs(datas, i, func(container));
-      // }
-    // });
-  // }
-// }

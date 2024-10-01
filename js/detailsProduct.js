@@ -3,7 +3,7 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
  
-  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter
+  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,existUserOrNot
 } 
 from './common.js';
 // import {existUserOrNot} from "./js/addToCart.js";
@@ -92,7 +92,7 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   dragByTouch(containerProductsDrag);
   
   // start get product by icon cart
-  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
 existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
 
   existUserOrNotToUpdateIconNum('cartUser','productCart','cart','countPurshes');
@@ -102,12 +102,16 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
   // addClassNoexistOnIcon();
    id("linkAddToCart").addEventListener('click',(event)=>{
     event.preventDefault();
-    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
+    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
  })
+//  existUserOrNot('cartUser','productCart','cart','countPurshes');
+
  id("iconCart").addEventListener('click',(event)=>{
-  // event.preventDefault();
-  existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
+  event.preventDefault();
+  existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
 })
+// existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
+
 id("iconFavorite").addEventListener('click',(event)=>{
   // event.preventDefault();
   // existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites',false);

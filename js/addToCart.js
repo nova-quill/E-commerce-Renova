@@ -1,5 +1,5 @@
 'use strict'
-import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot, createHrefForElementsFooter,
+import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot, createHrefForElementsFooter,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,
   limitLocationProductsBySidebar,getAllElements} from "../js/common.js";
 let quantityProducts=0;
 let getProductFromLocal;
@@ -28,6 +28,15 @@ document.addEventListener('DOMContentLoaded',(info=>{
     existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
 
     existUserOrNotInCart('cart','countPurshes');
+    existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+
+    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+    existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+    
+    existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+    // existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+
+
     // start footer
     createHrefForElementsFooter(allLinksFooter);
 
@@ -63,6 +72,8 @@ if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) ).reverse()||[];
 
   displayProducts(getProductFromLocal, func, container);
+  existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+// 
   // let acard=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess');
   let acard=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess');
 
@@ -72,7 +83,7 @@ console.log(acard);
 acard.forEach((element,index)=>{
   let containerRemAndBuy=document.createElement('div');
   containerRemAndBuy.className='containerRemAndBuy flex-just-between';
-  createDiv(1,'span','buy remBuy','','','buy now',containerRemAndBuy);
+  createDiv(1,'span','buy remBuy','','','continue purchasing',containerRemAndBuy);
   createDiv(1,'span',`clear remBuy clear${index}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
   element.addEventListener('click',(event)=>{
@@ -121,7 +132,7 @@ else{
 }
 updateQuantityWhenInput(document.querySelectorAll('input.amount'),proAndQuantityIt);
 updateQuantityWhenReload(document.querySelectorAll('input.amount'),proAndQuantityIt);
-
+existUserOrNotForAddClassAtive(productsInLoc,proAndQuantityIt,iconName);
 }
 // localStorage.clear();
 // remove product from cart
@@ -147,6 +158,8 @@ window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuan.reverse()
 id('productsInCart').innerHTML='';
 existUserOrNotInCart(iconName,iconId);
 addNumberToIconCart(productsInLoc,iconName,iconId);
+existUserOrNotForAddClassAtive(productsInLoc,proAndQuantityIt,iconName);
+
     })
   })
 }

@@ -788,6 +788,7 @@ header .main-nav .personal .cart-icon {
         color: var(--color-icons-navbar, white);
         font-size: 1.4rem;
     }
+    
 }
 
 header .main-nav .personal .count-purshes,
@@ -796,8 +797,25 @@ header .main-nav .personal .count-favorite {
     color: var(--number-icons-main-color, rgb(107, 103, 92, .6));
     font-size: .9rem;
     /* margin-top: 50%; */
-        margin-top: 20%;
 }
+@media (min-width: 768px) {
+    header .main-nav .personal .count-purshes,
+    header .main-nav .personal .count-favorite {
+        margin-top: 50%;
+    }
+}
+@media (max-width: 767.98px) {
+    header .main-nav .personal .count-purshes,
+    header .main-nav .personal .count-favorite {
+        margin-top: 40%;
+
+    }
+}
+.fa-cart-shopping:before, .fa-shopping-cart:before {
+    position: relative;
+    top:.14em;
+}
+
 
 @media (max-width: 767.98px) {
     header .main-nav .personal.mobile {
@@ -854,7 +872,18 @@ header .main-nav .personal.mobile i.cart-icon {
     font-size: 1.45em;
 }
 header .main-nav .personal.mobile i.favorite{
-    font-size: 1.54em;
+    font-size: 1.48em;
+}
+header .main-nav .personal.mobile i.sign-icon {
+    font-size: 1.47em;
+}
+@media (max-width:767.98px) {
+header .main-nav .personal.mobile>div:nth-child(3) {
+    order:-1;
+}
+header .main-nav .personal.mobile #menuMobile {
+    order:-2;
+}
 }
 /* end main navbar */
 /* start second navbar */
