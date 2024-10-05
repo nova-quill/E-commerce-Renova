@@ -10,6 +10,7 @@
     -ms-transition: box-shadow var(--main-transition, .3s) linear;
     -o-transition: box-shadow var(--main-transition, .3s) linear;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -884,6 +885,11 @@ header .main-nav .personal.mobile>div:nth-child(3) {
 header .main-nav .personal.mobile #menuMobile {
     order:-2;
 }
+}
+.fa-heart:before {
+    content: "\f004";
+    position: relative;
+    top: .05em;
 }
 /* end main navbar */
 /* start second navbar */

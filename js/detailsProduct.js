@@ -3,43 +3,9 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
  
-  import {id,createDiv,discountPercentagee,groupesFunctionsForCreatesDivs,datas,fetchProducts,shaffelArray,addClassActive,organizeObject,urlBooks,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts,addNumberToIconCart, dragByTouch,effectHoverOnSignIn,existUserOrNots,existUserOrNotToUpdateIconNum,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,existUserOrNot
+  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter, productId
 } 
 from './common.js';
-// import {existUserOrNot} from "./js/addToCart.js";
-
-// import { addClassName } from "../js/home.js";
-
-// let productId;
-// let title;
-// let discount;
-// let price;
-// let oldPrice;
-// let rating;
-// let saving;
-// let mainImg;
-// let sideImgs;
-// let freeDeliv;
-// let shippingIn;
-// let warranty;
-// let returnPro;
-// let description;
-// let depth;
-// let height;
-// let width;
-// let weight;
-// let brand;
-// let kind;
-// let barCode;
-// let createdAt;
-// let sku;
-// let author;
-// let printType;
-// let language;
-// let pageCount;
-// let publisher;
-// let publishDate;
-// let contentVersion;
 let tags;
 let categoryMatch;
  let getProductFromLocal=[];
@@ -92,26 +58,43 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   dragByTouch(containerProductsDrag);
   
   // start get product by icon cart
-  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true);
-existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites',true);
 
-  existUserOrNotToUpdateIconNum('cartUser','productCart','cart','countPurshes');
-  existUserOrNotToUpdateIconNum('cartUser','favoriteCart','favorite','countFavorites');
-  existUserOrNotForAddClassAtive('favoriteUser','productCart','cart');
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
+
+existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-  // addClassNoexistOnIcon();
+existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
    id("linkAddToCart").addEventListener('click',(event)=>{
     event.preventDefault();
-    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+    const urlParams=new URLSearchParams(window.location.search);
+ let   productId=urlParams.get('productId');
+      console.log(productId);
+      if((/\d+/g).test(productId)){
+        existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+      }
+      else{
+        existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
+      }
  })
-//  existUserOrNot('cartUser','productCart','cart','countPurshes');
 
  id("iconCart").addEventListener('click',(event)=>{
   event.preventDefault();
-  existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+  let classN=Array.from(id("iconCart").classList);
+  let arry=classN.filter(className=>{
+    let match=/\d+/g.test(className);
+    return match;
+  })
+  if((/\d+/g).test(productId)){
+  if(arry.length>0){
+    existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+  }
+  }
+  else{
+    existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
+  }
 })
-// existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
-
 id("iconFavorite").addEventListener('click',(event)=>{
   // event.preventDefault();
   // existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites',false);
@@ -120,7 +103,6 @@ id("iconFavorite").addEventListener('click',(event)=>{
 createHrefForElementsFooter(allLinksSideBar);
 
 }))
-// localStorage.clear();
 //  shows details product
  export function showsDetailsProduct(){
   const urlParams=new URLSearchParams(window.location.search);
@@ -146,8 +128,8 @@ async function getProductFromUrl(func,choose){
   printType,language,pageCount,publisher,publishDate,contentVersion,stock;
   const urlParams=new URLSearchParams(window.location.search);
   const productName=urlParams.get('productId');
-  iconCartDetails.classList.add(`cart${productName}`);
-  iconFavoDetails.classList.add(`favorite${productName}`);
+  iconCartDetails.classList.add(`cart{${productName}}` ,`cart${productName}`);
+  iconFavoDetails.classList.add(`favorite{${productName}}`);
   filterProduct=datas.filter((element,index)=>{
   productId=element['id'];
   if(productId==productName){
@@ -263,11 +245,7 @@ if(stock!='for_sale'.toLowerCase()){
   func('quantityDetails').value=0;
   console.log( func('quantityDetails'));
           }
-          // if(stock>1){
-          //   func('quantityDetails').value=1;
-          // }
          createDivsForCustomerReviews(func,customerReviews);
-
       }
     createDiv(1, "img", "mainImg", mainImg, title, "", func('containerImage'));
     limitVaribles(func,'hiddingProduct',title);
@@ -283,8 +261,6 @@ if(stock!='for_sale'.toLowerCase()){
     limitVaribles(func,'priceCart',price.toFixed(1));
   }
   })
-  // preventAddToCart();
-  // addNumberToIconCart();
 changeImageProduct(id);
 }
 function limitVaribles(func,element,vari){
@@ -341,7 +317,7 @@ async function filterProductsRelated(func,container,test){
       categoryMatch=category==productName;
     return categoryMatch ;
 })
-  displayProducts(filterProducts, func, container);
+  displayProducts(filterProducts, func, container,test);
   limitWidthScrollBarWhenLoaded(containerProducts,buttons);
   largesImagesOfProduct(id);
 if(categoryMatch==false){
@@ -392,195 +368,6 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 
   })
 }
-
-// // get product id by icon cart
-// export async function getProductIdByIconCart(element){
-// let productId=element.classList;
-// console.log(productId);
-// }
-
-
-
-
-
-
-
-
-
-
-// // are user or not
-// function existUserOrNot(){
-//   if(window.localStorage.getItem('user')){
-//     let user=JSON.parse(window.localStorage.getItem('user'));
-//     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-
-//     console.log(user.id);
-//     addProductToCart(`cartUser${user.id}`,`proAndQuantityIt${user.id}`);
-//     postCartFromLocalToUser(`cartUser${user.id}`,userToken,user.id,user.username,user.password,user.name,user.email); 
-//   }
-//   else{
-//     addProductToCart('productCart','proAndQuantityIt');
-//   }
-//   }
-// //add product to cart
-
-
-//  async function addProductToCart(productsInLoc,prodAndQuantityIt,test){
-//   await fetchProducts(test);
-//   let categoryMatch;
-//   const urlParams=new URLSearchParams(window.location.search);
-//   const productId=urlParams.get('productId');
-//   console.log(productId);
- 
-// let  filterProducts =datas.filter((product) => {
-//       categoryMatch=product['id']==productId;
-//     return  categoryMatch;
-// })
-// console.log(filterProducts);
-// if(filterProducts[0].stock==0){
-//   effectHoverOnSignIn('inStock');
-//   // return;
-// }
-// else{
-//   if(id('quantityDetails').value==0){
-//     id('quantityDetails').value=1;
-//   }
-// if(id('quantityDetails').value>0){
-//   let quantity=id('quantityDetails').value;
-// let proAndQuantityIt={
-//   productId:productId,
-//   quantityPro:quantity
-// };
-// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-// console.log(objectQuantity);
-// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-//         getProductFromLocal.push((filterProducts[0]));
-//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-//     objectQuantity.push(proAndQuantityIt);
-//     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-//       addNumberToIconCart(productsInLoc);
-//       preventAddToCart(productsInLoc);
-// } 
-//  }}
-
-// function preventAddToCart(productsInLoc){
-//   const urlParams=new URLSearchParams(window.location.search);
-//   const productName=urlParams.get('productId');
-//   if(window.localStorage.getItem(productsInLoc)){
-//   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-//   console.log(productsInlocal);
-//   productsInlocal.forEach(item=>{
-//        if(item.id==(+productName)) {
-//         id('textAddToCart').innerHTML='added it to cart';
-//         id('linkAddToCart').style.opacity='.4';
-//         id('linkAddToCart').style.pointerEvents='none';
-//        }
-//       })
-//     }
-// }
-// function existUserOrNotToUpdateIconNum(){
-//   if(window.localStorage.getItem('user')){
-//     let user=JSON.parse(window.localStorage.getItem('user'));
-//     console.log(user.id);
-//     preventAddToCart(`cartUser${user.id}`);
-//   addNumberToIconCart(`cartUser${user.id}`);
-//   }
-//   else{
-//     preventAddToCart('productCart');
-//   addNumberToIconCart('productCart');
-//   }
-//   }
-// localStorage.clear();
-// localStorage.removeItem('cartUser15244');
-  async function postCartFromLocalToUser(user,token,IDuser,userName,pass,name,email){
-    var myHeaders = new Headers();
-myHeaders.append("Accept", "application/json");
-// myHeaders.append('Bearer',token);
-myHeaders.append('Content-Type','application/json');
-console.log(token);
-    let  formdata = new FormData();
-    formdata.append("profile_image",'kjkjkjddd');
-  }
-// formdata.append("username",'saharLLLL');
-// formdata.append("password",'1234567');
-// formdata.append("name", 'name');
-// formdata.append("email",'email');
-// formdata.append("rePass",id('re-enterPass').value);
-// formdata.append('local','LLL');
-//  fetch(`https://tarmeezacademy.com/api/v1/register`).then(res=>res.json()).then(use=>{
-  // let up={...use,username:'nnnnnnnn'};
-  // return
-
-//  fetch(`https://tarmeezacademy.com/api/v1/register`, { 
-//      method: "POST",
-//     body:formdata,
-//     redirect:'follow',
-//      headers: myHeaders
-//    }).then(res=>res.json()).then(data=>{
-//     console.log(data);
-//    })
-//   }
-
-  // fetch('https://dummyjson.com/carts/add', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     userId: 15,
-  //     products: [
-  //       {
-  //         id: 144,
-  //         quantity: 4,
-  //       },
-  //       {
-  //         id: 98,
-  //         quantity: 1,
-  //       },
-  //     ]
-  //   })
-  // })
-  // .then(res => res.json())
-  // .then(console.log);
-  // fetch('https://dummyjson.com/users/209').then(res => res.json())
-  // .then(console.log);
-  async function addandgetUser(){
- await fetch('https://dummyjson.com/users/add', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      firstName: 'Muhammad',
-      lastName: 'Ovi',
-      age: 250,
-      id:209,
-      /* other user data */
-    })
-  })
-  .then(res => res.json())
-  .then(console.log);
-  fetch('https://dummyjson.com/users?limit=0').then(res => res.json())
-  .then(console.log);
-  }
-  // addandgetUser();
-
-/* updating lastName of user with id 2 */
-// fetch('https://dummyjson.com/users/2', {
-//   method: 'PUT', /* or PATCH */
-//   headers: { 'Content-Type': 'application/json' },
-//   body: JSON.stringify({
-//     lastName: 'Owais',
-//     id:20,
-//     ip:2000,
-//   })
-// })
-// .then(res => res.json())
-// .then(console.log);
-// localStorage.clear();
-
-
-// Snipcart.api.cart.retrieve().then((cart)=>{
-  // console.log('cart : ',cart);
-// })
 
 
 

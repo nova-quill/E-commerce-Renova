@@ -1,9 +1,15 @@
 
   
 'use strict'
-import {productId,productStock,id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch,existUserOrNot, createHrefForElementsFooter,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,existUserOrNots,
-  limitLocationProductsBySidebar,getAllElements,addClassActiveOnIconCart,addClassNoexistOnIcon} from "../js/common.js";
+import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,dragByTouch, createHrefForElementsFooter,existUserOrNotForIconCart,
+  limitLocationProductsBySidebar,getAllElements,existUserOrNots} from "../js/common.js";
 let quantityProducts=0;
+let totalProd=0;
+let totalQuan=0;
+let allPrices=0;
+let quanBook=0;
+let quanNotBook=0;
+let allDiscounts=0;
 let getProductFromLocal;
 let objectQuan;
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -26,38 +32,58 @@ createHrefForElementsFooter(allLinksSideBar);
 
     dragByTouch(secondHeader);
     // start shows product in cart
-    existUserOrNot('cartUser','productCart','cart','countPurshes');
+    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
     existUserOrNotInfav('favorite','countFavorites',true);
-
-    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart',    'proAndQuantityIt','cart','countPurshes');
-
-    existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+    existUserOrNotInfavvv('favorite','countFavorites',true);
     // start footer
     createHrefForElementsFooter(allLinksFooter);
-
-
 }))
-
-
+ 
  // are user or not
   function existUserOrNotInfav(iconName,iconId,isCart){
     if(window.localStorage.getItem('user')){
       let user=JSON.parse(window.localStorage.getItem('user'));
       console.log(user.id);
+      if(window.localStorage.getItem(`favoriteUser${user.id}`)){
       filterProductsInCart(id,'productsInCart',`favoriteUser${user.id}`,`proAndQuantityInFav${user.id}`,iconName,iconId,isCart,'cartUser');
+      }
+      let acardIcon=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #productsInCart .aCardLess .cartFavorite .cart`);
+      acardIcon.forEach(element=>{
+      element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
+          existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+          // preventElementInFav( productsInLoc,test);
+        })
+      
+        })
     }
     else{
-      if(window.localStorage.getItem('favoriteCart'==null)){
+      if(window.localStorage.getItem('favoriteCart')==null){
         let arrayProducts=[];
       window.localStorage.setItem('favoriteCart',JSON.stringify(arrayProducts));
       }
-      filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav',iconName,iconId,isCart,'productCart');
-    
+      filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav',iconName,iconId,isCart,'productCart');   
+    }}
+
+      function existUserOrNotInfavvv(iconName,iconId,isCart){
+        if(window.localStorage.getItem('user')){
+          let user=JSON.parse(window.localStorage.getItem('user'));
+            filterProductsInCart(id,'productsInCartBoo',`favoriteBooUser${user.id}`,`proAndQuantityInFavBoo${user.id}`,iconName,iconId,isCart,'cartBooUser',true);
+    }
+    else{
+      if(window.localStorage.getItem('favoriteBooCart')==null){
+
+      let arrayProducts=[];
+      window.localStorage.setItem('favoriteBooCart',JSON.stringify(arrayProducts));
+      }
+      filterProductsInCart(id,'productsInCartBoo','favoriteBooCart','proAndQuantityInFavBoo',iconName,iconId,isCart,'productBooCart',true);   
     }
     }
+  // }
 // filter products in cart
+let testt;
  export async function filterProductsInCart(func,container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart,productsInLocCart,test){
   await fetchProducts(test);
+  console.log(testt);
   let totalPrices=0;
   let totalDiscounts=0;
 if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
@@ -66,17 +92,15 @@ if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
   }
  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) ).reverse()||[];
 
-  displayProducts(getProductFromLocal, func, container);
-  preventElementInFav(productsInLocCart,test);
-existUserOrNotForAddClassAtive('cartUser','productCart','cart');
-  let acard=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess');
-
-  let detailsProduct=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess .detailsProduct');
+ displayProducts(getProductFromLocal, func, container,test,true);
+  let acard=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess`);
+console.log(acard);
+  let detailsProduct=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess .detailsProduct`);
 
 console.log(acard);
 acard.forEach((element,index)=>{
   let parentElement=element.parentElement.href;
-  console.log(element.querySelector('.cart'));
+  console.log(element.querySelectorAll('.cart'),parentElement);
 
   let url=new URL(parentElement);
   console.log(parentElement,url);
@@ -85,136 +109,220 @@ let productId=searchUrl.get('productId');
   console.log(parentElement,productId);
   let containerRemAndBuy=document.createElement('div');
   containerRemAndBuy.className='containerRemAndBuy  flex-just-between';
-  createDiv(1,'span',`buy add${productId} remBuy`,'','','add to cart',containerRemAndBuy);
-  createDiv(1,'span',`clear remBuy clear${index}`,'','','remove',containerRemAndBuy);
+  createDiv(1,'span',`buy #${container} add{${productId}} add${productId} remBuy`,'','','add to cart',containerRemAndBuy);
+  createDiv(1,'span',`clear remBuy clear{${productId}}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
-  let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess  .buy.add${productId}`);
+  let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
 if(isCart){
-  preventElementInFav(productsInLocCart,test);
+  // preventElementInFav(productsInLocCart,test);
 }
   elementAdd.addEventListener('click',(info)=>{
-    console.log(productId);
-    existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true,productId);
-    preventElementInFav( productsInLocCart,test);
-  })
-element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
-    preventElementInFav( productsInLocCart,test);
+    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
+    existUserOrNots(container,'cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true,productId,test);
+    // preventElementInFav( productsInLocCart,test);
+  })
+
+element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
+    // preventElementInFav( productsInLocCart,test);
+    preventElementInFav( productsInLoc,test);
+    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
   })
   element.addEventListener('click',(event)=>{
     event.preventDefault();
   })
 })
-
 detailsProduct.forEach((element,index)=>{
+  let urlCos=element.closest('a');
+  console.log(urlCos);
+  let searchUrl=new URLSearchParams(urlCos.search);
+let productId=searchUrl.get('productId');
+  console.log(productId);
   let containerQuantity=document.createElement('div');
   containerQuantity.className='containerQuantity flex-center';
   createDiv(1,'span','textAmount','','','quantity :',containerQuantity);
   let amount=document.createElement('input');
   amount.type='number';
   amount.name='amount';
-  amount.className='amount';
+  amount.className=`amount amount{${productId}}`;
+  console.log(amount.className);
   objectQuan.forEach((obj,ind,arr)=>{
-    amount.value=arr[index].quantityPro;
-    amount.id=`amount${arr[index].productId}`; 
+    let classN=Array.from(amount.classList);
+    let arry=classN.filter(className=>{
+      let match=/{([^]*)}/g.test(className);
+      return match;
+    })
+    let productIdd=arry[0].match(/{([^]*)}/g);
+  let   productIdBu=productIdd[0].slice(1,-1);
+  if(obj.productId==productIdBu){
+    amount.value=obj.quantityPro;
+  }
   })
   containerQuantity.appendChild(amount);
   element.appendChild(containerQuantity);
 })
-addNumberToIconCart(productsInLoc,iconName,iconId);
-removeProductFromCart(productsInLoc,proAndQuantityIt,iconName,iconId);
-console.log(getProductFromLocal);
-if(getProductFromLocal.length>0){
-  quantityProducts=0;
-  updateQuantityWhenReload(document.querySelectorAll('input.amount'),proAndQuantityIt);
-  id('headingCart').innerHTML=`your favorite includes ${getProductFromLocal.length} products, ${quantityProducts} quantity` ;
-
-}
-if(getProductFromLocal.length==0){
-  id('headingCart').innerHTML=`your favorite is empty, let's fill it`;
-  id('containerPriceCart').style.display='none';
-}
+removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
 getProductFromLocal.forEach(item=>{
-  totalPrices+=item.price-(item.price*item.discountPercentage/100);
-  totalDiscounts+=item.price*Math.round(item.discountPercentage)/100;
+  let matchPrice;
+  let discountPercentage;
+  if(container=='productsInCartBoo'){
+    matchPrice=item.saleInfo.listPrice.amount;
+    let  hundleProduct= item.volumeInfo.categories||'';
+    let productToLowerStri=hundleProduct.toString().toLowerCase();
+    if (productToLowerStri != "Fiction".toLowerCase()) {
+      discountPercentage=50;
+    }
+    else{
+      discountPercentage=20;
+    }
+  }
+  else{
+    matchPrice=item.price;
+    discountPercentage=item.discountPercentage;
+  }
+  totalPrices+=matchPrice-(matchPrice*discountPercentage/100);
+  totalDiscounts+=matchPrice*Math.round(discountPercentage)/100;
 });
-id('totalPrices').innerHTML=`${totalPrices.toFixed(1)}`;
-id('totalDiscounts').innerHTML=`${totalDiscounts.toFixed(1)}`;
-
+allPrices+=totalPrices;
+allDiscounts+=totalDiscounts;
 console.log(totalPrices,totalDiscounts);
+id('totalPrices').innerHTML=`${allPrices.toFixed(1)}`;
+id('totalDiscounts').innerHTML=`${allDiscounts.toFixed(1)}`;
+}
+updateQuantityWhenInput(document.querySelectorAll(`#${container} input.amount`),proAndQuantityIt,container);
+if((window.localStorage.getItem(proAndQuantityIt))){
+let quantityLocal=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
+if(container=='productsInCart'){
+  quanBook=0;
+  quantityLocal.forEach((obj,ind,arr)=>{
+
+    quanBook+= +obj.quantityPro;
+  })
 }
 else{
+  quanNotBook=0;
+  quantityLocal.forEach((obj,ind,arr)=>{
+
+    quanNotBook+= +obj.quantityPro;
+  })
+}
+}
+if(getProductFromLocal.length>=0){
+  totalProd+= JSON.parse(window.localStorage.getItem(productsInLoc)).length;
+  totalQuan=quanBook + quanNotBook;
+  id('headingCart').innerHTML=`your favorite includes ${totalProd} products, ${totalQuan} quantity` ;
+id(iconId).innerHTML=totalProd;
+id(iconId).style.color='rgb(255, 214, 139)';
+}
+if(totalProd==0){
   id('headingCart').innerHTML=`your favorite is empty, let's fill it`;
   id('containerPriceCart').style.display='none';
 }
-updateQuantityWhenInput(document.querySelectorAll('input.amount'),proAndQuantityIt);
-updateQuantityWhenReload(document.querySelectorAll('input.amount'),proAndQuantityIt);
+if(totalProd>0){
+  id('containerPriceCart').style.display='block';
 
 }
-// localStorage.clear();
-// remove product from cart
-function removeProductFromCart(productsInLoc,proAndQuantityIt,iconName,iconId){
-  let allButtonsRemove=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan div.containerRemAndBuy .clear');
+}
+function removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
+  let allButtonsRemove=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .cardLessThan div.containerRemAndBuy .clear`);
+  let productIdBu;
+  let getProductFromLocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   console.log(getProductFromLocal); 
-  allButtonsRemove.forEach(element=>{
-    element.addEventListener('click',(event)=>{
-      console.log('lesa');
-      console.log(getProductFromLocal);
-  getProductFromLocal=getProductFromLocal.filter((product,ind)=>{
-let match=event.target.classList.contains(`clear${ind}`)==false;
+  let objectQuan=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
+  console.log(objectQuan);
+  allButtonsRemove.forEach(elementBu=>{
+    elementBu.addEventListener('click',(event)=>{
+      totalProd=0;
+      totalQuan=0;
+      allPrices=0;
+      allDiscounts=0;
+ let  getProductFromLocall=getProductFromLocal.filter((product,ind)=>{
+  let classN=Array.from(elementBu.classList);
+    let arry=classN.filter(className=>{
+      let match=/{([^]*)}/g.test(className);
+      return match;
+    })
+    let productIdd=arry[0].match(/{([^]*)}/g);
+     productIdBu=productIdd[0].slice(1,-1);
+let match=product.id!=productIdBu;
 return match;
 })
-window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocal.reverse()));
-console.log(getProductFromLocal);
-objectQuan=objectQuan.filter(element=>{
-let matchPro=getProductFromLocal.some(product=>+element.productId==product.id);
+window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocall) );
+let objectQuann=objectQuan.filter(element=>{
+  let matchPro;
+     matchPro=element.productId!=productIdBu;
+    console.log(+element.productId,productIdBu);
 return matchPro;
 })
-console.log(objectQuan);
-window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuan.reverse()));
+window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
 id('productsInCart').innerHTML='';
-existUserOrNotInfav(iconName,iconId);
-addNumberToIconCart(productsInLoc,iconName,iconId);
+existUserOrNotInfav(iconName,iconId,isCart);
+existUserOrNotInfavvv(iconName,iconId,isCart);
     })
   })
 }
-function updateQuantityWhenInput(inputs,proAndQuantityIt){
+function updateQuantityWhenInput(inputs,proAndQuantityIt,container){
   if(window.localStorage.getItem((proAndQuantityIt))){
- 
  let objectQuann=(JSON.parse(window.localStorage.getItem((proAndQuantityIt))).reverse())||[];
-inputs.forEach(input=>{
+inputs.forEach((input,index)=>{
+  quantityProducts=0;
   input.addEventListener('input',(info)=>{
-    if(info.target.value&&info.target.value>0){
-objectQuann.forEach(element=>{
-if(info.target.id==`amount${element.productId}`){
-  element.quantityPro=info.target.value;
-}
-})
-window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
-    }
-    if(getProductFromLocal.length>0){
-      quantityProducts=0;
-      updateQuantityWhenReload(document.querySelectorAll('input.amount'),proAndQuantityIt);
-      id('headingCart').innerHTML=`your cart includes ${getProductFromLocal.length} products,${quantityProducts} quantity` ;
-    }
+    if(info.target.value>0){
+    let classN=Array.from(info.target.classList);
+    let arry=classN.filter(className=>{
+      let match=/{([^]*)}/g.test(className);
+      return match;
+    })
+    let productIdd=arry[0].match(/{([^]*)}/g);
+  let   productIdBu=productIdd[0].slice(1,-1);
+objectQuann.forEach((obj,ind,arr)=>{
+  if(obj.productId== productIdBu){
+    obj.quantityPro=info.target.value;
+  }
+  if(container=='productsInCart'){
+  }
+  })
+ 
+  window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
+  let quantityLocal=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
+if(container=='productsInCart'){
+  quanBook=0;
+  quantityLocal.forEach((obj,ind,arr)=>{
 
+    quanBook+= +obj.quantityPro;
+  })
+}
+else{
+  quanNotBook=0;
+  quantityLocal.forEach((obj,ind,arr)=>{
+
+    quanNotBook+= +obj.quantityPro;
+  })
+}
+totalQuan=quanBook + quanNotBook;
+      id('headingCart').innerHTML=`your cart includes ${totalProd} products,${totalQuan} quantity` ;
+    }
   })
 })
 }}
 function updateQuantityWhenReload(inputs,proAndQuantityIt){
   let objectQuann=(JSON.parse(window.localStorage.getItem((proAndQuantityIt))))||[];
- inputs.forEach(input=>{
-     if(input.value){
- objectQuann.forEach(element=>{
- if(input.id==`amount${element.productId}`){
-  input.value= element.quantityPro;
-  quantityProducts+= (+element.quantityPro);
-  console.log(input.value, element.quantityPro,input.id,`amount${element.productId}`);
- }
+ objectQuann.forEach((element,index,array)=>{
+  inputs.forEach((input,ind,arr)=>{
+    if(input.value){
+    let classN=Array.from(input.classList);
+      let arry=classN.filter(className=>{
+        let match=/{([^]*)}/g.test(className);
+        return match;
+      })
+      let productIdd=arry[0].match(/{([^]*)}/g);
+      let productIdBu=productIdd[0].slice(1,-1);
+  if(element.productId==productIdBu){
+    arr[index].value=element.quantityPro;
+  }
+}
+  })
  })
-     }
- })
- 
  }
 
  async function preventElementInFav(productsInLocCart,test) {
@@ -225,55 +333,23 @@ function updateQuantityWhenReload(inputs,proAndQuantityIt){
     productsInLocal.forEach((element,index)=>{
   allButtonsAdd.forEach((ele,index,arr)=>{
     let classN=Array.from(ele.classList);
-    console.log(classN);
     let arry=classN.filter(className=>{
-      let match=/\d/g.test(className);
+      let match=/{([^]*)}/g.test(className);
       return match;
     })
-    console.log(arry);
-    let productIdBu=arry[0].match(/\d+/g);
-    console.log(productIdBu,element.id);
-
+    let productIdd=arry[0].match(/{([^]*)}/g);
+    let productIdBu=productIdd[0].slice(1,-1);
     if(+element.id== +productIdBu){
       ele.innerHTML='added it to cart';
           ele.style.opacity='.4';
           ele.style.pointerEvents='none';
           ele.style.color='gray';
     }
-
   })
 })
   
 }
  }
-// localStorage.clear();
-
-
-
-
-
-
-
-// const auth=getAuth();
-// signInWithEmailAndPassword(auth,email,password).then((userCredential)=>{
-  // const userId=userCredential.user.uid;
-  // console.timeLog(userId);
-// }).catch((rrror)=>{
-  // console.error('sign in:error');
-// })
-
-// async function login() {
-// fetch('https://dummyjson.com/auth/login',{
-  // method:'POST',
-  // headers:{'Content-Type':'application/json'},
-  // body:JSON.stringify({
-    // username:'kminchelle',
-    // password:'OlelplR',
-  // })
-// }).then(res=>res.json()).then(data=>console.log(data));
-  
-// }
-// login();
 
 
 
@@ -299,19 +375,8 @@ function updateQuantityWhenReload(inputs,proAndQuantityIt){
 
 
 
-  // are user or not
-//   function existUserOrNot(){
-//     if(window.localStorage.getItem('user')){
-//       let user=JSON.parse(window.localStorage.getItem('user'));
-//       console.log(user.id);
-//       filterProductsInCart(id,'productsInCart',`favoriteUser${user.id}`,`proAndQuantityInFav${user.id}`);
-//     }
-//     else{
-//       if(window.localStorage.getItem('favoriteCart'==null)){
-//         let arrayProducts=[];
-//       window.localStorage.setItem('favoriteCart',JSON.stringify(arrayProducts));
-//       }
-//       filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav');
-    
-//     }
-//     }
+
+
+
+
+

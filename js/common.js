@@ -3,7 +3,7 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
 
-console.log(book);
+// console.log(book);
 let cardLessThan;
 let containerImage;
 let detailsProduct;
@@ -17,7 +17,6 @@ export let title;
 let priceProduct;
 export let discountPercentagee = 0;
  export let productStock;
-// export let productId;
 let nowPrice;
 let stock;
 let rate;
@@ -43,10 +42,20 @@ let selectedTags='all';
 let selectedCategoryy;
 let selectedCategoryyy;
 let category;
+let pricepro;
 let productCategory;
+let quantProInCart=0;
+let quantProInFav=0;
+let totalDrod=0;
+let quantNotBoo=0;
+let quantBoo=0;
+let ppp=0;
+export let testFetch;
+
 export let url;
 export let urlBooks='alll';
 export let urlLink;
+let totalLength=0;
 let overlay = document.getElementById("overlay");
 // get element by id
 export function id(idName) {
@@ -67,7 +76,7 @@ export function createDiv(
   source,
   altarnet,
   text,
-  parentContainers
+  parentContainers,test
 ) {
   for (let i = 1; i <= count; i++) {
     let childDiv = document.createElement(span);
@@ -92,8 +101,8 @@ export function addClassActive(lis, className) {
     
       if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
         url=   "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+
        urlBooks='another';
-       console.log(url);
       }
       else{
         url= "https://dummyjson.com/products?limit=0";
@@ -270,7 +279,6 @@ export function addStyleOnSection(){
 let url= new URLSearchParams(window.location.href);
 if(window.location.href.includes('isLimit')==true){
 let nameSec=url.get('nameSec');
-console.log(nameSec);
 id(nameSec).classList.add('limitSection');
 setTimeout(function(){
 id(nameSec).scrollIntoView({
@@ -305,9 +313,9 @@ export function toggleDashboard(button,element,isHidden){
 // end dashboard
 
 // start create divs for show products
-export function groupesFunctionsForCreatesDivs(datas, i, containerProducts,te) {
-  organizeAmount(datas, i);
-  createCardImage(datas, containerProducts, i);
+export  function groupesFunctionsForCreatesDivs(datas, i, containerProducts,test) {
+  organizeAmount(datas, i,true);
+  createCardImage(datas, containerProducts, i,test);
   container = document.createElement("div");
   container.className = "containerBestSeller flex-center";
   parentContainer.appendChild(container);
@@ -333,36 +341,36 @@ export function groupesFunctionsForCreatesDivs(datas, i, containerProducts,te) {
     "high rated"
   );
 
-  createCardprice(datas, i);
+  createCardprice(datas, i,test);
   if (datas[i].stock < price || datas[i].rating > 4.5) {
     divFreeDelivery(detailsProduct, datas[i].stock);
   }
   divCartRating(detailsProduct, datas[i].rating);
 }
-function organizeAmount(datas, i) {
+ function organizeAmount(datas, i,test) {
   nowPrice = Math.round(
     priceProduct - priceProduct * (discountPercentagee / 100)
   );
 }
 
-function createCardImage(datas, containerProducts, i) {
+  function createCardImage(datas, containerProducts, i,test) {
   organizeObject(datas, i,true);
   cardLessThan = document.createElement("a");
   cardLessThan.className = "cardLessThan";
   const urlParams=new URLSearchParams(window.location.search);
-console.log(window.location.href);
     if(window.location.pathname==('/index.html')||(window.location.pathname=='/')) {
 
   cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
+  console.log(urlLink);
   }
   else{
     cardLessThan.href=`detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
-
+    console.log(urlLink);
   }
   createParentDiv("aCardLess", cardLessThan);
   containerImage = document.createElement("div");
   containerImage.className = "containerImage flex-center";
-  createDiv(1, "img", "", thumbnail, title, "", containerImage);
+  createDiv(1, "img", "", thumbnail, title, "", containerImage,test);
   parentContainer.appendChild(containerImage);
   detailsProduct = document.createElement("div");
   detailsProduct.className = "detailsProduct";
@@ -370,8 +378,8 @@ console.log(window.location.href);
   containerProducts.appendChild(cardLessThan);
 }
 
-function createCardprice(i) {
-  createDiv(1, "div", "title", "", "", title, detailsProduct);
+  function createCardprice(test) {
+  createDiv(1, "div", "title", "", "", title, detailsProduct,test);
   divPrice(
     (priceProduct - priceProduct * (discountPercentagee / 100)).toFixed(1),
     priceProduct.toFixed(1),
@@ -386,7 +394,7 @@ function divCartFavorite(container) {
   createDiv(
     1,
     "i",
-    `fa-solid fa-cart-shopping cart cart${productId} flex-center`,
+    `fa-solid fa-cart-shopping cart cart{${productId}} flex-center`,
     "",
     "",
     "",
@@ -395,7 +403,7 @@ function divCartFavorite(container) {
   createDiv(
     1,
     "i",
-    `fa-solid fa-heart favorite favorite${productId} flex-center`,
+    `fa-solid fa-heart favorite favorite{${productId}} flex-center`,
     "",
     "",
     "",
@@ -598,66 +606,60 @@ export function limitWidthScrollBarWhenScrolling(
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
-    url =
-    "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-    // url="../js/books.json"
+    // url =
+    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+    url="../js/books.json"
   }
   else{
     url = "https://dummyjson.com/products?limit=0";
   }
   let response = await fetch(url, i);
   datass = await response.json();
-  console.log(datass);
-  // datass.items.forEach(ele=>{
-    // console.log(ele.volumeInfo.categories);
-  // })
   organizeObject(datas, i);
   if (Object.keys(datass).includes("products")) {
       urlLink='notBooks'
   datas.map(updatePrice);
-  console.log(datas);
 }
 if (Object.keys(datass).includes("items") ) {
   urlLink='books';
-  console.log(datas);
-
 }
-console.log(datass);
-
+else{
 }
-// async function lgl(i) {
-  // thumbnail = datas[i].thumbnail;
-  // title = datas[i].title;
-  // priceProduct = datas[i].price;
-  // discountPercentagee = datas[i].discountPercentage;
-// }
-export function organizeObject(data, i,test) {
+}
+export function organizeObject(data,i,test) {
   if (Object.keys(datass).includes("products")) {
+    urlBooks='alll';
     datas = datass.products;
     if (test == true) {
-      thumbnail = data[i].thumbnail;
-      title = data[i].title;
-      priceProduct = data[i].price;
-      discountPercentagee = data[i].discountPercentage;
-      productId= data[i].id;
-      productCategory=data[i].category;
-      productStock=data[i].stock;
+        thumbnail = data[i].thumbnail;
+        title = data[i].title;
+        priceProduct = data[i].price;
+        discountPercentagee = data[i].discountPercentage;
+        productId= data[i].id;
+        productCategory=data[i].category;
+        productStock=data[i].stock;
   }}
 else{
-  // datas=datass;
-  datas = datass.items;
-datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+  urlBooks='another';
+  datas=datass;
+  // datas = datass.items;
+datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
       title = data[i].volumeInfo.title;
-      // priceProduct = 30000;
-      // priceProduct = data[i].saleInfo.listPrice.amount||300000;
       priceProduct = data[i].saleInfo.listPrice.amount;
-      console.log(priceProduct);
-      discountPercentagee=i <10?discountPercentagee=i*3:discountPercentagee=i*5;
+      let  hundleProduct= data[i].volumeInfo.categories||'';
+      let productToLowerStri=hundleProduct.toString().toLowerCase();
+      if (productToLowerStri != "Fiction".toLowerCase()) {
+        discountPercentagee=50;
+      }
+      else{
+        discountPercentagee=20;
+      }
       productId= data[i].id;
       productCategory=data[i].volumeInfo.categories;
-      }
+      productStock=1;
+    }
 }}
 // end fetchs products
 // update Price for products
@@ -682,14 +684,13 @@ export async function filterProdutsForEveryPage(elements, func,choose) {
   await fetchProducts(choose);
   
   shaffelArray(datas);
-console.log(datas);
   let arrayCategories = Array.from(elements).map((element) =>
   element.getAttribute("data-category").toString().toLowerCase().split(','));
-  console.log(arrayCategories);
   let spreadArrayCategories=[].concat(...arrayCategories);
   filterProductsWithCategories = datas.filter((product) => {
     if(choose){
    category=product['volumeInfo']['categories']; 
+  //  pricepro=product['saleInfo']['']
     }
     else{
      category=product['category'];
@@ -700,7 +701,6 @@ let  hundleCategory = category||'';
     categoryMatch = spreadArrayCategories.some((element) =>categoryToLower==(element));
     return categoryMatch;
   });
-  console.log(filterProductsWithCategories);
 }
 
 export function filterAllProductsByDashboard(
@@ -928,20 +928,25 @@ testing
   });
   func(elementLowPrice).addEventListener("click", (info) => {
     info.preventDefault();
+    if(testing){
+
+      filterProductsWithCategories.sort(
+        (a, b) =>
+          a.saleInfo.listPrice.amount -
+          a.saleInfo.listPrice.amount * (a.discountPercentage / 100) -
+          (b.saleInfo.listPrice.amount - b.saleInfo.listPrice.amount * (b.discountPercentage / 100))
+      );
+    }
+    else{
+      console.log('notbooks');
+    console.log(filterProductsWithCategories);
     filterProductsWithCategories.sort(
       (a, b) =>
         a.price -
         a.price * (a.discountPercentage / 100) -
         (b.price - b.price * (b.discountPercentage / 100))
     );
-  // func(elementLowPrice).addEventListener("click", (info) => {
-  //   info.preventDefault();
-  //   filterProductsWithCategories.sort(
-  //     (a, b) =>
-  //       a.priceProduct -
-  //       a.priceProduct * (a.discountPercentagee / 100) -
-  //       (b.priceProduct - b.priceProduct * (b.discountPercentagee / 100))
-  //   );
+  }
     functionInnerfilterProductsBySort(func,
       elementLowPrice,
          "all",
@@ -991,21 +996,18 @@ export async function filterProductsAndShowIt(
     Array.from(elementsbrand)
       .filter((element) => element.checked)
       .map((element) => element.getAttribute("value")) || [];
-console.log(filterProductsWithCategories);
   filterProducts =filterProductsWithCategories.filter((product) => {
     if(test){
      category=product['volumeInfo']['categories']||'';
-
+     pricepro=product['saleInfo']['listPrice']['amount']||'';
     }
     else{
-     category =product['category']||''
+     category =product['category']||'';
+     pricepro=product['price']||'';
     }
  let   categoryToLower=category.toString().toLowerCase();
- console.log(categoryToLower);
 
- console.log(selectedCategoryy);
  showProductsWithOffersCategory();
-      console.log(category);
       let categoryTagsMatch =selectedTags == 'all'||selectedCategoryyy.some(elee=>(product["tags"].includes(elee)));
     showProductsWithOffersDis(product.discountPercentage,category);
     let freeMatch = !elementFree.checked || product.rating > 4.5;
@@ -1015,7 +1017,7 @@ console.log(filterProductsWithCategories);
     let besetSellingMatch = bestSelling == "all" || product.stock < price;
     let newArrivalsMatch =newArrivals == "all" ||(product["rating"] >= 2.9 && product["rating"] <= 3.3);
      brand = product["brand"] || "";
-    showProductsWithOffersBrand(brand);
+    showProductsWithOffersBrand(brand,test);
     showProductsWithOffersPrice( product.price,product.discountPercentage);
     return (
       categoryMatch &&
@@ -1031,42 +1033,17 @@ console.log(filterProductsWithCategories);
       categoryTagsMatch
     );
   });
-  console.log(filterProducts);
-  displayProducts(filterProducts, func, container);
+  displayProducts(filterProducts, func, container,test);
   let icons=document.querySelectorAll('.cartFavorite .cart');
   let links=document.querySelectorAll('.cardLessThan');
-  console.log(icons,links);
-existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
+
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-addClassNoexistOnIcon('cart');
-addClassNoexistOnIcon('favorite');
-
+existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // export async function filterProductsAndShowIt(
@@ -1158,10 +1135,8 @@ function showProductsWithOffersDis(productDis,productCateg){
    const productDisUrl=urlParams.get('productDiscount');
    const productCateUrl=urlParams.get('productCategory');
    let allInputs=id('discount').querySelectorAll('input');
-   console.log(!productDisUrl);
    if(productDisUrl&&!(Array.from(allInputs).some(input=>input.checked)) ){
    discountMatch =Math.round(productDis)==productDisUrl||Math.round(productDis)<productDisUrl;
-   console.log(productDis.toFixed(0));
    }
   else{
     discountMatch =arrayFromDisChacked.length == 0 ||productDis.toFixed(0)<=arrayFromDisChacked[arrayFromDisChacked.length - 1];
@@ -1180,22 +1155,15 @@ function showProductsWithOffersDis(productDis,productCateg){
      if(productCateUrl&&isCategory){
       selectedCategory = '';
      selectedCategoryy=productCateUrl.toLocaleLowerCase().split(',');
-      console.log(selectedCategory);
-      console.log(categoryToLower);
       selectedCategoryy.some(elee=>(console.log(elee)));
           categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
           if(productRateUrl){
             id('freeShipping').querySelector('input').checked=true;
-            console.log(id('freeShipping').querySelector('input'));
           }
-
      }
       else{
                 categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
-                console.log('nooooooooo');
      }
-    //  categoryMatch =selectedCategory == 'all'||selectedCategoryy.some(elee=>(categoryToLower==elee ) );
-
      return categoryMatch;
    }
    function showProductsWithOffersBrand(productBrand){
@@ -1203,7 +1171,6 @@ function showProductsWithOffersDis(productDis,productCateg){
     if(id('brandsDash')){
      allInputs=id('brandsDash').querySelectorAll('input');
     }
-console.log(allInputs);
 let brandTolower = brand.toLowerCase();
      const urlParams=new URLSearchParams(window.location.search);
      const productBrandUrl=urlParams.get('productBrand');
@@ -1214,14 +1181,16 @@ let brandTolower = brand.toLowerCase();
           brandMatch =arrayFromBrandChacked.length == 0 ||arrayFromBrandChacked.some((element) => brandTolower.includes(element));
      }
    }
-export function displayProducts(product, func, container) {
+export function displayProducts(product, func, container,test,isFav) {
   func(container).innerHTML = "";
   if (product.length == 0) {
+    if(!isFav){
     func(container).innerHTML = `<p>No Products</p>`;
+    }
     return;
   }
   for (let o = 0; o < product.length; o++) {
-    groupesFunctionsForCreatesDivs(product, o, func(container));
+    groupesFunctionsForCreatesDivs(product, o, func(container),test);
   }
 }
 // localStorage.clear();
@@ -1262,29 +1231,29 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
- export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
+ export function existUserOrNots(container,cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
+    addProductToCart(container,`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
   }
   else{
-    addProductToCart(globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
+    addProductToCart(container,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
   }
   }
-  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isDetails){
+  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test){
     if(window.localStorage.getItem('user')){
+    
       let user=JSON.parse(window.localStorage.getItem('user'));
       let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isDetails);
+      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,`${cartBooUser}${user.id}`,`${proAndQuantityItBoo}${user.id}`,iconName,iconId,isDetails,test);
     }
     else{
-      getProductIdByIconCart(globalCart,proAndQuantityItt,iconName,iconId,isDetails);
+      getProductIdByIconCart(globalCart,proAndQuantityItt,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test);
     }
     }
-    // localStorage.clear();
 //add product to cart
-async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
+async function addProductToCart(container,productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
   await fetchProducts(test);
   let categoryMatch;
   let productId;
@@ -1296,18 +1265,22 @@ productId=proId;
   else{
     const urlParams=new URLSearchParams(window.location.search);
     productId=urlParams.get('productId');
-      console.log(productId);
   }
- 
-
-console.log(productId);
  
 let  filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
-console.log(filterProducts);
-if(filterProducts[0].stock==0){
+let prodStock;
+if((/[A-Za-z]/g).test(productId)){
+  prodStock=1;
+}
+if(!(/[A-Za-z]/g).test(productId)){
+  prodStock=filterProducts[0].stock;
+ console.log(productId);
+}
+  if(prodStock==0){
+
 if(!isFavorit){
   effectHoverOnSignIn('inStock');
 }}
@@ -1329,9 +1302,7 @@ if(isFavorit){
     productId:productId,
     quantityPro:1
 }}
-
 let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-console.log(objectQuantity);
 let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
         getProductFromLocal.push((filterProducts[0]));
   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
@@ -1339,12 +1310,12 @@ let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc))
     objectQuantity.push(proAndQuantityIt);
     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-      addNumberToIconCart(productsInLoc,iconName,iconId);
         if(!isFavorit){
-
       preventAddToCart(productsInLoc);
       }
       addClassActiveOnIconCart(productsInLoc,iconName);
+      totalDrod=0;
+      addNumToIcon(productsInLoc,iconId);
 } 
  }
 // }
@@ -1354,7 +1325,6 @@ function preventAddToCart(productsInLoc){
   const productName=urlParams.get('productId');
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-  console.log(productsInlocal);
   productsInlocal.forEach(item=>{
        if(item.id==(+productName)) {
         id('textAddToCart').innerHTML='added it to cart';
@@ -1364,67 +1334,106 @@ function preventAddToCart(productsInLoc){
       })
     }
 }
-export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconId){
+export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconId,container){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
-    console.log(user.id);
     preventAddToCart(`${cartUser}${user.id}`);
-  addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
   }
   else{
     preventAddToCart(globalCart);
-  addNumberToIconCart(globalCart,iconName,iconId);
   }
   }
 
 // get product id by icon cart
-export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isDetails,test){
-  await fetchProducts(test)
+export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch){
+  await fetchProducts(testFetch);
+   quantNotBoo=0;
+   totalDrod=0;
   let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-
+let productSt;
+  if(testFetch){
+    productSt=filterProducts[0].stock;
+  }
+  else{
+  productSt=1;
+  }
   let categoryMatch;
   icons.forEach(element=>{
     element.addEventListener('click',(info)=>{
         info.preventDefault();
+        quantNotBoo=0;
+           totalDrod=0;
+
       let classN=Array.from(element.classList);
-      console.log(classN);
       let arry=classN.filter(className=>{
-        let match=/\d/g.test(className);
+        let match=/{([^]*)}/g.test(className);
         return match;
       })
-      console.log(arry);
-      let productId=arry[0].match(/\d+/g);
+      let productIdd=arry[0].match(/{([^]*)}/g);
+let productId=productIdd[0].slice(1,-1);
       let  filterProducts =datas.filter((product) => {
               categoryMatch=product['id']==productId;
             return  categoryMatch;
         })
-if(filterProducts[0].stock>0){
+        console.log(productSt);
+if(productSt>0){
 element.classList.add('addedIt');
-  let proAndQuantityIt={
-    productId:productId,
-    quantityPro:1
-  };
-  let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-console.log(objectQuantity);
-let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-        getProductFromLocal.push((filterProducts[0]));
-  let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-    objectQuantity.push(proAndQuantityIt);
-    let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-      addNumberToIconCart(productsInLoc,iconName,iconId);
-}
-addClassActiveOnIconCart(productsInLoc,iconName,test);
+  if((/[A-Za-z]/g).test(productId)){
+   getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+  }
+    else{
+  if(filterProducts[0].stock==0){
+    info.preventDefault();
+    element.classList.add('noExist');
+    element.style.color='green';
+  }
+ else{
+      getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+    }
+    }
+  }
+     addNumToIcon(productsInLocc,iconId);
+   addNumToIcon(productsInLoc,iconId);
+        })
+      })
 if(isDetails==true){
   preventAddToCart(productsInLoc);
+  preventAddToCart(productsInLocc);
 }
+        addNumToIcon(productsInLocc,iconId);
+      addNumToIcon(productsInLoc,iconId);
 
-    })
-  })
- 
   }
+  
+  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId){
+    let proAndQuantityIt={
+      productId:productId,
+      quantityPro:1
+    };
+          let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+      let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+              getProductFromLocal.push((filterProducts[0]));
+        let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+          window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+          objectQuantity.push(proAndQuantityIt);
+          let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+          window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+          window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
 
+            addClassActiveOnIconCart(productsInLoc,iconName,testFetch);
+            if(isDetails==true){
+              preventAddToCart(productsInLoc);
+            }
+    }
+  
+export function addNumToIcon(productsInLoc,iconId){
+   if(window.localStorage.getItem(productsInLoc)){
+    quantNotBoo=JSON.parse(window.localStorage.getItem(productsInLoc)).length;
+   }
+  totalDrod+=quantNotBoo;
+id(iconId).innerHTML=totalDrod;
+id(iconId).style.color='rgb(255, 214, 139)';
+}
 
 //end add product to cart by icon cart
 
@@ -1510,7 +1519,6 @@ function filterProductsFromDashboardByCategory(
         selectedCategory='all';
     }
     selectedCategoryy = element.getAttribute("data-category").toLowerCase().split(',');
-console.log(selectedCategoryy);
       }
       if (test3) {
         selectedReveiw = parseInt(element.getAttribute("data-category"));
@@ -1588,7 +1596,6 @@ export function resetPriceDashboard(
 // start function related by log in and log out
 function testUser(){
   if(window.localStorage.getItem('userToken')){
-    console.log('yes');
     document.querySelector('header .main-nav .personal .sign').addEventListener('click',(event)=>{
       event.preventDefault();
     })
@@ -1599,7 +1606,6 @@ function testUser(){
   else{
       effectHoverOnSignIn('signHeader');
     showAndHideLoginAndLogout('inline-block','none','none');
-    console.log('no');
   }
 
 }
@@ -1644,14 +1650,21 @@ export function effectHoverOnSignIn(elementId){
 }
 // end function related by log in and log out
 // add number of products in cart to icon cart
- export function addNumberToIconCart(productsInLoc,iconName,iconId){
+ export function addNumberToIconCart(productsInLoc,iconName,iconId,container){
+  let lengthBook=0;
+  let lengthNotBook=0;
+
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-
-  console.log(allIcons);
-  console.log(productsInlocal);
-id(iconId).innerHTML=productsInlocal.length;
+if(container=='productsInCart'){
+lengthNotBook=productsInlocal.length;
+}
+else{
+  lengthBook=productsInlocal.length;
+}
+ totalLength=lengthBook + lengthNotBook;
+id(iconId).innerHTML=totalLength;
 id(iconId).style.color='rgb(255, 214, 139)';
   }
 } 
@@ -1662,16 +1675,15 @@ id(iconId).style.color='rgb(255, 214, 139)';
 
   if(window.localStorage.getItem(productsInLoc)){
     let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-    console.log(allIcons);
     productsInlocal.forEach(product=>{
       allIcons.forEach(icon=>{
     let classLists=Array.from(icon.classList);
 let nameWithNum=classLists.filter(className=>{
-  let match=/\d/g.test(className);
+  let match=/{([^]*)}/g.test(className);
+
   return match;
 })
-      if(nameWithNum==(`${iconName}${product.id}`)){
-    console.log(icon);
+      if(nameWithNum==(`${iconName}{${product.id}}`)){
     icon.classList.add('addedIt');
   }  
   })
@@ -1679,7 +1691,7 @@ let nameWithNum=classLists.filter(className=>{
 }
 addClassNoexistOnIcon(iconName,test);
 }
-
+// localStorage.clear();
 // add class no exist on icon cart or favorite
 export  async function addClassNoexistOnIcon(iconName,test){
   await fetchProducts(test);
@@ -1688,52 +1700,28 @@ export  async function addClassNoexistOnIcon(iconName,test){
     let match=prod.stock==0; 
     return match;
      })
-     console.log(filterPro);
-  allIcons.forEach((icon,ind,arr)=>{
-  let classN=icon.classList[3];
-  const id=classN.match(/\d+/g);
+     allIcons.forEach(icon=>{
+      let classLists=Array.from(icon.classList);
+  let nameWithNum=classLists.filter(className=>{
+    let match=/{([^]*)}/g.test(className);
+    return match;
+  })
+  let matchId=nameWithNum[0].match(/{([^]*)}/g);
+  let produId=matchId[0].slice(1,-1);
   filterPro.forEach((product,index,array)=>{
-   if(product.id==+id){
-    console.log(icon);
+   if(product.id==+produId){
       icon.classList.add('noExist');
    }
   })
   })
 }
 
-export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName){
+export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName,container){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
-    console.log(user.id);
     addClassActiveOnIconCart(`${cartUser}${user.id}`,iconName);
   }
   else{
     addClassActiveOnIconCart(cartGlobal,iconName);
   }
   }
-// are user or not
- export function existUserOrNot(cartUser,cartGlobal,iconName,iconId){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    console.log(user.id);
-    addNumberToIconCart(`${cartUser}${user.id}`,iconName,iconId);
-  }
-  else{
-    addNumberToIconCart(cartGlobal,iconName,iconId);
-  }
-  }
-// end add product to cart 
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow'
-// };
-// localStorage.clear();
-// fetch("https://tarmeezacademy.com/api/v1/users?limit=0", requestOptions)
-//   .then(response => response.json())
-//   .then(result => console.log(result))
-  // .catch(error => console.log('error', error));
-
-      // // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-
-
-

@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,discountPercentagee,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,existUserOrNot,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,getProductIdByIconCart,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,addClassNoexistOnIcon} from './common.js';
+import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -42,9 +42,6 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
 addClassActive(linkHeader, "active");
-// add number of products in cart to icon cart
-existUserOrNot('cartUser','productCart','cart','countPurshes');
-  existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
 // end header
 // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
@@ -80,23 +77,24 @@ moveElementFromOutToIn(id,'men', "apperance");
 // start part scrolling products
   lastFunctionToShowProducts("container-lessthan", "container-products",'stock','',true);
 lastFunctionToShowProducts("container-newArrival", "newArrivalProducts",'rating',2.9,'',true,false);
-flashSale();
+flashSale(false);
   showBooks(true);
 lastFunctionToShowProducts("brandRolex", "rolexProducts",'brand','rolex','',true);
 lastFunctionToShowProducts("offerShoes", "shoesProducts",'category','mens-shoes','');
-suggestedForYou();
+suggestedForYou(false);
 // end part scrolling products
 // start drag product by toutch
 getAllElements(containerProductsDrag,dragByTouch);
 // start get product by icon cart
-existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
+existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
+existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
 existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 // start footer
 createHrefForElementsFooter(allLinksFooter);
-
 }))
 
 
@@ -193,8 +191,6 @@ function dragByTouchForGallery(container) {
   container.addEventListener("touchend", (info) => {
 
     if (moveDistance > 0) {
-      // container.scrollLeft=`${moveDistance}px`;
-      // container.style.left=`${moveDistance}px`;
       clearInterval(autoSliders);
       limitCurrentSlide(-1, "nextSlide-top");
     }
@@ -206,8 +202,6 @@ function dragByTouchForGallery(container) {
 }
 
 // create bollets for images
-
-
 function createBollets(array) {
   for (let i = 0; i < array.length; i++) {
     let span = document.createElement("span");
@@ -217,11 +211,9 @@ function createBollets(array) {
   }
   document.querySelector(".ball").classList.add("activeball");
   allBalls=document.querySelectorAll('.ball'); 
-  // console.log(allBalls);
 }
 
 //limit activeball
-
 
 function limitActiveBall(index) {
   allBalls.forEach((ball, indexball, array) => {
@@ -268,9 +260,9 @@ function  clickedButtonsForGallery() {
 
 //start show products
 // create divs with scrolling
-function applyFunctionsDivsAndScroll(filterProducts,test){
+function applyFunctionsDivsAndScroll(filterProducts,test,testing){
   filterProducts.forEach((product,index)=>{
-    groupesFunctionsForCreatesDivs(filterProducts, index, containerProductsss);
+    groupesFunctionsForCreatesDivs(filterProducts, index, containerProductsss,testing);
     if(test){
       groupesFunctionsForScrolllByWidth();
     }
@@ -350,26 +342,7 @@ function groupesFunctionsForScrolllByLeft() {
   );
   hundelScrollByLeft(containerProductsss, scrolllll, scrollBarrrr);
 }
-// limit Width Scroll Bar When Scrolling
-// function limitWidthScrollBarWhenScrolling(
-  // containerproducts,
-  // scroll,
-  // scrollbar,
-  // dose
-// ) {
-  // if (dose == true) {
-    // let percentageShow =
-      // (containerproducts.scrollLeft + containerproducts.clientWidth) /
-      // containerproducts.scrollWidth;
-    // scroll.style.width = percentageShow * 100 + "%";
-  // } else {
-    // let limitDistanceLeft =
-      // (containerproducts.scrollLeft /
-        // (containerproducts.scrollWidth - containerproducts.clientWidth)) *
-      // (scrollbar.clientWidth - scroll.offsetWidth);
-    // scroll.style.left = limitDistanceLeft + "px";
-  // }
-// }
+
 // limit Width Scroll Bar When Loaded
 function limitWidthScrollBarWhenLoaded(scrollbar) {
   if (
@@ -449,58 +422,11 @@ function applyFunctionAboutGroupElements(element, functionName, className) {
     functionName(element[i], className);
   }
 }
-
-// scrolling products
-// export function movesProducts(
-  // element,
-  // buttonClick,
-  // buttonNoClick,
-  // plusOr,
-  // barWidth,
-  // scrollbar,
-  // dose
-// ) {
-  // buttonClick.addEventListener("click", function (info) {
-    // let scroll = element.clientWidth * plusOr;
-    // element.scrollBy({ left: scroll, behavior: "smooth" });
-    // buttonClick.classList.add("clicked");
-    // buttonNoClick.classList.remove("clicked");
-    // if (buttonClick.classList.contains("display")) {
-      // buttonClick.classList.remove("clicked");
-    // }
-  // });
-  // element.addEventListener("scroll", () => {
-    // limitWidthScrollBarWhenScrolling(element, barWidth, scrollbar, dose);
-    // disapile(buttonClick, buttonNoClick, element);
-  // });
-// }
-// toggle buttons
-// function disapile(firstButton, lastButton, container) {
-  // if (container.scrollLeft > 0) {
-    // firstButton.classList.remove("display");
-  // }
-  // if (container.scrollLeft == 0) {
-    // firstButton.classList.add("display");
-    // firstButton.classList.remove("clicked");
-  // }
-  // if (
-    // Math.ceil(container.scrollLeft + container.clientWidth + 2) >=
-    // container.scrollWidth
-  // ) {
-    // lastButton.classList.add("display");
-    // lastButton.classList.remove("clicked");
-  // }
-  // if (
-    // container.scrollLeft + container.clientWidth + 2 <
-    // container.scrollWidth
-  // ) {
-    // lastButton.classList.remove("display");
-  // }
-// }
+ 
 // start function filter products
 let gg=Array.from({length:10},(_,index)=>index);
- export async function lastFunctionToShowProducts(containerName,containerProducts,varia,value,dose,test){
-  await fetchProducts();
+ export async function lastFunctionToShowProducts(containerName,containerProducts,varia,value,dose,test,testing){
+  await fetchProducts(testing);
   shaffelArray(datas);
   hundelUniqeVariablesById(containerName,containerProducts);
   let filterProducts=datas.filter(product=>{
@@ -516,8 +442,7 @@ else{
 
 return productMatch;
   })
-  // shaffelArray(filterProducts);
-  applyFunctionsDivsAndScroll(filterProducts,test);
+  applyFunctionsDivsAndScroll(filterProducts,test,testing);
 }
 // start function filter products
 //start parts womens and men in home
@@ -536,38 +461,37 @@ function moveElementFromOutToIn(func,element, className) {
 
 //end parts womens and men in home
 /* start part flash sale */
-// localStorage.clear();
 // flashSale();
-async function flashSale(){
+async function flashSale(test){
   await fetchProducts(false);
     hundelUniqeVariablesById("flashSale", "flashSaleProducts");
-    flashSaleProducts(containerProductsss);
+    flashSaleProducts(containerProductsss,test);
     downCounter(24 * 60 * 60, containerProductsss);
     groupesFunctionsForScrolllByLeft();
   }
 // testing stored products or not and display
-  function flashSaleProducts(containerproducts) {
+  function flashSaleProducts(containerproducts,test) {
     if (localStorage.getItem("productss")) {
 let  storedProducts = JSON.parse(localStorage.getItem("productss"));
-      showRandomProducts(true,storedProducts,containerproducts);
+      showRandomProducts(true,storedProducts,containerproducts,test);
     } else {
 let  randomProductss= randomProducts(14);
       localStorage.setItem("productss", JSON.stringify(randomProductss));
-      showRandomProducts(true,randomProductss,containerproducts);
+      showRandomProducts(true,randomProductss,containerproducts,test);
     }
   }
 // increase discountPercentage and show products
- function showRandomProducts(choose,array,containerProducts) {
+ function showRandomProducts(choose,array,containerProducts,testing) {
   if (choose) { 
     numProducts=array.map(product=>({...product,discountPercentage:product.discountPercentage<10?product.discountPercentage
    +20:product.discountPercentage+15}));
    numProducts.forEach((_,ind)=>{
-    groupesFunctionsForCreatesDivs(numProducts,ind, containerProducts);
+    groupesFunctionsForCreatesDivs(numProducts,ind, containerProducts,testing);
   })
          } 
          else{   
          array.forEach((_,ind)=>{
-    groupesFunctionsForCreatesDivs(array,ind, containerProducts);
+    groupesFunctionsForCreatesDivs(array,ind, containerProducts,testing);
   })}
   }
   // get on random products
@@ -577,7 +501,6 @@ let  randomProductss= randomProducts(14);
           return numProducts;
    }
    
-  // window.localStorage.clear();
   // testing update products or not
 function downCounter(duration, containerProduct) {
   let endTime =
@@ -588,7 +511,7 @@ function downCounter(duration, containerProduct) {
       endTime = Date.now() + duration * 1000;
       containerProduct.textContent = "";
       localStorage.removeItem("productss");
-      flashSaleProducts( containerProduct);
+      flashSaleProducts( containerProduct,test);
     }
     localStorage.setItem("downEndTime", endTime);
 
@@ -611,7 +534,7 @@ function downCounter(duration, containerProduct) {
 
 async function showBooks(choose) {
   await fetchProducts(choose);
-    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
+//  let url=  ( "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
   // );
   console.log(url);
   hundelUniqeVariablesById("containerBooks", "booksProducts");
@@ -620,22 +543,22 @@ async function showBooks(choose) {
     let productToLowerStri=hundleProduct.toString().toLowerCase();
     if (datas[i].saleInfo.saleability.toLowerCase()== "FOR_SALE".toLowerCase() &&
     productToLowerStri != "Fiction".toLowerCase()) {
-      groupesFunctionsForCreatesDivs(datas, i, containerProductsss);
+      groupesFunctionsForCreatesDivs(datas, i, containerProductsss,choose);
     }
   }
   groupesFunctionsForScrolllByWidth();
 }
 //end part books
 // start suggested for you
-async function suggestedForYou() {
+async function suggestedForYou(test) {
   await fetchProducts(false);
   hundelUniqeVariablesById("suggestedForYou", "suggestedProducts");
-    sugesstedProducts(containerProductsss);
+    sugesstedProducts(containerProductsss,test);
   groupesFunctionsForScrolllByLeft();
 }
-function sugesstedProducts(containerProduct) {
+function sugesstedProducts(containerProduct,test) {
   let ran=randomProducts(14);
-  showRandomProducts(false,ran,containerProduct);
+  showRandomProducts(false,ran,containerProduct,test);
 }
 // end suggested for you
 
@@ -644,11 +567,6 @@ function sugesstedProducts(containerProduct) {
 // satrt show offers
 function fashionOffers(){
   id('fashionOffers').addEventListener('click',(info=>{
-      // window.location.href='../html/fashion.html';
-
-      // id('linkFashionOffers').href=`html/fashion.html?productPrice=200`;
-      // &productCategory=${productCategory}&url=${urlLink}`;
-
   }))
 }
 fashionOffers();
@@ -671,124 +589,6 @@ fashionOffers();
 
 // end page home
 
-
-// fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch
-// (error=>console.log('error',error)));    
-let  { SnipcartProvider }= 'use-snipcart';
-
-async function kk(){
-try {
-   Snipcart.api.cart.items.add({
-      id: 1,
-      name:'mas',
-      price: 1.11,
-      url: '/',
-      quantity: 1,
-  },{
-      id: 'PRODUCT2_ID',
-      name: 'Product 2',
-      price: 1.11,
-      url: '/',
-      quantity: 1,
-  });
-} catch (error) {
-  console.log(error)
-}
-}
-// ppkk();
-// async function ppkk(){
-document.addEventListener('snipcart.ready',()=>{
-  try {
-    // Snipcart.api.theme.cart.open();
- Snipcart.api.cart.items.add({
-       id: '1',
-       name:'mas',
-       price: 1.11,
-       url: '/',
-       quantity: 1,
-   },{
-       id: 'PRODUCT2_ID',
-       name: 'Product 2',
-       price: 1.11,
-       url: '/',
-       quantity: 1,
-   })
-  //  let ll= Snipcart.store.getState().cart.items;
-  //  console.log(ll);
-  //  console.log(Snipcart.result);
- } catch (error) {
-   console.log(error)
- }
-})
-document.addEventListener('snipcart.ready',()=>{
-
-  try {
-    // const response = Snipcart.api.customer.fetchOrders('{orderToken}');
-   const response=Snipcart.api.sessions;
-    console.log(response);
-} catch (error) {
-    console.log(error)
-}})
-
-// let  { useSnipcart } =use-snipcart;
-
-// const { cart = {} } = useSnipcart();
-// async function hghg() {
-//  await fetch('https://app.snipcart.com/api/cart',{
-  // mode:'no-cors',
-	// bbb:'Access-Control-Allow-Origin',
-// Access-Control-Allow-Origin:' https://example.com',
-// Access-Control-Allow-Credentials: true
-// }).then((res)=>res.json());
-  
-// }
-// hghg();
-//   try {
-// Snipcart.api.cart.setShippingInformation({
-//         method: '{shippingMethod}',
-//         cost: 0,
-    // });
-// } catch (error) {
-    // console.log(error)
-// }
-//  try {
-//   let gg= Snipcart.api.cart.fetchShippingRates();
-
-// } catch (error) {
-  // console.log(error);
-// }
-
-
-
-
-
-
-
-  // let kkp=Snipcart;
-  // let ll= Snipcart.api.cart.items;
-  // console.log(ll);
-// ll.forEach(i=> console.log(i));
-// Snipcart.api.cart.items.then((cart)=>{
-  // console.log(Snipcart);
-// })
-// document.addEventListener('snipcart.ready',()=>{
-  // try {
-    // let ll= Snipcart.cart.items;
-    // console.log(ll);
-    // console.log(Snipcart.result);
-
-//  Snipcart.store.getState().cart.items()
-    //  .then(res=>console.log(res))
-    // console.log(ll);
-  // }
-  // catch (error) {
-    // console.log(error)
-  // }})
-
-
-
-
-
 //books
 let ll = ["book", "novel", "story", "literature"];
 const apikey = "AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
@@ -808,54 +608,11 @@ async function api() {
 }
 // api();
 
-
-// async function bb(){
-// let headersList = {
-// "server": "openresty/1.13.6.1",
-// "date": "Thu, 29 Feb 2024 15:05:58 GMT",
-// "content-type": "text/html",
-// "transfer-encoding": "chunked",
-// "content-encoding": "gzip",
-// "connection": "close"
-// }
-// let response = await fetch("https://atfawry.fawrystaging.com/ECommerceWeb/api/lookups/govs", {
-// method: "GET",
-// headers: headersList
-// });
-// let data = await response.json();
-// console.log(data);}
-// bb();
-// async function bbbb(){
-// let response = await fetch("https://atfawry.fawrystaging.com/ECommerceWeb/api/lookups/govs");
-//
-// let data = await response.json();
-// console.log(data);
-// }
-// bbbb();
-
 // AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
 // AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
 // AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
 // AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
 // AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-// document.addEventListener("l",function(){
-// document.addEventListener("load", initMap());
-/* updating title of product with id 1 */
-// async function mmk() {
-  // await fetch("https://dummyjson.com/products/194", {
-    // method: "PUT" /* or PATCH */,
-    // headers: { "Content-Type": "application/json" },
-    // body: JSON.stringify({
-      // title: "iPhone Galaxy +1",
-    // }),
-  // })
-    // .then((res) => res.json())
-    // .then(console.log);
-// }
-// datas = dummy.products;
-  // fetchProductss('http://world.openfoodfacts.org/api/v0/search.json?search_terms=coffee&fields=product_name,brands,ingredients_text,nutriments,image_url');
-  // "http://world.openfoodfacts.org/api/v0/search.json?search_terms=coffee&fields=product_name%2Cbrands%2Cingredients_text%2Cnutriments%2Cimage_url",
-  
   //AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM
   //AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM
   

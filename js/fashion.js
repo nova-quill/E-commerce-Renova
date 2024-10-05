@@ -9,7 +9,6 @@ import {
   resetDashboard,
   resetPriceDashboard,
   displayMenuSort,
-  existUserOrNot,
   dragByTouch,
   createHrefForElementsFooter,
   limitLocationProductsBySidebar,
@@ -64,20 +63,11 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   toggleDashboard('classification','dashboard',true);
       toggleDashboard('cancelDash','dashboard');
 
-  // add number of products in cart to icon cart
-  existUserOrNot('cartUser','productCart','cart','countPurshes');
-  existUserOrNot('favoriteUser','favoriteCart','favorite','countFavorites');
-  // end header
-
 // footer functions create url
 createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
-// })})
-
-
 
   // start show products for every page in header and filter products from dashboard
-  // if(document.getElementById('linkBooks')){
     if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
 
     console.log(document.getElementById('linkBooks'));
@@ -127,6 +117,4 @@ displayMenuSort(id,'dashboardAngle', "list", "active");
 // end dashboard
 })) 
 //end show products
-//  localStorage.clear();
-// 
 

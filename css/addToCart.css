@@ -72,6 +72,12 @@ margin-bottom: .5rem;
 /* pointer-events: none; */
 cursor: default;
 }
+@media (min-width:676.98px) {
+    #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan{
+        /* height: 10em; */
+
+    }
+}
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess{
     padding: 0;
      /* display: flex; */
@@ -92,14 +98,39 @@ margin-left: auto;
 margin-right: auto;
 text-align: center;
         }}
+        #containerAddToCart section#addToCart .addToCart .container .productsInCart#productsInCartBoo .cardLessThan .containerImage{
+            flex-basis: 15%;
+            /* width: 6em; */
+
+        }
+        @media (max-width:499.98px) {
+
+        #containerAddToCart section#addToCart .addToCart .container .productsInCart#productsInCartBoo .cardLessThan .containerImage{
+            padding-top: .5em;
+        }}
+        @media (min-width:499.98px) {
+        
+            
+        
+        #containerAddToCart section#addToCart .addToCart .container .productsInCart#productsInCartBoo .cardLessThan img{
+/* background-color: red; */
+width: 6em;
+/* max-width:65.5%; */
+        }}
 @media (min-width:768px) {
     #containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess{
         display: flex;
         gap:1rem;
         align-items: center;
+        height: 10em;
+
     }
     #containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess .containerImage{
         flex-basis: 15%;
+        max-height: 10em;
+    }
+    #containerAddToCart section#addToCart .addToCart .container .productsInCart .aCardLess .containerImage img{
+        max-height: 10em;
     }
 }
 @media (max-width:767.98px) {
@@ -148,7 +179,17 @@ white-space:inherit
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .detailsPrice{
     font-size: 1.1rem;
+}
+@media (max-width:499.98px) {
+    #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .detailsPrice{
     justify-content: center;
+
+    }
+    .cardLessThan .detailsDelivery{
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .containerQuantity{
     /* background-color: aquamarine; */
