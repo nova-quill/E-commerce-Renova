@@ -605,12 +605,19 @@
 #container section#home .container-bestSeller .box-products {
     padding: var(--padding-secondary);
     background-color: whitesmoke;
-    touch-action: pan-y;
+    touch-action:none;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style:none;
     /* display: flex; */
     /* gap: var(--gap-container-products); */
     /* min-height: var(--minheight-container-products); */
     /* min-width: var(--minwidth-container-products); */
     /* overflow: hidden; */
+}
+#container section#home .container-bestSeller .box-products::-webkit-scrollbar {
+    display: none;
 }
 #container section#home .container-bestSeller .box-products .cardLessThan{
     max-width: var(--maxwidth-cardlessthan);
