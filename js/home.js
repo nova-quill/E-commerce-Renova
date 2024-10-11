@@ -181,12 +181,26 @@ function prevOrNextSlide(target, pre, next) {
 function dragByTouchForGallery(container) {
   let startPoint = 0;
   let moveDistance = 0;
-
+let startY=0;
+let isHorizental=false;
   container.addEventListener("touchstart", (info) => {
     startPoint = info.touches[0].clientX;
+    startY=info.touches[0].clientY;
+    isHorizental=false;
   });
   container.addEventListener("touchmove", (info) => {
     moveDistance = info.touches[0].clientX - startPoint;
+    let moveX=info.touches[0].clientX-startPoint;
+    let moveY=info.touches[0].clientY-startY;
+    if(Math.abs(moveX)>Math.abs(moveY)){
+      isHorizental=true;
+    }
+    else{
+      isHorizental=false;
+    }
+    if(!isHorizental){
+      info.stopPropagation();
+    }
   });
   container.addEventListener("touchend", (info) => {
 
