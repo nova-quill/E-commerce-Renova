@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive} from './common.js';
+import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM

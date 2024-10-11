@@ -3,7 +3,8 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
  
-  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter, productId
+  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter, productId,
+    discountPercentagee
 } 
 from './common.js';
 let tags;
@@ -58,7 +59,7 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   dragByTouch(containerProductsDrag);
   
   // start get product by icon cart
-  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites',true);
+  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
 
   existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
 
@@ -68,35 +69,47 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
    id("linkAddToCart").addEventListener('click',(event)=>{
     event.preventDefault();
-    const urlParams=new URLSearchParams(window.location.search);
- let   productId=urlParams.get('productId');
-      console.log(productId);
-      if((/\d+/g).test(productId)){
-        existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-      }
-      else{
-        existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
-      }
+//     const urlParams=new URLSearchParams(window.location.search);
+//  let   productId=urlParams.get('productId');
+//       console.log(productId);
+
+      existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
+
+
+      // if((/\d+/g).test(productId)){
+      //   existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+      // }
+      // else{
+      //   existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
+      // }
  })
 
  id("iconCart").addEventListener('click',(event)=>{
   event.preventDefault();
-  let classN=Array.from(id("iconCart").classList);
-  let arry=classN.filter(className=>{
-    let match=/\d+/g.test(className);
-    return match;
-  })
-  if((/\d+/g).test(productId)){
-  if(arry.length>0){
-    existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-  }
-  }
-  else{
-    existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
-  }
+  // let classN=Array.from(id("iconCart").classList);
+  // let arry=classN.filter(className=>{
+  //   let match=/\d+/g.test(className);
+  //   return match;
+  // })
+
+  existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
+
+
+
+
+  // if((/\d+/g).test(productId)){
+  // if(arry.length>0){
+  //   existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
+  // }
+  // }
+  // else{
+  //   existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
+  // }
 })
 id("iconFavorite").addEventListener('click',(event)=>{
   // event.preventDefault();
+  existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
+
   // existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites',false);
 })
 //  start footer
@@ -139,7 +152,17 @@ async function getProductFromUrl(func,choose){
 
       title=element['volumeInfo']['title']||'Unknown';
       kind=element['volumeInfo']['categories']||'Unknown';
-      discount=index <10?discount=index*3:discount=index*5;
+      // discount=index <10?discount=index*3:discount=index*5;
+      // discount=discountPercentagee;
+      let  hundleProduct= element.volumeInfo.categories||'';
+      let productToLowerStri=hundleProduct.toString().toLowerCase();
+      if (productToLowerStri != "Fiction".toLowerCase()) {
+        discount=50;
+      }
+      else{
+        discount=20;
+      }
+      console.log(discount);
        oldPrice=element['saleInfo']['listPrice']['amount']||'Unknown';
     let stockk=element['saleInfo']['saleability']||'Unknown';
     stock=stockk.toLowerCase();

@@ -2,7 +2,7 @@
   
 'use strict'
 import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,dragByTouch, createHrefForElementsFooter,existUserOrNotForIconCart,
-  limitLocationProductsBySidebar,getAllElements,existUserOrNots} from "../js/common.js";
+  limitLocationProductsBySidebar,getAllElements,existUserOrNots,existUserOrNotForAddClassAtive} from "../js/common.js";
 let quantityProducts=0;
 let totalProd=0;
 let totalQuan=0;
@@ -32,9 +32,17 @@ createHrefForElementsFooter(allLinksSideBar);
 
     dragByTouch(secondHeader);
     // start shows product in cart
-    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+
+  
     existUserOrNotInfav('favorite','countFavorites',true);
     existUserOrNotInfavvv('favorite','countFavorites',true);
+    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
+
+    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
+
+
+    existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
+    existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
     // start footer
     createHrefForElementsFooter(allLinksFooter);
 }))
@@ -50,7 +58,7 @@ createHrefForElementsFooter(allLinksSideBar);
       let acardIcon=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #productsInCart .aCardLess .cartFavorite .cart`);
       acardIcon.forEach(element=>{
       element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
-          existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+          // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
           // preventElementInFav( productsInLoc,test);
         })
       
@@ -117,21 +125,27 @@ if(isCart){
   // preventElementInFav(productsInLocCart,test);
 }
   elementAdd.addEventListener('click',(info)=>{
+    // existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+
     // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
-    existUserOrNots(container,'cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes',true,productId,test);
+    // existUserOrNots(container,'cartUser','proAndQuantityIt','productCart','proAndQuantity','cart','countPurshes',true,productId,test);
     // preventElementInFav( productsInLocCart,test);
   })
 
 element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
     // preventElementInFav( productsInLocCart,test);
-    preventElementInFav( productsInLoc,test);
-    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+    // preventElementInFav( productsInLoc,test);
+    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
   })
   element.addEventListener('click',(event)=>{
     event.preventDefault();
   })
+  // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
+
 })
+existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
+
 detailsProduct.forEach((element,index)=>{
   let urlCos=element.closest('a');
   console.log(urlCos);
@@ -144,8 +158,9 @@ let productId=searchUrl.get('productId');
   let amount=document.createElement('input');
   amount.type='number';
   amount.name='amount';
+  // amount.value=1;
   amount.className=`amount amount{${productId}}`;
-  console.log(amount.className);
+  console.log(objectQuan);
   objectQuan.forEach((obj,ind,arr)=>{
     let classN=Array.from(amount.classList);
     let arry=classN.filter(className=>{
@@ -160,6 +175,7 @@ let productId=searchUrl.get('productId');
   })
   containerQuantity.appendChild(amount);
   element.appendChild(containerQuantity);
+
 })
 removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
 getProductFromLocal.forEach(item=>{
@@ -222,6 +238,7 @@ if(totalProd>0){
   id('containerPriceCart').style.display='block';
 
 }
+
 }
 function removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
   let allButtonsRemove=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .cardLessThan div.containerRemAndBuy .clear`);
@@ -258,6 +275,8 @@ window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse(
 id('productsInCart').innerHTML='';
 existUserOrNotInfav(iconName,iconId,isCart);
 existUserOrNotInfavvv(iconName,iconId,isCart);
+existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
     })
   })
 }
@@ -267,7 +286,8 @@ function updateQuantityWhenInput(inputs,proAndQuantityIt,container){
 inputs.forEach((input,index)=>{
   quantityProducts=0;
   input.addEventListener('input',(info)=>{
-    if(info.target.value>0){
+  info.target.value=info.target.value.replace(/^0/,1);
+    // if(info.target.value>0){
     let classN=Array.from(info.target.classList);
     let arry=classN.filter(className=>{
       let match=/{([^]*)}/g.test(className);
@@ -276,8 +296,11 @@ inputs.forEach((input,index)=>{
     let productIdd=arry[0].match(/{([^]*)}/g);
   let   productIdBu=productIdd[0].slice(1,-1);
 objectQuann.forEach((obj,ind,arr)=>{
-  if(obj.productId== productIdBu){
+  if(obj.productId== productIdBu&&info.target.value>0){
     obj.quantityPro=info.target.value;
+  }
+  if(obj.productId== productIdBu&&info.target.value==''){
+    obj.quantityPro=1;
   }
   if(container=='productsInCart'){
   }
@@ -300,8 +323,14 @@ else{
   })
 }
 totalQuan=quanBook + quanNotBook;
-      id('headingCart').innerHTML=`your cart includes ${totalProd} products,${totalQuan} quantity` ;
+      id('headingCart').innerHTML=`your favorite includes ${totalProd} products,${totalQuan} quantity` ;
+ 
+  })
+  input.addEventListener('blur',(info)=>{
+    if(info.target.value==''){
+      info.target.value=info.target.value.replace(/^$/,1);
     }
+ 
   })
 })
 }}

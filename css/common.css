@@ -1143,7 +1143,7 @@ header #container-location #map div div.gm-style div div a {
 }
 @media (min-width:767px) {
     .cardLessThan .cartFavorite {
-    display: none;
+    /* display: none; */
     }
 }
 .cardLessThan:hover .cartFavorite {
@@ -1178,6 +1178,7 @@ header #container-location #map div div.gm-style div div a {
 }
 .cardLessThan .cartFavorite i.addedIt{
     color:#952f2f; 
+    pointer-events: none;
 }
 
 .cardLessThan .detailsProduct {

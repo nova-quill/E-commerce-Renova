@@ -51,11 +51,13 @@ let quantNotBoo=0;
 let quantBoo=0;
 let ppp=0;
 export let testFetch;
-
+let testing;
 export let url;
 export let urlBooks='alll';
 export let urlLink;
 let totalLength=0;
+let productsFilterInLocNotBoo;
+let productsFilterInLocBoo;
 let overlay = document.getElementById("overlay");
 // get element by id
 export function id(idName) {
@@ -100,12 +102,12 @@ export function addClassActive(lis, className) {
       activeLink.parentElement.classList.add(className);
     
       if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
-        url=   "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+        // url=   "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
 
-       urlBooks='another';
+      //  urlBooks='another';
       }
       else{
-        url= "https://dummyjson.com/products?limit=0";
+        // url= "https://dummyjson.com/products?limit=0";
       }}
   });
 }
@@ -559,7 +561,7 @@ export function movesProducts(
 }
 // end scrolling products
 //start toggle buttons
-function disapile(firstButton, lastButton, container) {
+export function disapile(firstButton, lastButton, container) {
   if (container.scrollLeft > 0) {
     firstButton.classList.remove("display");
   }
@@ -602,30 +604,43 @@ export function limitWidthScrollBarWhenScrolling(
     scroll.style.left = limitDistanceLeft + "px";
   }
 }
+// localStorage.clear();
 //end  limit Width Scroll Bar When Scrolling
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
     // url =
     // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-    url="../js/books.json"
+    url="../js/books.json";
+    // urlLink='books';
   }
   else{
     url = "https://dummyjson.com/products?limit=0";
+      // urlLink='notBooks';
   }
   let response = await fetch(url, i);
+  // console.log(response.status);
+  if(response.status==200){
   datass = await response.json();
   organizeObject(datas, i);
   if (Object.keys(datass).includes("products")) {
-      urlLink='notBooks'
+      urlLink='notBooks';
   datas.map(updatePrice);
 }
-if (Object.keys(datass).includes("items") ) {
+if (Object.keys(datass).includes("items")||chooseUrl==true|| url=="../js/books.json"||    url == "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
+) {
   urlLink='books';
 }
 else{
 }
 }
+else{
+  console.log('failed');
+  window.location.reload();
+}
+
+}
+// localStorage.clear();
 export function organizeObject(data,i,test) {
   if (Object.keys(datass).includes("products")) {
     urlBooks='alll';
@@ -642,8 +657,10 @@ export function organizeObject(data,i,test) {
 else{
   urlBooks='another';
   datas=datass;
-  // datas = datass.items;
+//  let datasss = datass.items;
 datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+// console.log(datas);
+
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
       title = data[i].volumeInfo.title;
@@ -661,6 +678,7 @@ datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SA
       productStock=1;
     }
 }}
+// localStorage.clear();
 // end fetchs products
 // update Price for products
 function updatePrice(product) {
@@ -1231,102 +1249,301 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
- export function existUserOrNots(container,cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
+// localStorage.clear();
+
+export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart){
   if(window.localStorage.getItem('user')){
+  
     let user=JSON.parse(window.localStorage.getItem('user'));
     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-    addProductToCart(container,`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
+    addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,`${cartBooUser}${user.id}`,`${proAndQuantityItBoo}${user.id}`,iconName,iconId,isDetails,test,isCart);
   }
   else{
-    addProductToCart(container,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
+    addProductToCart(globalCart,proAndQuantityItt,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart);
   }
   }
-  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test){
+
+
+
+
+
+// localStorage.clear();
+
+//  export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
+//   if(window.localStorage.getItem('user')){
+//     let user=JSON.parse(window.localStorage.getItem('user'));
+//     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
+//     addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
+//   }
+//   else{
+//     addProductToCart(globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
+//   }
+//   }
+  export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart,isFavorite){
     if(window.localStorage.getItem('user')){
     
       let user=JSON.parse(window.localStorage.getItem('user'));
       let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,`${cartBooUser}${user.id}`,`${proAndQuantityItBoo}${user.id}`,iconName,iconId,isDetails,test);
+      getProductIdByIconCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,`${cartBooUser}${user.id}`,`${proAndQuantityItBoo}${user.id}`,iconName,iconId,isDetails,test,isCart,isFavorite);
     }
     else{
-      getProductIdByIconCart(globalCart,proAndQuantityItt,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test);
+      getProductIdByIconCart(globalCart,proAndQuantityItt,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart,isFavorite);
     }
     }
 //add product to cart
-async function addProductToCart(container,productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
-  await fetchProducts(test);
+// localStorage.clear();
+// async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,testfetch){
+  export async function addProductToCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart){
+
+  await fetchProducts(testFetch);
   let categoryMatch;
   let productId;
+  let productUrl;
   let quantity;
   let proAndQuantityIt;
-  if(isFavorit){
-productId=proId;
-  }
-  else{
+//   if(isFavorit){
+// productId=proId;
+//   }
+  // else{
     const urlParams=new URLSearchParams(window.location.search);
     productId=urlParams.get('productId');
-  }
+    productUrl=urlParams.get('url');
+  // }
  
 let  filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
-let prodStock;
-if((/[A-Za-z]/g).test(productId)){
-  prodStock=1;
-}
-if(!(/[A-Za-z]/g).test(productId)){
-  prodStock=filterProducts[0].stock;
- console.log(productId);
-}
-  if(prodStock==0){
+if(filterProducts.length==0||filterProducts[0]==undefined){
+  console.log('filter unde');
+    
+    if(productUrl=='books'){
+      console.log('unde books');
+      urlBooks='another';
+  
+      await fetchProducts(true);
+      console.log(datas);
+      console.log(filterProducts);
+      filterProducts =datas.filter((product) => {
+        categoryMatch=product['id']==productId;
+      return  categoryMatch;
+  })
+  console.log(filterProducts,filterProducts[0]);
+      testing=true;
+      testFetch=true;
+      // element.classList.add('addedIt');
+  
+      getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+  return;
+    }
+    if(productUrl=='notBooks'){
+      console.log(productUrl);
+      urlBooks='alll';
+  
+      await fetchProducts();
+      console.log(datas);
+      testing=false;
+      testFetch=false;
+      filterProducts =datas.filter((product) => {
+        categoryMatch=product['id']==productId;
+      return  categoryMatch;
+  })
+  console.log(filterProducts,filterProducts[0]);
 
-if(!isFavorit){
+   if(filterProducts[0].stock>0){
+    // element.classList.add('addedIt');
+  
+    console.log(filterProducts[0].stock);
+      getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+  return;
+  }
+  if(filterProducts[0].stock==0){
   effectHoverOnSignIn('inStock');
-}}
-else{
-  if(!isFavorit){
-  if(id('quantityDetails').value==0){
-    id('quantityDetails').value=1;
-  }
-  if(id('quantityDetails').value>0){
-    quantity=id('quantityDetails').value;
-     proAndQuantityIt={
-     productId:productId,
-     quantityPro:quantity||1
-   };
- }
-  }
-if(isFavorit){
-  proAndQuantityIt={
-    productId:productId,
-    quantityPro:1
-}}
-let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-        getProductFromLocal.push((filterProducts[0]));
-  let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-    objectQuantity.push(proAndQuantityIt);
-    let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-    window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-        if(!isFavorit){
-      preventAddToCart(productsInLoc);
+
+    }}}
+    if(filterProducts.length>0){
+      console.log('filter > 0');
+  
+      if(productUrl=='books'){
+        urlBooks='another';
+  
+        await fetchProducts(true);
+      testing=true;
+      testFetch=true;
+      // element.classList.add('addedIt');
+  
+      getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+  
       }
-      addClassActiveOnIconCart(productsInLoc,iconName);
-      totalDrod=0;
-      addNumToIcon(productsInLoc,iconId);
-} 
- }
+      if(productUrl=='notBooks'){
+        urlBooks='alll';
+  
+        await fetchProducts(false);
+        testing=false;
+        testFetch=false;
+        if(filterProducts[0].stock>0){
+          // element.classList.add('addedIt');
+  
+          console.log(filterProducts[0].stock);
+        getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+        }
+        if(filterProducts[0].stock==0){
+          effectHoverOnSignIn('inStock');
+        
+            }
+  
+      }
+    }
+    console.log(datas,testing);
+    if(isCart){
+    //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
+    //   elementAdd.innerHTML='added it to cart';
+    //   elementAdd.style.opacity='.4';
+    //   elementAdd.style.pointerEvents='none';
+    //   elementAdd.style.color='gray';
+    }
+    // addNumToIcon(productsInLocc,iconId);
+    // addNumToIcon(productsInLoc,iconId);
+    // return testing;
+      // }
+    
+// let prodStock;
+// if((/[A-Za-z]/g).test(productId)){
+//   prodStock=1;
 // }
+// if(!(/[A-Za-z]/g).test(productId)){
+//   prodStock=filterProducts[0].stock;
+//  console.log(productId);
+// }
+//   if(prodStock==0){
+
+// if(!isFavorit){
+//   effectHoverOnSignIn('inStock');
+// }}
+// else{
+//   if(!isFavorit){
+//   if(id('quantityDetails').value==0){
+//     id('quantityDetails').value=1;
+//   }
+//   if(id('quantityDetails').value>0){
+//     quantity=id('quantityDetails').value;
+//      proAndQuantityIt={
+//      productId:productId,
+//      quantityPro:quantity||1
+//    };
+//    console.log(quantity);
+//  }
+//   }
+// if(isFavorit){
+//   proAndQuantityIt={
+//     productId:productId,
+//     quantityPro:1
+// }}
+// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+  //       getProductFromLocal.push((filterProducts[0]));
+  // let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+  //   window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+  //   objectQuantity.push(proAndQuantityIt);
+  //   let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+  //   window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+  //       if(!isFavorit){
+      // preventAddToCart(productsInLoc);
+      // }
+      // addClassActiveOnIconCart(productsInLoc,iconName);
+      // totalDrod=0;
+      // addNumToIcon(productsInLoc,iconId);
+            preventAddToCart(productsInLoc);
+                  preventAddToCart(productsInLocc);
+
+
+} 
+//  }
+
+
+
+
+
+
+
+
+// async function addProductToCart(container,productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
+//   await fetchProducts(test);
+//   let categoryMatch;
+//   let productId;
+//   let quantity;
+//   let proAndQuantityIt;
+//   if(isFavorit){
+// productId=proId;
+//   }
+//   else{
+//     const urlParams=new URLSearchParams(window.location.search);
+//     productId=urlParams.get('productId');
+//   }
+ 
+// let  filterProducts =datas.filter((product) => {
+//       categoryMatch=product['id']==productId;
+//     return  categoryMatch;
+// })
+// let prodStock;
+// if((/[A-Za-z]/g).test(productId)){
+//   prodStock=1;
+// }
+// if(!(/[A-Za-z]/g).test(productId)){
+//   prodStock=filterProducts[0].stock;
+//  console.log(productId);
+// }
+//   if(prodStock==0){
+
+// if(!isFavorit){
+//   effectHoverOnSignIn('inStock');
+// }}
+// else{
+//   if(!isFavorit){
+//   if(id('quantityDetails').value==0){
+//     id('quantityDetails').value=1;
+//   }
+//   if(id('quantityDetails').value>0){
+//     quantity=id('quantityDetails').value;
+//      proAndQuantityIt={
+//      productId:productId,
+//      quantityPro:quantity||1
+//    };
+//  }
+//   }
+// if(isFavorit){
+//   proAndQuantityIt={
+//     productId:productId,
+//     quantityPro:1
+// }}
+// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
+// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+//         getProductFromLocal.push((filterProducts[0]));
+//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+//     objectQuantity.push(proAndQuantityIt);
+//     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
+//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
+//         if(!isFavorit){
+//       preventAddToCart(productsInLoc);
+//       }
+//       addClassActiveOnIconCart(productsInLoc,iconName);
+//       totalDrod=0;
+//       addNumToIcon(productsInLoc,iconId);
+// } 
+//  }
+
 // localStorage.clear();
 function preventAddToCart(productsInLoc){
   const urlParams=new URLSearchParams(window.location.search);
-  const productName=urlParams.get('productId');
+  const productId=urlParams.get('productId');
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   productsInlocal.forEach(item=>{
-       if(item.id==(+productName)) {
+    console.log(item.id,productId);
+       if(item.id==(productId)) {
+        console.log(item.id,productId,'kkkkkkkkkkk');
+
         id('textAddToCart').innerHTML='added it to cart';
         id('linkAddToCart').style.opacity='.4';
         id('linkAddToCart').style.pointerEvents='none';
@@ -1345,14 +1562,31 @@ export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconI
   }
 
 // get product id by icon cart
-export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch){
+
+export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart,isFavorite){
   await fetchProducts(testFetch);
    quantNotBoo=0;
    totalDrod=0;
-  let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+   let  filterProducts ;
+   let icons;
+  //  let productId;
+  if(isCart){
+icons=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container .aCardLess  .buy`);
+  }
+  else{
+    icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+
+  }
+  // let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+  console.log((icons),datas);
+// icons=(Array.from(icons));
+// let  iconss=icons.filter(item=>{item.id=='iconCart'});
+  // console.log(iconss);
 let productSt;
   if(testFetch){
-    productSt=filterProducts[0].stock;
+    // productSt=filterProducts[0].stock;
+    productSt=1;
+
   }
   else{
   productSt=1;
@@ -1360,10 +1594,13 @@ let productSt;
   let categoryMatch;
   icons.forEach(element=>{
     element.addEventListener('click',(info)=>{
+      console.log((icons));
+
         info.preventDefault();
         quantNotBoo=0;
            totalDrod=0;
-
+          // iconIsBookOrNot(element);
+if(element.id!='iconCart'&&element.id!='iconFavorite'){
       let classN=Array.from(element.classList);
       let arry=classN.filter(className=>{
         let match=/{([^]*)}/g.test(className);
@@ -1371,48 +1608,189 @@ let productSt;
       })
       let productIdd=arry[0].match(/{([^]*)}/g);
 let productId=productIdd[0].slice(1,-1);
-      let  filterProducts =datas.filter((product) => {
+     filterProducts =datas.filter((product) => {
               categoryMatch=product['id']==productId;
             return  categoryMatch;
         })
-        console.log(productSt);
-if(productSt>0){
-element.classList.add('addedIt');
-  if((/[A-Za-z]/g).test(productId)){
-   getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-  }
-    else{
-  if(filterProducts[0].stock==0){
-    info.preventDefault();
-    element.classList.add('noExist');
-    element.style.color='green';
-  }
- else{
-      getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-    }
-    }
-  }
-     addNumToIcon(productsInLocc,iconId);
-   addNumToIcon(productsInLoc,iconId);
-        })
+        console.log(filterProducts,filterProducts[0]);
+        // iconIsBookOrNot(element,filterProducts);
+        // iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
+
+        // if(isCart){
+        //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
+        //   elementAdd.innerHTML='added it to cart';
+        //   elementAdd.style.opacity='.4';
+        //   elementAdd.style.pointerEvents='none';
+        //   elementAdd.style.color='gray';
+        // }
+// if(productSt>0){
+// element.classList.add('addedIt');
+//  iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
+  // if((/[A-Za-z]/g).test(productId)){
+  // if(testing==true){
+  //  getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+  // }
+    // else{
+//   if(filterProducts[0].stock==0){
+//     info.preventDefault();
+//     element.classList.add('noExist');
+//     element.style.color='green';
+//   }
+//  else{
+// if(testing==false){
+      // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+    // }
+    // }
+    console.log(totalDrod,quantNotBoo);
+
+     iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt,isCart);
+     console.log((icons));
+
+     console.log(totalDrod,quantNotBoo);
+        if(isFavorite){
+          let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container .aCardLess  .buy.add${productId}`);
+          elementAdd.innerHTML='added it to cart';
+          elementAdd.style.opacity='.4';
+          elementAdd.style.pointerEvents='none';
+          elementAdd.style.color='gray';
+        }
+
+
+
+
+  // }
+  //    addNumToIcon(productsInLocc,iconId);
+  //  addNumToIcon(productsInLoc,iconId);
+    }  })
       })
 if(isDetails==true){
   preventAddToCart(productsInLoc);
   preventAddToCart(productsInLocc);
 }
-        addNumToIcon(productsInLocc,iconId);
-      addNumToIcon(productsInLoc,iconId);
+        addNumToIcon(productsInLoc,productsInLocc,iconId);
+      // addNumToIcon(productsInLoc,iconId);
+      console.log(totalDrod,quantNotBoo);
 
   }
-  
-  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId){
-    let proAndQuantityIt={
+
+
+
+
+
+
+
+
+
+
+
+
+// export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart){
+//   await fetchProducts(testFetch);
+//    quantNotBoo=0;
+//    totalDrod=0;
+//   //  let  filterProducts ;
+//   //  let productId;
+//   let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
+// let productSt;
+//   if(testFetch){
+//     productSt=filterProducts[0].stock;
+//     // productSt=1;
+
+//   }
+//   else{
+//   productSt=1;
+//   }
+//   let categoryMatch;
+//   icons.forEach(element=>{
+//     element.addEventListener('click',(info)=>{
+//         info.preventDefault();
+//         quantNotBoo=0;
+//            totalDrod=0;
+//           // iconIsBookOrNot(element);
+
+//       let classN=Array.from(element.classList);
+//       let arry=classN.filter(className=>{
+//         let match=/{([^]*)}/g.test(className);
+//         return match;
+//       })
+//       let productIdd=arry[0].match(/{([^]*)}/g);
+// let productId=productIdd[0].slice(1,-1);
+//   let     filterProducts =datas.filter((product) => {
+//               categoryMatch=product['id']==productId;
+//             return  categoryMatch;
+//         })
+//         console.log(productSt);
+//         if(isCart){
+//           let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
+//           elementAdd.innerHTML='added it to cart';
+//           elementAdd.style.opacity='.4';
+//           elementAdd.style.pointerEvents='none';
+//           elementAdd.style.color='gray';
+//         }
+// if(productSt>0){
+// element.classList.add('addedIt');
+// //  iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
+//   if((/[A-Za-z]/g).test(productId)){
+//    getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+//   }
+//     else{
+//   if(filterProducts[0].stock==0){
+//     info.preventDefault();
+//     element.classList.add('noExist');
+//     element.style.color='green';
+//   }
+//  else{
+//       getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
+//     }
+//     }
+//   }
+//      addNumToIcon(productsInLocc,iconId);
+//    addNumToIcon(productsInLoc,iconId);
+//         })
+//       })
+// if(isDetails==true){
+//   preventAddToCart(productsInLoc);
+//   preventAddToCart(productsInLocc);
+// }
+//         addNumToIcon(productsInLocc,iconId);
+//       addNumToIcon(productsInLoc,iconId);
+
+//   }
+  // localStorage.clear();
+async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc){
+  await fetchProducts(testFetch);
+  let quantity;
+  let proAndQuantityIt;
+  if(isDetails==true){
+  if(id('quantityDetails').value>0){
+    quantity=id('quantityDetails').value;
+     proAndQuantityIt={
+     productId:productId,
+     quantityPro:quantity||1
+   };
+   console.log(quantity);
+ }
+ else{
+  id('quantityDetails').value=1;
+  quantity=id('quantityDetails').value;
+
+     proAndQuantityIt={
+      productId:productId,
+      quantityPro:quantity||1
+    };}
+  }
+  else{
+    proAndQuantityIt={
       productId:productId,
       quantityPro:1
     };
+  }
           let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
       let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
+      console.log(getProductFromLocal);
               getProductFromLocal.push((filterProducts[0]));
+              console.log(getProductFromLocal);
+
         let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
           window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
           objectQuantity.push(proAndQuantityIt);
@@ -1423,16 +1801,162 @@ if(isDetails==true){
             addClassActiveOnIconCart(productsInLoc,iconName,testFetch);
             if(isDetails==true){
               preventAddToCart(productsInLoc);
+              preventAddToCart(productsInLocc);
+
             }
+            addNumToIcon(productsInLoc,productsInLocc,iconId);
+            // addNumToIcon(productsInLoc,iconId);
+    }
+// localStorage.clear();
+ async function iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt,isCart){
+  // async function iconIsBookOrNot(element,filterProducts,testFetch){
+// let productsInLocal1=JSON.parse(window.localStorage.getItem(productsInLocc))||[];
+// let productsInLocal2=JSON.parse(window.localStorage.getItem(productsInLoc))||[];
+
+  let urlCos=element.closest('a');
+  console.log(urlCos);
+  let searchUrl=new URLSearchParams(urlCos.search);
+  let productUrl=searchUrl.get('url');
+  console.log(productUrl);
+  if(filterProducts.length==0||filterProducts[0]==undefined){
+console.log('filter unde');
+  
+  if(productUrl=='books'){
+    console.log('unde books');
+    urlBooks='another';
+
+    await fetchProducts(true);
+    console.log(datas);
+    console.log(filterProducts);
+    filterProducts =datas.filter((product) => {
+      categoryMatch=product['id']==productId;
+    return  categoryMatch;
+})
+console.log(filterProducts,filterProducts[0]);
+    testing=true;
+    testFetch=true;
+    // productIsInLocal (productsInLoc,prodAndQuantityItt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
+
+
+    getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+    
+    element.classList.add('addedIt');
+
+return;
+  }
+  if(productUrl=='notBooks'){
+    console.log(productUrl);
+    urlBooks='alll';
+
+    await fetchProducts();
+    console.log(datas);
+    testing=false;
+    testFetch=false;
+    filterProducts =datas.filter((product) => {
+      categoryMatch=product['id']==productId;
+    return  categoryMatch;
+})
+console.log(filterProducts,filterProducts[0]);
+ if(filterProducts[0].stock>0){
+  element.classList.add('addedIt');
+
+  console.log(filterProducts[0].stock);
+  // productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
+
+
+    getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+return;
+}
+  }}
+  if(filterProducts.length>0){
+    console.log('filter > 0');
+
+    if(productUrl=='books'){
+      urlBooks='another';
+
+      await fetchProducts(true);
+    testing=true;
+    testFetch=true;
+    // productIsInLocal (productsInLoc,prodAndQuantityItt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
+
+
+    getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+  
+    element.classList.add('addedIt');
+
+    }
+    if(productUrl=='notBooks'){
+      urlBooks='alll';
+
+      await fetchProducts(false);
+      testing=false;
+      testFetch=false;
+      if(filterProducts[0].stock>0){
+        element.classList.add('addedIt');
+
+        console.log(filterProducts[0].stock);
+      //  productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
+
+
+      getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+    
+      }
+
+    }
+  }
+  // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+
+  console.log(datas,testing);
+  if(isCart){
+  //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
+  //   elementAdd.innerHTML='added it to cart';
+  //   elementAdd.style.opacity='.4';
+  //   elementAdd.style.pointerEvents='none';
+  //   elementAdd.style.color='gray';
+  }
+  // addNumToIcon(productsInLocc,iconId);
+  // addNumToIcon(productsInLoc,iconId);
+  // return testing;
+    }
+    // function productIsInLocal(productId,productsInLocc,productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,filterProducts,iconId){
+      function  productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc){
+      let productsInLocal1;
+      let productsInLocal2;
+      if(window.localStorage.getItem(productsInLoc)){
+
+      productsInLocal1=JSON.parse(window.localStorage.getItem(productsInLoc))||[];
+  productsFilterInLocBoo=productsInLocal1.filter(element=>{
+let matchProduct=element.id==productId;
+return matchProduct
+      })}
+      if(window.localStorage.getItem(productsInLocc)){
+       productsInLocal2=JSON.parse(window.localStorage.getItem(productsInLocc))||[];
+
+     productsFilterInLocNotBoo=productsInLocal2.filter(element=>{
+        let matchProduct=element.id==productId;
+        return matchProduct
+              })}
+              if(productsFilterInLocBoo.length==0&&productsFilterInLocNotBoo.length==0){
+                  // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+   getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
+
+
+              }
     }
   
-export function addNumToIcon(productsInLoc,iconId){
+export function addNumToIcon(productsInLoc,productsInLocc,iconId){
+  totalDrod=0;
    if(window.localStorage.getItem(productsInLoc)){
     quantNotBoo=JSON.parse(window.localStorage.getItem(productsInLoc)).length;
    }
-  totalDrod+=quantNotBoo;
+   if(window.localStorage.getItem(productsInLocc)){
+    quantBoo=JSON.parse(window.localStorage.getItem(productsInLocc)).length;
+   }
+  // totalDrod+=quantNotBoo;
+  totalDrod=quantNotBoo + quantBoo;
 id(iconId).innerHTML=totalDrod;
 id(iconId).style.color='rgb(255, 214, 139)';
+console.log(totalDrod,quantNotBoo);
 }
 
 //end add product to cart by icon cart
@@ -1669,7 +2193,7 @@ id(iconId).style.color='rgb(255, 214, 139)';
   }
 } 
 // add class active on icon cart or favorite cart
- export async function addClassActiveOnIconCart(productsInLoc,iconName,test){
+ export async function addClassActiveOnIconCart(productsInLoc,iconName,test,isCart){
   await fetchProducts(test);
   let allIcons=document.querySelectorAll(`.cartFavorite .${iconName}`);
 
@@ -1683,8 +2207,16 @@ let nameWithNum=classLists.filter(className=>{
 
   return match;
 })
+
       if(nameWithNum==(`${iconName}{${product.id}}`)){
     icon.classList.add('addedIt');
+    if(isCart){
+      let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container .aCardLess  .buy.add${product.id}`);
+      elementAdd.innerHTML='added it to cart';
+      elementAdd.style.opacity='.4';
+      elementAdd.style.pointerEvents='none';
+      elementAdd.style.color='gray';
+    }
   }  
   })
 })
@@ -1716,12 +2248,12 @@ export  async function addClassNoexistOnIcon(iconName,test){
   })
 }
 
-export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName,container){
+export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName,test,isCart){
   if(window.localStorage.getItem('user')){
     let user=JSON.parse(window.localStorage.getItem('user'));
-    addClassActiveOnIconCart(`${cartUser}${user.id}`,iconName);
+    addClassActiveOnIconCart(`${cartUser}${user.id}`,iconName,test,isCart);
   }
   else{
-    addClassActiveOnIconCart(cartGlobal,iconName);
+    addClassActiveOnIconCart(cartGlobal,iconName,test,isCart);
   }
   }
