@@ -609,16 +609,16 @@ export function limitWidthScrollBarWhenScrolling(
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
-<<<<<<< HEAD
+
     // url =
     // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
     url="../js/books.json";
     // urlLink='books';
-=======
-    url =
-    "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+
+    // url =
+    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
     // url="../js/books.json"
->>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
+// >>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
   }
   else{
     url = "https://dummyjson.com/products?limit=0";
@@ -662,17 +662,16 @@ export function organizeObject(data,i,test) {
   }}
 else{
   urlBooks='another';
-<<<<<<< HEAD
+// <<<<<<< HEAD
   datas=datass;
 //  let datasss = datass.items;
-datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+// datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // console.log(datas);
 
-=======
   // datas=datass;
-  datas = datass.items;
-datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
->>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
+  // datas = datass.items;
+datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+// >>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
       title = data[i].volumeInfo.title;
