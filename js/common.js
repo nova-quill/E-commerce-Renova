@@ -1279,15 +1279,18 @@ let isDrag=false;
     const movex=info.touches[0].clientX - startPointx;
     const movey=info.touches[0].clientY - starty;
     if(Math.abs(movex)>Math.abs(movey)){
+      container.style.overflowX='auto';
       isDrag=true;
   // const   moveDistance=(movex-startPointx)*3;
                 // container.scrollLeft=movex;
     }
     if(Math.abs(movex)<Math.abs(movey)){
+      container.style.overflowX='hidden';
+
       isDrag=false;
     }
 if(!isDrag){
-  info.preventDefault();
+  info.stopPropagation();
 }
     // if(!isDrag)return;
     // info.preventDefault();
