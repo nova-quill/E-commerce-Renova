@@ -605,7 +605,7 @@
 #container section#home .container-bestSeller .box-products {
     padding: var(--padding-secondary);
     background-color: whitesmoke;
-    touch-action:none;
+    touch-action:pan-x;
     overflow-y: hidden;
     overflow-x: auto;
     scrollbar-width: none;

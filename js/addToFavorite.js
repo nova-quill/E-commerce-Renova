@@ -36,9 +36,9 @@ createHrefForElementsFooter(allLinksSideBar);
   
     existUserOrNotInfav('favorite','countFavorites',true);
     existUserOrNotInfavvv('favorite','countFavorites',true);
-    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
+    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
 
-    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
+    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
 
 
     existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
@@ -60,6 +60,7 @@ createHrefForElementsFooter(allLinksSideBar);
       element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
           // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
           // preventElementInFav( productsInLoc,test);
+          
         })
       
         })
@@ -118,13 +119,24 @@ let productId=searchUrl.get('productId');
   let containerRemAndBuy=document.createElement('div');
   containerRemAndBuy.className='containerRemAndBuy  flex-just-between';
   createDiv(1,'span',`buy #${container} add{${productId}} add${productId} remBuy`,'','','add to cart',containerRemAndBuy);
-  createDiv(1,'span',`clear remBuy clear{${productId}}`,'','','remove',containerRemAndBuy);
+  createDiv(1,'span',`clear remBuy clear{${productId}} .clear${productId}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
 if(isCart){
   // preventElementInFav(productsInLocCart,test);
 }
-  elementAdd.addEventListener('click',(info)=>{
+let elementRemove= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .clear.clear${productId}`);
+console.log(elementRemove);
+elementRemove.addEventListener('click',(info)=>{
+removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+
+  })
+
+    elementAdd.addEventListener('click',(info)=>{
+
+    existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
+
+
     // existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
     // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
@@ -133,7 +145,11 @@ if(isCart){
     // preventElementInFav( productsInLocCart,test);
   })
 
-element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
+element.querySelector('.cartFavorite .cart').addEventListener('click',(event)=>{
+  event.preventDefault();
+
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
+
     // preventElementInFav( productsInLocCart,test);
     // preventElementInFav( productsInLoc,test);
     // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
@@ -144,7 +160,6 @@ element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
   // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
 
 })
-existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','',true,true);
 
 detailsProduct.forEach((element,index)=>{
   let urlCos=element.closest('a');
@@ -177,7 +192,7 @@ let productId=searchUrl.get('productId');
   element.appendChild(containerQuantity);
 
 })
-removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+// removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
 getProductFromLocal.forEach(item=>{
   let matchPrice;
   let discountPercentage;
@@ -238,6 +253,8 @@ if(totalProd>0){
   id('containerPriceCart').style.display='block';
 
 }
+existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
 
 }
 function removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){

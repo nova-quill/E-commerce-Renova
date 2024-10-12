@@ -610,9 +610,9 @@ export function limitWidthScrollBarWhenScrolling(
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
 
-    url =
-    "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-    // url="../js/books.json";
+    // url =
+    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+    url="../js/books.json";
     // urlLink='books';
 
     // url =
@@ -663,14 +663,14 @@ export function organizeObject(data,i,test) {
 else{
   urlBooks='another';
 
-  // datas=datass;
- let datasss = datass.items;
+  datas=datass;
+//  let datasss = datass.items;
 // datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // console.log(datas);
 
   // datas=datass;
   // datas = datass.items;
-datas=datasss.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // >>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
@@ -1237,21 +1237,60 @@ export function createHrefForElementsFooter(elements){
   }
 // end show products in page
 // start drag products
- export function dragByTouch(container) {
-  let startPoint;
+//  export function dragByTouch(container) {
+//   let startPoint;
+//   let scrollLeft;
+// let isDrag=false;
+//   container.addEventListener("touchstart", (info) => {
+//     isDrag=true;
+//     startPoint = info.touches[0].pageX;
+//     scrollLeft=container.scrollLeft;
+//   });
+//   container.addEventListener("touchmove", (info) => {
+//     if(!isDrag)return;
+//     info.preventDefault();
+//     const x=info.touches[0].pageX;
+//     const moveDistance=(x-startPoint)*3;
+//           container.scrollLeft=scrollLeft-moveDistance;
+//   });
+//   container.addEventListener("touchend", (info) => {
+// isDrag=false;
+//   });
+// }
+
+
+
+
+
+export function dragByTouch(container) {
+  let startPointx=0;
+  let starty=0;
   let scrollLeft;
 let isDrag=false;
   container.addEventListener("touchstart", (info) => {
-    isDrag=true;
-    startPoint = info.touches[0].pageX;
-    scrollLeft=container.scrollLeft;
+   
+    startPointx = info.touches[0].clientX;
+    starty = info.touches[0].clientY;
+    isDrag=false;
+    // scrollLeft=container.scrollLeft;
   });
   container.addEventListener("touchmove", (info) => {
-    if(!isDrag)return;
-    info.preventDefault();
-    const x=info.touches[0].pageX;
-    const moveDistance=(x-startPoint)*3;
-          container.scrollLeft=scrollLeft-moveDistance;
+    const movex=info.touches[0].clientX - startPointx;
+    const movey=info.touches[0].clientY - starty;
+    if(Math.abs(movex)>Math.abs(movey)){
+      isDrag=true;
+    }
+    else{
+      isDrag=false;
+    }
+if(!isDrag){
+  info.preventDefault();
+}
+    // if(!isDrag)return;
+    // info.preventDefault();
+    // const x=info.touches[0].pageX;
+    // const moveDistance=(x-startPoint)*3;
+    //       container.scrollLeft=scrollLeft-moveDistance;
   });
   container.addEventListener("touchend", (info) => {
 isDrag=false;
