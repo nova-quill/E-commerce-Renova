@@ -909,6 +909,8 @@ header .second-nav ul {
     padding: 0 1rem;
     margin: 0 auto;
     overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 header .second-nav ul li {

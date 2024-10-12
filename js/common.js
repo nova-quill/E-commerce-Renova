@@ -1266,6 +1266,7 @@ export function dragByTouch(container) {
   let startPointx=0;
   let starty=0;
   let scrollLeft;
+  // const moveDistance=0;
 let isDrag=false;
   container.addEventListener("touchstart", (info) => {
    
@@ -1279,8 +1280,10 @@ let isDrag=false;
     const movey=info.touches[0].clientY - starty;
     if(Math.abs(movex)>Math.abs(movey)){
       isDrag=true;
+  // const   moveDistance=(movex-startPointx)*3;
+                // container.scrollLeft=movex;
     }
-    else{
+    if(Math.abs(movex)<Math.abs(movey)){
       isDrag=false;
     }
 if(!isDrag){
