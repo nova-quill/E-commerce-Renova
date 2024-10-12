@@ -605,9 +605,10 @@
 #container section#home .container-bestSeller .box-products {
     padding: var(--padding-secondary);
     background-color: whitesmoke;
-    touch-action:pan-x;
+    /* touch-action:pan-x;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: auto; */
+    overflow: hidden;
     scrollbar-width: none;
     -ms-overflow-style:none;
     /* display: flex; */

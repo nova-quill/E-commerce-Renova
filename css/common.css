@@ -1070,8 +1070,12 @@ header #container-location #map div div.gm-style div div a {
     min-height: var(--minheight-container-products);
     min-width: var(--minwidth-container-products);
     overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style:none;
 }
-
+#container  .container-bestSeller .box-products::-webkit-scrollbar {
+    display: none;
+}
 
 .cardLessThan {
     max-width: var(--maxwidth-cardlessthan);
