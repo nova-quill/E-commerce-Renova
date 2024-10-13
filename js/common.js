@@ -613,7 +613,7 @@ export async function fetchProducts(chooseUrl,i) {
     // url =
     // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
     url="../js/books.json";
-    // urlLink='books';
+    urlLink='books';
 
     // url =
     // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
@@ -622,11 +622,11 @@ export async function fetchProducts(chooseUrl,i) {
   }
   else{
     url = "https://dummyjson.com/products?limit=0";
-      // urlLink='notBooks';
+      urlLink='notBooks';
   }
   let response = await fetch(url, i);
   // console.log(response.status);
-  if(response.status==200){
+  // if(response.status==200){
   datass = await response.json();
   organizeObject(datas, i);
   if (Object.keys(datass).includes("products")) {
@@ -636,13 +636,13 @@ export async function fetchProducts(chooseUrl,i) {
 if (Object.keys(datass).includes("items")||chooseUrl==true|| url=="../js/books.json"||    url == "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
 ) {
   urlLink='books';
-}
-else{
-}
-}
-else{
-  console.log('failed');
-  // window.location.reload();
+// }
+// else{
+// }
+// }
+// else{
+//   console.log('failed');
+//   // window.location.reload();
 }
 
 }
@@ -650,6 +650,7 @@ else{
 export function organizeObject(data,i,test) {
   if (Object.keys(datass).includes("products")) {
     urlBooks='alll';
+    urlLink='notBooks';
     datas = datass.products;
     if (test == true) {
         thumbnail = data[i].thumbnail;
@@ -662,15 +663,16 @@ export function organizeObject(data,i,test) {
   }}
 else{
   urlBooks='another';
+  urlLink='books';
 
   datas=datass;
 //  let datasss = datass.items;
-// datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+// datas=datasss.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // console.log(datas);
 
   // datas=datass;
   // datas = datass.items;
-datas=datass.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
+datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // >>>>>>> 992b304226d121996569b94cee6abbf6fb8a441a
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
@@ -1074,7 +1076,7 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 }
 
-
+// localStorage.clear();
 // export async function filterProductsAndShowIt(
 //   func,
 //   container,
@@ -1423,7 +1425,7 @@ if(filterProducts.length==0||filterProducts[0]==undefined){
       if(productUrl=='books'){
         urlBooks='another';
   
-        await fetchProducts(true);
+        // await fetchProducts(true);
       testing=true;
       testFetch=true;
       // element.classList.add('addedIt');
@@ -1434,7 +1436,7 @@ if(filterProducts.length==0||filterProducts[0]==undefined){
       if(productUrl=='notBooks'){
         urlBooks='alll';
   
-        await fetchProducts(false);
+        // await fetchProducts(false);
         testing=false;
         testFetch=false;
         if(filterProducts[0].stock>0){
@@ -1520,7 +1522,7 @@ if(filterProducts.length==0||filterProducts[0]==undefined){
 
 
 
-
+// localStorage.clear();
 
 
 // async function addProductToCart(container,productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
@@ -1849,6 +1851,10 @@ async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFe
 
         let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
           window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
+          console.log(getProductFromLocal);
+          console.log(getUniqeProductFromLocal);
+          console.log(productsInLoc);
+
           objectQuantity.push(proAndQuantityIt);
           let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
           window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
@@ -1930,7 +1936,7 @@ return;
     if(productUrl=='books'){
       urlBooks='another';
 
-      await fetchProducts(true);
+      // await fetchProducts(true);
     testing=true;
     testFetch=true;
     // productIsInLocal (productsInLoc,prodAndQuantityItt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
@@ -1944,7 +1950,7 @@ return;
     if(productUrl=='notBooks'){
       urlBooks='alll';
 
-      await fetchProducts(false);
+      // await fetchProducts(false);
       testing=false;
       testFetch=false;
       if(filterProducts[0].stock>0){

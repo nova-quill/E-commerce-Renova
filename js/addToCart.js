@@ -32,10 +32,8 @@ createHrefForElementsFooter(allLinksSideBar);
 
     dragByTouch(secondHeader);
     // start shows product in cart
-    // existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites','','',true);
     existUserOrNotInfav('cart','countPurshes',true);
     existUserOrNotInfavvv('cart','countPurshes',true);
-    existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
 
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
@@ -51,14 +49,14 @@ existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
       if(window.localStorage.getItem(`cartUser${user.id}`)){
       filterProductsInCart(id,'productsInCart',`cartUser${user.id}`,`proAndQuantityIt${user.id}`,iconName,iconId,isCart,'cartUser');
       }
-      let acardIcon=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #productsInCart .aCardLess .cartFavorite .favorite`);
-      acardIcon.forEach(element=>{
-      element.querySelector('.cartFavorite .favorite').addEventListener('click',()=>{
+      // let acardIcon=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #productsInCart .aCardLess .cartFavorite .favorite`);
+      // acardIcon.forEach(element=>{
+      // element.querySelector('.cartFavorite .favorite').addEventListener('click',()=>{
   // existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
           // preventElementInFav( productsInLoc,test);
-        })
-      
-        })
+        // })
+      // 
+        // })
     }
     else{
       if(window.localStorage.getItem('productCart')==null){
@@ -84,10 +82,10 @@ existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
     }
   // }
 // filter products in cart
-let testt;
+// let testt;
  export async function filterProductsInCart(func,container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart,productsInLocCart,test){
   await fetchProducts(test);
-  console.log(testt);
+  // console.log(testt);
   let totalPrices=0;
   let totalDiscounts=0;
 if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
@@ -116,25 +114,34 @@ let productId=searchUrl.get('productId');
   createDiv(1,'span',`buy #${container} add{${productId}} add${productId} remBuy`,'','','continue purchasing',containerRemAndBuy);
   createDiv(1,'span',`clear remBuy clear{${productId}}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
-  let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
-if(isCart){
+  // let elementAdd= element.querySelector(`.buy`);
+  let clear=element.querySelector(`.clear`);
+  element.addEventListener('click',(event)=>{
+    event.preventDefault();
+  })
+// if(isCart){
   // preventElementInFav(productsInLocCart,test);
-}
-  elementAdd.addEventListener('click',(info)=>{
+// }
+clear.addEventListener('click',(info)=>{
+  removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+    })
+  // elementAdd.addEventListener('click',(info)=>{
+    // element.querySelector('.cart').click();
+
     // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
     // existUserOrNots(container,'favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favorite','countFavorites',true,productId,test);
     // preventElementInFav( productsInLocCart,test);
-  })
+  // })
 
-element.querySelector('.cartFavorite .favorite').addEventListener('click',()=>{
+// element.querySelector('.cartFavorite .favorite').addEventListener('click',()=>{
     // preventElementInFav( productsInLocCart,test);
     // preventElementInFav( productsInLoc,test);
-    // existUserOrNotForIconCart('favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favoriteBooUser','proAndQuantityInFavoriteUserBoo','favoriteBooCart','proAndQuantityInFavoriteBoo','favorite','countFavorites');
-  })
-  element.addEventListener('click',(event)=>{
-    event.preventDefault();
-  })
+    existUserOrNotForIconCart('favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favoriteBooUser','proAndQuantityInFavoriteUserBoo','favoriteBooCart','proAndQuantityInFavoriteBoo','favorite','countFavorites');
+  // })
+  // element.addEventListener('click',(event)=>{
+    // event.preventDefault();
+  // })
 })
 detailsProduct.forEach((element,index)=>{
   let urlCos=element.closest('a');
@@ -165,7 +172,7 @@ detailsProduct.forEach((element,index)=>{
   containerQuantity.appendChild(amount);
   element.appendChild(containerQuantity);
 })
-removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+// removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
 getProductFromLocal.forEach(item=>{
   let matchPrice;
   let discountPercentage;
@@ -226,21 +233,24 @@ if(totalProd>0){
   id('containerPriceCart').style.display='block';
 
 }
+existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
+
 }
-function removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
-  let allButtonsRemove=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .cardLessThan div.containerRemAndBuy .clear`);
+function removeProductFromCart(elementBu,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
+  // let allButtonsRemove=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .cardLessThan div.containerRemAndBuy .clear`);
   let productIdBu;
   let getProductFromLocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   console.log(getProductFromLocal); 
   let objectQuan=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
   console.log(objectQuan);
-  allButtonsRemove.forEach(elementBu=>{
-    elementBu.addEventListener('click',(event)=>{
+  // allButtonsRemove.forEach(elementBu=>{
+    // elementBu.addEventListener('click',(event)=>{
       totalProd=0;
       totalQuan=0;
       allPrices=0;
       allDiscounts=0;
- let  getProductFromLocall=getProductFromLocal.filter((product,ind)=>{
+ let  getProductFromLocalll=getProductFromLocal.filter((product,ind)=>{
   let classN=Array.from(elementBu.classList);
     let arry=classN.filter(className=>{
       let match=/{([^]*)}/g.test(className);
@@ -251,7 +261,7 @@ function removeProductFromCart(container,productsInLoc,proAndQuantityIt,iconName
 let match=product.id!=productIdBu;
 return match;
 })
-window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocall) );
+window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocalll) );
 let objectQuann=objectQuan.filter(element=>{
   let matchPro;
      matchPro=element.productId!=productIdBu;
@@ -262,10 +272,10 @@ window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse(
 id('productsInCart').innerHTML='';
 existUserOrNotInfav(iconName,iconId,isCart);
 existUserOrNotInfavvv(iconName,iconId,isCart);
-existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
-    })
-  })
+// existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+// existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
+    // })
+  // })
 }
 function updateQuantityWhenInput(inputs,proAndQuantityIt,container){
   if(window.localStorage.getItem((proAndQuantityIt))){

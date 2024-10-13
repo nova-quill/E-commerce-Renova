@@ -59,9 +59,9 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   dragByTouch(containerProductsDrag);
   
   // start get product by icon cart
-  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
+  // existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
 
-  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
+  // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
 
 existUserOrNotForAddClassAtive('cartUser','productCart','cart');
 existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
@@ -343,6 +343,13 @@ async function filterProductsRelated(func,container,test){
   displayProducts(filterProducts, func, container,test);
   limitWidthScrollBarWhenLoaded(containerProducts,buttons);
   largesImagesOfProduct(id);
+  existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
+
+  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
+  existUserOrNotForAddClassAtive('cartUser','productCart','cart');
+existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
+existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
+existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 if(categoryMatch==false){
 }
 }
