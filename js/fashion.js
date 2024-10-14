@@ -67,9 +67,9 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
 // console.log('booksssssssssssssssssssssss');
-
+console.log(window.location.pathname);
   // start show products for every page in header and filter products from dashboard
-    if(window.location.pathname=='/html/books.html'){
+    if(window.location.pathname=='/html/books'||window.location.pathname=='/'){
       console.log('booksssssssssssssssssssssss');
     console.log(document.getElementById('linkBooks'));
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);
