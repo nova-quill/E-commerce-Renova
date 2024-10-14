@@ -68,7 +68,7 @@ createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
 
   // start show products for every page in header and filter products from dashboard
-    if( window.location.href=='http://127.0.0.1:5500/html/books.html'){
+    if( window.location.href=='http://127.0.0.1:5500/html/books.html'|| window.location.pathname=='http://127.0.0.1:5500/html/books.html'){
 
     console.log(document.getElementById('linkBooks'));
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);
