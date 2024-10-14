@@ -480,7 +480,7 @@ async function flashSale(test){
   await fetchProducts(false);
     hundelUniqeVariablesById("flashSale", "flashSaleProducts");
     flashSaleProducts(containerProductsss,test);
-    downCounter(24 * 60 * 60, containerProductsss);
+    downCounter(24 * 60 * 60, containerProductsss,test);
     groupesFunctionsForScrolllByLeft();
   }
 // testing stored products or not and display
@@ -516,7 +516,7 @@ let  randomProductss= randomProducts(14);
    }
    
   // testing update products or not
-function downCounter(duration, containerProduct) {
+function downCounter(duration, containerProduct,test) {
   let endTime =
     localStorage.getItem("downEndTime") || Date.now() + duration * 1000;
   setInterval(() => {

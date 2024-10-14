@@ -66,10 +66,11 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 // footer functions create url
 createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
+// console.log('booksssssssssssssssssssssss');
 
   // start show products for every page in header and filter products from dashboard
-    if( window.location.href=='http://127.0.0.1:5500/html/books.html'|| window.location.pathname=='html/books.html'){
-
+    if(window.location.pathname=='/html/books.html'){
+      console.log('booksssssssssssssssssssssss');
     console.log(document.getElementById('linkBooks'));
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);
     filterAllProductsByDashboard(id,allCategory,allCategoryTags,allDiscount,
@@ -90,6 +91,8 @@ createHrefForElementsFooter(allLinksSideBar);
         //end reset dashboard
     }
   else{
+    console.log('notbooksssssssssssssssssssssss');
+
     filterProdutsForEveryPage(allCategoryForEveryPage,id);
     filterAllProductsByDashboard(id,allCategory,allCategoryTags,allDiscount,
       allAvalibal,allReviews,freeShipping,
