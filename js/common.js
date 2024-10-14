@@ -3,7 +3,7 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
 
-// console.log(book);
+console.log(book);
 let cardLessThan;
 let containerImage;
 let detailsProduct;
@@ -665,7 +665,9 @@ else{
   urlBooks='another';
   urlLink='books';
 
-  datas=datass;
+  // datas=datass;
+  datas=book.items;
+
 //  let datasss = datass.items;
 // datas=datasss.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
 // console.log(datas);
