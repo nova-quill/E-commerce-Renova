@@ -92,6 +92,16 @@ createHrefForElementsFooter(allLinksSideBar);
 // let testt;
  export async function filterProductsInCart(func,container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart,productsInLocCart,test){
   await fetchProducts(test);
+  if(container=='productsInCartBoo'){
+    test==true;
+    await fetchProducts(test);
+
+  }
+  else{
+    test==false;
+    await fetchProducts(test);
+
+  }
   // console.log(testt);
   let totalPrices=0;
   let totalDiscounts=0;
@@ -124,7 +134,6 @@ let productId=searchUrl.get('productId');
   createDiv(1,'span',`buy #${container} add{${productId}} add${productId} remBuy`,'','','add to cart',containerRemAndBuy);
   createDiv(1,'span',`clear remBuy clear{${productId}} .clear${productId}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
-
   let elementAdd= element.querySelector(`.buy`);
   console.log(elementAdd);
 
@@ -136,14 +145,13 @@ element.addEventListener('click',(event)=>{
   event.preventDefault();
 })
 clear.addEventListener('click',(info)=>{
-removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+// removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
   })
     elementAdd.addEventListener('click',(info)=>{
 element.querySelector('.cart').click();
 console.log(element.querySelector('.cart'));
   })
 
-  existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
  
 })
 
@@ -237,17 +245,25 @@ if(totalProd>0){
   id('containerPriceCart').style.display='block';
 
 }
+let elementsRemove=document.querySelectorAll(`#${container} .cardLessThan .clear`);
+console.log(elementsRemove);
+removeProductFromCart(container,elementsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+
+existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
 
 existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
 existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
 
 }
-  function removeProductFromCart(elementBu,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
+  function removeProductFromCart(container,elementsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
   let productIdBu;
   let getProductFromLocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   console.log(getProductFromLocal); 
   let objectQuan=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
   console.log(objectQuan);
+  // console.log(elementBu);
+  elementsRemove.forEach(elementBu=>{
+    elementBu.addEventListener('click',(info)=>{
       totalProd=0;
       totalQuan=0;
       allPrices=0;
@@ -280,8 +296,27 @@ return matchPro;
 })
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
 console.log(objectQuann);
-existUserOrNotInfav(iconName,iconId,isCart);
-existUserOrNotInfavvv(iconName,iconId,isCart);
+if(container=='productsInCartBoo'){
+  existUserOrNotInfavvv(iconName,iconId,isCart);
+
+}
+else{
+  existUserOrNotInfav(iconName,iconId,isCart);
+
+}
+
+
+
+})
+})
+// if(container=='productsInCart'){
+  // existUserOrNotInfavvv(iconName,iconId,isCart);
+
+// }
+// else{
+  // existUserOrNotInfav(iconName,iconId,isCart);
+
+// }
 }
 
 function updateQuantityWhenInput(inputs,proAndQuantityIt,container){
