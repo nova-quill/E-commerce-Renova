@@ -3,7 +3,6 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
 
-console.log(book);
 let cardLessThan;
 let containerImage;
 let detailsProduct;
@@ -106,12 +105,7 @@ export function addClassActive(lis, className,isCart) {
   let urlWin = window.location.href;
   lis.forEach((activeLink) => {
     if (activeLink.href === urlWin) {
-      if(isCart){
-        activeLink.classList.add(className);
-      }
-      else{
       activeLink.parentElement.classList.add(className);
-      }
     }
   });
 }
@@ -351,9 +345,7 @@ export  function groupesFunctionsForCreatesDivs(datas, i, containerProducts,test
   if (datas[i].stock < price || datas[i].rating > 4.5) {
     divFreeDelivery(detailsProduct, datas[i].stock);
   }
-  // divCartRating(detailsProduct, datas[i].rating);
   divCartRating(detailsProduct, productRating,test);
-console.log(productRating);
 }
  function organizeAmount(datas, i,test) {
   nowPrice = Math.round(
@@ -369,11 +361,9 @@ console.log(productRating);
     if(window.location.pathname==('/index.html')||(window.location.pathname=='/')) {
 
   cardLessThan.href=`html/detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
-  console.log(urlLink);
   }
   else{
     cardLessThan.href=`detailsProduct.html?productId=${productId}&productCategory=${productCategory}&url=${urlLink}`;
-    console.log(urlLink);
   }
   createParentDiv("aCardLess", cardLessThan);
   containerImage = document.createElement("div");
@@ -610,15 +600,14 @@ export function limitWidthScrollBarWhenScrolling(
     scroll.style.left = limitDistanceLeft + "px";
   }
 }
-// localStorage.clear();
 //end  limit Width Scroll Bar When Scrolling
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
 
-    url =
-    "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-    // url="../js/books.json";
+    // url =
+    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
+    url="../js/books.json";
     urlLink='books';
   }
   else{
@@ -646,7 +635,7 @@ export function organizeObject(data,i,test) {
     if (test == true) {
         thumbnail = data[i].thumbnail;
         title = data[i].title;
-        priceProduct = data[i].price;
+        priceProduct = data[i].price||'';
         discountPercentagee = data[i].discountPercentage;
         productId= data[i].id;
         productCategory=data[i].category;
@@ -657,27 +646,27 @@ export function organizeObject(data,i,test) {
 else{
   urlBooks='another';
   urlLink='books';
-
-  // datas=datass;
-  // datas=book.items;
-  datas = datass.items;
+  datas=book.items;
+  // datas = datass.items;
 datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
       title = data[i].volumeInfo.title;
-      priceProduct = data[i].saleInfo.listPrice.amount;
+      priceProduct = data[i].saleInfo.listPrice.amount||'';
       let  hundleProduct= data[i].volumeInfo.categories||'';
       let productToLowerStri=hundleProduct.toString().toLowerCase();
       discountPercentagee=productToLowerStri != "Fiction".toLowerCase()?  discountPercentagee=50:discountPercentagee=20;
-      productRating=data[i]['volumeInfo']['categories'].toString().toLowerCase() == "Fiction".toString().toLowerCase()?productRating=4.6:data[i]['volumeInfo']['categories'].toString().toLowerCase()== 'Language Arts & Disciplines'.toString().toLowerCase()?productRating=3.5:data[i]['volumeInfo']['categories'].toString().toLowerCase() == 'Literary Collections'.toString().toLowerCase()?productRating=3.1:productRating=2.5;
+      let cate=data[i]['volumeInfo']['categories']||'';
+      let cateToLow=cate.toString().toLowerCase();
+      productRating=cateToLow == "Fiction".toString().toLowerCase()?productRating=4.6:cateToLow== 'Language Arts & Disciplines'.toString().toLowerCase()?productRating=3.5:cateToLow == 'Literary Collections'.toString().toLowerCase()?productRating=3.1:productRating=2.5;
       productId= data[i].id;
       productCategory=data[i].volumeInfo.categories;
       productStock=1;
-      console.log(productCategory);
     }
 }
 return discountPercentagee;
 }
+
 // end fetchs products
 // update Price for products
 function updatePrice(product) {
@@ -704,15 +693,8 @@ export async function filterProdutsForEveryPage(elements, func,choose,isSearch) 
 
   }
   if(isSearch){
-    // if(localStorage.getItem('searchProduct')){
-          // filterProductsWithCategories=[];
-
-          // searchProduct=JSON.parse(localStorage.getItem('searchProduct'));
-    // filterProductsWithCategories=[];
-    // filterProductsWithCategories=[...searchProduct];
     filterProductsWithCategories=filterProductsWithSearch;
     return filterProductsWithCategories;
-  // }
 }
   else{
     let arrayCategories = Array.from(elements).map((element) =>
@@ -899,19 +881,6 @@ isSearch
     elementFree,
     elementsBra,test,testing,isSearch
   ) {
-    
-
-    // if(isSearch){
-    //     if(localStorage.getItem('searchProduct')){
-    //       let searchProduct=JSON.parse(localStorage.getItem('searchProduct'));
-    //       console.log(searchProduct);
-    //     console.log(filterProductsWithSearch);
-    //     filterProductsWithCategories=[];
-    //     filterProductsWithCategories=searchProduct;
-    //     console.log(filterProductsWithCategories);
-      
-    //   }
-    // }
 
     if(!test){
       shaffelArray(filterProductsWithCategories);
@@ -920,10 +889,7 @@ isSearch
     bestSelling = value2;
     newArrivals = value3;
     hundleSortBy(func, element, container);
-    console.log(filterProductsWithCategories);
-
     filterProductsAndShowIt(func, container, elementsDi, elementsAvila, elementFree, elementsBra,testing,isSearch);
-    console.log(filterProductsWithCategories);
 
   }
   filterProductsBySort(
@@ -939,7 +905,6 @@ isSearch
     elementsBra,
     testing,isSearch
   );
-  // console.log(filterProductsWithCategories);
 
   filterProductsBySort(
     func,
@@ -984,43 +949,7 @@ isSearch
  
     let discountPercentageee=0;
     info.preventDefault();
-
-  //  ooo(testing,isSearch,elementLowPrice, container,elementsDi,elementsAvila,
-      // elementFree,elementsBra);
     
-    // if(testing){
-    //   console.log(filterProductsWithCategories);
-
-    //   filterProductsWithCategories.forEach((product) => {
-    //     if(product['volumeInfo']['categories'].toString().toLocaleLowerCase() != "Fiction".toLowerCase()){
-    //       discountPercentageee=50;
-    
-    //     }
-    //     else{
-    //       discountPercentageee=20;
-    //     }
-    //    })
-    // }
-    // else{
-      // console.log(filterProductsWithCategories);
-      // if(isSearch){
-      //   if(localStorage.getItem('searchProduct')){
-      //      searchProduct=JSON.parse(localStorage.getItem('searchProduct'));
-      //     console.log(searchProduct);
-      //   console.log(filterProductsWithSearch);
-      //   filterProductsWithCategories=[];
-      //   filterProductsWithCategories=searchProduct;
-      //   console.log(filterProductsWithCategories);
-
-      //   console.log(searchProduct);
-      //   filterProducts.sort(
-      //     (a, b) =>
-      //       a.price -
-      //       a.price * (a.discountPercentage / 100) -
-      //       (b.price - b.price * (b.discountPercentage / 100))
-    //      );
-    //   }
-    // }
     if(!isSearch){
     filterProductsWithCategories.sort(
       (a, b) =>
@@ -1028,10 +957,6 @@ isSearch
         a.price * (a.discountPercentage / 100) -
         (b.price - b.price * (b.discountPercentage / 100))
      );
-     console.log(filterProductsWithCategories);
-     console.log(searchProduct);
-
-  // }
     functionInnerfilterProductsBySort(func,
       elementLowPrice,
          "all",
@@ -1065,72 +990,6 @@ isSearch
  
 }
 
-async function ooo(testing,isSearch,elementLowPrice, container,elementsDi,elementsAvila,
-elementFree,elementsBra){
-  await fetchProducts(testing);
-  let discountPercentageee=0;
-  // info.preventDefault();
-  if(testing){
-    console.log(filterProductsWithCategories);
-
-    filterProductsWithCategories.forEach((product) => {
-      if(product['volumeInfo']['categories'].toString().toLocaleLowerCase() != "Fiction".toLowerCase()){
-        discountPercentageee=50;
-  
-      }
-      else{
-        discountPercentageee=20;
-      }
-     })
-  }
-  else{
-    console.log(filterProductsWithCategories);
-    if(isSearch){
-      if(localStorage.getItem('searchProduct')){
-        //  searchProduct=JSON.parse(localStorage.getItem('searchProduct'));
-        console.log(searchProduct);
-      console.log(filterProductsWithSearch);
-      // filterProductsWithCategories=[];
-      // filterProductsWithCategories=searchProduct;
-      console.log(filterProductsWithCategories);
-
-      console.log(searchProduct);
-      filterProductsWithSearch.sort(
-        (a, b) =>
-          a.price -
-          a.price * (a.discountPercentage / 100) -
-          (b.price - b.price * (b.discountPercentage / 100))
-       );
-    }
-  }
- else{ filterProductsWithCategories.sort(
-    (a, b) =>
-      a.price -
-      a.price * (a.discountPercentage / 100) -
-      (b.price - b.price * (b.discountPercentage / 100))
-   );
-  }
-   console.log(filterProductsWithCategories);
-   console.log(searchProduct);
-
-}
-
-// isSearch=true;
-  // functionInnerfilterProductsBySort(func,
-  //   elementLowPrice,
-  //      "all",
-  //      "all",
-  //      "all",
-  //      container,
-  //      elementsDi,
-  //      elementsAvila,
-  //      elementFree,
-  //      elementsBra,true,testing,isSearch);
-}
-
-
-
-
 export async function filterProductsAndShowIt(
   func,
   container,
@@ -1146,26 +1005,13 @@ export async function filterProductsAndShowIt(
     .map((element) =>
       parseInt(element.parentElement.getAttribute("data-category"))
     );
-    console.log(arrayFromDisChacked);
    arrayFromBrandChacked =
     Array.from(elementsbrand)
       .filter((element) => element.checked)
       .map((element) => element.getAttribute("value")) || [];
-      console.log(filterProductsWithCategories);
 if(isSearch){
-
-  // if(localStorage.getItem('searchProduct')){
-  //   searchProduct=JSON.parse(localStorage.getItem('searchProduct'));
-  //   console.log(searchProduct);
-  // console.log(filterProductsWithSearch);
-  // filterProductsWithCategories=[];
-  // filterProductsWithCategories=[...searchProduct];
   filterProductsWithCategories=filterProductsWithSearch;
-// 
 }
-
-
- //let //
  filterProducts =filterProductsWithCategories.filter((product,index) => {
     if(test){
      category=product['volumeInfo']['categories']||'';
@@ -1203,7 +1049,6 @@ if(isSearch){
     showProductsWithOffersBrand(brand,test);
     showProductsWithOffersPrice( pricepro,discountPercentagee);
 if(isSearch){
-  console.log(filterProducts);
   return (
     categoryMatch &&
     brandMatch &&
@@ -1221,8 +1066,6 @@ if(isSearch){
 
 }
 else{
-  console.log(filterProducts);
-
     return (
       categoryMatch &&
       discountMatch &&
@@ -1238,12 +1081,8 @@ else{
     );
   }
   });
-  console.log(filterProducts);
-
   if(isSearch){
     func('headingSearch').innerHTML=`${filterProducts.length} result search`;
-    // displayProducts(filterProductsWithCategories, func, container,test);
-
   }
   displayProducts(filterProducts, func, container,test);
   let icons=document.querySelectorAll('.cartFavorite .cart');
@@ -1257,78 +1096,6 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 }
 
-// localStorage.clear();
-// export async function filterProductsAndShowIt(
-//   func,
-//   container,
-//   elementsDi,
-//   elementsAvila,
-//   elementFree,
-//   elementsbrand,
-//   test
-// ) {
-//   await fetchProducts(test);
-//   arrayFromDisChacked = Array.from(elementsDi)
-//     .filter((element) => element.checked)
-//     .map((element) =>
-//       parseInt(element.parentElement.getAttribute("data-category"))
-//     );
-//    arrayFromBrandChacked =
-//     Array.from(elementsbrand)
-//       .filter((element) => element.checked)
-//       .map((element) => element.getAttribute("value")) || [];
-// console.log(filterProductsWithCategories);
-//   filterProducts =filterProductsWithCategories.filter((product) => {
-//     if(test){
-//      category=product['volumeInfo']['categories']||'';
-//     }
-//     else{
-//      category =product['category']||''
-//     }
-//  let   categoryToLower=category.toString().toLowerCase();
-//  console.log(categoryToLower);
-
-//  console.log(selectedCategoryy);
-//  showProductsWithOffersCategory();
-//       console.log(category);
-//       let categoryTagsMatch =selectedTags == 'all'||selectedCategoryyy.some(elee=>(product["tags"].includes(elee)));
-//     showProductsWithOffersDis(product.discountPercentage,category);
-//     let freeMatch = !elementFree.checked || product.rating > 4.5;
-//     let freeSortMatch = freeSort == "all" || product.rating > 4.5;
-//     let avilabiltyMatch = !elementsAvila.checked || product.stock > 0;
-//     let reviewMatch =selectedReveiw == "all" || product.rating >= selectedReveiw;
-//     let besetSellingMatch = bestSelling == "all" || product.stock < price;
-//     let newArrivalsMatch =newArrivals == "all" ||(product["rating"] >= 2.9 && product["rating"] <= 3.3);
-//      brand = product["brand"] || "";
-//     showProductsWithOffersBrand(brand);
-//     showProductsWithOffersPrice( product.price,product.discountPercentage);
-//     return (
-//       categoryMatch &&
-//       discountMatch &&
-//       avilabiltyMatch &&
-//       reviewMatch &&
-//       freeMatch &&
-//       priceMatch &&
-//       brandMatch &&
-//       freeSortMatch &&
-//       besetSellingMatch &&
-//       newArrivalsMatch&&
-//       categoryTagsMatch
-//     );
-//   });
-//   console.log(filterProducts);
-//   displayProducts(filterProducts, func, container);
-//   let icons=document.querySelectorAll('.cartFavorite .cart');
-//   let links=document.querySelectorAll('.cardLessThan');
-//   console.log(icons,links);
-// existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-// existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites');
-// existUserOrNotForAddClassAtive('cartUser','productCart','cart');
-// existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-// addClassNoexistOnIcon('cart');
-// addClassNoexistOnIcon('favorite');
-
-// }
 function showProductsWithOffersPrice(productPrice,productDis){
  priceMatch;
   const urlParams=new URLSearchParams(window.location.search);
@@ -1340,8 +1107,6 @@ function showProductsWithOffersPrice(productPrice,productDis){
   else{
     valuePrice= id('rangPrice').value;
     priceMatch =valuePrice == 0 ||productPrice - productPrice* (productDis / 100) <=valuePrice;
-   console.log(productRating);
-
   }
 }
 function showProductsWithOffersDis(productDis,productCateg){
@@ -1355,11 +1120,6 @@ function showProductsWithOffersDis(productDis,productCateg){
   else{
     discountMatch =arrayFromDisChacked.length == 0 ||productDis.toFixed(0)<=arrayFromDisChacked[arrayFromDisChacked.length - 1];
  }
-   if(productCateUrl){
-   }
-  else{
-   }
-
   }
   function showProductsWithOffersCategory(category,test){
      const urlParams=new URLSearchParams(window.location.search);
@@ -1413,25 +1173,6 @@ func(inputSearch).addEventListener('keydown',(info=>{
 
 }
 
-export async  function getWordSearchs(func,inputSearch,isHome,test){
-
-await fetchProducts(test);
-if(func(inputSearch).value){
-  if('books'==(func(inputSearch).value.toLowerCase())||'book'==(func(inputSearch).value.toLowerCase())){
-    if(isHome==true){
-      window.location='html/books.html';
-    }
-    else{
-      window.location='books.html';
-
-    }
-  return;
-  }
-  productSearch=func(inputSearch).value;
-localStorage.setItem('wordSearch',productSearch.trim());
-
-}}
-
 export async  function getWordSearch(func,inputSearch,isHome,isNotSearch,test){
   await fetchProducts(test);
   if(func(inputSearch).value){
@@ -1461,30 +1202,21 @@ export async  function getWordSearch(func,inputSearch,isHome,isNotSearch,test){
   }
 }
 
-let categoriesWithFil;
 export async  function showProductsWithSearch(func,test){
   await fetchProducts(test);
-  let htmlFiles=['fashion.html','beauty.html','books.html','phones.html','grocery.html','kitchen.html','offers.html','electronics.html','detailsProduct.html','addToCart.html','automotive.html','addToFavorite.html','furniture.html'];
-
+  
   if(localStorage.getItem('wordSearch')){
     let wordSearchInLoc=localStorage.getItem('wordSearch');
   let wordSearchInLocToLow=wordSearchInLoc.toString().toLocaleLowerCase().replace(/-/g,' ');
-  console.log(wordSearchInLoc);
   func('inputSearchPageSea').value=wordSearchInLoc;
-  console.log(wordSearchInLoc);
 if(test==true){
   filterProductsWithSearch=datas.filter(element=>{
-
    let matchProductCat=element.volumeInfo.categories.toString().toLocaleLowerCase().replace(/&/g,' ').includes(wordSearchInLocToLow);
-
 return matchProductCat;
  })
 }
 else{
-  // filterProductsWithSearch=datas.filter(element=>{
     filterProductsWithSearch=datas.filter(element=>{
-
-
     let matchProductCat=element.category.toString().toLocaleLowerCase().replace(/-/g,' ').includes(wordSearchInLocToLow);
     let elementsTags=element.tags;
     let matchProductTags=elementsTags.some(ele=>(ele.toString().toLowerCase().replace(/-/g,' '))==(wordSearchInLocToLow));
@@ -1494,16 +1226,6 @@ localStorage.setItem('searchProduct',JSON.stringify(filterProductsWithSearch));
 displayProducts(filterProductsWithSearch, func, 'containerProduts',test);
 
  if(filterProductsWithSearch.length>0){
-// id('lowPrice').addEventListener('click',()=>{
-//   filterProductsWithSearch.sort(
-//     (a, b) =>
-//       a.price -
-//       a.price * (a.discountPercentage / 100) -
-//       (b.price - b.price * (b.discountPercentage / 100))
-//    );
-//    displayProducts(filterProductsWithSearch, func, 'containerProduts',test);
-
-// })
 
   if(test==true){
     categoriesWithFil=Array.from(new Set(filterProductsWithSearch.map(obj=>obj.volumeInfo.categories.toLowerCase().replace(/-/g,' '))));
@@ -1516,114 +1238,15 @@ categoriesWithFil=Array.from(new Set(filterProductsWithSearch.map(obj=>obj.categ
   func('dashboard').style.display='block';
   func('headingSearch').innerHTML=`${filterProductsWithSearch.length} result search`;
 
-  // htmlFiles.forEach(page=>{
-  //   fetch(page).then(response=>response.text()).then(html=>{
-  //     const parser=new DOMParser();
-  //     const doc=parser.parseFromString(html,'text/html');
-  //     const specificSection=doc.querySelector('#containerFashion section#fashion .containerFashion dl#category');
-  //     if(specificSection){
-  //       const elements=specificSection.querySelectorAll(`[data-category]`);
-  //   if(elements.length>0){
-  //     elements.forEach(attri=>{
-  //       const attribName=attri.getAttribute('data-category').toLowerCase().replace(/-/g,' ').split(',');
-  //       categoriesWithFil.forEach(cate=>{
-  //       if(attribName.some(ele=>cate==ele )){
-  //   localStorage.setItem('pageName',page);
-  //         const newDashboard=doc.querySelector('#dashboard');
-  //         if(newDashboard){
-  //          const searchDash= document.querySelector('#dashboard');
-  //          searchDash.innerHTML=newDashboard.innerHTML;
-  //       }
-  //     }
-  //   })
-
-  //     });
-  //   }}})
-  
-  // })
-
-
   }
   else{
     func('dashboard').style.display='none';
     func('headingSearch').innerHTML=`${filterProductsWithSearch.length} result search`;
     func('containerProduts').innerHTML=`No results`;
+      func('classification').style.display='none';
   }
   }
 }
-
-
-
-
-
-export async  function isFIlterProductsWithSearch(func,test){
-  await fetchProducts(test);
- let  filterProducts;
-  // let htmlFiles=['fashion.html','beauty.html','books.html','phones.html','grocery.html','kitchen.html','offers.html','electronics.html','detailsProduct.html','addToCart.html','automotive.html','addToFavorite.html','furniture.html'];
-
-  if(localStorage.getItem('wordSearch')){
-    let wordSearchInLoc=localStorage.getItem('wordSearch');
-  let wordSearchInLocToLow=wordSearchInLoc.toString().toLocaleLowerCase().replace(/-/g,' ');
-  console.log(wordSearchInLoc);
-  func('inputSearchPageSea').value=wordSearchInLoc;
-  console.log(wordSearchInLoc);
-if(test==true){
-  filterProducts=datas.filter(element=>{
-
-   let matchProductCat=element.volumeInfo.categories.toString().toLocaleLowerCase().replace(/&/g,' ').includes(wordSearchInLocToLow);
-
-return matchProductCat;
- })
-}
-else{
- filterProducts=datas.filter(element=>{
-
-    let matchProductCat=element.category.toString().toLocaleLowerCase().replace(/-/g,' ').includes(wordSearchInLocToLow);
-// console.log(element.category.toString().toLocaleLowerCase().replace(/-/g,' '));
-// console.log(wordSearchInLocToLow);
-    let elementsTags=element.tags;
-    let matchProductTags=elementsTags.some(ele=>(ele.toString().toLowerCase().replace(/-/g,' ')).includes(wordSearchInLocToLow));
-
-    // let matchProductTitle=element.title.toString().toLowerCase().includes(wordSearchInLocToLow);
-
-    let elementBrand=element.brand||'';
-    // let matchProductBrand=elementBrand.toString().toLowerCase().includes(wordSearchInLocToLow);
-
-    return  matchProductTags ||matchProductCat;
-  })}
-
- 
-console.log(filterProductss);
-  }
-
-  return filterProducts;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export async function ggg(func,element,inputSearch,isHome,isNotSearch){
-let ll=await  showProductsWithSearch(id);
-console.log(ll);
-if(ll.length==0){
- SearchByKeyOrButton(func,element,inputSearch,isHome,isNotSearch,true);
-
-}
-} 
-
-// ggg();
 
 export function displayProducts(product, func, container,test,isFav) {
   func(container).innerHTML = "";
@@ -1637,7 +1260,6 @@ export function displayProducts(product, func, container,test,isFav) {
     groupesFunctionsForCreatesDivs(product, o, func(container),test);
   }
 }
-// localStorage.clear();
 // create url for footer of elements
 export function createHrefForElementsFooter(elements){
   elements.forEach(element=>{
@@ -1650,45 +1272,15 @@ export function createHrefForElementsFooter(elements){
   }
   }))})
   }
-// end show products in page
-// start drag products
-//  export function dragByTouch(container) {
-//   let startPoint;
-//   let scrollLeft;
-// let isDrag=false;
-//   container.addEventListener("touchstart", (info) => {
-//     isDrag=true;
-//     startPoint = info.touches[0].pageX;
-//     scrollLeft=container.scrollLeft;
-//   });
-//   container.addEventListener("touchmove", (info) => {
-//     if(!isDrag)return;
-//     info.preventDefault();
-//     const x=info.touches[0].pageX;
-//     const moveDistance=(x-startPoint)*3;
-//           container.scrollLeft=scrollLeft-moveDistance;
-//   });
-//   container.addEventListener("touchend", (info) => {
-// isDrag=false;
-//   });
-// }
-
-
-
-
 
 export function dragByTouch(container) {
   let startPointx=0;
   let starty=0;
-  let scrollLeft;
-  // const moveDistance=0;
 let isDrag=false;
   container.addEventListener("touchstart", (info) => {
-   
     startPointx = info.touches[0].clientX;
     starty = info.touches[0].clientY;
     isDrag=false;
-    // scrollLeft=container.scrollLeft;
   });
   container.addEventListener("touchmove", (info) => {
     const movex=info.touches[0].clientX - startPointx;
@@ -1696,8 +1288,6 @@ let isDrag=false;
     if(Math.abs(movex)>Math.abs(movey)){
       container.style.overflowX='auto';
       isDrag=true;
-  // const   moveDistance=(movex-startPointx)*3;
-                // container.scrollLeft=movex;
     }
     if(Math.abs(movex)<Math.abs(movey)){
       container.style.overflowX='hidden';
@@ -1707,11 +1297,7 @@ let isDrag=false;
 if(!isDrag){
   info.stopPropagation();
 }
-    // if(!isDrag)return;
-    // info.preventDefault();
-    // const x=info.touches[0].pageX;
-    // const moveDistance=(x-startPoint)*3;
-    //       container.scrollLeft=scrollLeft-moveDistance;
+  
   });
   container.addEventListener("touchend", (info) => {
 isDrag=false;
@@ -1720,7 +1306,6 @@ isDrag=false;
 // end drag products
 //start  add product to cart by icon cart
 // are user or not
-// localStorage.clear();
 
 export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart){
   if(window.localStorage.getItem('user')){
@@ -1734,22 +1319,6 @@ export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuant
   }
   }
 
-
-
-
-
-// localStorage.clear();
-
-//  export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId){
-//   if(window.localStorage.getItem('user')){
-//     let user=JSON.parse(window.localStorage.getItem('user'));
-//     let userToken=JSON.parse(window.localStorage.getItem('userToken'));
-//     addProductToCart(`${cartUser}${user.id}`,`${proAndQuantityIt}${user.id}`,iconName,iconId,isFavorit,proId);
-//   }
-//   else{
-//     addProductToCart(globalCart,proAndQuantityItt,iconName,iconId,isFavorit,proId);
-//   }
-//   }
   export function existUserOrNotForIconCart(cartUser,proAndQuantityIt,globalCart,proAndQuantityItt,cartBooUser,proAndQuantityItBoo,globalBooCart,proAndQuantityIttBoo,iconName,iconId,isDetails,test,isCart,isFavorite){
     if(window.localStorage.getItem('user')){
     
@@ -1762,74 +1331,50 @@ export function existUserOrNots(cartUser,proAndQuantityIt,globalCart,proAndQuant
     }
     }
 //add product to cart
-// localStorage.clear();
-// async function addProductToCart(productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,testfetch){
-  export async function addProductToCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart){
 
+  export async function addProductToCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart){
   await fetchProducts(testFetch);
   let categoryMatch;
   let productId;
   let productUrl;
   let quantity;
   let proAndQuantityIt;
-  // quantNotBoo=0;
-  // totalDrod=0;
-// totalProd=0;
-//   if(isFavorit){
-// productId=proId;
-//   }
-  // else{
     const urlParams=new URLSearchParams(window.location.search);
     productId=urlParams.get('productId');
     productUrl=urlParams.get('url');
-  // }
  
 let  filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
 if(filterProducts.length==0||filterProducts[0]==undefined){
-  console.log('filter unde');
     
     if(productUrl=='books'){
-      console.log('unde books');
       urlBooks='another';
   
       await fetchProducts(true);
-      console.log(datas);
-      console.log(filterProducts);
       filterProducts =datas.filter((product) => {
         categoryMatch=product['id']==productId;
       return  categoryMatch;
   })
-  console.log(filterProducts,filterProducts[0]);
       testing=true;
       testFetch=true;
-      // element.classList.add('addedIt');
-  
       getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
       addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
 
   return;
     }
     if(productUrl=='notBooks'){
-      console.log(productUrl);
       urlBooks='alll';
-  
       await fetchProducts();
-      console.log(datas);
       testing=false;
       testFetch=false;
       filterProducts =datas.filter((product) => {
         categoryMatch=product['id']==productId;
       return  categoryMatch;
   })
-  console.log(filterProducts,filterProducts[0]);
 
    if(filterProducts[0].stock>0){
-    // element.classList.add('addedIt');
-  
-    console.log(filterProducts[0].stock);
       getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
       addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
 
@@ -1840,31 +1385,19 @@ if(filterProducts.length==0||filterProducts[0]==undefined){
 
     }}}
     if(filterProducts.length>0){
-      console.log('filter > 0');
   
       if(productUrl=='books'){
         urlBooks='another';
-  
-        // await fetchProducts(true);
       testing=true;
       testFetch=true;
-      // element.classList.add('addedIt');
-  
       getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
       addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
-
-  
       }
       if(productUrl=='notBooks'){
         urlBooks='alll';
-  
-        // await fetchProducts(false);
         testing=false;
         testFetch=false;
         if(filterProducts[0].stock>0){
-          // element.classList.add('addedIt');
-  
-          console.log(filterProducts[0].stock);
         getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
         addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
 
@@ -1876,157 +1409,18 @@ if(filterProducts.length==0||filterProducts[0]==undefined){
   
       }
     }
-    console.log(datas,testing);
-    if(isCart){
-    //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
-    //   elementAdd.innerHTML='added it to cart';
-    //   elementAdd.style.opacity='.4';
-    //   elementAdd.style.pointerEvents='none';
-    //   elementAdd.style.color='gray';
-    }
-    // addNumToIcon(productsInLocc,iconId);
-    // addNumToIcon(productsInLoc,iconId);
-    // return testing;
-      // }
-    
-// let prodStock;
-// if((/[A-Za-z]/g).test(productId)){
-//   prodStock=1;
-// }
-// if(!(/[A-Za-z]/g).test(productId)){
-//   prodStock=filterProducts[0].stock;
-//  console.log(productId);
-// }
-//   if(prodStock==0){
-
-// if(!isFavorit){
-//   effectHoverOnSignIn('inStock');
-// }}
-// else{
-//   if(!isFavorit){
-//   if(id('quantityDetails').value==0){
-//     id('quantityDetails').value=1;
-//   }
-//   if(id('quantityDetails').value>0){
-//     quantity=id('quantityDetails').value;
-//      proAndQuantityIt={
-//      productId:productId,
-//      quantityPro:quantity||1
-//    };
-//    console.log(quantity);
-//  }
-//   }
-// if(isFavorit){
-//   proAndQuantityIt={
-//     productId:productId,
-//     quantityPro:1
-// }}
-// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-  //       getProductFromLocal.push((filterProducts[0]));
-  // let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-  //   window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-  //   objectQuantity.push(proAndQuantityIt);
-  //   let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-  //   window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-  //       if(!isFavorit){
-      // preventAddToCart(productsInLoc);
-      // }
-      // addClassActiveOnIconCart(productsInLoc,iconName);
-      // totalDrod=0;
-      // addNumToIcon(productsInLoc,iconId);
+  
             preventAddToCart(productsInLoc);
                   preventAddToCart(productsInLocc);
-      // addNumToIcon(productsInLoc,productsInLocc,iconId,testFetch);
-
-
 } 
-//  }
 
-
-
-
-
-// localStorage.clear();
-
-
-// async function addProductToCart(container,productsInLoc,prodAndQuantityIt,iconName,iconId,isFavorit,proId,test){
-//   await fetchProducts(test);
-//   let categoryMatch;
-//   let productId;
-//   let quantity;
-//   let proAndQuantityIt;
-//   if(isFavorit){
-// productId=proId;
-//   }
-//   else{
-//     const urlParams=new URLSearchParams(window.location.search);
-//     productId=urlParams.get('productId');
-//   }
- 
-// let  filterProducts =datas.filter((product) => {
-//       categoryMatch=product['id']==productId;
-//     return  categoryMatch;
-// })
-// let prodStock;
-// if((/[A-Za-z]/g).test(productId)){
-//   prodStock=1;
-// }
-// if(!(/[A-Za-z]/g).test(productId)){
-//   prodStock=filterProducts[0].stock;
-//  console.log(productId);
-// }
-//   if(prodStock==0){
-
-// if(!isFavorit){
-//   effectHoverOnSignIn('inStock');
-// }}
-// else{
-//   if(!isFavorit){
-//   if(id('quantityDetails').value==0){
-//     id('quantityDetails').value=1;
-//   }
-//   if(id('quantityDetails').value>0){
-//     quantity=id('quantityDetails').value;
-//      proAndQuantityIt={
-//      productId:productId,
-//      quantityPro:quantity||1
-//    };
-//  }
-//   }
-// if(isFavorit){
-//   proAndQuantityIt={
-//     productId:productId,
-//     quantityPro:1
-// }}
-// let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
-// let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-//         getProductFromLocal.push((filterProducts[0]));
-//   let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-//     objectQuantity.push(proAndQuantityIt);
-//     let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-//     window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-//         if(!isFavorit){
-//       preventAddToCart(productsInLoc);
-//       }
-//       addClassActiveOnIconCart(productsInLoc,iconName);
-//       totalDrod=0;
-//       addNumToIcon(productsInLoc,iconId);
-// } 
-//  }
-
-// localStorage.clear();
 function preventAddToCart(productsInLoc){
   const urlParams=new URLSearchParams(window.location.search);
   const productId=urlParams.get('productId');
   if(window.localStorage.getItem(productsInLoc)){
   let productsInlocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   productsInlocal.forEach(item=>{
-    console.log(item.id,productId);
        if(item.id==(productId)) {
-        console.log(item.id,productId,'kkkkkkkkkkk');
-
         id('textAddToCart').innerHTML='added it to cart';
         id('linkAddToCart').style.opacity='.4';
         id('linkAddToCart').style.pointerEvents='none';
@@ -2034,26 +1428,22 @@ function preventAddToCart(productsInLoc){
       })
     }
 }
-export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconId,container){
-  if(window.localStorage.getItem('user')){
-    let user=JSON.parse(window.localStorage.getItem('user'));
-    preventAddToCart(`${cartUser}${user.id}`);
-  }
-  else{
-    preventAddToCart(globalCart);
-  }
-  }
+// export function existUserOrNotToUpdateIconNum(cartUser,globalCart,iconName,iconId,container){
+//   if(window.localStorage.getItem('user')){
+//     let user=JSON.parse(window.localStorage.getItem('user'));
+//     preventAddToCart(`${cartUser}${user.id}`);
+//   }
+//   else{
+//     preventAddToCart(globalCart);
+//   }
+//   }
 
 // get product id by icon cart
 
 export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart,isFavorite){
   await fetchProducts(testFetch);
-  //  quantNotBoo=0;
-  //  totalDrod=0;
-  //  totalrod=0;
    let  filterProducts ;
    let icons;
-  //  let productId;
   if(isCart){
 icons=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container .aCardLess  .buy`);
   }
@@ -2061,16 +1451,9 @@ icons=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCar
     icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
 
   }
-  // let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-  console.log((icons),datas);
-// icons=(Array.from(icons));
-// let  iconss=icons.filter(item=>{item.id=='iconCart'});
-  // console.log(iconss);
 let productSt;
   if(testFetch){
-    // productSt=filterProducts[0].stock;
     productSt=1;
-
   }
   else{
   productSt=1;
@@ -2078,14 +1461,10 @@ let productSt;
   let categoryMatch;
   icons.forEach(element=>{
     element.addEventListener('click',(info)=>{
-      console.log((icons));
-
         info.preventDefault();
         quantNotBoo=0;
            totalDrod=0;
   totalProd=0;
-
-          // iconIsBookOrNot(element);
 if(element.id!='iconCart'&&element.id!='iconFavorite'){
       let classN=Array.from(element.classList);
       let arry=classN.filter(className=>{
@@ -2098,41 +1477,7 @@ let productId=productIdd[0].slice(1,-1);
               categoryMatch=product['id']==productId;
             return  categoryMatch;
         })
-        console.log(filterProducts,filterProducts[0]);
-        // iconIsBookOrNot(element,filterProducts);
-        // iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
-
-        // if(isCart){
-        //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
-        //   elementAdd.innerHTML='added it to cart';
-        //   elementAdd.style.opacity='.4';
-        //   elementAdd.style.pointerEvents='none';
-        //   elementAdd.style.color='gray';
-        // }
-// if(productSt>0){
-// element.classList.add('addedIt');
-//  iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
-  // if((/[A-Za-z]/g).test(productId)){
-  // if(testing==true){
-  //  getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-  // }
-    // else{
-//   if(filterProducts[0].stock==0){
-//     info.preventDefault();
-//     element.classList.add('noExist');
-//     element.style.color='green';
-//   }
-//  else{
-// if(testing==false){
-      // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-    // }
-    // }
-    console.log(totalDrod,quantNotBoo);
-
      iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt,isCart);
-     console.log((icons));
-
-     console.log(totalDrod,quantNotBoo);
         if(isFavorite){
           let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container .aCardLess  .buy.add${productId}`);
           elementAdd.innerHTML='added it to cart';
@@ -2140,14 +1485,6 @@ let productId=productIdd[0].slice(1,-1);
           elementAdd.style.pointerEvents='none';
           elementAdd.style.color='gray';
         }
-
-        // addNumToIcon(productsInLoc,productsInLocc,iconId,testFetch);
-
-
-
-  // }
-  //    addNumToIcon(productsInLocc,iconId);
-  //  addNumToIcon(productsInLoc,iconId);
     }  })
       })
 if(isDetails==true){
@@ -2155,96 +1492,11 @@ if(isDetails==true){
   preventAddToCart(productsInLocc);
 }
         addNumToIcon(productsInLoc,productsInLocc,iconId);
-      // addNumToIcon(productsInLoc,iconId);
-      console.log(totalDrod,quantNotBoo);
 
   }
 
 
-
-
-
-
-
-
-
-
-
-
-// export async function getProductIdByIconCart(productsInLoc,prodAndQuantityIt,productsInLocc,prodAndQuantityItt,iconName,iconId,isDetails,testFetch,isCart){
-//   await fetchProducts(testFetch);
-//    quantNotBoo=0;
-//    totalDrod=0;
-//   //  let  filterProducts ;
-//   //  let productId;
-//   let icons=document.querySelectorAll(`.cartFavorite .${iconName}`);
-// let productSt;
-//   if(testFetch){
-//     productSt=filterProducts[0].stock;
-//     // productSt=1;
-
-//   }
-//   else{
-//   productSt=1;
-//   }
-//   let categoryMatch;
-//   icons.forEach(element=>{
-//     element.addEventListener('click',(info)=>{
-//         info.preventDefault();
-//         quantNotBoo=0;
-//            totalDrod=0;
-//           // iconIsBookOrNot(element);
-
-//       let classN=Array.from(element.classList);
-//       let arry=classN.filter(className=>{
-//         let match=/{([^]*)}/g.test(className);
-//         return match;
-//       })
-//       let productIdd=arry[0].match(/{([^]*)}/g);
-// let productId=productIdd[0].slice(1,-1);
-//   let     filterProducts =datas.filter((product) => {
-//               categoryMatch=product['id']==productId;
-//             return  categoryMatch;
-//         })
-//         console.log(productSt);
-//         if(isCart){
-//           let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
-//           elementAdd.innerHTML='added it to cart';
-//           elementAdd.style.opacity='.4';
-//           elementAdd.style.pointerEvents='none';
-//           elementAdd.style.color='gray';
-//         }
-// if(productSt>0){
-// element.classList.add('addedIt');
-// //  iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt);
-//   if((/[A-Za-z]/g).test(productId)){
-//    getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-//   }
-//     else{
-//   if(filterProducts[0].stock==0){
-//     info.preventDefault();
-//     element.classList.add('noExist');
-//     element.style.color='green';
-//   }
-//  else{
-//       getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId);
-//     }
-//     }
-//   }
-//      addNumToIcon(productsInLocc,iconId);
-//    addNumToIcon(productsInLoc,iconId);
-//         })
-//       })
-// if(isDetails==true){
-//   preventAddToCart(productsInLoc);
-//   preventAddToCart(productsInLocc);
-// }
-//         addNumToIcon(productsInLocc,iconId);
-//       addNumToIcon(productsInLoc,iconId);
-
-//   }
-  // localStorage.clear();
-async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc){
+  async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc){
   await fetchProducts(testFetch);
   let quantity;
   let proAndQuantityIt;
@@ -2255,7 +1507,6 @@ async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFe
      productId:productId,
      quantityPro:quantity||1
    };
-   console.log(quantity);
  }
  else{
   id('quantityDetails').value=1;
@@ -2274,29 +1525,16 @@ async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFe
   }
           let objectQuantity=JSON.parse(window.localStorage.getItem((prodAndQuantityIt)) )||[];
       let  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) )||[];
-      console.log(getProductFromLocal);
               getProductFromLocal.push((filterProducts[0]));
-              console.log(getProductFromLocal);
-
-        // let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
-
         let getUniqeProductFromLocal=Array.from(new Set(getProductFromLocal.map(obj=>obj.id))).map(id=>{
           return getProductFromLocal.find(obj=>obj.id==id);
         });
 
-
-
           window.localStorage.setItem(productsInLoc,JSON.stringify(getUniqeProductFromLocal));
-          // console.log(getProductFromLocal);
-          console.log(getUniqeProductFromLocal);
-          console.log(productsInLoc);
-
           objectQuantity.push(proAndQuantityIt);
           let getUniqeObjectQuantity=Array.from(new Set(objectQuantity.map(obj=>JSON.stringify(obj)))).map(str=>JSON.parse(str));
           window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
           window.localStorage.setItem(prodAndQuantityIt,JSON.stringify(getUniqeObjectQuantity));
-        // addNumToIcon(productsInLoc,productsInLocc,iconId,testFetch);
-
             addClassActiveOnIconCart(productsInLoc,iconName,testFetch);
 
             if(isDetails==true){
@@ -2305,45 +1543,26 @@ async  function getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFe
 
             }
             if(getProductFromLocal.length>=0){
-              // totalProd+= JSON.parse(window.localStorage.getItem(productsInLoc)).length;
-              // totalQuan=quanBook + quanNotBook;
-              // id('headingCart').innerHTML=`your favorite includes ${totalProd} products, ${totalQuan} quantity` ;
-            // id(iconId).innerHTML=totalProd;
-            // id(iconId).style.color='rgb(255, 214, 139)';
             }
-            // addNumToIcon(productsInLoc,productsInLocc,iconId);
-            // addNumToIcon(productsInLoc,iconId);
     }
-// localStorage.clear();
- async function iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt,isCart){
-  // async function iconIsBookOrNot(element,filterProducts,testFetch){
-// let productsInLocal1=JSON.parse(window.localStorage.getItem(productsInLocc))||[];
-// let productsInLocal2=JSON.parse(window.localStorage.getItem(productsInLoc))||[];
+
+    async function iconIsBookOrNot(element,productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLoc,prodAndQuantityIt,isCart){
 
   let urlCos=element.closest('a');
-  console.log(urlCos);
   let searchUrl=new URLSearchParams(urlCos.search);
   let productUrl=searchUrl.get('url');
-  console.log(productUrl);
   if(filterProducts.length==0||filterProducts[0]==undefined){
-console.log('filter unde');
   
   if(productUrl=='books'){
-    console.log('unde books');
     urlBooks='another';
 
     await fetchProducts(true);
-    console.log(datas);
-    console.log(filterProducts);
     filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
-console.log(filterProducts,filterProducts[0]);
     testing=true;
     testFetch=true;
-    // productIsInLocal (productsInLoc,prodAndQuantityItt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
-
 
     getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
             addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
@@ -2353,25 +1572,16 @@ console.log(filterProducts,filterProducts[0]);
 return;
   }
   if(productUrl=='notBooks'){
-    console.log(productUrl);
     urlBooks='alll';
-
     await fetchProducts();
-    console.log(datas);
     testing=false;
     testFetch=false;
     filterProducts =datas.filter((product) => {
       categoryMatch=product['id']==productId;
     return  categoryMatch;
 })
-console.log(filterProducts,filterProducts[0]);
  if(filterProducts[0].stock>0){
   element.classList.add('addedIt');
-
-  console.log(filterProducts[0].stock);
-  // productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
-
-
     getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
     addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
 
@@ -2379,102 +1589,44 @@ return;
 }
   }}
   if(filterProducts.length>0){
-    console.log('filter > 0');
 
     if(productUrl=='books'){
       urlBooks='another';
-
-      // await fetchProducts(true);
     testing=true;
     testFetch=true;
-    // productIsInLocal (productsInLoc,prodAndQuantityItt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
-
-
     getInfoFromLocal(productsInLocc,prodAndQuantityItt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
     addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
-
     element.classList.add('addedIt');
 
     }
     if(productUrl=='notBooks'){
       urlBooks='alll';
-
-      // await fetchProducts(false);
       testing=false;
       testFetch=false;
       if(filterProducts[0].stock>0){
         element.classList.add('addedIt');
-
-        console.log(filterProducts[0].stock);
-      //  productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc);
-
-
       getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
       addNumToIcon(productsInLocc,productsInLoc,iconId,testFetch);
 
       }
-
     }
   }
-  // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
-
-  console.log(datas,testing);
-  if(isCart){
-  //   let elementAdd= document.querySelector(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess  .buy.add${productId}`);
-  //   elementAdd.innerHTML='added it to cart';
-  //   elementAdd.style.opacity='.4';
-  //   elementAdd.style.pointerEvents='none';
-  //   elementAdd.style.color='gray';
-  }
-  // addNumToIcon(productsInLocc,iconId);
-  // addNumToIcon(productsInLoc,iconId);
-  // return testing;
-  // addNumToIcon(productsInLoc,productsInLocc,iconId,testFetch);
-
     }
-    // function productIsInLocal(productId,productsInLocc,productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,filterProducts,iconId){
-      function  productIsInLocal (productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails, productId,filterProducts,iconId,productsInLocc){
-      let productsInLocal1;
-      let productsInLocal2;
-      if(window.localStorage.getItem(productsInLoc)){
 
-      productsInLocal1=JSON.parse(window.localStorage.getItem(productsInLoc))||[];
-  productsFilterInLocBoo=productsInLocal1.filter(element=>{
-let matchProduct=element.id==productId;
-return matchProduct
-      })}
-      if(window.localStorage.getItem(productsInLocc)){
-       productsInLocal2=JSON.parse(window.localStorage.getItem(productsInLocc))||[];
-
-     productsFilterInLocNotBoo=productsInLocal2.filter(element=>{
-        let matchProduct=element.id==productId;
-        return matchProduct
-              })}
-              if(productsFilterInLocBoo.length==0&&productsFilterInLocNotBoo.length==0){
-                  // getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
-   getInfoFromLocal(productsInLoc,prodAndQuantityIt,iconName,testFetch,isDetails,productId,filterProducts,iconId,productsInLocc);
-
-
-              }
-    }
-  // localStorage.clear();
+   
 export async function addNumToIcon(productsInLoc,productsInLocc,iconId,test){
   await fetchProducts(test);
   totalDrod=0;
    if(window.localStorage.getItem(productsInLoc)){
     quantNotBoo=JSON.parse(window.localStorage.getItem(productsInLoc)).length;
-    console.log(quantNotBoo);
    }
    if(window.localStorage.getItem(productsInLocc)){
     quantBoo=JSON.parse(window.localStorage.getItem(productsInLocc)).length;
-    console.log(quantBoo);
 
    }
-  // totalDrod+=quantNotBoo;
   totalDrod=quantNotBoo + quantBoo;
 id(iconId).innerHTML=totalDrod;
 id(iconId).style.color='rgb(255, 214, 139)';
-console.log(totalDrod,quantNotBoo);
 }
 
 //end add product to cart by icon cart
@@ -2539,7 +1691,6 @@ function filterProductsFromDashboardByCategory(
   
   elements.forEach((element) => {
     element.addEventListener(event, (info) => {
-      // selectedCategory='another';
       isCategory=false;
       info.preventDefault();
       elements.forEach((ele) => {
@@ -2639,6 +1790,7 @@ export function resetPriceDashboard(
 // start function related by log in and log out
 function testUser(){
   if(window.localStorage.getItem('userToken')){
+    document.querySelector('header .main-nav .personal .sign-icon').classList.add('hidden');
     document.querySelector('header .main-nav .personal .sign').addEventListener('click',(event)=>{
       event.preventDefault();
     })
@@ -2647,6 +1799,8 @@ function testUser(){
   showAndHideLoginAndLogout('none','block','inline-block');
   }
   else{
+    document.querySelector('header .main-nav .personal .sign-icon').classList.remove('hidden');
+
       effectHoverOnSignIn('signHeader');
     showAndHideLoginAndLogout('inline-block','none','none');
   }
@@ -2692,6 +1846,8 @@ export function effectHoverOnSignIn(elementId){
   },20000)
 }
 // end function related by log in and log out
+
+
 // add number of products in cart to icon cart
  export function addNumberToIconCart(productsInLoc,iconName,iconId,container){
   let lengthBook=0;
@@ -2742,7 +1898,6 @@ let nameWithNum=classLists.filter(className=>{
 }
 addClassNoexistOnIcon(iconName,test);
 }
-// localStorage.clear();
 // add class no exist on icon cart or favorite
 export  async function addClassNoexistOnIcon(iconName,test){
   await fetchProducts(test);
@@ -2805,4 +1960,3 @@ if(googleTranslateDropdown){
   googleTranslateDropdown.dispatchEvent(new Event('change'));
 }
 }
-// translatePageByCustomer(id,'switchLang');

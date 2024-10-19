@@ -472,7 +472,7 @@ header .main-nav {
     padding: .5rem 1rem;
     background-color: var(--background-main-navbar, rgb(23, 44, 43));
     flex-wrap: nowrap;
-    gap: 2%;
+    gap: 1%;
 }
 
 @media (max-width: 767.98px) {
@@ -582,11 +582,11 @@ header .main-nav .loca-lang .loca-box::before {
 }
 
 header .main-nav .iconPersonal:hover,
-header .main-nav .personal.mobile .parentAad.active {
+ header .main-nav .personal.mobile.parentAad.active {
     box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
     cursor: pointer;
 }
-header .main-nav .cartFav.active{
+ header .main-nav .personal.mobile .iconPersonal.cartFav.active{
     box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
 
 }
@@ -665,7 +665,7 @@ header .main-nav input.search {
 
 header .main-nav .box-search input::placeholder {
     color: rgb(169, 166, 166);
-    font-size: .95rem;
+    font-size: 1rem;
     text-transform: capitalize;
     font-family: "Playball", sans-serif;
 }
@@ -726,6 +726,11 @@ header .main-nav .personal.mobile>div ,header .main-nav .personal.mobile> .menu 
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
+
+}
+header .main-nav .personal.mobile>div.active{
+    /* background-color: #952f2f; */
+    box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
 
 }
 @media (min-width: 768px) {
@@ -815,9 +820,10 @@ header .main-nav .personal .count-favorite {
 
     }
 }
-.fa-cart-shopping:before, .fa-shopping-cart:before {
+.fa-cart-shopping:before
+, .fa-shopping-cart:before {
     position: relative;
-    top:.14em;
+    top:.12em;
 }
 
 
@@ -863,7 +869,9 @@ header .main-nav .personal .count-favorite {
         width: 2.5rem;
         height: 2.5rem;
     }
-
+    header .main-nav .personal.mobile i.sign-icon.hidden {
+        display: none;
+    }
     header .main-nav .personal.mobile i.favorite,
     header .main-nav .personal.mobile i.cart-icon {
         font-size: 1.5rem;
@@ -892,8 +900,13 @@ header .main-nav .personal.mobile #menuMobile {
 .fa-heart:before {
     content: "\f004";
     position: relative;
-    top: .05em;
+    top: .07em;
 }
+
+header .main-nav .personal.mobile>div.cartFav.active {
+    /* background-color: #952f2f; */
+}
+
 /* end main navbar */
 /* start second navbar */
 header .second-nav {

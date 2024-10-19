@@ -1,7 +1,7 @@
 "use strict";
-import { dummyProducts } from "../js/products.js";
-import { dummy } from "../js/dummyproducts.js";
-import { book } from "../js/books.js";
+// import { dummyProducts } from "../js/products.js";
+// import { dummy } from "../js/dummyproducts.js";
+// import { book } from "../js/books.js";
  
   import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton, productId,
     discountPercentagee
@@ -23,7 +23,6 @@ let containerProducts=document.querySelector('.containerProductsRe .containerPro
 let containerProductsDrag=document.querySelector('.container-bestSeller .box-products');
 let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
 
-console.log(firstButton,lastButton,containerProducts,containerProductsDrag);
 document.addEventListener('DOMContentLoaded',(info=>{
   // start header
     addClassActive(iconsPersonal, "active");
@@ -58,13 +57,8 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
     '',
     true,true
   );
-  // grag products
+  // drag products
   dragByTouch(containerProductsDrag);
-  
-  // start get product by icon cart
-  // existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
-
-  // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
 
 existUserOrNotForAddClassAtive('cartUser','productCart','cart');
 existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
@@ -72,48 +66,16 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
    id("linkAddToCart").addEventListener('click',(event)=>{
     event.preventDefault();
-//     const urlParams=new URLSearchParams(window.location.search);
-//  let   productId=urlParams.get('productId');
-//       console.log(productId);
-
       existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
-
-
-      // if((/\d+/g).test(productId)){
-      //   existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-      // }
-      // else{
-      //   existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
-      // }
  })
 
  id("iconCart").addEventListener('click',(event)=>{
   event.preventDefault();
-  // let classN=Array.from(id("iconCart").classList);
-  // let arry=classN.filter(className=>{
-  //   let match=/\d+/g.test(className);
-  //   return match;
-  // })
 
   existUserOrNots('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes',true);
-
-
-
-
-  // if((/\d+/g).test(productId)){
-  // if(arry.length>0){
-  //   existUserOrNots('productsInCart','cartUser','proAndQuantityIt','productCart','proAndQuantityIt','cart','countPurshes');
-  // }
-  // }
-  // else{
-  //   existUserOrNots('productsInCartBoo','cartBooUser','proAndQuantityItBoo','productCartBoo','proAndQuantityItBoo','cart','countPurshes');
-  // }
 })
 id("iconFavorite").addEventListener('click',(event)=>{
-  // event.preventDefault();
   existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
-
-  // existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favorite','countFavorites',false);
 })
 //  start footer
 createHrefForElementsFooter(allLinksSideBar);
@@ -146,7 +108,6 @@ async function getProductFromUrl(func,choose){
   const productName=urlParams.get('productId');
   iconCartDetails.classList.add(`cart{${productName}}` ,`cart${productName}`);
   iconFavoDetails.classList.add(`favorite{${productName}}`);
-  console.log(datas);
   filterProduct=datas.filter((element,index)=>{
   productId=element['id'];
   if(productId==productName){
@@ -156,8 +117,6 @@ async function getProductFromUrl(func,choose){
 
       title=element['volumeInfo']['title']||'Unknown';
       kind=element['volumeInfo']['categories']||'Unknown';
-      // discount=index <10?discount=index*3:discount=index*5;
-      // discount=discountPercentagee;
       let  hundleProduct= element.volumeInfo.categories||'';
       let productToLowerStri=hundleProduct.toString().toLowerCase();
       if (productToLowerStri != "Fiction".toLowerCase()) {
@@ -167,32 +126,8 @@ async function getProductFromUrl(func,choose){
         discount=20;
       }
 
-      // rating=element['volumeInfo']['categories'].toString().toLowerCase()
       rating=element['volumeInfo']['categories'].toString().toLowerCase() == "Fiction".toString().toLowerCase()?rating=4.6:element['volumeInfo']['categories'].toString().toLowerCase()== 'Language Arts & Disciplines'.toString().toLowerCase()?rating=3.5:element['volumeInfo']['categories'].toString().toLowerCase() == 'Literary Collections'.toString().toLowerCase()?rating=3.1:rating=2.5;
 
-
-
-
-      // if (productToLowerStrii == "Fiction".toLowerCase()) {
-      //   rating=4.8;
-      //   console.log(4.8);
-      // }
-      // if (productToLowerStrii == 'Language Arts & Disciplines'.toLowerCase()) {
-      //   rating=3.5;
-      //   console.log(3.5);
-
-      // }
-      // if (productToLowerStrii == 'Literary Criticism'.toLowerCase()) {
-      //   rating=3;
-      //   console.log(3);
-
-      // }
-      // else{
-      //   rating=2.5;
-      //   console.log(2.5);
-
-      // }
-      // console.log(discount);
        oldPrice=element['saleInfo']['listPrice']['amount']||'Unknown';
     let stockk=element['saleInfo']['saleability']||'Unknown';
     stock=stockk.toLowerCase();
@@ -204,10 +139,7 @@ if(stock!='for_sale'.toLowerCase()){
 }
       price=   (oldPrice - oldPrice * (discount / 100));
       saving=oldPrice - price;
-      // rating=index==0?rating=3:index>0&&index<6?rating=index:index>=6&&index<15?rating=3.5:rating=4.5;
-      // rating=index==0?rating=3:index>0&&index<6?rating=index:index>=6&&index<15?rating=3.5:rating=4.5;
 
-      console.log(rating);
       mainImg=element['volumeInfo']['imageLinks']['thumbnail']||'Unknown';
       sideImgs=element['volumeInfo']['imageLinks']['smallThumbnail']||'Unknown';
       description=element['volumeInfo']['description']||'Unknown';
@@ -244,7 +176,6 @@ if(stock!='for_sale'.toLowerCase()){
             createDiv(1, "div", `containerSideImgs${index} containerSideImgs flex-center`,'', title, "", func('sideImgs'));
         let containerSideImgs=    document.querySelector(`#containerDetailsPro #sectionDetails .detailsProduct #containerImages #sideImgs .containerSideImgs${index}`);
         containerSideImgs.id=`containerSideImgs${index}`;
-        console.log(containerSideImgs);
             createDiv(1, "img", "sideImgs flex-center", element, title, "", func(`containerSideImgs${index}`));
           })
         }
@@ -268,7 +199,6 @@ if(stock!='for_sale'.toLowerCase()){
         sku=element['sku'];
         stock=element['stock'];
         let customerReviews=element['reviews'];
-        console.log(customerReviews);
         limitVaribles(func,'shipsIn',shippingIn);
         limitVaribles(func,'returnPolicy',returnPro);
         limitVaribles(func,'warranty',warranty);
@@ -299,7 +229,6 @@ if(stock!='for_sale'.toLowerCase()){
           func('inStock').textContent="out stock";
           func('inStock').style.color='red';
   func('quantityDetails').value=0;
-  console.log( func('quantityDetails'));
           }
          createDivsForCustomerReviews(func,customerReviews);
       }
@@ -392,7 +321,6 @@ function limitWidthScrollBarWhenLoaded(containerProducts,buttons) {
   const containerClient=containerProducts.clientWidth;
   let productsChildren=document.querySelectorAll('.containerProductsRe .box-products a.cardLessThan');
   const itemWidth=Array.from(productsChildren).reduce((acc,item)=>acc + item.clientWidth,0);
-  console.log(productsChildren,itemWidth,containerClient);
   if (
     itemWidth<=containerClient){
     buttons.style.display = "none";
@@ -403,7 +331,9 @@ function limitWidthScrollBarWhenLoaded(containerProducts,buttons) {
 function changeImageProduct(func){
   let imgs=document.querySelectorAll('#containerDetailsPro #sectionDetails #containerImages #sideImgs .containerSideImgs .sideImgs');
   let mainImgs=document.querySelector('#containerDetailsPro #sectionDetails #containerImages .mainImg');
-  imgs[0].parentElement.classList.add('active');
+  if(imgs.length>0){
+    imgs[0].parentElement.classList.add('active');
+  }
   imgs.forEach(element=>{
     element.addEventListener('mousemove',(info)=>{
       mainImgs.src=info.target.src;
@@ -425,7 +355,6 @@ function largesImagesOfProduct(func){
     const x=info.clientX - rect.left;
     const y=info.clientY - rect.top;
     let background=info.target.src;
-    console.log(background);
   func('containerZoomImg').style.backgroundImage=`url(${background})`;
 const backgroundX=(x / mainImg.offsetWidth)*100;
 const backgroundY=(y / mainImg.offsetHeight)*100;

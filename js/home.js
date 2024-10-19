@@ -17,12 +17,8 @@ let currentSlide = 0;
 let autoSliders;
 let allBalls;
 
-let mainHeaderfavAndCart = document.querySelectorAll("header .main-nav .iconPersonal.cartFav");
-console.log(mainHeaderfavAndCart);
 let secondHeader = document.querySelector("header .second-nav ul");
-console.log(secondHeader);
 let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
-console.log(linkHeader);
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
@@ -100,6 +96,9 @@ existUserOrNotForAddClassAtive('cartUser','productCart','cart');
 existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
+// start offers
+fashionOffers();
+
 // start footer
 createHrefForElementsFooter(allLinksFooter);
 
@@ -485,7 +484,6 @@ function moveElementFromOutToIn(func,element, className) {
 
 //end parts womens and men in home
 /* start part flash sale */
-// flashSale();
 async function flashSale(test){
   await fetchProducts(false);
     hundelUniqeVariablesById("flashSale", "flashSaleProducts");
@@ -554,13 +552,9 @@ function downCounter(duration, containerProduct,test) {
 /* end  part flash sale */
 
 //start part books
-// showBooks();
 
 async function showBooks(choose) {
   await fetchProducts(choose);
-//  let url=  ( "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
-  // );
-  console.log(url);
   hundelUniqeVariablesById("containerBooks", "booksProducts");
   for (let i = 0; i < datas.length; i++) {
   let  hundleProduct= datas[i].volumeInfo.categories||'';
@@ -593,7 +587,6 @@ function fashionOffers(){
   id('fashionOffers').addEventListener('click',(info=>{
   }))
 }
-fashionOffers();
 // end show offers
 
 

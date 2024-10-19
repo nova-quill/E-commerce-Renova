@@ -588,7 +588,7 @@ header .second-nav{
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts {
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     flex-wrap: wrap;
     gap: var(--gap-container-products);
     overflow: hidden;

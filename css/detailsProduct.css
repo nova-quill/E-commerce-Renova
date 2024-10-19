@@ -532,7 +532,10 @@ color: rgb(65, 64, 64);
 #containerDetailsPro #sectionDetails .cardLessThan .aCardLess{
     padding-bottom: 0;
 }
-
+#containerDetailsPro #sectionDetails  .cardLessThan .containerImage{
+    height: 18rem;
+    padding: 1em;
+}
 #containerDetailsPro #sectionDetails .detailsProduct .title{
     color:#a71f1f;
     text-align: center;

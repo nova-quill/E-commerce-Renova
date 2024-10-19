@@ -17,6 +17,8 @@ let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
+let mainHeaderfavAndCart = document.querySelectorAll("header .main-nav .iconPersonal.cartFav a");
+
 let allLinksFooter=document.querySelectorAll('footer .category li a');
 let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
 let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
@@ -26,6 +28,8 @@ document.addEventListener('DOMContentLoaded',(info=>{
     // start header
       addClassActive(iconsPersonal, "active");
       addClassActive(linkHeader, "active");
+      addClassActive(mainHeaderfavAndCart, "active",true);
+
       // start sidebar
       getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 createHrefForElementsFooter(allLinksSideBar);
@@ -38,7 +42,6 @@ SearchByKeyOrButton(id,'iconSearch','inputSearch');
   
     existUserOrNotInfav('favorite','countFavorites',true);
     existUserOrNotInfavvv('favorite','countFavorites',true);
-    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
     existUserOrNotForAddClassAtive('cartUser','productCart','cart','',true);
     existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
@@ -50,17 +53,9 @@ SearchByKeyOrButton(id,'iconSearch','inputSearch');
   function existUserOrNotInfav(iconName,iconId,isCart){
     if(window.localStorage.getItem('user')){
       let user=JSON.parse(window.localStorage.getItem('user'));
-      console.log(user.id);
       if(window.localStorage.getItem(`favoriteUser${user.id}`)){
       filterProductsInCart(id,'productsInCart',`favoriteUser${user.id}`,`proAndQuantityInFav${user.id}`,iconName,iconId,isCart,'cartUser');
       }
-      // let acardIcon=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #productsInCart .aCardLess .cartFavorite .cart`);
-      // acardIcon.forEach(element=>{
-      // element.querySelector('.cartFavorite .cart').addEventListener('click',()=>{
-          
-        // })
-      
-        // })
     }
     else{
       if(window.localStorage.getItem('favoriteCart')==null){
@@ -69,7 +64,6 @@ SearchByKeyOrButton(id,'iconSearch','inputSearch');
       }
       filterProductsInCart(id,'productsInCart','favoriteCart','proAndQuantityInFav',iconName,iconId,isCart,'productCart');   
     }
-    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
 
   }
 
@@ -86,12 +80,10 @@ SearchByKeyOrButton(id,'iconSearch','inputSearch');
       }
       filterProductsInCart(id,'productsInCartBoo','favoriteBooCart','proAndQuantityInFavBoo',iconName,iconId,isCart,'productBooCart',true);   
     }
-    // existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
 
     }
   // }
 // filter products in cart
-// let testt;
  export async function filterProductsInCart(func,container,productsInLoc,proAndQuantityIt,iconName,iconId,isCart,productsInLocCart,test){
   await fetchProducts(test);
   if(container=='productsInCartBoo'){
@@ -104,56 +96,38 @@ SearchByKeyOrButton(id,'iconSearch','inputSearch');
     await fetchProducts(test);
 
   }
-  // console.log(testt);
   let totalPrices=0;
   let totalDiscounts=0;
 if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
   if(JSON.parse(window.localStorage.getItem((proAndQuantityIt)) )){
  objectQuan=JSON.parse(window.localStorage.getItem((proAndQuantityIt)) ).reverse()||[];
- console.log(objectQuan);
   }
  getProductFromLocal=JSON.parse(window.localStorage.getItem((productsInLoc)) ).reverse()||[];
- console.log(getProductFromLocal);
- console.log(productsInLoc);
 
-//  displayProducts(getProductFromLocal, func, container,test,true);
  displayProducts(getProductFromLocal, func, container,test,true);
 
   let acard=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container  #${container} .aCardLess`);
-console.log(acard);
   let detailsProduct=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess .detailsProduct`);
 
-console.log(acard);
 acard.forEach((element,index)=>{
   let parentElement=element.parentElement.href;
-  console.log(element.querySelectorAll('.cart'),parentElement);
 
   let url=new URL(parentElement);
-  console.log(parentElement,url);
 let searchUrl=new URLSearchParams(url.search);
 let productId=searchUrl.get('productId');
-  console.log(parentElement,productId);
   let containerRemAndBuy=document.createElement('div');
   containerRemAndBuy.className='containerRemAndBuy  flex-just-between';
   createDiv(1,'span',`buy #${container} add{${productId}} add${productId} remBuy`,'','','add to cart',containerRemAndBuy);
   createDiv(1,'span',`clear remBuy clear{${productId}} .clear${productId}`,'','','remove',containerRemAndBuy);
   element.appendChild(containerRemAndBuy);
   let elementAdd= element.querySelector(`.buy`);
-  console.log(elementAdd);
-
-// if(isCart){
-// }
 let clear=element.querySelector(`.clear`);
-console.log(clear);
 element.addEventListener('click',(event)=>{
   event.preventDefault();
 })
-clear.addEventListener('click',(info)=>{
-// removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
-  })
+
     elementAdd.addEventListener('click',(info)=>{
 element.querySelector('.cart').click();
-console.log(element.querySelector('.cart'));
   })
 
  
@@ -161,10 +135,8 @@ console.log(element.querySelector('.cart'));
 
 detailsProduct.forEach((element,index)=>{
   let urlCos=element.closest('a');
-  console.log(urlCos);
   let searchUrl=new URLSearchParams(urlCos.search);
 let productId=searchUrl.get('productId');
-  console.log(productId);
   let containerQuantity=document.createElement('div');
   containerQuantity.className='containerQuantity flex-center';
   createDiv(1,'span','textAmount','','','quantity :',containerQuantity);
@@ -172,7 +144,6 @@ let productId=searchUrl.get('productId');
   amount.type='number';
   amount.name='amount';
   amount.className=`amount amount{${productId}}`;
-  console.log(objectQuan);
   objectQuan.forEach((obj,ind,arr)=>{
     let classN=Array.from(amount.classList);
     let arry=classN.filter(className=>{
@@ -212,7 +183,6 @@ getProductFromLocal.forEach(item=>{
 });
 allPrices+=totalPrices;
 allDiscounts+=totalDiscounts;
-console.log(totalPrices,totalDiscounts);
 id('totalPrices').innerHTML=`${allPrices.toFixed(1)}`;
 id('totalDiscounts').innerHTML=`${allDiscounts.toFixed(1)}`;
 }
@@ -250,7 +220,6 @@ if(totalProd>0){
 
 }
 let elementsRemove=document.querySelectorAll(`#${container} .cardLessThan .clear`);
-console.log(elementsRemove);
 removeProductFromCart(container,elementsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
 
 existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes','','','',true);
@@ -262,17 +231,13 @@ existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
   function removeProductFromCart(container,elementsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
   let productIdBu;
   let getProductFromLocal=JSON.parse(window.localStorage.getItem(productsInLoc));
-  console.log(getProductFromLocal); 
   let objectQuan=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
-  console.log(objectQuan);
-  // console.log(elementBu);
   elementsRemove.forEach(elementBu=>{
     elementBu.addEventListener('click',(info)=>{
       totalProd=0;
       totalQuan=0;
       allPrices=0;
       allDiscounts=0;
-      // console.log(getProductFromLocal);
 getProductFromLocal=getProductFromLocal.filter((product,ind)=>{
   let classN=Array.from(elementBu.classList);
     let arry=classN.filter(className=>{
@@ -282,24 +247,19 @@ getProductFromLocal=getProductFromLocal.filter((product,ind)=>{
 
     let productIdd=arry[0].match(/{([^]*)}/g);
      productIdBu=productIdd[0].slice(1,-1);
-     console.log(productIdBu,product.id);
 
 let match=product.id!=productIdBu;
 return match;
 })
-console.log(getProductFromLocal);
 
 window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocal) );
-console.log(getProductFromLocal);
 
 let objectQuann=objectQuan.filter(element=>{
   let matchPro;
      matchPro=element.productId!=productIdBu;
-    console.log(element.productId,productIdBu);
 return matchPro;
 })
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
-console.log(objectQuann);
   existUserOrNotInfavvv(iconName,iconId,isCart);
   existUserOrNotInfav(iconName,iconId,isCart);
 })
@@ -359,54 +319,9 @@ totalQuan=quanBook + quanNotBook;
   })
 })
 }}
-function updateQuantityWhenReload(inputs,proAndQuantityIt){
-  let objectQuann=(JSON.parse(window.localStorage.getItem((proAndQuantityIt))))||[];
- objectQuann.forEach((element,index,array)=>{
-  inputs.forEach((input,ind,arr)=>{
-    if(input.value){
-    let classN=Array.from(input.classList);
-      let arry=classN.filter(className=>{
-        let match=/{([^]*)}/g.test(className);
-        return match;
-      })
-      let productIdd=arry[0].match(/{([^]*)}/g);
-      let productIdBu=productIdd[0].slice(1,-1);
-  if(element.productId==productIdBu){
-    arr[index].value=element.quantityPro;
-  }
-}
-  })
- })
- }
+ 
 
- async function preventElementInFav(productsInLocCart,test) {
-  await fetchProducts(test);
-  let allButtonsAdd=document.querySelectorAll('#containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .buy');
-  if(window.localStorage.getItem(productsInLocCart)){
-    let productsInLocal=JSON.parse(window.localStorage.getItem(productsInLocCart));
-    productsInLocal.forEach((element,index)=>{
-  allButtonsAdd.forEach((ele,index,arr)=>{
-    let classN=Array.from(ele.classList);
-    let arry=classN.filter(className=>{
-      let match=/{([^]*)}/g.test(className);
-      return match;
-    })
-    let productIdd=arry[0].match(/{([^]*)}/g);
-    let productIdBu=productIdd[0].slice(1,-1);
-    if(+element.id== +productIdBu){
-      ele.innerHTML='added it to cart';
-          ele.style.opacity='.4';
-          ele.style.pointerEvents='none';
-          ele.style.color='gray';
-    }
-  })
-})
-  
-}
- }
-
-
-
+ 
 
 
 

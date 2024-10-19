@@ -174,7 +174,6 @@ width: 6em;
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .title{
     font-size: 1.3rem;
-    /* word-wrap:break-word; */
 white-space:inherit
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .detailsPrice{
@@ -182,8 +181,10 @@ white-space:inherit
 }
 @media (max-width:499.98px) {
     #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .detailsPrice{
+        width:fit-content;
     justify-content: center;
-
+margin-left: auto;
+margin-right: auto;
     }
     .cardLessThan .detailsDelivery{
         width: fit-content;
@@ -192,7 +193,6 @@ white-space:inherit
     }
 }
 #containerAddToCart section#addToCart .addToCart .container .productsInCart .cardLessThan .detailsProduct .containerQuantity{
-    /* background-color: aquamarine; */
     margin-top: .5rem;
     margin-bottom: .5rem;
     width: fit-content;

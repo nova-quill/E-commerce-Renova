@@ -1,16 +1,22 @@
 'use strict'
 let allErrors=[];
 let interval;
-let onEffect=true;
-// import {effectHoverOnSignIn } from "../js/common.js";
 function id(idName) {
     let nameVariable = document.getElementById(idName);
     return nameVariable;
   }
-console.log( id('phone'));
+
+  let phoneInput; phoneInput=window.intlTelInput(id('phone'),{
+    initialCountry:'auto',
+    geoIpLookup:function(callback){
+        fetch('https://ipinfo.io/json?token=797e1bde1197f3').then(response=>response.json()).then(data=>callback(data.country)).catch(()=>callback(''));}
+,utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/utils.js",
+nationalMode:false,
+separateDialCode:true,
+})
+let nameCountry=intlTelInput.getCountryData();
 document.addEventListener('DOMContentLoaded',function(){
     id('phone').addEventListener('input',function(){
-        // this.value=this.value.replace(/[^\d]/g,'');
     })
     showSignInOrSignUp('createNewAccount','formSignIn','formSignUp');
     showSignInOrSignUp('sign','formSignUp','formSignIn');
@@ -22,13 +28,10 @@ document.addEventListener('DOMContentLoaded',function(){
             e.preventDefault();
             logIn();
             })
-
 })
 
 function register(){
     allErrors=[];
-    // const phoneNumber=phoneInput.getNumber();
-    // console.log(phoneNumber);
     if( id('password').value!== id('re-enterPass').value&&id('password').value.length>=6){
         id('password').style.borderColor='green';
         id('re-enterPass').style.borderColor='red';
@@ -50,24 +53,6 @@ function register(){
 
 }
 
-
-
-
-
-// const phoneInputField=document.getElementById('phone');
-
-
-
-
-const phoneInput=window.intlTelInput(id('phone'),{
-    initialCountry:'auto',
-    geoIpLookup:function(callback){
-        fetch('https://ipinfo.io/json?token=797e1bde1197f3').then(response=>response.json()).then(data=>callback(data.country)).catch(()=>callback('EG'));}
-,utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/utils.js",
-nationalMode:false,
-separateDialCode:true,
-})
-
 function showSignInOrSignUp(button,signIn,signUp){
 id(button).addEventListener('click',function(){
 id(signIn).classList.remove('visible');
@@ -76,7 +61,6 @@ id(signIn).classList.add('hidden');
 id(signUp).classList.add('visible');
 })
 }
-// fetch("https://info.al-bassif.com/auth/register", {   method: "POST"}).then(res=>res.json()).then(da=>console.log(da));
 
 
   async function postRequestForRegister(){
@@ -87,11 +71,7 @@ formdata.append("username", id('userName').value);
 formdata.append("password", id('password').value);
 formdata.append("name", id('name').value);
 formdata.append("email",id('email').value );
-// formdata.append("profile_image",'kjkjkjddd');
-// formdata.append('local','jjjj');
 let response=await  fetch("https://tarmeezacademy.com/api/v1/register", { 
-    // let response=await  fetch("https://info.al-bassif.com/auth/register", { 
-
      method: "POST",
     body:formdata,
     redirect:'follow',
@@ -102,7 +82,6 @@ let response=await  fetch("https://tarmeezacademy.com/api/v1/register", {
    console.log(data);
    if(response.status===200){
     let hh=[];
-    data.user.local='jjjj';
     window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
     data.user.local=JSON.parse(window.localStorage.getItem(`cartUser${data.user.id}`))||[];
     console.log(data);
@@ -153,45 +132,7 @@ console.log(  window.localStorage.getItem('userToken',JSON.stringify(userToken))
         } 
     }
    }
-console.log(window.localStorage.getItem('userToken'));
-console.log(window.localStorage.getItem('user'));
 
-
-
-
-
-
-
-
-
-
-
-// hhh();
-const username='hjjkjookljsnjfdkkkWDWFf';
-
-var myHeaders = new Headers();
-myHeaders.append("Accept", "application/json");
-
-var formdata = new FormData();
-formdata.append("username", id('userName').value);
-formdata.append("password", "123456");
-formdata.append("name", "Yarob");
-formdata.append("email", "yaruserojkdpml9897459.hm@gmail.com");
-formdata.append("phone", "010899466");
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: formdata,
-  redirect: 'follow',
-//   cache:'no-cache'
-};
-
-// fetch("https://tarmeezacademy.com/api/v1/register", requestOptions)
-//   .then(response => response.json())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-// 
 async function logIn(){
   var myHeaders = new Headers();
   myHeaders.append("Accept", "application/json");
@@ -200,7 +141,6 @@ async function logIn(){
 formdata.append("password",id('logPassword').value);
   
  let res=await fetch("https://tarmeezacademy.com/api/v1/login",{
-//  let res=await fetch("https://info.al-bassif.com/auth/login",{
     method: "POST",
     body:formdata,
     redirect:'follow',
@@ -214,7 +154,6 @@ formdata.append("password",id('logPassword').value);
     if((window.localStorage.getItem(`cartUser${data.user.id}`))==null){
         window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
     }
-    // window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
     window.localStorage.setItem('userToken',JSON.stringify(userToken));
     window.localStorage.setItem('user',JSON.stringify(data.user));
     window.location.href='../index.html';
@@ -226,44 +165,17 @@ id('errorLogin').style.display='block';
 }
 
 
-
-
-
-
-
-// 
-// const number = iti.getNumber();
-// or
-// const number = phoneInput.getNumber(intlTelInput.utils.numberFormat.E164);
-// console.log(number);
-const isValid = phoneInput.isValidNumber();
-console.log(isValid);
-
-const extension = phoneInput.getExtension();
-console.log(extension);
-
-
-// document.getElementById('formSignUp').addEventListener('submit',()=>{
     function validNumber(){
     const isValid = phoneInput.isValidNumber();
     console.log(isValid);
     const error = phoneInput.getValidationError();
     console.log(error);
     if (error === intlTelInput.utils.validationError.TOO_SHORT) {
-        // the number is too short
-        console.log('error'); 
     }
-    // const countryData = intlTelInput.getCountryData();
     const countryData = phoneInput.getSelectedCountryData();
     console.log(countryData);
     phoneInput.setPlaceholderNumberType("FIXED_LINE");
 }
-    // phoneInput.setNumber("+447733123456"); 
-// })
-
-const countryData = intlTelInput.getCountryData();
-console.log(countryData);
-
 
 export function effectHoverOnSignIn(elementId){
     let isHovered=false;
@@ -282,34 +194,9 @@ export function effectHoverOnSignIn(elementId){
     },20000)
 }
 
-// async function phoneuser() {
-// fetch('/.netlify/functions/sendSMS?phone=01090090762').then(res=>res.json().then(data=>console.log(data)).catch(error=>console.log('error',error)));    
-// }
-// phoneuser();
 
 
 
-
-// const input = document.querySelector("#phone");
-    // window.intlTelInput(input, {
-        // initialCountry:'auto',
-        // geoIpLookup:function(callback){
-            // fetch('https://ipinfo.io/json?token=797e1bde1197f3').then(response=>response.json()).then
-        //   (data=>callback(data.country)).catch(()=>callback('US'));},
-        // utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.3.6/build/js/utils.js",
-        // js/intlTelInputWithUtils.js
-    //   });
-
-    //   scrollingElement.addEventListener("scroll", function() {
-        // const e = document.createEvent('Event');
-        // e.initEvent("scroll", true, true);
-        // window.dispatchEvent(e);
-    //   });
-
-
-
-// twilio
-// C9DKF1LMTDD5UR6JUXJ4CVGB
 // C9DKF1LMTDD5UR6JUXJ4CVGB
 
 // sid
@@ -327,32 +214,11 @@ export function effectHoverOnSignIn(elementId){
 
 
 
-// import{account}from "../js/appWrite.js";
 
 
-async function hundleLogin() {
-    // account.createSession('mm6136793@gmail.com','mmmmmnnnnn');
-account.createOAuth2Session(
-    'google',
-    // 'https://chic-marzipan-4499bc.netlify.app',
-    // 'http://localhost:5500/',
-    // 'http://localhost:5500/fail'
-)}
-// hundleLogin();
-// getUser();
-async function getUser() {
-    try{
-        const user=await account.get();
-        renderProfileScreen(user);
-    }
-    catch(error){
-renderLoginScreen();
-    }
-}
 
-// document.getElementById('button').addEventListener('click',function(){
-    // hundleLogin();
-// })
+
+
 
 
 

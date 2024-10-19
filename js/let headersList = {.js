@@ -13,4 +13,3 @@ let response = await fetch("https://Inkd.in/de-9aqmk");//, {
 // });
 
 let data = await response.json();
-console.log(data);
