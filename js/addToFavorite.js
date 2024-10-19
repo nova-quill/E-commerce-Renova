@@ -2,7 +2,7 @@
   
 'use strict'
 import {id,addClassActive,fetchProducts,datas,displayProducts,createDiv,dragByTouch, createHrefForElementsFooter,existUserOrNotForIconCart,
-  limitLocationProductsBySidebar,getAllElements,existUserOrNots,existUserOrNotForAddClassAtive} from "../js/common.js";
+  limitLocationProductsBySidebar,getAllElements,existUserOrNots,existUserOrNotForAddClassAtive,SearchByKeyOrButton} from "../js/common.js";
 let quantityProducts=0;
 let totalProd=0;
 let totalQuan=0;
@@ -32,6 +32,8 @@ createHrefForElementsFooter(allLinksSideBar);
 
     dragByTouch(secondHeader);
     // start shows product in cart
+// start search
+SearchByKeyOrButton(id,'iconSearch','inputSearch');
 
   
     existUserOrNotInfav('favorite','countFavorites',true);
@@ -114,7 +116,9 @@ if(JSON.parse(window.localStorage.getItem((productsInLoc)) )){
  console.log(getProductFromLocal);
  console.log(productsInLoc);
 
+//  displayProducts(getProductFromLocal, func, container,test,true);
  displayProducts(getProductFromLocal, func, container,test,true);
+
   let acard=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container  #${container} .aCardLess`);
 console.log(acard);
   let detailsProduct=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .aCardLess .detailsProduct`);
@@ -268,8 +272,8 @@ existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
       totalQuan=0;
       allPrices=0;
       allDiscounts=0;
-      console.log(getProductFromLocal);
- let  getProductFromLocalll=getProductFromLocal.filter((product,ind)=>{
+      // console.log(getProductFromLocal);
+getProductFromLocal=getProductFromLocal.filter((product,ind)=>{
   let classN=Array.from(elementBu.classList);
     let arry=classN.filter(className=>{
       let match=/{([^]*)}/g.test(className);
@@ -283,10 +287,10 @@ existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart','',true);
 let match=product.id!=productIdBu;
 return match;
 })
-console.log(getProductFromLocalll);
+console.log(getProductFromLocal);
 
-window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocalll) );
-console.log(getProductFromLocalll);
+window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocal) );
+console.log(getProductFromLocal);
 
 let objectQuann=objectQuan.filter(element=>{
   let matchPro;
@@ -296,27 +300,10 @@ return matchPro;
 })
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
 console.log(objectQuann);
-if(container=='productsInCartBoo'){
   existUserOrNotInfavvv(iconName,iconId,isCart);
-
-}
-else{
   existUserOrNotInfav(iconName,iconId,isCart);
-
-}
-
-
-
 })
 })
-// if(container=='productsInCart'){
-  // existUserOrNotInfavvv(iconName,iconId,isCart);
-
-// }
-// else{
-  // existUserOrNotInfav(iconName,iconId,isCart);
-
-// }
 }
 
 function updateQuantityWhenInput(inputs,proAndQuantityIt,container){

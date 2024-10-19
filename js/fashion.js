@@ -12,6 +12,8 @@ import {
   dragByTouch,
   createHrefForElementsFooter,
   limitLocationProductsBySidebar,
+  showProductsWithSearch,
+  SearchByKeyOrButton,
   existUserOrNotForIconCart,
   existUserOrNotForAddClassAtive
 
@@ -63,13 +65,16 @@ getAllElements(allTrendingSide,limitLocationProductsBySidebar);
   toggleDashboard('classification','dashboard',true);
       toggleDashboard('cancelDash','dashboard');
 
+//start search
+SearchByKeyOrButton(id,'iconSearch','inputSearch');
+
 // footer functions create url
 createHrefForElementsFooter(allLinksFooter);
 createHrefForElementsFooter(allLinksSideBar);
 // console.log('booksssssssssssssssssssssss');
 console.log(window.location.pathname);
   // start show products for every page in header and filter products from dashboard
-    if(window.location.pathname=='/html/books'||window.location.pathname=='/'){
+    if(window.location.pathname=='/html/books'||window.location.pathname=='/'||window.location.pathname=='/html/books.html'){
       console.log('booksssssssssssssssssssssss');
     console.log(document.getElementById('linkBooks'));
     filterProdutsForEveryPage(allCategoryForEveryPage,id,true);

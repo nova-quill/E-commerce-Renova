@@ -2,7 +2,7 @@
   
 'use strict'
 import {productId,productStock,id,addClassActive,fetchProducts,datas,displayProducts,createDiv,addNumberToIconCart,dragByTouch, createHrefForElementsFooter,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,
-  limitLocationProductsBySidebar,getAllElements,addClassActiveOnIconCart,addClassNoexistOnIcon,urlBooks,discountPercentagee,addNumToIcon,existUserOrNots} from "../js/common.js";
+  limitLocationProductsBySidebar,getAllElements,SearchByKeyOrButton,addClassActiveOnIconCart,addClassNoexistOnIcon,urlBooks,discountPercentagee,addNumToIcon,existUserOrNots} from "../js/common.js";
 let quantityProducts=0;
 let totalProd=0;
 let totalQuan=0;
@@ -12,6 +12,10 @@ let quanNotBook=0;
 let allDiscounts=0;
 let getProductFromLocal;
 let objectQuan;
+
+let mainHeaderfavAndCart = document.querySelectorAll("header .main-nav .iconPersonal.cartFav");
+console.log(mainHeaderfavAndCart);
+
 let secondHeader = document.querySelector("header .second-nav ul");
 let linkHeader = document.querySelectorAll("header .second-nav a");
 let iconsPersonal = document.querySelectorAll(
@@ -26,11 +30,16 @@ document.addEventListener('DOMContentLoaded',(info=>{
     // start header
       addClassActive(iconsPersonal, "active");
       addClassActive(linkHeader, "active");
+      addClassActive(mainHeaderfavAndCart, "active",true);
+
       // start sidebar
       getAllElements(allTrendingSide,limitLocationProductsBySidebar);
 createHrefForElementsFooter(allLinksSideBar);
 
     dragByTouch(secondHeader);
+
+    // start search
+    SearchByKeyOrButton(id,'iconSearch','inputSearch');
     // start shows product in cart
     existUserOrNotInfav('cart','countPurshes',true);
     existUserOrNotInfavvv('cart','countPurshes',true);
@@ -122,9 +131,9 @@ let productId=searchUrl.get('productId');
 // if(isCart){
   // preventElementInFav(productsInLocCart,test);
 // }
-clear.addEventListener('click',(info)=>{
-  removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
-    })
+// clear.addEventListener('click',(info)=>{
+  // removeProductFromCart(clear,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+    // })
   // elementAdd.addEventListener('click',(info)=>{
     // element.querySelector('.cart').click();
 
@@ -137,7 +146,7 @@ clear.addEventListener('click',(info)=>{
 // element.querySelector('.cartFavorite .favorite').addEventListener('click',()=>{
     // preventElementInFav( productsInLocCart,test);
     // preventElementInFav( productsInLoc,test);
-    existUserOrNotForIconCart('favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favoriteBooUser','proAndQuantityInFavoriteUserBoo','favoriteBooCart','proAndQuantityInFavoriteBoo','favorite','countFavorites');
+    // existUserOrNotForIconCart('favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favoriteBooUser','proAndQuantityInFavoriteUserBoo','favoriteBooCart','proAndQuantityInFavoriteBoo','favorite','countFavorites');
   // })
   // element.addEventListener('click',(event)=>{
     // event.preventDefault();
@@ -233,24 +242,30 @@ if(totalProd>0){
   id('containerPriceCart').style.display='block';
 
 }
+let elementsRemove=document.querySelectorAll(`#${container} .cardLessThan .clear`);
+console.log(elementsRemove);
+removeProductFromCart(container,elementsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart);
+
+existUserOrNotForIconCart('favoriteUser','proAndQuantityIt','favoriteCart','proAndQuantity','favoriteBooUser','proAndQuantityInFavoriteUserBoo','favoriteBooCart','proAndQuantityInFavoriteBoo','favorite','countFavorites');
+
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 
 }
-function removeProductFromCart(elementBu,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
+function removeProductFromCart(container,allButtonsRemove,productsInLoc,proAndQuantityIt,iconName,iconId,isCart){
   // let allButtonsRemove=document.querySelectorAll(`#containerAddToCart section#addToCart .addToCart .container #${container} .cardLessThan div.containerRemAndBuy .clear`);
   let productIdBu;
   let getProductFromLocal=JSON.parse(window.localStorage.getItem(productsInLoc));
   console.log(getProductFromLocal); 
   let objectQuan=JSON.parse(window.localStorage.getItem(proAndQuantityIt));
   console.log(objectQuan);
-  // allButtonsRemove.forEach(elementBu=>{
-    // elementBu.addEventListener('click',(event)=>{
+  allButtonsRemove.forEach(elementBu=>{
+    elementBu.addEventListener('click',(event)=>{
       totalProd=0;
       totalQuan=0;
       allPrices=0;
       allDiscounts=0;
- let  getProductFromLocalll=getProductFromLocal.filter((product,ind)=>{
+  getProductFromLocal=getProductFromLocal.filter((product,ind)=>{
   let classN=Array.from(elementBu.classList);
     let arry=classN.filter(className=>{
       let match=/{([^]*)}/g.test(className);
@@ -261,7 +276,7 @@ function removeProductFromCart(elementBu,productsInLoc,proAndQuantityIt,iconName
 let match=product.id!=productIdBu;
 return match;
 })
-window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocalll) );
+window.localStorage.setItem(productsInLoc,JSON.stringify(getProductFromLocal) );
 let objectQuann=objectQuan.filter(element=>{
   let matchPro;
      matchPro=element.productId!=productIdBu;
@@ -269,13 +284,13 @@ let objectQuann=objectQuan.filter(element=>{
 return matchPro;
 })
 window.localStorage.setItem(proAndQuantityIt,JSON.stringify(objectQuann.reverse()));
-id('productsInCart').innerHTML='';
+// id('productsInCart').innerHTML='';
 existUserOrNotInfav(iconName,iconId,isCart);
 existUserOrNotInfavvv(iconName,iconId,isCart);
 // existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 // existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
-    // })
-  // })
+    })
+  })
 }
 function updateQuantityWhenInput(inputs,proAndQuantityIt,container){
   if(window.localStorage.getItem((proAndQuantityIt))){

@@ -586,7 +586,10 @@ header .main-nav .personal.mobile .parentAad.active {
     box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
     cursor: pointer;
 }
+header .main-nav .cartFav.active{
+    box-shadow: .1rem .1rem .15rem var(--hover-boxshadow-mainb, #f6ecbb);
 
+}
 header .main-nav .loca-lang .sign-lang {
     position: relative;
     padding: .25rem 1.0625rem .25rem .25rem;
@@ -939,7 +942,8 @@ header .second-nav ul li#all:hover i {
 }
 
 header .second-nav ul a {
-    padding: .125rem;
+    padding-left: .125rem;
+    padding-right: .125rem;
     color: var(--color-links-secondarybar, #1b1b1b);
     font-size: 1.1rem;
     text-transform: capitalize;
@@ -1184,7 +1188,7 @@ header #container-location #map div div.gm-style div div a {
 }
 .cardLessThan .cartFavorite i.addedIt{
     color:#952f2f; 
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .cardLessThan .detailsProduct {
@@ -1521,6 +1525,28 @@ footer .containerEnd .endFooter ul {
 /* end footer */
 .limitSection{
   box-shadow: .1rem 0rem 1rem .1rem black;
+}
+/* start translate */
+.goog-te-banner-frame,.goog-te-gadget,.goog-te-banner-frame.skiptranslate,.goog-te-balloon-frame,.goog-te-feedback,iframe.goog-te-banner-frame,.goog-te-combo + div,.goog-te-tooltip,.goog-tooltip,.goog-te-gadget-icon,.VIpgJd-yAWNEb-L7lbkb,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,#goog-te-tt,.VIpgJd-ZVi9od-aZ2wEe-OiiCO,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+    display:none !important;
+    background-color: transparent !important;
+}
+.goog-te-gadget-simple:hover,.goog-te-combo:hover,.goog-tooltip:hover,.VIpgJd-yAWNEb-L7lbkb:hover,#goog-te-tt:hover,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf:hover{
+    display:none !important;
+    background-color: transparent !important;
+}
+body.VIpgJd-ZVi9od-ORHb,iframe{
+    display: none !important;
+        top:0 !important;
+}
+body{
+    top:0 !important;
+}
+
+font.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q{
+    color:inherit !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
 }
 /* start media root */
 @media (min-width:1400px) {

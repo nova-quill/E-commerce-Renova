@@ -290,7 +290,10 @@ header .second-nav{
     width: 10rem;
     margin-bottom: 1rem;
 }
-
+#containerFashion section#fashion.containerBooks  .containerFashion .dashboard .sortBy {
+    background-color: red;
+    display: none;
+}
 #containerFashion section#fashion .containerFashion .dashboard .sortBy .box {
     width: 100%;
     padding: .3rem;
@@ -405,6 +408,9 @@ header .second-nav{
 /* start brand dashboard */
 #containerFashion section#fashion .containerFashion .dashboard .category {
     border-top: .0625rem solid var(--hover-boxshadow-mainbar, #f6ecbb);
+}
+#containerFashion section#fashion.containerBooks .containerFashion .dashboard .category#notBorder {
+    border-top: none;
 }
 #containerFashion section#fashion .containerFashion .dashboard .category dl {
     border-top: none;

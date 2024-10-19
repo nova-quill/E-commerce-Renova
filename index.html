@@ -50,6 +50,44 @@
     <!--  start overlay -->
     <div class='overlay' id="overlay"></div>
     <!-- end overlay -->
+
+
+    <!-- start translate -->
+ 
+    
+    <div id="google_translate_element" style="display:none;"></div>  
+    
+    <script type="text/javascript">  
+        function googleTranslateElementInit() {  
+            new google.translate.TranslateElement({  
+                pageLanguage: 'ar', // اللغة الأصلية للموقع  
+                includedLanguages: 'en,ar', // اللغات التي تريد تضمينها (مثلا: الإنجليزية، الفرنسية، الإسبانية، الألمانية، الإيطالية)  
+                layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT  
+            }, 'google_translate_element');  
+        }  
+ 
+
+    </script>  
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  
+    
+    
+     <!-- end translate -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <!-- <button
      class="snipcart-add-item"
      data-item-id="2"
@@ -193,12 +231,12 @@
         <div class="location">deliver to </div> 
                 <span class="loca-name">egypt </span>
         </div>
-           <div class="sign-lang iconPersonal">En</div>
+           <div class="sign-lang iconPersonal" id="switchLang">En</div>
         </div>
         <div class="box-search flex-center">
           <div class="all flex-center">all</div>
-          <input class="search"type='text'name='search'placeholder='search in RENOVA'/>
-          <i class="fas fa-search isearch flex-center"></i>
+          <input class="search"type='text'name='search'placeholder='search in RENOVA' id="inputSearch"/>
+          <i class="fas fa-search isearch flex-center" id="iconSearch"></i>
           </div>
           <div class="personal mobile flex-center">
             <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
@@ -209,13 +247,13 @@
               <span id="hello"></span>
             </a>
               </div>
-             <div class="box-favorite flex-center iconPersonal"> 
+             <div class="box-favorite  cartFav flex-center iconPersonal"> 
               <a href="html/addToFavorite.html">
               <i class="fa-solid fa-heart favorite"></i>
             </a>
             <span class="count-favorite" id="countFavorites"></span>
             </div>
-              <div class="cart flex-center iconPersonal">
+              <div class="cart cartFav flex-center iconPersonal">
                 <a href="html/addToCart.html">
                   <i class="fa-solid fa-cart-shopping cart-icon"></i>
                 </a>

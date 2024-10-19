@@ -13,12 +13,13 @@ rel="stylesheet"/>
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/fashion.css" />
+
+
 </head>
 <body>
     <!--  start overlay -->
     <div id="overlay"></div>
     <!-- end overlay -->
-  
       <!-- start sidebar -->
       <div class="xmark flex-center" id="xmark">
         <i class="fa-solid fa-xmark xmarkSide"></i>
@@ -133,7 +134,7 @@ rel="stylesheet"/>
            </dl>
            </div>
       </div>
-  
+    
     <!-- end sidebar -->
      <!-- start header -->
         <header>
@@ -155,8 +156,8 @@ rel="stylesheet"/>
         </div>
         <div class="box-search flex-center">
           <div class="all flex-center">all</div>
-          <input class="search"type='text'name='search'placeholder='search in RENOVA'  id="inputSearch"/>
-          <i class="fas fa-search isearch flex-center"  id="iconSearch"></i>
+          <input class="search"type='text'name='search'placeholder='search in RENOVA' id="inputSearchPageSea"/>
+          <i class="fas fa-search isearch flex-center" id="iconSearch"></i>
           </div>
           <div class="personal mobile flex-center">
             <i class="fas fa-bars menu iconPersonal" id="menuMobile"></i>
@@ -186,15 +187,14 @@ rel="stylesheet"/>
           </div>
         </div>
         <!-- end main navbar -->
-        <!-- start hidden divs main navbar -->
-        <!-- hiddeen location map-->
+        <!-- start hidden divs second navbar -->
+        <!-- hiddeen location -->
         <div class="container-location" id="container-location">
           <i class="fa-solid fa-circle-xmark xmarkmap" id="xmarkmap"></i>
   <input name="search-location" placeholder="search in map"id='search-location'/>
   <div id="map"></div>
         </div> 
-                <!-- end hidden divs main navbar -->
-        <!-- start second navbar -->
+                        <!-- start second navbar -->
         <nav class="second-nav flex-just-between">
           <ul class="links">
             <li class='all' id="all"><i class="fas fa-bars toggle-menu"></i><a href="#">All</a></li>
@@ -204,8 +204,7 @@ rel="stylesheet"/>
             <li><a href="furniture.html"  data-category='furniture'>furniture</a></li>
             <li><a href="automotive.html"  data-category="automotive">automotive</a></li>
             <li><a href="phones.html"  data-category="phones">phones</a></li>
-            <li><a href="kitchen.html" data-category="kitchen-accessories">kitchen</a></
-              li>
+            <li><a href="kitchen.html" data-category="kitchen-accessories">kitchen<a></li>
             <li><a href="beauty.html" data-category="beauty,skin-care
                          ">beauty</a></li>
                          <li><a href="books.html">books</a></li>
@@ -216,10 +215,12 @@ rel="stylesheet"/>
       </div>
     </header>
  <!-- end header -->
-  <!-- start container fashion -->
+
+
+   <!-- start container fashion -->
    <div id="containerFashion">
     <!-- start section fashion -->
-     <section id="fashion">
+    <section id="fashion">
       <div class="containerFashion">
         <!-- start dashboard -->
         <div class="dashboard" id="dashboard">
@@ -241,24 +242,41 @@ rel="stylesheet"/>
             <li><a href=""id="freeShippingSort">free delivery</a></li>
           </ul>
           </div>
-          <div class="category">
+          <!-- <div class="category">
             <dl id="category" data-category="fashion">
               <dt>category</dt>
-              <dd class="categoryName tags" id="categoryName" data-category="all"> <a href="#">all groceries</a></dd>
-              <dd class='hidden' data-category="groceries"><a href="#">groceries</a></dd>
-              <dd class="tags" data-category="vegetables"><a href="">vegetables</a></dd>
-              <dd  class="tags"data-category="fruits"><a href="#">fruits</a></dd>
-              <dd  class="tags"data-category="dairy"><a href="">dairy</a></dd>
-              <dd  class="tags"data-category="meat"><a href="">meat</a></dd>
-              <dd  class="tags"data-category="seafood"><a href="">seafood</a></dd>
-              <dd  class="tags"data-category="condiments,desserts"><a href="">desserts</a></dd>
-              <dd  class="tags"data-category="beverages"><a href="">beverages</a></dd>
-              <dd  class="tags"data-category="pet supplies"><a href="">pet supplies</a></dd>
-              <dd  class="tags"data-category="cooking essentials,grains"><a href="">cooking essentials</a></dd>
-              <dd  class="tags"data-category="health supplements"><a href="">health supplements</a></dd>
-              <dd  class="tags"data-category="household essentials"><a href="">household essentials</a></dd>
+              <dd class="categoryName" id="categoryName" data-category="all"> <a href="#">all fashion</a></dd>
+              <dd data-category="womens-dresses,tops"><a href="#">wear's womens</a></dd>
+              <dd data-category="womens-shoes"><a href="">shoe's women</a></dd>
+              <dd data-category="womens-bags"><a href="">bag's womens</a></dd>
+              <dd data-category="womens-watches"><a href="">watch's women</a></dd>
+              <dd data-category="womens-jewellery"><a href="">jewelry</a></dd>
+              <dd data-category="mens-shirts"><a href="">wear's men</a></dd>
+              <dd data-category="mens-shoes"><a href="">shoe's men</a></dd>
+              <dd data-category="mens-watches"><a href="">watch's men</a></dd>
+              <dd data-category="sports-accessories"><a href="">sports</a></dd>
+              <dd data-category="sunglasses"><a href="">sunglasses</a></dd>
+              <dd data-category="fragrances"><a href="">perfumes</a></dd>
             </dl>
-          </div>
+          </div> -->
+          <!-- <div class="category">
+            <span class="reset" id="resetBrands">reset</span>
+            <dl class="check" id="brandsDash">
+              <dt>brands</dt>
+              <dd> 
+                <label class="oppo">rolex
+                  <input type="checkbox" name="rol"value='rolex'/>
+                <span class="customCheck"></span>
+                </label> 
+                </dd>
+                <dd class=> 
+                  <label class="oppo">fashion
+                    <input type="checkbox" name="fash"  value="fashion"/>
+                  <span class="customCheck"></span>
+                  </label> 
+                  </dd>
+            </dl>
+          </div> -->
           <div class="category">
             <span class="reset" id="resetPrice">reset</span>
             <dl class="check">
@@ -373,16 +391,17 @@ rel="stylesheet"/>
           <!-- end dashboard -->
            <!-- satrt container products fashion -->
             <div class="containerFashion" id="boxFashion">
-              <h1>groceries</h1>
+              <h1 id="headingSearch">result search</h1>
               <span id="classification">classification</span>
               <div id="containerProduts"> </div>
-            </div>       
-            </div>   
+            </div>          
+            </div>
              <!-- end container products fashion -->
      </section>
     <!-- end section fashion -->
    </div>
   <!-- end container fashion -->
+
   <!-- start footer -->
  <footer>
     <!-- start sign in -->
@@ -401,8 +420,8 @@ rel="stylesheet"/>
      
     <!-- end sign in -->
     
-      <!-- start category footer -->
-      <div class="containerCat  categories flex-center">
+       <!-- start category footer -->
+       <div class="containerCat  categories flex-center">
         <div class="containerCategory flex-just-between">
           <div class="category">
             <h4><a href="fashion.html">fashion</a></h4>
@@ -450,7 +469,7 @@ rel="stylesheet"/>
       </div>
       </div>
       <!-- end category footer -->
-  
+
        <!-- start about renova ....... -->
        <div class="containerCat aboutRenova flex-center">
         <div class="containerCategory flex-just-between">
@@ -481,7 +500,7 @@ rel="stylesheet"/>
         </div>
     
            <!--  end about renova ....... -->
-             <!-- start rights footer -->
+             <!-- start end footer -->
     <div class="containerEnd flex-center">
       <div class="endFooter">
         <ul class='flex-center'>
@@ -492,7 +511,7 @@ rel="stylesheet"/>
         <p>  &#169; 2024 renova all rights reversed</p>
       </div>
     </div>
-             <!-- end rights footer -->
+             <!-- end end footer -->
      </footer>
      <!-- end footer -->
     
@@ -502,9 +521,8 @@ rel="stylesheet"/>
           <!-- // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&loading=async&
     callback=initMap"</script> -->
     
-    <!-- </script> -->
-
-        <script  type="module" src="../js/fashion.js" deffer></script>
+    </script>
+        <script type="module" src="../js/search.js"></script>
       </body>
     </html>
     

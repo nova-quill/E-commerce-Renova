@@ -3,7 +3,7 @@ import { dummyProducts } from "../js/products.js";
 import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
  
-  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter, productId,
+  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton, productId,
     discountPercentagee
 } 
 from './common.js';
@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded',(info=>{
     // end header
       // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+
+    // start search
+    SearchByKeyOrButton(id,'iconSearch','inputSearch');
   // start shows details product
   showsDetailsProduct();
   // sart related products
@@ -143,6 +146,7 @@ async function getProductFromUrl(func,choose){
   const productName=urlParams.get('productId');
   iconCartDetails.classList.add(`cart{${productName}}` ,`cart${productName}`);
   iconFavoDetails.classList.add(`favorite{${productName}}`);
+  console.log(datas);
   filterProduct=datas.filter((element,index)=>{
   productId=element['id'];
   if(productId==productName){
@@ -162,7 +166,33 @@ async function getProductFromUrl(func,choose){
       else{
         discount=20;
       }
-      console.log(discount);
+
+      // rating=element['volumeInfo']['categories'].toString().toLowerCase()
+      rating=element['volumeInfo']['categories'].toString().toLowerCase() == "Fiction".toString().toLowerCase()?rating=4.6:element['volumeInfo']['categories'].toString().toLowerCase()== 'Language Arts & Disciplines'.toString().toLowerCase()?rating=3.5:element['volumeInfo']['categories'].toString().toLowerCase() == 'Literary Collections'.toString().toLowerCase()?rating=3.1:rating=2.5;
+
+
+
+
+      // if (productToLowerStrii == "Fiction".toLowerCase()) {
+      //   rating=4.8;
+      //   console.log(4.8);
+      // }
+      // if (productToLowerStrii == 'Language Arts & Disciplines'.toLowerCase()) {
+      //   rating=3.5;
+      //   console.log(3.5);
+
+      // }
+      // if (productToLowerStrii == 'Literary Criticism'.toLowerCase()) {
+      //   rating=3;
+      //   console.log(3);
+
+      // }
+      // else{
+      //   rating=2.5;
+      //   console.log(2.5);
+
+      // }
+      // console.log(discount);
        oldPrice=element['saleInfo']['listPrice']['amount']||'Unknown';
     let stockk=element['saleInfo']['saleability']||'Unknown';
     stock=stockk.toLowerCase();
@@ -174,7 +204,10 @@ if(stock!='for_sale'.toLowerCase()){
 }
       price=   (oldPrice - oldPrice * (discount / 100));
       saving=oldPrice - price;
-      rating=index==0?rating=3:index>0&&index<6?rating=index:index>=6&&index<20?rating=3.5:rating=4.5;
+      // rating=index==0?rating=3:index>0&&index<6?rating=index:index>=6&&index<15?rating=3.5:rating=4.5;
+      // rating=index==0?rating=3:index>0&&index<6?rating=index:index>=6&&index<15?rating=3.5:rating=4.5;
+
+      console.log(rating);
       mainImg=element['volumeInfo']['imageLinks']['thumbnail']||'Unknown';
       sideImgs=element['volumeInfo']['imageLinks']['smallThumbnail']||'Unknown';
       description=element['volumeInfo']['description']||'Unknown';
@@ -370,9 +403,15 @@ function limitWidthScrollBarWhenLoaded(containerProducts,buttons) {
 function changeImageProduct(func){
   let imgs=document.querySelectorAll('#containerDetailsPro #sectionDetails #containerImages #sideImgs .containerSideImgs .sideImgs');
   let mainImgs=document.querySelector('#containerDetailsPro #sectionDetails #containerImages .mainImg');
+  imgs[0].parentElement.classList.add('active');
   imgs.forEach(element=>{
     element.addEventListener('mousemove',(info)=>{
       mainImgs.src=info.target.src;
+
+      imgs.forEach(elemen=>{
+        elemen.parentElement.classList.remove('active');
+      })
+      element.parentElement.classList.add('active');
     })
   })
 }

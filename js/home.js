@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile} from './common.js';
+import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile,SearchByKeyOrButton,translatePageByCustomer} from './common.js';
 import { dummy } from './dummyproducts.js';
 
 // variables DOM
@@ -17,6 +17,8 @@ let currentSlide = 0;
 let autoSliders;
 let allBalls;
 
+let mainHeaderfavAndCart = document.querySelectorAll("header .main-nav .iconPersonal.cartFav");
+console.log(mainHeaderfavAndCart);
 let secondHeader = document.querySelector("header .second-nav ul");
 console.log(secondHeader);
 let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
@@ -42,6 +44,8 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
 addClassActive(linkHeader, "active");
+// addClassActive(mainHeaderfavAndCart, "active",true);
+
 // end header
 // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
@@ -85,6 +89,9 @@ suggestedForYou(false);
 // end part scrolling products
 // start drag product by toutch
 getAllElements(containerProductsDrag,dragByTouch);
+//start search
+SearchByKeyOrButton(id,'iconSearch','inputSearch',true);
+
 // start get product by icon cart
 existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
 
@@ -95,6 +102,9 @@ existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
 // start footer
 createHrefForElementsFooter(allLinksFooter);
+
+// start translate
+translatePageByCustomer(id,'switchLang');
 }))
 
 
