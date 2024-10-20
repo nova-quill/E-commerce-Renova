@@ -79,18 +79,14 @@ let response=await  fetch("https://tarmeezacademy.com/api/v1/register", {
    })
    try{
    let data = await response.json();
-   console.log(data);
    if(response.status===200){
     let hh=[];
     window.localStorage.setItem(`cartUser${data.user.id}`,JSON.stringify(hh))
     data.user.local=JSON.parse(window.localStorage.getItem(`cartUser${data.user.id}`))||[];
-    console.log(data);
   let userToken=data.token;
     window.location.href='../index.html';
   window.localStorage.setItem('userToken',JSON.stringify(userToken));
   window.localStorage.setItem('user',JSON.stringify(data.user));
-console.log(  window.localStorage.getItem('user',JSON.stringify(data.user)));
-console.log(  window.localStorage.getItem('userToken',JSON.stringify(userToken)));
    }
    else{
     id('errorRegister').style.display='block';
@@ -167,13 +163,10 @@ id('errorLogin').style.display='block';
 
     function validNumber(){
     const isValid = phoneInput.isValidNumber();
-    console.log(isValid);
     const error = phoneInput.getValidationError();
-    console.log(error);
     if (error === intlTelInput.utils.validationError.TOO_SHORT) {
     }
     const countryData = phoneInput.getSelectedCountryData();
-    console.log(countryData);
     phoneInput.setPlaceholderNumberType("FIXED_LINE");
 }
 
@@ -197,10 +190,6 @@ export function effectHoverOnSignIn(elementId){
 
 
 
-// C9DKF1LMTDD5UR6JUXJ4CVGB
-
-// sid
-// ACbac2f6f2a1afab09cfa2a22d8cb44f9b
 
 
 
@@ -244,55 +233,3 @@ export function effectHoverOnSignIn(elementId){
 
 
 
-
-
-function loginCallback(res){
-    console.log(res);
-}
-let gg;
-async function jkj(){
-let jh=await fetch('https://apis.google.com/js/platform.js');
- gg=await jh.text();
-console.log(gg);
-return gg;
-} 
-   function initClient(){
-       gapi.load('auth2',function(){
-            const auth2=gapi.auth2.init({
-                client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com',
-            })
-        auth2.then(function(){
-            console.log('kllk');
-        }).catch(function(error){
-            console.error('lll',error);
-        })})
-    }
-
-function signIn(){
-        const authInstance=gapi.auth2.getAuthInstance();
- authInstance.signIn().then(googleUser=>{
-            const idToken=googleUser.getAuthResponse().id_token;
-             console.log('token',idToken);
-     }).catch(error=>{
-         console.error('error',error);
-     })
- }
-
- document.addEventListener('DOMContentLoaded',function(){
-// jkj();
-    // initClient();
-// document.getElementById('button').addEventListener('click',()=>signIn());
-});
-function hundel(res){
-
-}
-// window.onload=function (){
-    // google.accounts.id.initialize({
-        // client_id:'464005441496-a3h35rbmsico35k5obv7a1euu4a1bi0o.apps.googleusercontent.com',
-        // callback:hundel
-    // })
-    // google.accounts.id.renderButton(
-        // document.querySelector('.g_id_signin'),{theme:"outline",size:'large'}
-    // )
-    // google.accounts.id.prompt();
-// }

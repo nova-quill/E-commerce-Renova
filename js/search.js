@@ -1,34 +1,35 @@
 'use strict'
 import {
-    id,
-    getAllElements,
-    addClassActive,
-    toggleDashboard,
-    displayProducts,
-    filterAllProductsByDashboard,
-    filterProdutsForEveryPage,
-    resetDashboard,
-    resetPriceDashboard,
-    displayMenuSort,
-    dragByTouch,
-    createHrefForElementsFooter,
-    limitLocationProductsBySidebar,
-    existUserOrNotForIconCart,
-    existUserOrNotForAddClassAtive,
-    showProductsWithSearch,
-    SearchByKeyOrButton,
-    filterProductsWithSearch,
-    fetchProducts,
-    hundleSortBy
-  
-  } from "./common.js";
-  let secondHeader = document.querySelector("header .second-nav ul");
-let linkHeader = document.querySelectorAll("header .second-nav a");
+  id,
+  getAllElements,
+  addClassActive,
+  toggleDashboard,
+  displayProducts,
+  filterAllProductsByDashboard,
+  filterProdutsForEveryPage,
+  resetDashboard,
+  resetPriceDashboard,
+  displayMenuSort,
+  dragByTouch,
+  createHrefForElementsFooter,
+  limitLocationProductsBySidebar,
+  existUserOrNotForIconCart,
+  existUserOrNotForAddClassAtive,
+  showProductsWithSearch,
+  SearchByKeyOrButton,
+  filterProductsWithSearch,
+  fetchProducts,
+  hundleSortBy,
+  scrollToTopByButton
+
+} from "./common.js";
+let secondHeader = document.querySelector("header .second-nav ul");
+let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal");
-  let allLinksFooter=document.querySelectorAll('footer .category li a');
-let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
-let allTrendingSide=document.querySelectorAll('#boxSideBar #trending dd a');
+let allLinksFooter = document.querySelectorAll('footer .category li a');
+let allLinksSideBar = document.querySelectorAll('.sideBar.hidd');
+let allTrendingSide = document.querySelectorAll('#boxSideBar #trending dd a');
 let allCategoryForEveryPage = document.querySelectorAll(
   ".containerFashion .category dl#category dd:not(dd.categoryName)"
 );
@@ -55,87 +56,89 @@ let allAvalibal = document.querySelector(
 );
 
 
-document.addEventListener('DOMContentLoaded',(info=>{
-    // start header
-    addClassActive(iconsPersonal, "active");
-    addClassActive(linkHeader, "active");
-    dragByTouch(secondHeader);
-    // start sidebar
-  getAllElements(allTrendingSide,limitLocationProductsBySidebar);
-    // start dashboard
-    toggleDashboard('classification','dashboard',true);
-        toggleDashboard('cancelDash','dashboard');
-  
-// start get product by icon cart
-existUserOrNotForIconCart('cartUser','proAndQuantityIt','productCart','proAndQuantity','cartBooUser','proAndQuantityInCartUserBoo','cartBooCart','proAndQuantityInCartBoo','cart','countPurshes');
+document.addEventListener('DOMContentLoaded', (info => {
+  // start header
+  addClassActive(iconsPersonal, "active");
+  addClassActive(linkHeader, "active");
+  dragByTouch(secondHeader);
+  // start sidebar
+  getAllElements(allTrendingSide, limitLocationProductsBySidebar);
+  createHrefForElementsFooter(allLinksSideBar);
+  // start dashboard
+  toggleDashboard('classification', 'dashboard', true);
+  toggleDashboard('cancelDash', 'dashboard');
 
-existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
-existUserOrNotForAddClassAtive('cartUser','productCart','cart');
-existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
-existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
-existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
+  // start get product by icon cart
+  existUserOrNotForIconCart('cartUser', 'proAndQuantityIt', 'productCart', 'proAndQuantity', 'cartBooUser', 'proAndQuantityInCartUserBoo', 'cartBooCart', 'proAndQuantityInCartBoo', 'cart', 'countPurshes');
 
-// start search
-showProductsWithSearch(id);
-SearchByKeyOrButton(id,'iconSearch','inputSearchPageSea',false,true);
+  existUserOrNotForIconCart('favoriteUser', 'proAndQuantityInFav', 'favoriteCart', 'proAndQuantityInFav', 'favoriteBooUser', 'proAndQuantityInFavBoo', 'favoriteBooCart', 'proAndQuantityInFavBoo', 'favorite', 'countFavorites');
+  existUserOrNotForAddClassAtive('cartUser', 'productCart', 'cart');
+  existUserOrNotForAddClassAtive('cartBooUser', 'cartBooCart', 'cart');
+  existUserOrNotForAddClassAtive('favoriteUser', 'favoriteCart', 'favorite');
+  existUserOrNotForAddClassAtive('favoriteBooUser', 'favoriteBooCart', 'favorite');
+
+  // start search
+  showProductsWithSearch(id);
+  SearchByKeyOrButton(id, 'iconSearch', 'inputSearchPageSea', false, true);
 
 
-filterProdutsForEveryPage(allCategoryForEveryPage,id,'',true);
-filterAllProductsByDashboard(id,allCategory,allCategoryTags,allDiscount,
-  allAvalibal,allReviews,freeShipping,
-   'rangPrice',allBrands,'lowPrice','freeShippingSort','bestSellingSort',
-  'newArrivals','allProducts','highPrice', 
-   'containerProduts','',true);
-     //start reset dashboard
-resetDashboard(id,'resetBrands',allBrands,allDiscount,'availabi',
-freeShipping,allBrands, 'containerProduts','',true);
-  resetPriceDashboard(id,'resetPrice','rangPrice',allDiscount,'availabi',
-freeShipping,allBrands, 
-    'containerProduts','',true );
-  resetDashboard(id,'resetDiscount',allDiscount,allDiscount,'availabi',
-freeShipping,allBrands, 'containerProduts','','',true);
-  resetDashboard(id,'resetReview',allReviews,allDiscount,'availabi',
-freeShipping,allBrands, 'containerProduts',
-  true,'',true);
+  filterProdutsForEveryPage(allCategoryForEveryPage, id, '', true);
+  filterAllProductsByDashboard(id, allCategory, allCategoryTags, allDiscount,
+    allAvalibal, allReviews, freeShipping,
+    'rangPrice', allBrands, 'lowPrice', 'freeShippingSort', 'bestSellingSort',
+    'newArrivals', 'allProducts', 'highPrice',
+    'containerProduts', '', true);
+  //start reset dashboard
+  resetDashboard(id, 'resetBrands', allBrands, allDiscount, 'availabi',
+    freeShipping, allBrands, 'containerProduts', '', true);
+  resetPriceDashboard(id, 'resetPrice', 'rangPrice', allDiscount, 'availabi',
+    freeShipping, allBrands,
+    'containerProduts', '', true);
+  resetDashboard(id, 'resetDiscount', allDiscount, allDiscount, 'availabi',
+    freeShipping, allBrands, 'containerProduts', '', '', true);
+  resetDashboard(id, 'resetReview', allReviews, allDiscount, 'availabi',
+    freeShipping, allBrands, 'containerProduts',
+    true, '', true);
 
-filterProductByPrice('lowPrice');
-filterProductByPrice('highPrice');
+  filterProductByPrice('lowPrice');
+  filterProductByPrice('highPrice');
 
-    //end reset dashboard
-// end show products for every page in header
-// filter products from sort by
-displayMenuSort(id,'dashboardAngle', "list", "active");
-// end dashboard
- // footer functions create url
- createHrefForElementsFooter(allLinksFooter);
- createHrefForElementsFooter(allLinksSideBar);
-})) 
+  //end reset dashboard
+  // end show products for every page in header
+  // filter products from sort by
+  displayMenuSort(id, 'dashboardAngle', "list", "active");
+  // end dashboard
+  // footer functions create url
+  createHrefForElementsFooter(allLinksFooter);
+  // start scroll button
+  scrollToTopByButton();
+}))
 //end show products
 
 
 async function filterProductByPrice(element) {
   await fetchProducts();
-    id(element).addEventListener('click',(info)=>{
-      info.preventDefault();
-if(element=='lowPrice'){
+  id(element).addEventListener('click', (info) => {
+    info.preventDefault();
+    if (element == 'lowPrice') {
       filterProductsWithSearch.sort(
         (a, b) =>
           a.price -
           a.price * (a.discountPercentage / 100) -
           (b.price - b.price * (b.discountPercentage / 100))
-       );
-      }
+      );
+    }
 
-      if(element=='highPrice'){
-        filterProductsWithSearch.sort(
-          (a, b) =>
-            b.price -
-            b.price * (b.discountPercentage / 100) -
-            (a.price - a.price * (a.discountPercentage / 100))
-         );
-        }
-       hundleSortBy(id, element, 'containerProduts') ;
-       displayProducts(filterProductsWithSearch, id, 'containerProduts');
-    })
+    if (element == 'highPrice') {
+      filterProductsWithSearch.sort(
+        (a, b) =>
+          b.price -
+          b.price * (b.discountPercentage / 100) -
+          (a.price - a.price * (a.discountPercentage / 100))
+      );
+    }
+    hundleSortBy(id, element, 'containerProduts');
+    displayProducts(filterProductsWithSearch, id, 'containerProduts');
+  })
 }
 

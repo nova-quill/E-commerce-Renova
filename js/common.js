@@ -1,6 +1,4 @@
 "use strict";
-import { dummyProducts } from "../js/products.js";
-import { dummy } from "../js/dummyproducts.js";
 import { book } from "../js/books.js";
 
 let cardLessThan;
@@ -63,7 +61,7 @@ let totalLength=0;
 let productsFilterInLocNotBoo;
 let productsFilterInLocBoo;
 export let  filterProductsWithSearch;
-
+let categoriesWithFil;
 let overlay = document.getElementById("overlay");
 // get element by id
 export function id(idName) {
@@ -103,9 +101,18 @@ export function createParentDiv(classParent, container) {
 // start add class active on link in navbar
 export function addClassActive(lis, className,isCart) {
   let urlWin = window.location.href;
-  lis.forEach((activeLink) => {
-    if (activeLink.href === urlWin) {
+
+  // let urlWinLink=new URL(urlWin);
+  lis.forEach((activeLink) => {   
+    if (activeLink.href === urlWin||`https://` + activeLink.href.pathname == `https://` + urlWin||activeLink.href.split('?')[0]==urlWin.split('?')[0]) {
       activeLink.parentElement.classList.add(className);
+      if(document.querySelector('.containerFashion h1')){
+      let text=document.querySelector('.containerFashion h1').textContent;
+      console.log(text);
+      if(urlWin.includes('?')){
+      document.querySelector('.containerFashion h1').textContent=`big offers on ${text}`
+      }
+      }
     }
   });
 }
@@ -1048,24 +1055,6 @@ if(isSearch){
      brand = product["brand"] || "";
     showProductsWithOffersBrand(brand,test);
     showProductsWithOffersPrice( pricepro,discountPercentagee);
-if(isSearch){
-  return (
-    categoryMatch &&
-    brandMatch &&
-
-    discountMatch &&
-    avilabiltyMatch &&
-    reviewMatch &&
-    freeMatch &&
-    priceMatch &&
-    freeSortMatch &&
-    besetSellingMatch &&
-    newArrivalsMatch&&
-    categoryTagsMatch
-  );
-
-}
-else{
     return (
       categoryMatch &&
       discountMatch &&
@@ -1079,10 +1068,9 @@ else{
       newArrivalsMatch&&
       categoryTagsMatch
     );
-  }
   });
   if(isSearch){
-    func('headingSearch').innerHTML=`${filterProducts.length} result search`;
+    func('headingSearch').innerHTML=`result search ${filterProducts.length} item`;
   }
   displayProducts(filterProducts, func, container,test);
   let icons=document.querySelectorAll('.cartFavorite .cart');
@@ -1236,13 +1224,13 @@ displayProducts(filterProductsWithSearch, func, 'containerProduts',test);
 categoriesWithFil=Array.from(new Set(filterProductsWithSearch.map(obj=>obj.category.toLowerCase().replace(/-/g,' '))));
   }
   func('dashboard').style.display='block';
-  func('headingSearch').innerHTML=`${filterProductsWithSearch.length} result search`;
+  func('headingSearch').innerHTML=`result search ${filterProductsWithSearch.length} item`;
 
   }
   else{
     func('dashboard').style.display='none';
-    func('headingSearch').innerHTML=`${filterProductsWithSearch.length} result search`;
-    func('containerProduts').innerHTML=`No results`;
+    func('headingSearch').innerHTML=`result search ${filterProductsWithSearch.length} item`
+    func('containerProduts').innerHTML=`No products, come back later`;
       func('classification').style.display='none';
   }
   }
@@ -1959,4 +1947,21 @@ if(googleTranslateDropdown){
   googleTranslateDropdown.value=lang;
   googleTranslateDropdown.dispatchEvent(new Event('change'));
 }
+}
+
+// scroll button
+ export function scrollToTopByButton(){
+window.onscroll = function() {
+  let scrollButton = document.getElementById('scrollButton');
+  if (document.documentElement.scrollTop > 2000) {
+      scrollButton.classList.add('visible');
+  } else {
+      scrollButton.classList.remove('visible');
+  }
+};
+scrollButton.addEventListener('click',(info=>{
+  scrollButton.classList.toggle('visible');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}))
+ 
 }

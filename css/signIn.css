@@ -17,7 +17,6 @@ body {
     background-color: var(--background-body, #e5e5e5fc);
 }
 
-/* reset elements */
 ul {
     list-style: none;
     padding: 0;
@@ -70,11 +69,12 @@ button {
     align-items: center;
     flex-direction: column;
 }
+
 @media (max-width:767.98px) {
-    #containerSignIn section{
+    #containerSignIn section {
         justify-content: flex-start;
     }
-    
+
 }
 
 #containerSignIn section .renova {
@@ -98,7 +98,6 @@ button {
 
 /* start form sign in */
 #containerSignIn section .formSign {
-    /* width:30rem; */
     width: 50%;
     max-width: 30rem;
     padding: .25rem;
@@ -120,12 +119,17 @@ button {
         width: 95%;
     }
 }
-#containerSignIn section .formSign#formSignIn.hidden,#containerSignIn section .formSign#formSignUp.hidden {
-    display:none;
+
+#containerSignIn section .formSign#formSignIn.hidden,
+#containerSignIn section .formSign#formSignUp.hidden {
+    display: none;
 }
-#containerSignIn section .formSign#formSignIn.visible ,#containerSignIn section .formSign#formSignUp.visible {
-    display:flex;
+
+#containerSignIn section .formSign#formSignIn.visible,
+#containerSignIn section .formSign#formSignUp.visible {
+    display: flex;
 }
+
 #containerSignIn section .formSign span.signIn {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -134,19 +138,20 @@ button {
     font-weight: 600;
     text-transform: capitalize;
 }
+
 #containerSignIn section .formSign .error {
-    width:70%;
+    width: 70%;
     padding: .5rem;
     margin: .5rem auto;
-    color:red;
-    font-size:.8rem;
+    color: red;
+    font-size: .8rem;
     text-transform: capitalize;
     text-align: center;
-    border:.03rem solid red;
+    border: .03rem solid red;
     display: none;
 }
+
 #containerSignIn section .formSign form {
-    /* width:30rem; */
     width: 100%;
     max-width: 30rem;
     padding: .25rem;
@@ -223,13 +228,19 @@ button {
 #containerSignIn section #formSignUp {
     display: none;
 }
-#containerSignIn section #formSignUp #email.redError,#containerSignIn section #formSignUp #userName.redError,#containerSignIn section #formSignUp #password.redError {
+
+#containerSignIn section #formSignUp #email.redError,
+#containerSignIn section #formSignUp #userName.redError,
+#containerSignIn section #formSignUp #password.redError {
     border-color: red;
 }
-#containerSignIn section #formSignUp #email.success,#containerSignIn section #formSignUp #userName.success,
+
+#containerSignIn section #formSignUp #email.success,
+#containerSignIn section #formSignUp #userName.success,
 #containerSignIn section #formSignUp #password.success {
     border-color: green;
 }
+
 #containerSignIn section .formSign#formSignUp #haveAccount {
     margin: 1rem auto;
     font-size: .9rem;
@@ -247,11 +258,11 @@ button {
 #containerSignIn section .formSign#formSignUp #haveAccount span#sign:hover {
     color: rgb(2, 156, 156);
 }
-#containerSignIn section .formSign#formSignUp #haveAccount span#sign.hover{
-    /* border:1px solid red; */
-    color: rgb(2, 156, 156);
 
+#containerSignIn section .formSign#formSignUp #haveAccount span#sign.hover {
+    color: rgb(2, 156, 156);
 }
+
 /* end form sign up */
 /* start intl-tel-input */
 .iti {
@@ -263,7 +274,7 @@ button {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap:.5rem;
+    gap: .5rem;
 }
 
 .iti input.iti__tel-input,
@@ -296,20 +307,22 @@ button {
 .iti__selected-country-primary {
     padding: 0;
 }
+
 .iti .iti__selected-dial-code {
     font-size: .85rem;
 }
 
-.iti--inline-dropdown .iti__country-list {
-}
+.iti--inline-dropdown .iti__country-list {}
 
 .iti--inline-dropdown .iti__dropdown-content {
     margin-top: -1.3rem;
-    left:0;
+    left: 0;
 }
-.iti--inline-dropdown .iti__dropdown-content li{
+
+.iti--inline-dropdown .iti__dropdown-content li {
     font-size: .8rem;
 }
+
 .iti--inline-dropdown .iti__dropdown-content input {
     width: 100% !important;
 }
@@ -328,21 +341,9 @@ button {
     }
 }
 
-@media(min-width:768px)and (max-width:991.98px) {
-    :root {
-        font-size: 12px;
-    }
-}
-
-@media (max-width:767.98px) {
+@media(max-width:991.98px) {
     :root {
         font-size: 15px;
-    }
-}
-
-@media (max-width:400px) {
-    :root {
-        /* font-size: 14px; */
     }
 }
 

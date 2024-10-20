@@ -17,13 +17,6 @@ body {
     background-color: var(--background-body, #e5e5e5fc);
 }
 
-@media (max-width: 767.98px) {
-    body {
-        /* padding-top: 3rem;
-        padding-bottom: 2.7rem; */
-    }
-}
-
 @media (max-width: 499.98px) {
     body {
         padding-top: 5rem;
@@ -46,13 +39,7 @@ a {
 *:focus {
     outline: none;
 }
-.cardLessThan .aCardLess img{
-    /* width: 100%; */
-    /* max-width: 100%;
-    max-height: 100%;
-    display: block;
-    object-fit: cover; */
-}
+
 img {
     width: 100%;
     max-width: 100%;
@@ -142,55 +129,6 @@ button {
 }
 
 /*start component classes */
-/* .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.flex-just-end {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-
-.flex-just-start {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-
-.flex-just-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-} */
-
-/* .renova {
-    align-items: flex-end;
-    flex: 0 1 auto;
-    gap: .25rem;
-    cursor: pointer;
-    font-family: "Rubik Doodle Shadow", system-ui;
-}
-
-.renova i {
-    color: var(--color-logo, rgb(255, 214, 139));
-    font-size: 2.3rem;
-}
-
-.renova span {
-    color: var(--color-logo, rgb(255, 214, 139));
-    font-size: 1.5rem;
-} */
-
 .buttons {
     position: absolute;
     top: 50%;
@@ -231,16 +169,8 @@ button {
 }
 
 /*end component classes */
-header .second-nav{
-    /* margin-right:0rem; */
-    /* margin-left:0; */
-/* overflow-x:auto; */
-/* background-color: #952f2f; */
-}
-
 /* start section fashion */
 #containerFashion {
-    /* padding: 0; */
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
@@ -249,7 +179,6 @@ header .second-nav{
 
 #containerFashion section#fashion .containerFashion {
     display: flex;
-    /* flex-wrap: wrap; */
 }
 
 /* start dashboard */
@@ -264,36 +193,42 @@ header .second-nav{
     -ms-transition: left .3s linear;
     -o-transition: left .3s linear;
 }
+
 @media (max-width:499.98px) {
     #containerFashion section#fashion .containerFashion .dashboard {
-   width:100%;
-   height:calc(100vh - 10rem);
-   background-color: #fefcfc;
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left:-100%;
-   z-index: 10000000000;
-   overflow-x: hidden;
-   overflow-y: auto;
-    } 
+        width: 100%;
+        height: calc(100vh - 10rem);
+        background-color: #fefcfc;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        z-index: 10000000000;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
-#containerFashion section#fashion .containerFashion .dashboard.active{
-    left:0;
+
+#containerFashion section#fashion .containerFashion .dashboard.active {
+    left: 0;
 }
+
 @media (min-width:500px) {
-    #containerFashion section#fashion .containerFashion .dashboard #cancelDash{
-   display: none;
-    } 
+    #containerFashion section#fashion .containerFashion .dashboard #cancelDash {
+        display: none;
+    }
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .sortBy {
     width: 10rem;
     margin-bottom: 1rem;
 }
-#containerFashion section#fashion.containerBooks  .containerFashion .dashboard .sortBy {
+
+#containerFashion section#fashion.containerBooks .containerFashion .dashboard .sortBy {
     background-color: red;
     display: none;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .sortBy .box {
     width: 100%;
     padding: .3rem;
@@ -328,9 +263,11 @@ header .second-nav{
     -o-transform: rotate(90deg);
     cursor: pointer;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .sortBy .box i:hover {
-    color:grey;
+    color: grey;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .sortBy ul {
     width: 100%;
     text-transform: capitalize;
@@ -386,16 +323,15 @@ header .second-nav{
     margin-top: .5rem;
     font-size: .83rem;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .category dl dd.hidden {
     display: none;
 }
+
 /* start category dashboard */
 #containerFashion section#fashion .containerFashion .dashboard .category dl dd:hover a,
 #containerFashion section#fashion .containerFashion .dashboard .category dl dd a.active {
     color: brown;
-}
-
-#containerFashion section#fashion .containerFashion .dashboard .category dl dd input:checked label {
 }
 
 .dashboard .category dl dd.categoryName {
@@ -409,12 +345,15 @@ header .second-nav{
 #containerFashion section#fashion .containerFashion .dashboard .category {
     border-top: .0625rem solid var(--hover-boxshadow-mainbar, #f6ecbb);
 }
+
 #containerFashion section#fashion.containerBooks .containerFashion .dashboard .category#notBorder {
     border-top: none;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .category dl {
     border-top: none;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .category .reset {
     width: fit-content;
     display: block;
@@ -430,10 +369,12 @@ header .second-nav{
     -o-border-radius: 2rem;
     cursor: pointer;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .category .reset:hover {
-    color:burlywood;
-    border-color:burlywood;
+    color: burlywood;
+    border-color: burlywood;
 }
+
 #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd {
     margin-top: .75rem;
 }
@@ -505,7 +446,6 @@ header .second-nav{
 /* start price dashboard  */
 #containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice {
     pointer-events: none;
-    /* color: black; */
 }
 
 #containerFashion section#fashion .containerFashion .dashboard .category dl dd label.numberPrice input {
@@ -532,8 +472,7 @@ header .second-nav{
 #containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd {
     margin-top: .5rem;
 }
-#containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd a{
-}
+
 #containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd:hover,
 #containerFashion section#fashion .containerFashion .dashboard .category dl.customer dd a.active {
     color: #952f2f;
@@ -550,12 +489,11 @@ header .second-nav{
 /*  start  container products fashion */
 
 #containerFashion section#fashion .containerFashion #boxFashion {
-    padding:1rem .5rem .5rem;
+    padding: 1rem .5rem .5rem;
     background-color: white;
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* position: relative; */
 }
 
 #containerFashion section#fashion .containerFashion #boxFashion h1 {
@@ -564,6 +502,7 @@ header .second-nav{
     font-weight: 600;
     text-transform: capitalize;
 }
+
 #containerFashion section#fashion .containerFashion #boxFashion #classification {
     width: fit-content;
     padding: .5rem;
@@ -573,18 +512,21 @@ header .second-nav{
     text-transform: capitalize;
     text-decoration: underline;
     text-decoration-color: #fcf2e3;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 #containerFashion section#fashion .containerFashion #boxFashion #classification:hover {
-    color:#234b49;
+    color: #234b49;
     text-decoration-color: #f3e394;
     -moz-text-decoration-color: #f3e394;
 }
+
 @media (min-width:500px) {
-#containerFashion section#fashion .containerFashion #boxFashion #classification {
-    display: none;
+    #containerFashion section#fashion .containerFashion #boxFashion #classification {
+        display: none;
+    }
 }
-}
+
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts {
     background-color: white;
     display: grid;
@@ -594,13 +536,15 @@ header .second-nav{
     overflow: hidden;
 
 }
+
 @media (max-width:400px) {
     #containerFashion section#fashion .containerFashion #boxFashion #containerProduts {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
 }
+
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan {
-    max-width:none;
+    max-width: none;
     background-color: white;
     border: .1rem solid whitesmoke;
     border-radius: .5rem;
@@ -610,9 +554,12 @@ header .second-nav{
     -o-border-radius: .5rem;
     overflow: hidden;
 }
-#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .title,#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .detailsDelivery{
-    color:#126e94;
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .title,
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan:hover .detailsDelivery {
+    color: #126e94;
 }
+
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .aCardLess {
     padding-bottom: 0;
     padding-top: 0;
@@ -629,13 +576,14 @@ header .second-nav{
     align-items: center;
     justify-content: center;
 }
-#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct .title{
+
+#containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct .title {
     white-space: wrap;
     text-align: center;
 }
+
 #containerFashion section#fashion .containerFashion #boxFashion #containerProduts .cardLessThan .detailsProduct .detailsPrice {
     justify-content: center;
-    /* padding-bottom: .25rem; */
 }
 
 #containerFashion section#fashion .containerFashion #boxFashion .cardLessThan .cartRating {
@@ -643,15 +591,16 @@ header .second-nav{
     margin-left: auto;
     margin-right: auto;
 }
+
 /* page books */
 #containerFashion section#fashion.containerBooks .containerFashion #boxFashion .cardLessThan .containerImage {
     height: 18rem;
     padding: 1rem;
 }
-#containerFashion section#fashion.containerBooks .containerFashion #boxFashion .cardLessThan .containerImage img{
-    /* width: 70%; */
-    /* background-color: #952f2f; */
+
+#containerFashion section#fashion.containerBooks .containerFashion #boxFashion .cardLessThan .containerImage img {
     object-fit: contain;
 }
+
 /*  end container products fashion */
 /* end section fashion */

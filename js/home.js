@@ -1,6 +1,5 @@
 "use strict";
-import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile,SearchByKeyOrButton,translatePageByCustomer} from './common.js';
-import { dummy } from './dummyproducts.js';
+import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile,SearchByKeyOrButton,translatePageByCustomer,scrollToTopByButton} from './common.js';
 
 // variables DOM
 let containerProductsss;
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded',(info=>{
   // start header
   addClassActive(iconsPersonal, "active");
 addClassActive(linkHeader, "active");
-// addClassActive(mainHeaderfavAndCart, "active",true);
 
 // end header
 // start sidebar
@@ -104,6 +102,8 @@ createHrefForElementsFooter(allLinksFooter);
 
 // start translate
 translatePageByCustomer(id,'switchLang');
+// start scroll button
+scrollToTopByButton();
 }))
 
 
@@ -276,8 +276,6 @@ function  clickedButtonsForGallery() {
   clickedButtons(clickedButtonnnn, noClickButtonnnn);
   clickedButtons(noClickButtonnnn, clickedButtonnnn);
 }
-
-
 //end effects of clickedbuttons for container gallery
 //end gallery
 
@@ -588,48 +586,4 @@ function fashionOffers(){
   }))
 }
 // end show offers
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // end page home
-
-//books
-let ll = ["book", "novel", "story", "literature"];
-const apikey = "AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
-async function api() {
-  // let kk=await fetch('https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM');
-  let kk = await fetch("https://dummyjson.com/products?limit=0");
-  let jj = await kk.json();
-  let vv = JSON.stringify(jj, null, 2);
-  let blo = new Blob([vv], { type: "application/json" });
-  let url = URL.createObjectURL(blo);
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = "dummyproductss.json";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-// api();
-
-// AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-// AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-// AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-// AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-// AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24
-  //AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM
-  //AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM
-  

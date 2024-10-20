@@ -532,7 +532,7 @@ color: rgb(65, 64, 64);
 #containerDetailsPro #sectionDetails .cardLessThan .aCardLess{
     padding-bottom: 0;
 }
-#containerDetailsPro #sectionDetails  .cardLessThan .containerImage{
+#containerDetailsPro #sectionDetails  .cardLessThan .containerImage.smalImage{
     height: 18rem;
     padding: 1em;
 }

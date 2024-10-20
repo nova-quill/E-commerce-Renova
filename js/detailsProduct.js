@@ -1,9 +1,6 @@
 "use strict";
-// import { dummyProducts } from "../js/products.js";
-// import { dummy } from "../js/dummyproducts.js";
-// import { book } from "../js/books.js";
  
-  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton, productId,
+  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton,scrollToTopByButton, productId,
     discountPercentagee
 } 
 from './common.js';
@@ -11,7 +8,7 @@ let tags;
 let categoryMatch;
  let getProductFromLocal=[];
 let secondHeader = document.querySelector("header .second-nav ul");
-let linkHeader = document.querySelectorAll("header .second-nav a");
+let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
 let iconsPersonal = document.querySelectorAll(
   "header .main-nav .personal.mobile a.iconPersonal"
 );
@@ -79,7 +76,8 @@ id("iconFavorite").addEventListener('click',(event)=>{
 })
 //  start footer
 createHrefForElementsFooter(allLinksSideBar);
-
+// start scroll button
+scrollToTopByButton();
 }))
 //  shows details product
  export function showsDetailsProduct(){
@@ -303,6 +301,9 @@ async function filterProductsRelated(func,container,test){
     return categoryMatch ;
 })
   displayProducts(filterProducts, func, container,test);
+  let allRelatedProducts=document.querySelectorAll('#containerDetailsPro #sectionDetails .common .container .container-bestSeller #products a.cardLessThan .containerImage');
+  console.log(allRelatedProducts);
+  addClassOnCardLessThan(test,allRelatedProducts);
   limitWidthScrollBarWhenLoaded(containerProducts,buttons);
   largesImagesOfProduct(id);
   existUserOrNotForIconCart('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
@@ -312,9 +313,19 @@ async function filterProductsRelated(func,container,test){
 existUserOrNotForAddClassAtive('cartBooUser','cartBooCart','cart');
 existUserOrNotForAddClassAtive('favoriteUser','favoriteCart','favorite');
 existUserOrNotForAddClassAtive('favoriteBooUser','favoriteBooCart','favorite');
-if(categoryMatch==false){
+
+}
+
+function addClassOnCardLessThan(test,elements){
+if(test){
+elements.forEach(element=>{
+  element.classList.add('smalImage');
+})
 }
 }
+
+
+
 
 // disapperance buttons
 function limitWidthScrollBarWhenLoaded(containerProducts,buttons) {
@@ -348,6 +359,7 @@ function changeImageProduct(func){
 //large image of product
 function largesImagesOfProduct(func){
   let mainImg=document.querySelector('#containerDetailsPro #sectionDetails #containerImages .mainImg');
+  if(mainImg){
   mainImg.addEventListener('mousemove',(info)=>{
    func('details').style.display='none';
    func('containerZoomImg').style.display='block';
@@ -366,6 +378,7 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 
   })
 }
+}
 
 
 
@@ -380,5 +393,3 @@ func('containerZoomImg').style.backgroundPosition=`${backgroundX}% ${backgroundY
 
 
 
-// GOOGLE IDENTITY API (SIGN IN)
-///////AIzaSyDuhCYZXUhlryVvjiO5VmNFmTQgyTnDuNs//////////
