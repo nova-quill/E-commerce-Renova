@@ -1,6 +1,6 @@
 "use strict";
  
-  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton,scrollToTopByButton, productId,
+  import {id,createDiv,datas,fetchProducts,addClassActive,createParentDiv,parentContainer,divCartRating,displayProducts,addClassName, movesProducts, dragByTouch,existUserOrNots,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,getAllElements,limitLocationProductsBySidebar,createHrefForElementsFooter,SearchByKeyOrButton,scrollToTopByButton, translatePageByGoogle,visibleAndHiddenElement,lodedMapss,productId,
     discountPercentagee
 } 
 from './common.js';
@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded',(info=>{
     // end header
       // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+// visible map
+visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
+//hidden map
+visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
+// leaflet map
+lodedMapss();
 
     // start search
     SearchByKeyOrButton(id,'iconSearch','inputSearch');
@@ -76,6 +82,9 @@ id("iconFavorite").addEventListener('click',(event)=>{
 })
 //  start footer
 createHrefForElementsFooter(allLinksSideBar);
+// start translate
+translatePageByGoogle('switchLang');
+
 // start scroll button
 scrollToTopByButton();
 }))

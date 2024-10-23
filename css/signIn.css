@@ -84,6 +84,8 @@ button {
     align-items: flex-end;
     gap: .25rem;
     cursor: pointer;
+    direction: ltr;
+    unicode-bidi: embed;
 }
 
 #containerSignIn section .renova i {

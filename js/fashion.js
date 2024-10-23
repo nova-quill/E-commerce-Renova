@@ -13,7 +13,8 @@ import {
   createHrefForElementsFooter,
   limitLocationProductsBySidebar,
   SearchByKeyOrButton,
-  scrollToTopByButton
+  scrollToTopByButton,
+  translatePageByGoogle,visibleAndHiddenElement,lodedMapss
 } from "./common.js";
 // start section fashion
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -60,7 +61,12 @@ document.addEventListener('DOMContentLoaded', (info => {
   // start dashboard
   toggleDashboard('classification', 'dashboard', true);
   toggleDashboard('cancelDash', 'dashboard');
-
+// visible map
+visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
+//hidden map
+visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
+// leaflet map
+lodedMapss();
   //start search
   SearchByKeyOrButton(id, 'iconSearch', 'inputSearch');
 
@@ -114,6 +120,9 @@ document.addEventListener('DOMContentLoaded', (info => {
   displayMenuSort(id, 'dashboardAngle', "list", "active");
 
   // end dashboard
+// start translate
+translatePageByGoogle('switchLang');
+
   // start scroll button
   scrollToTopByButton();
 }))

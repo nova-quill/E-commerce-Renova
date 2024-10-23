@@ -62,6 +62,9 @@ let productsFilterInLocNotBoo;
 let productsFilterInLocBoo;
 export let  filterProductsWithSearch;
 let categoriesWithFil;
+
+let currentLang ='en';
+let newLang ;
 let overlay = document.getElementById("overlay");
 // get element by id
 export function id(idName) {
@@ -161,17 +164,32 @@ let boxSides = document.querySelectorAll(".sideBar.main .hidd");
   });
 }
 
-showSideBar(
-  id,
-  "all",
-  "mainSideBar",
-  "showMenu",
-  "xmark",
-  false,
-  "all",
-  false,
-  "mainSideBar"
-);
+// if(document.documentElement.getAttribute('dir')=='ltr'){
+  // showSideBar(
+  //   id,
+  //   "all",
+  //   "mainSideBar",
+  //   "showMenu",
+  //   "xmark",
+  //   false,
+  //   "all",
+  //   false,
+  //   "mainSideBar"
+  // );
+// }
+// if(document.documentElement.getAttribute('dir')=='ltr'){
+  showSideBar(
+    id,
+    "all",
+    "mainSideBar",
+    "showMenu",
+    "xmark",
+    false,
+    "all",
+    false,
+    "mainSideBar"
+  );
+
 
 showSideBar(
   id,
@@ -208,6 +226,7 @@ showSideBar(
   false,
   "mainSideBar"
 );
+// }
 showSideBar(
   id,
   "liFashion",
@@ -611,9 +630,6 @@ export function limitWidthScrollBarWhenScrolling(
 // start fetchs products
 export async function fetchProducts(chooseUrl,i) {
   if(chooseUrl||urlBooks!='alll'){
-
-    // url =
-    // "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM";
     url="../js/books.json";
     urlLink='books';
   }
@@ -628,7 +644,7 @@ export async function fetchProducts(chooseUrl,i) {
       urlLink='notBooks';
   datas.map(updatePrice);
 }
-if (Object.keys(datass).includes("items")||chooseUrl==true|| url=="../js/books.json"||    url == "https://www.googleapis.com/books/v1/volumes?q=bestseller&maxResults=40&key=AIzaSyBfp7YWCm70jC6JjxD8lX8t5ydLwSx0RPM"
+if (Object.keys(datass).includes("items")||chooseUrl==true|| url=="../js/books.json"
 ) {
   urlLink='books';
 }
@@ -654,7 +670,6 @@ else{
   urlBooks='another';
   urlLink='books';
   datas=book.items;
-  // datas = datass.items;
 datas=datas.filter(element=>element.saleInfo.saleability.toLowerCase()=='FOR_SALE'.toLowerCase());
   if (test == true) {
       thumbnail = data[i].volumeInfo.imageLinks.thumbnail;
@@ -1214,6 +1229,7 @@ localStorage.setItem('searchProduct',JSON.stringify(filterProductsWithSearch));
 displayProducts(filterProductsWithSearch, func, 'containerProduts',test);
 
  if(filterProductsWithSearch.length>0){
+  func('classification').style.display='block';
 
   if(test==true){
     categoriesWithFil=Array.from(new Set(filterProductsWithSearch.map(obj=>obj.volumeInfo.categories.toLowerCase().replace(/-/g,' '))));
@@ -1250,14 +1266,30 @@ export function displayProducts(product, func, container,test,isFav) {
 }
 // create url for footer of elements
 export function createHrefForElementsFooter(elements){
+  console.log(elements);
+
   elements.forEach(element=>{
   element.addEventListener('click',(info=>{
-  if(info.target.getAttribute('data-page'||info.target.getAttribute('data-category'))){
+  console.log(elements);
+
+    console.log(element.getAttribute('data-page'));
+    if(document.documentElement.lang=='ar'){
+    if(element.getAttribute('data-page')||element.getAttribute('data-category')){
+      let categoryElement=element.getAttribute('data-category').toLowerCase();
+      let dataPage= element.getAttribute('data-page')||'';
+      let dataPageToLow=dataPage.toLocaleLowerCase();
+  
+       element.href=`${dataPageToLow}.html?productCategory=${categoryElement}`;
+    }}
+else{
+  if(info.target.getAttribute('data-page')||info.target.getAttribute('data-category')){
     let categoryElement=info.target.getAttribute('data-category').toLowerCase();
     let dataPage= info.target.getAttribute('data-page')||'';
     let dataPageToLow=dataPage.toLocaleLowerCase();
+
      info.target.href=`${dataPageToLow}.html?productCategory=${categoryElement}`;
   }
+}
   }))})
   }
 
@@ -1921,33 +1953,120 @@ export function existUserOrNotForAddClassAtive(cartUser,cartGlobal,iconName,test
   }
 
 
-let currentLang='en';
+// start translate
 
-  //start translate
-export async function translatePageByCustomer(func,button) {
-  func(button).addEventListener('click',(info)=>{
-    if(currentLang==='en'){
-      translatePageByGoogle('ar');
-      func(button).textContent='en';
-      currentLang='ar';
+function googleTranslateElementInit(newLang) { 
+  new google.translate.TranslateElement({
+      pageLanguage: 'zxx',
+      includedLanguages: 'en,ar',
+      layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+    }, 'google_translate_element'); 
+   }   
+let firstClick=0;
+export   function translatePageByGoogle(button){
+ id(button).addEventListener('click',()=>{
+  firstClick++;
+if(firstClick>0&&firstClick<2){
+  id(button).click();
+}
+  let googleTranslateDropdown=document.querySelector('.goog-te-combo');
+console.log(googleTranslateDropdown);
+if(!googleTranslateDropdown){
+  googleTranslateElementInit();
+  if(googleTranslateDropdown){
+
+    googleTranslateDropdown.value='ar';
+    if( googleTranslateDropdown.value=='ar'){
+
+    document.documentElement.setAttribute('dir','rtl');
+    changeTextAlaign();
+
+    id(button).innerHTML='en';
+
+}
+else{
+
+document.documentElement.setAttribute('dir','ltr');
+changeTextAlaign();
+
+id(button).innerHTML='ar';
+
+}}
+newLang='ar';
+
+}
+else{
+  setTimeout(function(){
+    if(googleTranslateDropdown){
+      if( document.documentElement.getAttribute('dir')=='rtl' ){
+        newLang='ar';
+      }
+      else{
+        newLang='en';
+      }
+      newLang = currentLang == 'en' ? 'ar' : 'en';
+        googleTranslateDropdown.value=newLang;
+      googleTranslateDropdown.dispatchEvent(new Event('change'));
+    currentLang=newLang;
+    if( googleTranslateDropdown.value=='ar'){
+
+              document.documentElement.setAttribute('dir','rtl'); 
+              changeTextAlaign();
+ 
+              id(button).innerHTML='en';
+
     }
     else{
-      translatePageByGoogle('en');
-      func(button).textContent='ar';
-      currentLang='en';
-    }
-  })
- 
 
+      document.documentElement.setAttribute('dir','ltr');
+      changeTextAlaign();
+
+      id(button).innerHTML='ar';
+
+    }
   
+  }
+  },500)
 }
-function translatePageByGoogle(lang){
-const googleTranslateDropdown=document.querySelector('.goog-te-combo');
-if(googleTranslateDropdown){
-  googleTranslateDropdown.value=lang;
-  googleTranslateDropdown.dispatchEvent(new Event('change'));
+})
 }
-}
+// change texts alaign
+function changeTextAlaign(direction){
+ if(document.documentElement.getAttribute('dir')=='rtl'){
+document.querySelectorAll('#mainSideBar,.cartRating,.detailsWomwns,.box-products,#flashSale .container,.detailsTimer,span.countTimer,.container-bestSeller .Buttons').forEach(element=>{
+      element.style.direction='ltr';
+      if(element.id=='mainSideBar'){
+// element.style.display='none';
+      }   
+      })
+
+document.querySelectorAll('a.cardLessThan,.cartFavorite,.dashboard#dashboard .category,.dashboard#dashboard').forEach(element=>{
+  element.style.direction='rtl';
+  if(element.id=='dashboard'){
+    element.style.borderLeft='.1rem solid #e8e8e8'
+    element.style.borderRight='none'
+
+  }
+
+})
+document.querySelectorAll('.cartRating').forEach(element=>{
+  element.style.margin='.5rem';
+
+})
+document.querySelectorAll('a.cardLessThan .cartFavorite').forEach(element=>{
+  element.style.right='.25rem';
+  element.style.left='auto';
+
+})
+document.querySelectorAll('.category .reset,.dashboard#dashboard dt,.dashboard#dashboard dd').forEach(element=>{
+  element.style.margin='.75rem 3rem .5rem auto';
+
+})
+
+// document.querySelector('.second-nav #all').style.pointerEvents='none';
+
+}}
+
 
 // scroll button
  export function scrollToTopByButton(){
@@ -1965,3 +2084,70 @@ scrollButton.addEventListener('click',(info=>{
 }))
  
 }
+
+// start loaded map
+// leaflet map
+
+export function lodedMapss(){
+  var map = L.map('map').setView([30.0444, 31.2357], 8);
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  map.invalidateSize();
+  
+  let marker=L.marker([30.0444, 31.2357]).addTo(map)
+      .bindPopup('<b>Hello this is Egypt</b> ')
+      .openPopup();
+  let circle=L.circle([51.508, -0.11],{
+    color:'red',
+    fillColor:'#f03',
+    fillOpacity:0.5,
+    radius:500
+  }).addTo(map);
+  circle.bindPopup('i am circle');
+  let popup=L.popup();
+  function onmap(e){
+    popup.setLatLng(e.latlng).setContent('You clicked the map at' + e.latlng.toString()).openOn(map);
+    map.invalidateSize();
+
+  }
+  
+  map.on('click',onmap);
+  function searchCountry(){
+    let country=id('search-location').value;
+    let url=`https://nominatim.openstreetmap.org/search?format=json&q=${country}&accept-language=en,ar`;
+    fetch(url).then(resp=>resp.json()).then(data=>{
+      if(data&&data.length>0){
+        let lat=data[0].lat;
+        let lon=data[0].lon;
+      let  countryName=data[0].display_name;
+    let  latlng=[lat, lon];
+      map.setView(latlng, 5);
+      L.marker(latlng).addTo(map).bindPopup(`<b>${countryName}</b>`).openPopup();
+      }
+      else{
+        alert('country noy found')
+      }
+    }).catch(error=>{
+      console.error('Error fetching data:', error)
+      alert(' an error occurred. please try again')
+    })
+  }
+id('searchMap').addEventListener('click',searchCountry);
+id('search-location').addEventListener('keydown',(e=>{
+  if(e.key=='Enter'){
+    searchCountry();
+  }
+}))
+  }
+  
+ //visible map
+export function visibleAndHiddenElement(func,clickedElement, visibleElement,overlay,caseBody) {
+  func(clickedElement).addEventListener("click", (e) => {
+   func(visibleElement).classList.toggle('visibility');
+   func(overlay).classList.toggle("visible");
+    document.body.style.overflow=caseBody;
+  });
+}
+// end map location

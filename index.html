@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,13 +10,21 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Creepster&family=Honk&family=Playball&family=Protest+Revolution&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Glitch+Pop&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
   <link rel="stylesheet" href="css/all.min.css" />
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/home.css" />
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&libraries=places"></script>
+  
+  <!-- <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&libraries=places"></script> -->
 
+    <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+   </script>  
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-search@2.9.8/dist/leaflet-search.min.js"></script>
 </head>
 
 <body>
@@ -26,19 +34,12 @@
    <!-- scroll button -->
    <div class="flex-center" id="scrollButton">top</div>
   <!-- start translate -->
-  <div id="google_translate_element" style="display:none;"></div>
+  <!-- <div id="google_translate_element" style="display:none;"></div> -->
 
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'ar',
-        includedLanguages: 'en,ar',
-        layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
-      }, 'google_translate_element');
-    }  
-  </script>
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element"></div>
+
+  <!-- <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 
   <!-- end translate -->
   <!-- start sidebar -->
@@ -46,7 +47,7 @@
     <i class="fa-solid fa-xmark xmarkSide"></i>
   </div>
   <div id="mainSideBar" class="sideBar main">
-    <div class="renova flex-center">
+    <div class="renova flex-center" translate="no">
       <i class="fa-brands fa-r-project"></i>
       <span class="flex-center">enova</span>
     </div>
@@ -92,6 +93,8 @@
       </dl>
     </div>
     <div id="fashion" class="sideBar hidd">
+          <a class="sideBar hidd">
+
       <div class="backMenu">
         <i class="fas fa-long-arrow-alt-left arrowLeft"></i>
         <span>back</span>
@@ -107,7 +110,9 @@
         <dd><a href="" data-category="mens-shoes" data-page="html/fashion">shoe's men</a></dd>
         <dd><a href="" data-category="mens-watches" data-page="html/fashion">watch's men</a></dd>
       </dl>
+  </a>
     </div>
+
     <div id='phones' class="sideBar hidd">
       <div class="backMenu">
         <i class="fas fa-long-arrow-alt-left 
@@ -163,7 +168,7 @@
       <!-- start main navbar -->
       <div class="main-nav flex-just-between">
         <a href="index.html" class="flex-center addRenova">
-          <div class="renova flex-center">
+          <div class="renova flex-center" translate="no">
             <i class="fa-brands fa-r-project"></i>
             <span class="flex-center">enova</span>
           </div>
@@ -173,7 +178,8 @@
             <div class="location">deliver to </div>
             <span class="loca-name">egypt</span>
           </div>
-          <div class="sign-lang iconPersonal" id="switchLang">En</div>
+          <div class="sign-lang iconPersonal" id="switchLang"  translate="no">ar
+          </div>
         </div>
         <div class="box-search flex-center">
           <div class="all flex-center">all</div>
@@ -213,7 +219,11 @@
       <!-- hiddeen location -->
       <div class="container-location" id="container-location">
         <i class="fa-solid fa-circle-xmark xmarkmap" id="xmarkmap"></i>
-        <input name="search-location" placeholder="search in map" id='search-location' />
+        <div class="containerSearch">
+          <input name="search-location" placeholder="search in map" id='search-location' />
+          <i class="fas fa-search" id="searchMap"></i>
+        </div>
+    
         <div id="map"></div>
       </div>
       <!-- start second navbar -->
@@ -271,7 +281,7 @@
               <a
                 href="html/fashion.html?productDiscount=55&&productCategory=womens-shoes,mens-shoes,womens-dresses,mens-shirts,top,sunglasses,womens-bags">
                 <div>
-                  <img src=".\photos\fashion4 - Copy41.jpeg" alt="">
+                  <img src=".\photos\fashion4 - Copy41.jpeg" alt="offers on fashion">
                 </div>
               </a>
             </li>
@@ -862,7 +872,7 @@
     <div class="containerSign flex-center">
       <div class="sign flex-center">
         <a href="index.html">
-          <div class="renova flex-center">
+          <div class="renova flex-center"  translate="no">
             <i class="fa-brands fa-r-project"></i>
             <span class="flex-center">enova</span>
           </div>
@@ -968,6 +978,10 @@
     <!-- end end footer -->
   </footer>
   <!-- end footer -->
+ 
+   <!-- <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>  -->
 
   <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC640A2CFM2aApA-ohC5UBXYFZ_32l4V24&libraries=places"></script> -->
   <!-- <script async> -->

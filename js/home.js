@@ -1,5 +1,5 @@
 "use strict";
-import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile,SearchByKeyOrButton,translatePageByCustomer,scrollToTopByButton} from './common.js';
+import {id,getAllElements,groupesFunctionsForCreatesDivs,datas,price,fetchProducts,shaffelArray,addClassActive,url,addClassName,movesProducts,limitWidthScrollBarWhenScrolling,dragByTouch,createHrefForElementsFooter,limitLocationProductsBySidebar,addStyleOnSection,existUserOrNotForIconCart,existUserOrNotForAddClassAtive,disapile,SearchByKeyOrButton,scrollToTopByButton,translatePageByGoogle,visibleAndHiddenElement, lodedMapss} from './common.js';
 
 // variables DOM
 let containerProductsss;
@@ -15,6 +15,9 @@ let map;
 let currentSlide = 0;
 let autoSliders;
 let allBalls;
+// let currentLang = document.documentElement.lang;
+// let currentLang ='en';
+// let newLang ;
 
 let secondHeader = document.querySelector("header .second-nav ul");
 let linkHeader = document.querySelectorAll("header .second-nav a:not(a#linkAll)");
@@ -49,6 +52,8 @@ addStyleOnSection();
 visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
 //hidden map
 visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
+// leaflet map
+lodedMapss();
 // start gallery
 //turn on autosliders
 autoSliders = setInterval(limitCurrentSlide, 3000, 1, "nextSlide");
@@ -101,44 +106,13 @@ fashionOffers();
 createHrefForElementsFooter(allLinksFooter);
 
 // start translate
-translatePageByCustomer(id,'switchLang');
+ translatePageByGoogle('switchLang');
+
 // start scroll button
 scrollToTopByButton();
+
 }))
 
-
-async function initMa() {
-  mapP = await new google.maps.Map(document.querySelector("#map"), {
-    center: { lat: 37.7789, lng: -122 },
-    zoom: 13,
-  });
-  await google.maps.event.addListener(map, "click", async function (event) {
-    await this.setOptions({ scrollwheel: true });
-  });
-  directionsService = await new google.maps.directionsService();
-  directionsRenderer.setMap(map);
-  sourceAoutocom = await new google.maps.places.Autocomplete(
-    document.getElementById("search-location")
-  );
-}
-
-//load map
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-//visible map
-function visibleAndHiddenElement(func,clickedElement, visibleElement,overlay,caseBody) {
-  func(clickedElement).addEventListener("click", (e) => {
-   func(visibleElement).classList.toggle('visibility');
-   func(overlay).classList.toggle("visible");
-    document.body.style.overflow=caseBody;
-  });
-}
-// end map location
 //start section home
 // slider gallery
 
@@ -445,8 +419,8 @@ function applyFunctionAboutGroupElements(element, functionName, className) {
 }
  
 // start function filter products
-let gg=Array.from({length:10},(_,index)=>index);
  export async function lastFunctionToShowProducts(containerName,containerProducts,varia,value,dose,test,testing){
+let array=Array.from({length:10},(_,index)=>index);
   await fetchProducts(testing);
   shaffelArray(datas);
   hundelUniqeVariablesById(containerName,containerProducts);
@@ -455,7 +429,7 @@ let gg=Array.from({length:10},(_,index)=>index);
 let productToLowerStri=hundleProduct.toString().toLowerCase();
 let productMatch;
 if(dose){
- productMatch=gg.some(element=>element.toString().toLowerCase().includes( productToLowerStri));
+ productMatch=array.some(element=>element.toString().toLowerCase().includes( productToLowerStri));
 }
 else{
  productMatch= productToLowerStri.includes(value.toString().toLowerCase());

@@ -3,7 +3,7 @@
 'use strict'
 import {
   id, addClassActive, fetchProducts, displayProducts, createDiv, dragByTouch, createHrefForElementsFooter, existUserOrNotForIconCart,
-  limitLocationProductsBySidebar, getAllElements, existUserOrNotForAddClassAtive, SearchByKeyOrButton, scrollToTopByButton
+  limitLocationProductsBySidebar, getAllElements, existUserOrNotForAddClassAtive, SearchByKeyOrButton, scrollToTopByButton,translatePageByGoogle,visibleAndHiddenElement,lodedMapss
 } from "../js/common.js";
 let quantityProducts = 0;
 let totalProd = 0;
@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', (info => {
   // start sidebar
   getAllElements(allTrendingSide, limitLocationProductsBySidebar);
   createHrefForElementsFooter(allLinksSideBar);
+// visible map
+visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
+//hidden map
+visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
+// leaflet map
+lodedMapss();
 
   dragByTouch(secondHeader);
   // start shows product in cart
@@ -49,6 +55,9 @@ document.addEventListener('DOMContentLoaded', (info => {
   existUserOrNotForAddClassAtive('cartBooUser', 'cartBooCart', 'cart', '', true);
   // start footer
   createHrefForElementsFooter(allLinksFooter);
+  // start translate
+ translatePageByGoogle('switchLang');
+
   // start scroll button
   scrollToTopByButton();
 }))

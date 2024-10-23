@@ -20,7 +20,9 @@ import {
   filterProductsWithSearch,
   fetchProducts,
   hundleSortBy,
-  scrollToTopByButton
+  scrollToTopByButton,
+  translatePageByGoogle,
+  visibleAndHiddenElement,lodedMapss
 
 } from "./common.js";
 let secondHeader = document.querySelector("header .second-nav ul");
@@ -67,7 +69,12 @@ document.addEventListener('DOMContentLoaded', (info => {
   // start dashboard
   toggleDashboard('classification', 'dashboard', true);
   toggleDashboard('cancelDash', 'dashboard');
-
+// visible map
+visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
+//hidden map
+visibleAndHiddenElement(id,'xmarkmap', "container-location",'overlay','auto');
+// leaflet map
+lodedMapss();
   // start get product by icon cart
   existUserOrNotForIconCart('cartUser', 'proAndQuantityIt', 'productCart', 'proAndQuantity', 'cartBooUser', 'proAndQuantityInCartUserBoo', 'cartBooCart', 'proAndQuantityInCartBoo', 'cart', 'countPurshes');
 
@@ -110,6 +117,9 @@ document.addEventListener('DOMContentLoaded', (info => {
   // end dashboard
   // footer functions create url
   createHrefForElementsFooter(allLinksFooter);
+  // start translate
+ translatePageByGoogle('switchLang');
+
   // start scroll button
   scrollToTopByButton();
 }))

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,16 +10,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Honk&family=Playball&family=Protest
 +Revolution&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&family=Rubik+Glitch+Pop&display=swap"
     rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
   <link rel="stylesheet" href="../css/all.min.css" />
   <link rel="stylesheet" href="../css/normalize.css" />
   <link rel="stylesheet" href="../css/common.css" />
   <link rel="stylesheet" href="../css/fashion.css" />
+  <script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+ </script>  
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+ <script src="https://unpkg.com/leaflet-search@2.9.8/dist/leaflet-search.min.js"></script>
 </head>
 
 <body>
   <!--  start overlay -->
   <div id="overlay"></div>
   <!-- end overlay -->
+    <!-- start translate -->
+  <div id="google_translate_element" style="display:none;"></div>
   <!-- scroll button -->
   <div class="flex-center" id="scrollButton">top</div>
   <!-- start sidebar -->
@@ -27,7 +36,7 @@
     <i class="fa-solid fa-xmark xmarkSide"></i>
   </div>
   <div id="mainSideBar" class="sideBar main">
-    <div class="renova flex-center">
+    <div class="renova flex-center"  translate="no">
       <i class="fa-brands fa-r-project"></i>
       <span class="flex-center">enova</span>
     </div>
@@ -154,7 +163,7 @@
             <div class="location">deliver to </div>
             <span class="loca-name">egypt </span>
           </div>
-          <div class="sign-lang iconPersonal">En</div>
+          <div class="sign-lang iconPersonal" id="switchLang"  translate="no">ar</div>
         </div>
         <div class="box-search flex-center">
           <div class="all flex-center">all</div>
@@ -194,7 +203,10 @@
       <!-- hiddeen location map-->
       <div class="container-location" id="container-location">
         <i class="fa-solid fa-circle-xmark xmarkmap" id="xmarkmap"></i>
-        <input name="search-location" placeholder="search in map" id='search-location' />
+        <div class="containerSearch">
+          <input name="search-location" placeholder="search in map" id='search-location' />
+          <i class="fas fa-search" id="searchMap"></i>
+        </div>
         <div id="map"></div>
       </div>
       <!-- end hidden divs main navbar -->
