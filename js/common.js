@@ -62,6 +62,7 @@ let productsFilterInLocNotBoo;
 let productsFilterInLocBoo;
 export let  filterProductsWithSearch;
 let categoriesWithFil;
+let firstClick=0;
 
 let currentLang ='en';
 let newLang ;
@@ -1956,8 +1957,8 @@ function googleTranslateElementInit(newLang) {
       layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
     }, 'google_translate_element'); 
    }   
-let firstClick=0;
-export   function translatePageByGoogle(button,anyLang){
+
+   export   function translatePageByGoogle(button,anyLang){
   let arabic;
   let english;
   if(anyLang){
@@ -1973,7 +1974,9 @@ e.preventDefault();
   firstClick++;
 if(firstClick>0&&firstClick<2){
   id(button).click();
+  newLang ='en';
 }
+
   let googleTranslateDropdown=document.querySelector('.goog-te-combo');
 if(!googleTranslateDropdown){
   googleTranslateElementInit();
@@ -2105,6 +2108,7 @@ export function lodedMapss(){
     let  latlng=[lat, lon];
       map.setView(latlng, 5);
       L.marker(latlng).addTo(map).bindPopup(`<b>${countryName}</b>`).openPopup();
+      document.querySelector('.main-nav span.loca-name').textContent=country;
       }
       else{
         alert('country noy found')

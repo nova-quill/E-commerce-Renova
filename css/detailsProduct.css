@@ -467,7 +467,6 @@ font-weight: 500;
     text-transform: capitalize;
     width: 2rem;
     height: 2rem;
-    margin-right: .5rem;
     background-color: rgb(218, 217, 217);
     font-weight: 600;
     font-size: 1.1rem;
@@ -477,6 +476,12 @@ font-weight: 500;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+}
+html[dir='ltr'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .details span.firstLetter{
+    margin-right: .5rem;
+}
+html[dir='rtl'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .details span.firstLetter{
+    margin-left: .5rem;
 }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .details span.customerName{
     text-transform: capitalize;
@@ -498,10 +503,17 @@ html[dir='rtl'] #containerDetailsPro #sectionDetails .containerCustomer .partCus
 }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .comment{
     display: block;
-margin-left: 2rem;
 font-size: 1rem;
 color: rgb(65, 64, 64);
 }
+html[dir='ltr'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .comment{
+margin-left: 2rem;
+
+}
+html[dir='rtl'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .comment{
+    margin-right: 2rem;
+    
+    }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .date{
     display: block;
     margin: .5rem 2rem;
@@ -510,9 +522,14 @@ color: rgb(65, 64, 64);
 }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card a{
     width: fit-content;
-    margin-left: 2rem;
     color:rgb(8, 117, 117);
     font-size: .9rem;
+}
+html[dir='ltr'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card a{
+    margin-left: 2rem;
+}
+html[dir='rtl'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card a{
+    margin-right: 2rem;
 }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card a:hover{
     color: burlywood;

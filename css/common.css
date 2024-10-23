@@ -280,14 +280,22 @@ button {
     bottom: 0;
     z-index: -10000;
     overflow-x: hidden;
-    left: 0%;
+    /* left: 0%; */
+    /* transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%); */
+}
+
+html[dir='ltr'] .sideBar{
+ left: 0%;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     -o-transform: translateX(-100%);
 }
-
 html[dir='rtl'] .sideBar{
     right: 0;
     transform: translateX(100%);
@@ -295,7 +303,7 @@ html[dir='rtl'] .sideBar{
     -moz-transform: translateX(100%);
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
-    left:auto;
+    /* left:auto; */
 } 
 @media (min-width:500px) {
     .sideBar {
@@ -306,6 +314,7 @@ html[dir='rtl'] .sideBar{
 @media (max-width:499.98px) {
     .sideBar {
         width: 100%;
+
         z-index: 10000000000;
     }
 }
@@ -349,7 +358,22 @@ html[dir='rtl'] .sideBar{
     -ms-transform: translateX(0%);
     -o-transform: translateX(0%);
     position: fixed;
+    /* left: 0; */
+}
+html[dir='ltr'] .sideBar.main .sideBar.hidd.visible,
+.sideBar.main.showMenu {
     left: 0;
+
+}
+/* html[dir='rtl'] .sideBar.main .sideBar.hidd.visible, */
+.sideBar.main.showMenu {
+    /* transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%); */
+    right:0%;
+    /* left:0; */
 }
 
 @media (min-width:500px) {
@@ -1018,9 +1042,7 @@ header #container-location.container-location {
     z-index: 1000000000000;
     display: none;
 }
-@media screen {
-    
-}
+
 @media (min-width:768px) {
     html[dir='ltr'] header #container-location.container-location {
         top: 50%;
@@ -1031,7 +1053,6 @@ header #container-location.container-location {
         -o-transform: translate(-50%, -50%);
     }
     html[dir='rtl'] header #container-location.container-location {
-        /* top:-50%; */
         transform: translate(-50%,0%);
         -webkit-transform: translate(-50%, 0%);
         -moz-transform: translate(-50%, 0%);
@@ -1039,8 +1060,6 @@ header #container-location.container-location {
         -o-transform: translate(-50%, 0%);
     }
 }
-
-
 
 header #container-location.container-location.visibility {
     display: block;
