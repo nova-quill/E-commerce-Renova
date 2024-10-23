@@ -122,6 +122,7 @@ lodedMapss();
   // end dashboard
 // start translate
 translatePageByGoogle('switchLang');
+translatePageByGoogle('langSwitch',true);
 
   // start scroll button
   scrollToTopByButton();

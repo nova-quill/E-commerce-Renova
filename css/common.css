@@ -429,6 +429,9 @@ dt {
     text-transform: capitalize;
     width: fit-content;
 }
+html[dir='rtl'] dt{
+    margin: 1rem 1rem 1.5rem auto;
+}
 
 dl dd {
     padding-right: 1rem;
@@ -447,6 +450,14 @@ dl dd#logoutSideBar {
 
 dl dd:not(.sideBar dl.mainDl dd) {
     width: fit-content;
+}
+html[dir='rtl'] dl dd:not(.sideBar dl.mainDl dd){
+      margin: 1rem 3rem 1rem auto;
+
+}
+html[dir='rtl'] .sideBar dl.mainDl dd{
+    margin-left:.5rem;
+
 }
 
 .sideBar dl.mainDl dd {
@@ -471,7 +482,10 @@ dl dd i {
     color: #787774;
     cursor: pointer;
 }
-
+html[dir='rtl'] dl dd i{
+    transform: rotate(-180deg);
+    margin-left: 0;
+}
 dl dd i:hover {
     color: black;
 }
@@ -1025,7 +1039,7 @@ header #container-location.container-location.visibility {
         width: 100%;
         height: 100vh;
         top: 0;
-        left: 0;
+        /* left: 0; */
         bottom: 0;
         transform: translate(0);
         -webkit-transform: translate(0);
@@ -1050,13 +1064,8 @@ header #container-location i.xmarkmap:hover {
 }
 header #container-location .containerSearch  {
     width: fit-content;
-    margin: auto;
     position: relative;
-}
-header #container-location #search-location {
-    width: 20em;
     display: block;
-    padding: .5rem .3125rem;
     margin: 2rem auto;
     border-radius: .3rem;
     -webkit-border-radius: .3rem;
@@ -1064,17 +1073,24 @@ header #container-location #search-location {
     -ms-border-radius: .3rem;
     -o-border-radius: .3rem;
 }
-
+header #container-location #search-location {
+    display: block;
+    padding: .5rem .3125rem;
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+}
+@media (min-width: 768px) {
+    header #container-location #search-location {
+        width: 20em;
+    }
+}
 header #container-location #search-location:hover {
     box-shadow: 1px 1px 5px 1px gray;
 }
 
-@media (max-width: 767.98px) {
-    header #container-location #search-location {
-        width: 80%;
-
-    }
-}
 
 header #container-location #search-location::placeholder {
     color: gray;
@@ -1082,7 +1098,6 @@ header #container-location #search-location::placeholder {
 header #container-location #searchMap {
 position: absolute;
     top: 50%;
-    /* right: .5em; */
     transform: translateY(-50%);
     color: gray;
     cursor: pointer;
@@ -1102,8 +1117,8 @@ header #container-location #map {
 }
 
 @media (max-width: 767.98px) {
-    header #container-location #mapp {
-        height: 90%;
+    header #container-location #map {
+        height: 100%;
     }
 
     header #container-location #map div.gmnoprint.gm-style-ccc div,

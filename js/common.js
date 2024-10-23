@@ -1963,8 +1963,19 @@ function googleTranslateElementInit(newLang) {
     }, 'google_translate_element'); 
    }   
 let firstClick=0;
-export   function translatePageByGoogle(button){
- id(button).addEventListener('click',()=>{
+export   function translatePageByGoogle(button,anyLang){
+  let arabic;
+  let english;
+  if(anyLang){
+    arabic='arabic';
+    english='english';
+  }
+  else{
+    arabic='ar';
+    english='en';
+  }
+ id(button).addEventListener('click',(e)=>{
+e.preventDefault();
   firstClick++;
 if(firstClick>0&&firstClick<2){
   id(button).click();
@@ -1981,7 +1992,7 @@ if(!googleTranslateDropdown){
     document.documentElement.setAttribute('dir','rtl');
     changeTextAlaign();
 
-    id(button).innerHTML='en';
+    id(button).innerHTML=english;
 
 }
 else{
@@ -1989,7 +2000,7 @@ else{
 document.documentElement.setAttribute('dir','ltr');
 changeTextAlaign();
 
-id(button).innerHTML='ar';
+id(button).innerHTML=arabic;
 
 }}
 newLang='ar';
@@ -2013,7 +2024,7 @@ else{
               document.documentElement.setAttribute('dir','rtl'); 
               changeTextAlaign();
  
-              id(button).innerHTML='en';
+              id(button).innerHTML=english;
 
     }
     else{
@@ -2021,7 +2032,7 @@ else{
       document.documentElement.setAttribute('dir','ltr');
       changeTextAlaign();
 
-      id(button).innerHTML='ar';
+      id(button).innerHTML=arabic;
 
     }
   
@@ -2033,14 +2044,11 @@ else{
 // change texts alaign
 function changeTextAlaign(direction){
  if(document.documentElement.getAttribute('dir')=='rtl'){
-document.querySelectorAll('#mainSideBar,.cartRating,.detailsWomwns,.box-products,#flashSale .container,.detailsTimer,span.countTimer,.container-bestSeller .Buttons').forEach(element=>{
+document.querySelectorAll('.cartRating,.detailsWomwns,.box-products,#flashSale .container,.detailsTimer,span.countTimer,.container-bestSeller .Buttons').forEach(element=>{
       element.style.direction='ltr';
-      if(element.id=='mainSideBar'){
-// element.style.display='none';
-      }   
       })
 
-document.querySelectorAll('a.cardLessThan,.cartFavorite,.dashboard#dashboard .category,.dashboard#dashboard').forEach(element=>{
+document.querySelectorAll('a.cardLessThan,.cartFavorite,.dashboard#dashboard .category.dashboard#dashboard').forEach(element=>{
   element.style.direction='rtl';
   if(element.id=='dashboard'){
     element.style.borderLeft='.1rem solid #e8e8e8'
@@ -2062,8 +2070,6 @@ document.querySelectorAll('.category .reset,.dashboard#dashboard dt,.dashboard#d
   element.style.margin='.75rem 3rem .5rem auto';
 
 })
-
-// document.querySelector('.second-nav #all').style.pointerEvents='none';
 
 }}
 

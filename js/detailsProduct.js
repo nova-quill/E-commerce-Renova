@@ -84,6 +84,7 @@ id("iconFavorite").addEventListener('click',(event)=>{
 createHrefForElementsFooter(allLinksSideBar);
 // start translate
 translatePageByGoogle('switchLang');
+translatePageByGoogle('langSwitch',true);
 
 // start scroll button
 scrollToTopByButton();

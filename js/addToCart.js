@@ -57,6 +57,7 @@ lodedMapss();
   createHrefForElementsFooter(allLinksFooter);
   // start translate
  translatePageByGoogle('switchLang');
+ translatePageByGoogle('langSwitch',true);
 
   // start scroll button
   scrollToTopByButton();
