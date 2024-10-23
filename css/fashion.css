@@ -186,24 +186,33 @@ button {
     padding: 1rem .5rem .5rem;
     background-color: white;
     flex-basis: 14rem;
-    border-right: .1rem solid #e8e8e8;
     transition: left .3s linear;
     -webkit-transition: left .3s linear;
     -moz-transition: left .3s linear;
     -ms-transition: left .3s linear;
     -o-transition: left .3s linear;
 }
+html[dir='ltr'] #containerFashion section#fashion .containerFashion .dashboard {
+    border-right: .1rem solid #e8e8e8;
 
+}
+html[dir='rtl'] #containerFashion section#fashion .containerFashion .dashboard {
+    border-left: .1rem solid #e8e8e8;
+
+}
 @media (max-width:499.98px) {
     #containerFashion section#fashion .containerFashion .dashboard {
         width: 100%;
         height: calc(100vh - 10rem);
+                /* height: calc(100vh - 8rem); */
+
         background-color: #fefcfc;
         position: absolute;
-        top: 0;
+        /* top: 0; */
+        top:-1rem;
         bottom: 0;
         left: -100%;
-        z-index: 100000000;
+        z-index: 1000000000;
         overflow-x: hidden;
         overflow-y: auto;
     }
@@ -358,7 +367,7 @@ button {
     width: fit-content;
     display: block;
     padding: .18rem .5rem;
-    margin: .25rem auto -.5rem .5rem;
+    /* margin: .25rem auto -.5rem .5rem; */
     font-size: .7rem;
     text-transform: capitalize;
     border-bottom: .125rem solid grey;
@@ -369,7 +378,14 @@ button {
     -o-border-radius: 2rem;
     cursor: pointer;
 }
+html[dir='ltr'] #containerFashion section#fashion .containerFashion .dashboard .category .reset {
+    margin: .25rem auto -.5rem .5rem;
 
+}
+html[dir='rtl'] #containerFashion section#fashion .containerFashion .dashboard .category .reset {
+    margin: .25rem .5rem -.5rem auto;
+
+}
 #containerFashion section#fashion .containerFashion .dashboard .category .reset:hover {
     color: burlywood;
     border-color: burlywood;
@@ -396,8 +412,8 @@ button {
 
 #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck {
     position: absolute;
-    left: -1.25rem;
     top: 0;
+    /* left: -1.25rem; */
     width: 1rem;
     height: 1rem;
     background-color: white;
@@ -407,6 +423,12 @@ button {
     -moz-border-radius: .25rem;
     -ms-border-radius: .25rem;
     -o-border-radius: .25rem;
+}
+html[dir='ltr'] #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck {
+    left: -1.25rem;
+}
+html[dir='rtl'] #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck {
+    right: -1.25rem;
 }
 
 #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label:hover .customCheck {
@@ -429,7 +451,8 @@ button {
     -o-transform: translate(-50%, -50%);
     display: none;
 }
-
+html[dir='ltr'] #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label .customCheck::before {
+}
 #containerFashion section#fashion .containerFashion .dashboard .category dl.check dd label.active {
     color: brown;
 }

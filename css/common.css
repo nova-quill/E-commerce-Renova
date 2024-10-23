@@ -398,7 +398,7 @@ html[dir='rtl'] #xmark.xmark.visible {
 
 @media (max-width:499.98px) {
     #xmark.visible {
-        display: none;
+        /* display: none; */
     }
 }
 

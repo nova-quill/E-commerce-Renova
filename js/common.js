@@ -2040,30 +2040,11 @@ function changeTextAlaign(direction){
 document.querySelectorAll('.cartRating,.detailsWomwns,.box-products,#flashSale .container,.detailsTimer,span.countTimer,.container-bestSeller .Buttons').forEach(element=>{
       element.style.direction='ltr';
       })
-
-document.querySelectorAll('a.cardLessThan,.cartFavorite,.dashboard#dashboard .category.dashboard#dashboard').forEach(element=>{
-  element.style.direction='rtl';
-  if(element.id=='dashboard'){
-    element.style.borderLeft='.1rem solid #e8e8e8'
-    element.style.borderRight='none'
-
-  }
-
-})
-document.querySelectorAll('.cartRating').forEach(element=>{
-  // element.style.margin='.5rem';
-
-})
 document.querySelectorAll('a.cardLessThan .cartFavorite').forEach(element=>{
   element.style.right='.25rem';
   element.style.left='auto';
 
 })
-document.querySelectorAll('.category .reset,.dashboard#dashboard dt,.dashboard#dashboard dd').forEach(element=>{
-  element.style.margin='.75rem 3rem .5rem auto';
-
-})
-
 }}
 
 
