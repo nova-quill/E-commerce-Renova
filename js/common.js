@@ -2051,7 +2051,7 @@ document.querySelectorAll('a.cardLessThan,.cartFavorite,.dashboard#dashboard .ca
 
 })
 document.querySelectorAll('.cartRating').forEach(element=>{
-  element.style.margin='.5rem';
+  // element.style.margin='.5rem';
 
 })
 document.querySelectorAll('a.cardLessThan .cartFavorite').forEach(element=>{

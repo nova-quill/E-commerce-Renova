@@ -485,8 +485,13 @@ font-weight: 500;
 }
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .cartRating{
     justify-content:flex-start;
-    margin:.5rem 2rem;
+    margin:.5rem 2.4rem;
 }
+html[dir='rtl'] #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .cartRating{
+    justify-content: flex-end;
+    margin: .5rem 2.4rem .5rem auto;
+}
+
 #containerDetailsPro #sectionDetails .containerCustomer .partCustomer .card .cartRating i{
     color:rgb(254, 175, 28);
     font-size: .95rem;
