@@ -484,7 +484,7 @@ dl dd i {
 }
 html[dir='rtl'] dl dd i{
     transform: rotate(-180deg);
-    margin-left: 0;
+    margin-left: .5rem;
 }
 dl dd i:hover {
     color: black;
@@ -716,11 +716,16 @@ header .main-nav .box-search .isearch {
     header .main-nav .box-search .isearch {
         width: 2rem;
         font-size: 1.1em;
-        position: absolute;
-        right: 0;
+        position: absolute;      
         top: 0;
         flex: 1 1 auto;
         background-color: white;
+    }
+    html[dir='ltr']    header .main-nav .box-search .isearch {
+        right: 0;
+    }
+    html[dir='rtl']    header .main-nav .box-search .isearch {
+        left: 0;
     }
 }
 
@@ -1118,7 +1123,7 @@ header #container-location #map {
 
 @media (max-width: 767.98px) {
     header #container-location #map {
-        height: 100%;
+        height: 80%;
     }
 
     header #container-location #map div.gmnoprint.gm-style-ccc div,

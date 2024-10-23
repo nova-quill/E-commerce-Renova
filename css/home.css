@@ -394,8 +394,11 @@
 }
 
 @media (max-width:499.98px) {
-    #container section#home .womens h2 {
+  html[dir='ltr']  #container section#home .womens h2 {
         margin-left: 1rem;
+    }
+    html[dir='rtl']  #container section#home .womens h2 {
+        margin-right: 1rem;
     }
 }
 
@@ -738,8 +741,11 @@
 }
 
 @media (max-width:767.98px) {
-    #container section#home #flashSale .detailsTimer {
+ html[dir='ltr']  #container section#home #flashSale .detailsTimer {
         margin-left: auto;
+    }
+    html[dir='rtl']  #container section#home #flashSale .detailsTimer {
+        margin-right: auto;
     }
 }
 
