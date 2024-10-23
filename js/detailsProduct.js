@@ -312,7 +312,6 @@ async function filterProductsRelated(func,container,test){
 })
   displayProducts(filterProducts, func, container,test);
   let allRelatedProducts=document.querySelectorAll('#containerDetailsPro #sectionDetails .common .container .container-bestSeller #products a.cardLessThan .containerImage');
-  console.log(allRelatedProducts);
   addClassOnCardLessThan(test,allRelatedProducts);
   limitWidthScrollBarWhenLoaded(containerProducts,buttons);
   largesImagesOfProduct(id);

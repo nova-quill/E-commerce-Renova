@@ -111,7 +111,6 @@ export function addClassActive(lis, className,isCart) {
       activeLink.parentElement.classList.add(className);
       if(document.querySelector('.containerFashion h1')){
       let text=document.querySelector('.containerFashion h1').textContent;
-      console.log(text);
       if(urlWin.includes('?')){
       document.querySelector('.containerFashion h1').textContent=`big offers on ${text}`
       }
@@ -1266,13 +1265,8 @@ export function displayProducts(product, func, container,test,isFav) {
 }
 // create url for footer of elements
 export function createHrefForElementsFooter(elements){
-  console.log(elements);
-
   elements.forEach(element=>{
   element.addEventListener('click',(info=>{
-  console.log(elements);
-
-    console.log(element.getAttribute('data-page'));
     if(document.documentElement.lang=='ar'){
     if(element.getAttribute('data-page')||element.getAttribute('data-category')){
       let categoryElement=element.getAttribute('data-category').toLowerCase();
@@ -1981,7 +1975,6 @@ if(firstClick>0&&firstClick<2){
   id(button).click();
 }
   let googleTranslateDropdown=document.querySelector('.goog-te-combo');
-console.log(googleTranslateDropdown);
 if(!googleTranslateDropdown){
   googleTranslateElementInit();
   if(googleTranslateDropdown){
