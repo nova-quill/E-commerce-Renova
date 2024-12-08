@@ -19,6 +19,7 @@ let lastButton=document.querySelector('.containerProductsRe .containerPro .butto
 let containerProducts=document.querySelector('.containerProductsRe .containerPro .products');
 let containerProductsDrag=document.querySelector('.container-bestSeller .box-products');
 let allLinksSideBar=document.querySelectorAll('.sideBar.hidd');
+let allLinksFooter=document.querySelectorAll('footer .category li a');
 
 document.addEventListener('DOMContentLoaded',(info=>{
   // start header
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded',(info=>{
     // end header
       // start sidebar
 getAllElements(allTrendingSide,limitLocationProductsBySidebar);
+createHrefForElementsFooter(allLinksSideBar);
 // visible map
 visibleAndHiddenElement(id,'loca-box',"container-location",'overlay','hidden');
 //hidden map
@@ -81,7 +83,7 @@ id("iconFavorite").addEventListener('click',(event)=>{
   existUserOrNots('favoriteUser','proAndQuantityInFav','favoriteCart','proAndQuantityInFav','favoriteBooUser','proAndQuantityInFavBoo','favoriteBooCart','proAndQuantityInFavBoo','favorite','countFavorites');
 })
 //  start footer
-createHrefForElementsFooter(allLinksSideBar);
+createHrefForElementsFooter(allLinksFooter);
 // start translate
 translatePageByGoogle('switchLang');
 translatePageByGoogle('langSwitch',true);

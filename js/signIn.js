@@ -1,12 +1,22 @@
 'use strict'
+
+let initContainer=document.querySelector('div.iti__country-container');
+console.log(initContainer);
 let allErrors=[];
 let interval;
+let phoneInput;
 function id(idName) {
     let nameVariable = document.getElementById(idName);
     return nameVariable;
   }
 
-  let phoneInput; phoneInput=window.intlTelInput(id('phone'),{
+  function fullWidthCountry() {
+initContainer.addEventListener('click',()=>{
+  console.log('hjkk');
+})
+  }
+ 
+   phoneInput=window.intlTelInput(id('phone'),{
     initialCountry:'auto',
     geoIpLookup:function(callback){
         fetch('https://ipinfo.io/json?token=797e1bde1197f3').then(response=>response.json()).then(data=>callback(data.country)).catch(()=>callback(''));}
@@ -16,6 +26,8 @@ separateDialCode:true,
 })
 let nameCountry=intlTelInput.getCountryData();
 document.addEventListener('DOMContentLoaded',function(){
+  // fullWidthCountry();
+
     id('phone').addEventListener('input',function(){
     })
     showSignInOrSignUp('createNewAccount','formSignIn','formSignUp');

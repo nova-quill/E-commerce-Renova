@@ -187,7 +187,10 @@ button {
     -ms-border-radius: .25rem;
     -o-border-radius: .25rem;
 }
-
+#containerSignIn section .formSign input#phone{
+flex:1;
+min-width: 70%;
+} 
 #containerSignIn section .formSign input[type='submit'] {
     width: fit-content;
     padding-left: .75rem;
@@ -267,8 +270,11 @@ button {
 
 /* end form sign up */
 /* start intl-tel-input */
+#containerSignIn section .formSign#formSignUp .contain{
+    width:70%;
+    margin: auto;
+}
 .iti {
-    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: .5rem;
@@ -314,8 +320,6 @@ button {
     font-size: .85rem;
 }
 
-.iti--inline-dropdown .iti__country-list {}
-
 .iti--inline-dropdown .iti__dropdown-content {
     margin-top: -1.3rem;
     left: 0;
@@ -328,7 +332,12 @@ button {
 .iti--inline-dropdown .iti__dropdown-content input {
     width: 100% !important;
 }
-
+.iti__search-input{
+    padding: .5rem;
+}
+.iti--fullscreen-popup.iti--container {
+    padding: 0;
+}
 /* end intl-tel-input */
 /* start media root */
 @media (min-width:1400px) {
