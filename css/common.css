@@ -1051,7 +1051,7 @@ header #container-location.container-location {
         -moz-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         -o-transform: translate(-50%, -50%);
-    }
+}
     html[dir='rtl'] header #container-location.container-location {
         transform: translate(-50%,0%);
         -webkit-transform: translate(-50%, 0%);
@@ -1144,7 +1144,7 @@ header #container-location #searchMap:hover {
 }
 header #container-location #map {
     width: 100%;
-    height: 70%;
+    height: 75%;
 }
 
 @media (max-width: 767.98px) {
