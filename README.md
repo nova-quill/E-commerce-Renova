@@ -41,6 +41,7 @@ A fully responsive and interactive **E-commerce project** designed and built fro
 Crafted with by Nova Quill
 Explore more of my work:
 
-GitHub: [@nova-quill](https://github.com/nova-quill)
+GitHub: [@nova-quill on github](https://github.com/nova-quill)
 
+LinkedIn: [@nova-quill on LinkedIn](https://www.linkedin.com/in/nova-quill)
 
